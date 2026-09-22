@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-09-22T20:16:42+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 196301,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-09-22T20:16:42+00:00",
+   "final_url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/maine_dmr_landings/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "lobster/captures/2026-09-22T201642Z/maine_dmr_landings/pdf.pdf",
+   "requested_url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
+   "sha256": "3bff08eeef50efc9788ffaa1e4198548c6edc5ed6ab0e8fdcacc082738928280",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (annual publication of monthly pounds and value)",
+ "run_id": "2026-09-22T201642Z",
+ "source_id": "maine_dmr_landings",
+ "source_name": "Maine DMR: lobster landings by month, county, and zone (PDF)",
+ "status": "OK"
+}

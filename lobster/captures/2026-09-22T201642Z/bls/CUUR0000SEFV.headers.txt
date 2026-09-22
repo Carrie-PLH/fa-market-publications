@@ -1,0 +1,27 @@
+# https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV
+HTTP 200
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+Vary: Origin, Accept-Encoding
+APC-Route-id: _01_05v
+Access-Control-Allow-Headers: origin,x-requested-with,access-control-request-headers,content-type,access-control-request-method,accept
+Access-Control-Allow-Origin: *
+Route-Id: _t8_06v; 
+Pool-Info: AP01
+X-Frame-Options: ALLOW-FROM https://www.bls.gov
+Content-Security-Policy: frame-ancestors https://*.bls.gov
+Cross-Origin-Opener-Policy: same-origin
+Content-Encoding: gzip
+Content-Length: 1005
+Expires: Tue, 22 Sep 2026 20:17:07 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Tue, 22 Sep 2026 20:17:07 GMT
+Connection: close
+Server-Timing: cdn-cache; desc=MISS
+Server-Timing: edge; dur=67
+Server-Timing: origin; dur=150
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Server-Timing: ak_p; desc="1790108226923_389431437_1833055151_21606_12795_17_22_-";dur=1
+# 1 Set-Cookie header(s) redacted at capture

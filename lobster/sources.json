@@ -1,0 +1,171 @@
+{
+ "_comment": "Official and indicator sources fetched by tools/fetch.py (no browser). Consumer direct-ship observations come read-only from the retail_reference path in config.json; sellers are published by letter, named in methodology.md. Append-only in spirit: retire, never delete.",
+ "sources": [
+  {
+   "id": "maine_dmr_landings",
+   "name": "Maine DMR: lobster landings by month, county, and zone (PDF)",
+   "label": "OFFICIAL STATISTIC (annual publication of monthly pounds and value)",
+   "tier": "official",
+   "added": "2026-09-11",
+   "why": "State ex-vessel landings (pounds and dollar value) by month, 2004 to the latest complete year, published about once a year in February with the latest year marked preliminary. Value divided by pounds is the ex-vessel price per pound: the price paid at the dock, the closest public series to what a supplier's supplier pays. Lags by up to a year; monthly preliminary figures for the current year are not in this file.",
+   "page_url": "https://www.maine.gov/dmr/fisheries/commercial/landings-program/landings-data",
+   "fetches": [
+    {
+     "name": "pdf",
+     "url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "dmr_landings_pdf",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "noaa_foss_trade",
+   "name": "NOAA Fisheries FOSS trade data: live lobster imports (Homarus spp.)",
+   "label": "OFFICIAL STATISTIC (monthly import value; not a retail price)",
+   "tier": "official",
+   "added": "2026-09-11",
+   "why": "Only monthly, official, machine-readable series with a live-lobster line. Implicit unit value (dollars per kilo of live Homarus imports, mostly Canadian, landed at Portland ME and other districts) is a wholesale-level directional indicator. Published with roughly a 2-3 month lag.",
+   "page_url": "https://www.fisheries.noaa.gov/foss/f?p=215:2:::::",
+   "fetches": [
+    {
+     "name": "trade_2026",
+     "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
+     "ext": "json"
+    },
+    {
+     "name": "trade_2027",
+     "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
+     "ext": "json"
+    },
+    {
+     "name": "trade_2025",
+     "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
+     "ext": "json"
+    }
+   ],
+   "parser": "foss_trade",
+   "parser_args": {
+    "expect_name_contains": [
+     "HOMARUS",
+     "LIVE"
+    ]
+   },
+   "screenshot": false
+  },
+  {
+   "id": "bls",
+   "name": "U.S. Bureau of Labor Statistics: PPI and CPI series (public API v1)",
+   "label": "FOOD-COST INDICATOR (index, not a lobster price)",
+   "tier": "indicator",
+   "added": "2026-09-11",
+   "why": "Official monthly indices. WPU02230503 is the PPI commodity index for lobsters; WPU0223 unprocessed and prepared seafood; WPUFD4111 finished consumer foods; CUUR0000SEFV CPI food away from home; CUUR0000SAF11 CPI food at home. API v1 needs no key (25 queries/day).",
+   "page_url": "https://data.bls.gov/timeseries/WPU02230503",
+   "fetches": [
+    {
+     "name": "WPU02230503",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU02230503",
+     "ext": "json"
+    },
+    {
+     "name": "WPU0223",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0223",
+     "ext": "json"
+    },
+    {
+     "name": "WPUFD4111",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPUFD4111",
+     "ext": "json"
+    },
+    {
+     "name": "CUUR0000SEFV",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+     "ext": "json"
+    },
+    {
+     "name": "CUUR0000SAF11",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SAF11",
+     "ext": "json"
+    }
+   ],
+   "parser": "bls_api",
+   "parser_args": {
+    "titles": {
+     "WPU02230503": "PPI commodity: Lobsters (Dec 1991=100, NSA)",
+     "WPU0223": "PPI commodity: Unprocessed and prepared seafood (NSA)",
+     "WPUFD4111": "PPI final demand: Finished consumer foods (NSA)",
+     "CUUR0000SEFV": "CPI-U: Food away from home, U.S. city average (NSA)",
+     "CUUR0000SAF11": "CPI-U: Food at home, U.S. city average (NSA)"
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "usda_ers_fpo",
+   "name": "USDA ERS Food Price Outlook (CPI forecast table)",
+   "label": "FOOD-COST INDICATOR (official forecast table)",
+   "tier": "indicator",
+   "added": "2026-09-11",
+   "why": "Monthly USDA table of year-over-year CPI changes and forecast midpoints by food category, including fish and seafood and food away from home. The CSV link carries a cache-buster that changes each release, so the landing page is captured and the current link followed at run time.",
+   "page_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetches": [
+    {
+     "name": "landing",
+     "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+     "ext": "html"
+    },
+    {
+     "name": "cpi_csv",
+     "url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv",
+     "ext": "csv"
+    }
+   ],
+   "parser": "ers_fpo",
+   "parser_args": {},
+   "screenshot": false
+  }
+ ],
+ "retail_reference_sources": {
+  "cousins": {
+   "letter": "A",
+   "name": "Cousins Maine Lobster (online shop)",
+   "page_url": "https://shop.cousinsmainelobster.com/collections/live-lobster"
+  },
+  "getmainelobster": {
+   "letter": "B",
+   "name": "Get Maine Lobster (Portland, ME)",
+   "page_url": "https://www.getmainelobster.com/products/live-maine-lobsters-1"
+  },
+  "greenhead": {
+   "letter": "C",
+   "name": "Greenhead Lobster (Stonington, ME)",
+   "page_url": "https://greenheadlobster.com/product/live-lobsters/"
+  },
+  "harborfish": {
+   "letter": "D",
+   "name": "Harbor Fish Market (Portland, ME)",
+   "page_url": "https://harborfish.com/product-category/all/lobster/"
+  },
+  "lobsteranywhere": {
+   "letter": "E",
+   "name": "LobsterAnywhere (Maine direct-ship)",
+   "page_url": "https://lobsteranywhere.com/product/live-lobster/"
+  },
+  "mainelobsternow": {
+   "letter": "F",
+   "name": "Maine Lobster Now (Saco, ME)",
+   "page_url": "https://www.mainelobsternow.com/collections/live-lobster"
+  },
+  "pinetree": {
+   "letter": "G",
+   "name": "Pine Tree Seafood & Produce (Scarborough, ME)",
+   "page_url": "https://pinetreeseafood.com/product-category/live-lobster/"
+  },
+  "taylor": {
+   "letter": "H",
+   "name": "Taylor Lobster (Kittery, ME)",
+   "page_url": "https://taylorlobster.com/"
+  }
+ }
+}

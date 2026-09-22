@@ -1,0 +1,81 @@
+{
+ "captured_at": "2026-09-22T20:16:59+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 3622,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-22T20:16:59+00:00",
+   "final_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU02230503",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/bls/WPU02230503.headers.txt",
+   "http_status": 200,
+   "name": "WPU02230503",
+   "path": "lobster/captures/2026-09-22T201642Z/bls/WPU02230503.json",
+   "requested_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU02230503",
+   "sha256": "064dc1b580f123baefefca41fd2b3bce67bfaf7a78f0d224d9fc2effe9b7c002",
+   "status": "OK"
+  },
+  {
+   "bytes": 3617,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-22T20:17:01+00:00",
+   "final_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0223",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/bls/WPU0223.headers.txt",
+   "http_status": 200,
+   "name": "WPU0223",
+   "path": "lobster/captures/2026-09-22T201642Z/bls/WPU0223.json",
+   "requested_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0223",
+   "sha256": "a982fcec8f9e672b91a5ec8bf89ff21f84a2f1df6acc2f2d530f17f3dd3dbd7f",
+   "status": "OK"
+  },
+  {
+   "bytes": 3619,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-22T20:17:04+00:00",
+   "final_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPUFD4111",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/bls/WPUFD4111.headers.txt",
+   "http_status": 200,
+   "name": "WPUFD4111",
+   "path": "lobster/captures/2026-09-22T201642Z/bls/WPUFD4111.json",
+   "requested_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPUFD4111",
+   "sha256": "6b448502d8d100956f2cb2670b47cefbafa89c3c37f1389da4a21ee2b4d983e6",
+   "status": "OK"
+  },
+  {
+   "bytes": 3201,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-22T20:17:06+00:00",
+   "final_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/bls/CUUR0000SEFV.headers.txt",
+   "http_status": 200,
+   "name": "CUUR0000SEFV",
+   "path": "lobster/captures/2026-09-22T201642Z/bls/CUUR0000SEFV.json",
+   "requested_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+   "sha256": "c8030294c2f3bc07a66dbd68512ea2674eb32f7efcfcbefe886b50e92b01dc03",
+   "status": "OK"
+  },
+  {
+   "bytes": 3201,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-22T20:17:08+00:00",
+   "final_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SAF11",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/bls/CUUR0000SAF11.headers.txt",
+   "http_status": 200,
+   "name": "CUUR0000SAF11",
+   "path": "lobster/captures/2026-09-22T201642Z/bls/CUUR0000SAF11.json",
+   "requested_url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SAF11",
+   "sha256": "101760c2b1836f0ba995f8e84e7cb754916a273e26088c1ccb1edafca9065784",
+   "status": "OK"
+  }
+ ],
+ "label": "FOOD-COST INDICATOR (index, not a lobster price)",
+ "run_id": "2026-09-22T201642Z",
+ "source_id": "bls",
+ "source_name": "U.S. Bureau of Labor Statistics: PPI and CPI series (public API v1)",
+ "status": "OK"
+}
