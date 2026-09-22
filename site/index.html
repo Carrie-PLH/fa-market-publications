@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Food Market Publications</title>
+<meta name="description" content="Field Assembly Food Market Publications: subscription reports that combine public data into a documented account of what is happening to lobster, beef, pork, chicken, egg and butter, and coffee costs, written for the buyer facing a supplier's price claim.">
+<style>
+/* ============================================================
+   Field Assembly — Food Market Publications, home page.
+   Same font system as fieldassembly.net (serif for argument,
+   system sans for apparatus, mono for data), same apparatus
+   (hairline rules, numbered register, no cards, no shadows,
+   no radii), on its own ground: newsprint gray-white, ink,
+   one ultramarine accent for links and data callouts. The
+   imprint's brick-red mark appears only as the imprint.
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;scroll-behavior:smooth;}
+:root{
+  color-scheme:light;
+  --bg:#f4f5f4;
+  --bg-raise:#ffffff;
+  --bg-inset:#e9ebe9;
+  --text:#16191c;
+  --text-dim:#585f66;
+  --hair:#d3d7d5;
+  --hair-strong:#aeb4b1;
+  --accent:#1f3c8c;        /* ultramarine — links, section numbers, dateline */
+  --accent-dim:#8d9bc7;    /* underlines and control edges */
+  --brick:#8f5344;         /* the imprint's mark only */
+  --serif:Charter,"Bitstream Charter","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",sans-serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;
+  --pad-x:clamp(1.25rem,5vw,5rem);
+  --measure:42rem;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;}
+a{color:inherit;}
+a,td,th,p,li,dd{overflow-wrap:anywhere;}
+::selection{background:var(--accent);color:#fff;}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+.skip-link{position:absolute;top:-100%;left:16px;padding:10px 18px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;text-decoration:none;z-index:100;}
+.skip-link:focus{top:0;}
+main a{color:var(--accent);text-decoration-color:var(--accent-dim);text-underline-offset:.15em;}
+main a:hover{text-decoration-thickness:2px;}
+.num{font-family:var(--mono);font-variant-numeric:tabular-nums;}
+
+/* ---------- masthead ---------- */
+header.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;row-gap:.5rem;padding:.75rem var(--pad-x);border-bottom:1px solid var(--hair);position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--bg);}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;min-width:0;}
+.brand svg{width:26px;height:26px;flex:none;}
+.brand .imprint{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);line-height:1.2;}
+.brand .name{font-family:var(--serif);font-size:1.05rem;font-weight:500;line-height:1.2;color:var(--text);}
+header.top nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
+header.top nav a{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-decoration:none;color:var(--text-dim);padding-bottom:2px;border-bottom:1px solid transparent;white-space:nowrap;}
+header.top nav a:hover{color:var(--accent);border-color:var(--accent-dim);}
+
+/* ---------- dateline ---------- */
+.dateline{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.55rem var(--pad-x);border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);}
+.dateline b{color:var(--accent);font-weight:600;}
+
+/* ---------- the board (hero) ---------- */
+.board{padding:clamp(2rem,5vw,3.5rem) var(--pad-x) clamp(2rem,4vw,3rem);border-bottom:1px solid var(--hair-strong);}
+.board .inner{max-width:80rem;}
+.board h1{font-family:var(--serif);font-weight:500;font-size:clamp(1.9rem,4.6vw,3.2rem);line-height:1.08;letter-spacing:-.012em;max-width:22ch;text-wrap:balance;}
+.board .lede{font-family:var(--serif);font-size:clamp(1.05rem,1.8vw,1.25rem);line-height:1.5;max-width:var(--measure);margin-top:1.1rem;color:var(--text);}
+.board-head{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;margin-top:2.2rem;padding-bottom:.5rem;border-bottom:2px solid var(--text);}
+.board-head h2{font-family:var(--serif);font-weight:500;font-size:1.25rem;letter-spacing:-.005em;}
+.board-head .as-of{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+table.prices{width:100%;border-collapse:collapse;min-width:640px;}
+table.prices th{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:600;text-align:left;padding:.7rem .6rem .45rem 0;border-bottom:1px solid var(--hair-strong);vertical-align:bottom;}
+table.prices td{padding:.62rem .6rem .62rem 0;border-bottom:1px solid var(--hair);vertical-align:top;font-size:.95rem;}
+table.prices td.measure{font-family:var(--serif);font-size:1rem;line-height:1.35;max-width:26rem;}
+table.prices td.measure small{display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;color:var(--text-dim);margin-top:.2rem;}
+table.prices td.num,table.prices th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;}
+table.prices td.num span{display:block;font-size:.66rem;color:var(--text-dim);letter-spacing:.03em;}
+table.prices td.chg{font-weight:600;}
+table.prices td.chg.up{color:var(--text);}
+table.prices td.chg.down{color:var(--accent);}
+table.prices td.chg.flat{color:var(--text-dim);font-weight:400;}
+table.prices tr.rule-above td{border-top:1px solid var(--hair-strong);}
+.board-notes{margin-top:1rem;max-width:var(--measure);font-family:var(--sans);font-size:.84rem;line-height:1.55;color:var(--text-dim);}
+.board-notes p{margin-bottom:.4rem;}
+.board-cta{margin-top:1.4rem;display:flex;gap:1.6rem;flex-wrap:wrap;align-items:baseline;}
+.board-cta a.primary{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--accent);padding:.65rem 1rem;border:1px solid var(--accent);}
+.board-cta a.primary:hover{background:#17306f;}
+.board-cta a.quiet{font-family:var(--mono);font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;}
+
+/* ---------- report sections ---------- */
+.section{display:grid;grid-template-columns:minmax(5.5rem,9rem) 1fr;gap:clamp(1rem,3vw,3rem);padding:clamp(2.4rem,5vw,4rem) var(--pad-x);border-top:1px solid var(--hair);max-width:80rem;}
+.section--raise{background:var(--bg-raise);max-width:none;}
+.section--raise>.section-body{max-width:calc(80rem - 9rem - 3rem);}
+.section>*{min-width:0;}
+.section-no{font-family:var(--mono);font-size:.76rem;font-weight:600;letter-spacing:.1em;color:var(--accent);padding-top:.45rem;}
+.section-no small{display:block;color:var(--text-dim);font-weight:400;letter-spacing:.04em;margin-top:.35rem;}
+.section h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.45rem,2.8vw,2rem);line-height:1.15;letter-spacing:-.01em;margin-bottom:1rem;max-width:28ch;text-wrap:balance;}
+.section p{font-family:var(--serif);font-size:1.08rem;line-height:1.72;max-width:var(--measure);margin-bottom:1rem;color:var(--text);}
+.section p.dim{color:var(--text-dim);font-size:1rem;}
+strong{font-weight:600;}
+
+/* ---------- the register of titles ---------- */
+table.register{width:100%;border-collapse:collapse;min-width:720px;margin-top:.4rem;}
+table.register th{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:600;text-align:left;padding:.5rem .8rem .5rem 0;border-top:2px solid var(--text);border-bottom:1px solid var(--hair-strong);}
+table.register td{padding:1rem .8rem 1rem 0;border-bottom:1px solid var(--hair);vertical-align:top;font-size:.92rem;line-height:1.45;}
+table.register td.no{font-family:var(--mono);font-size:.74rem;color:var(--text-dim);padding-top:1.2rem;width:2.4rem;}
+table.register td.title{font-family:var(--serif);font-size:1.22rem;font-weight:500;line-height:1.2;white-space:nowrap;}
+table.register td.title a{text-decoration:none;border-bottom:1px solid var(--accent-dim);color:var(--text);}
+table.register td.title a:hover{border-bottom-color:var(--accent);color:var(--accent);}
+table.register td.for{max-width:18rem;}
+table.register td.src{font-size:.86rem;color:var(--text-dim);max-width:22rem;}
+table.register td.status{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;white-space:nowrap;}
+table.register td.status b{color:var(--accent);font-weight:600;}
+table.register td.status span{display:block;color:var(--text-dim);margin-top:.25rem;}
+.register-foot{font-family:var(--sans);font-size:.84rem;color:var(--text-dim);margin-top:.9rem;max-width:var(--measure);line-height:1.55;}
+
+/* ---------- specimen: what an issue contains ---------- */
+.specimen{border-top:2px solid var(--text);max-width:56rem;}
+.specimen .part{display:grid;grid-template-columns:8.5rem 1fr;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid var(--hair);}
+.specimen .part .k{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);padding-top:.35rem;}
+.specimen .part .k b{display:block;color:var(--accent);font-size:.8rem;margin-bottom:.15rem;}
+.specimen .part h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;line-height:1.25;margin-bottom:.35rem;}
+.specimen .part p{font-family:var(--sans);font-size:.94rem;line-height:1.55;color:var(--text-dim);margin:0;max-width:40rem;}
+.specimen .part blockquote{font-family:var(--serif);font-size:1rem;line-height:1.6;color:var(--text);border-left:2px solid var(--accent-dim);padding-left:.9rem;margin-top:.6rem;max-width:40rem;}
+
+/* ---------- method ---------- */
+.method{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:0;border-top:2px solid var(--text);max-width:64rem;}
+.method div{padding:1.2rem 1.4rem 1.4rem 0;border-bottom:1px solid var(--hair);}
+.method div+div{border-left:1px solid var(--hair);padding-left:1.4rem;}
+.method h3{font-family:var(--mono);font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.6rem;}
+.method p{font-family:var(--sans);font-size:.94rem;line-height:1.6;color:var(--text);margin:0;}
+@media (max-width:640px){.method div+div{border-left:none;padding-left:0;}}
+
+/* ---------- subscribe ---------- */
+.subscribe{background:var(--bg-inset);border-top:1px solid var(--hair-strong);padding:clamp(2.2rem,5vw,3.6rem) var(--pad-x);}
+.subscribe .inner{max-width:80rem;display:grid;grid-template-columns:minmax(5.5rem,9rem) 1fr;gap:clamp(1rem,3vw,3rem);}
+.subscribe h2{font-family:var(--serif);font-weight:500;font-size:clamp(1.45rem,2.8vw,2rem);line-height:1.15;margin-bottom:.9rem;max-width:28ch;}
+.subscribe p{font-family:var(--serif);font-size:1.05rem;line-height:1.65;max-width:var(--measure);margin-bottom:.9rem;}
+.addr{display:inline-block;font-family:var(--mono);font-size:1rem;background:var(--bg-raise);border:1px solid var(--hair-strong);padding:.6rem .9rem;margin:.3rem 0 .6rem;user-select:all;}
+.terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr));gap:1.2rem 2rem;margin-top:1.4rem;max-width:56rem;}
+.terms dt{font-family:var(--mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.3rem;}
+.terms dd{font-family:var(--sans);font-size:.92rem;line-height:1.55;}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--hair-strong);background:var(--bg-raise);padding:clamp(2rem,4vw,3rem) var(--pad-x) 1.8rem;}
+footer .sf-top{max-width:80rem;display:grid;grid-template-columns:1.2fr 2fr;gap:2.4rem;}
+footer .sf-brand{display:flex;align-items:flex-start;gap:.75rem;}
+footer .sf-brand svg{width:30px;height:30px;flex:none;}
+footer .sf-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);line-height:1.5;}
+footer .sf-tag a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--accent-dim);}
+footer .sf-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+footer .sf-col{display:flex;flex-direction:column;gap:.45rem;}
+footer .sf-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.3rem;}
+footer .sf-col a{font-family:var(--sans);font-size:.9rem;color:var(--accent);text-decoration:none;line-height:1.3;border-bottom:1px solid transparent;width:max-content;max-width:100%;}
+footer .sf-col a:hover{border-color:var(--accent-dim);}
+footer .sf-bottom{max-width:80rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--hair);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--text-dim);}
+
+@media (max-width:720px){
+  .section,.subscribe .inner{grid-template-columns:1fr;gap:.6rem;}
+  footer .sf-top{grid-template-columns:1fr;}
+  footer .sf-nav{grid-template-columns:repeat(2,1fr);}
+  .specimen .part{grid-template-columns:1fr;gap:.3rem;}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="top">
+  <a class="brand" href="#top" aria-label="Field Assembly Food Market Publications, home">
+    <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#16191c"/><g transform="translate(4,4)"><path d="M12,0 L12,12 L0,12 M28,0 L28,12 L40,12 M12,40 L12,28 L0,28 M28,40 L28,28 L40,28" fill="none" stroke="#dda08f" stroke-width="4.2"/><rect x="17.3" y="17.3" width="5.4" height="5.4" fill="#dda08f"/></g></svg>
+    <span><span class="imprint">Field Assembly</span><br><span class="name">Food Market Publications</span></span>
+  </a>
+  <nav aria-label="Primary">
+    <a href="#titles">Titles</a>
+    <a href="#issue">An issue</a>
+    <a href="#method">Method</a>
+    <a href="#subscribe">Subscribe</a>
+  </nav>
+</header>
+
+<div class="dateline" id="top">
+  <span><b>Vol. 0</b> · September 2026 · Baseline</span>
+  <span>Lobster data as of 22 Sept 2026 · run 2026-09-22T201642Z</span>
+</div>
+
+<main id="main-content">
+
+<section class="board" aria-labelledby="h1">
+  <div class="inner">
+    <h1 id="h1">A clear account of what's happening to food costs, and the evidence behind it.</h1>
+    <p class="lede">Short subscription reports for the buyer on the other side of a supplier's price claim: what changed, what might explain it, and what the public record can and cannot show. Every figure traces to a retained, timestamped source. Nothing here is a supplier's cost, and nothing here is advice.</p>
+
+    <div class="board-head">
+      <h2>Lobster Monitor · the board</h2>
+      <span class="as-of">Baseline issue · latest month per series</span>
+    </div>
+    <div class="tablewrap">
+    <table class="prices">
+      <thead><tr>
+        <th>Measure</th>
+        <th class="num">Latest</th>
+        <th class="num">Year earlier</th>
+        <th class="num">Change</th>
+        <th>Source</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="measure">Producer price index, lobsters<small>Not seasonally adjusted · Dec 1991 = 100</small></td>
+          <td class="num">191.9<span>Aug 2026</span></td>
+          <td class="num">201.7<span>Aug 2025</span></td>
+          <td class="num chg down">−4.9%</td>
+          <td>BLS WPU02230503</td>
+        </tr>
+        <tr>
+          <td class="measure">Producer price index, unprocessed and prepared seafood<small>Not seasonally adjusted</small></td>
+          <td class="num">491.0<span>Aug 2026</span></td>
+          <td class="num">440.2<span>Aug 2025</span></td>
+          <td class="num chg up">+11.5%</td>
+          <td>BLS WPU0223</td>
+        </tr>
+        <tr>
+          <td class="measure">Consumer price index, food away from home<small>U.S. city average · not seasonally adjusted</small></td>
+          <td class="num">397.9<span>Aug 2026</span></td>
+          <td class="num">384.9<span>Aug 2025</span></td>
+          <td class="num chg up">+3.4%</td>
+          <td>BLS CUUR0000SEFV</td>
+        </tr>
+        <tr class="rule-above">
+          <td class="measure">Live lobster imports through Portland, Maine, unit value<small>$ per lb · Homarus spp. · HTS 0306320010</small></td>
+          <td class="num">$8.41<span>Jul 2026</span></td>
+          <td class="num">$8.30<span>Jul 2025</span></td>
+          <td class="num chg up">+1.3%</td>
+          <td>NOAA FOSS</td>
+        </tr>
+        <tr>
+          <td class="measure">Live lobster imports through Portland, Maine, volume<small>kilograms</small></td>
+          <td class="num">805,900<span>Jul 2026</span></td>
+          <td class="num">1,848,515<span>Jul 2025</span></td>
+          <td class="num chg down">−56.4%</td>
+          <td>NOAA FOSS</td>
+        </tr>
+        <tr>
+          <td class="measure">Maine ex-vessel price, September<small>$ per lb · value ÷ pounds landed · latest year preliminary</small></td>
+          <td class="num">$6.15<span>Sept 2025</span></td>
+          <td class="num">$6.28<span>Sept 2024</span></td>
+          <td class="num chg down">−2.1%</td>
+          <td>Maine DMR</td>
+        </tr>
+        <tr class="rule-above">
+          <td class="measure">Consumer reference: one live hard-shell 1¼ lb lobster, counter or pickup<small>Two Maine sellers, observed 11 and 19 Sept 2026 · published by letter</small></td>
+          <td class="num">$18.90–19.50<span>Sept 2026</span></td>
+          <td class="num">—<span>series begins</span></td>
+          <td class="num chg flat">0.0%</td>
+          <td>Field Assembly record</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="board-notes">
+      <p>Lobster-specific prices entering September 2026 are flat to slightly below a year ago. Seafood as a whole is not. A supplier citing seafood inflation is citing a real number; it is not a lobster number.</p>
+      <p>Year over year means the same month a year earlier. Live prices are never converted to meat prices. Index series are indexes, not prices.</p>
+    </div>
+    <div class="board-cta">
+      <a class="primary" href="#subscribe">Request the baseline issue</a>
+      <a class="quiet" href="#issue">What an issue contains</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="titles" aria-labelledby="h-titles">
+  <div class="section-no">01<small>The register</small></div>
+  <div class="section-body">
+    <h2 id="h-titles">Six titles, one method</h2>
+    <p>Each title follows three to five dependable public sources and five to seven measures, chosen because a buyer of that product asks about them. Multiple perspectives from one institution's separate reports are preferred to manufactured source diversity. A measure is added only when it answers a reader's question.</p>
+    <div class="tablewrap">
+    <table class="register">
+      <thead><tr><th></th><th>Title</th><th>Written for</th><th>Core public sources</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="no">01</td>
+          <td class="title"><a href="#subscribe">Lobster Monitor</a></td>
+          <td class="for">Caterers, event planners, seafood buyers</td>
+          <td class="src">Maine DMR landings · NOAA FOSS trade · BLS PPI and CPI · USDA ERS outlook · Field Assembly retail record</td>
+          <td class="status"><b>Baseline issue in preparation</b><span>Issue 1 after the September PPI release, October 2026</span></td>
+        </tr>
+        <tr>
+          <td class="no">02</td>
+          <td class="title">Beef Monitor</td>
+          <td class="for">Independent restaurants, caterers, small food buyers</td>
+          <td class="src">USDA AMS Market News · USDA ERS livestock outlook · BLS PPI and CPI</td>
+          <td class="status"><b>Sources assessed</b><span>Second title planned</span></td>
+        </tr>
+        <tr>
+          <td class="no">03</td>
+          <td class="title">Pork Monitor</td>
+          <td class="for">Restaurants, barbecue businesses, caterers</td>
+          <td class="src">USDA AMS Market News · USDA ERS · BLS PPI</td>
+          <td class="status"><b>Assessment pending</b><span>Public-source feasibility not yet reviewed</span></td>
+        </tr>
+        <tr>
+          <td class="no">04</td>
+          <td class="title">Chicken Monitor</td>
+          <td class="for">Restaurants, caterers, food-service businesses</td>
+          <td class="src">USDA AMS Market News · USDA ERS · BLS PPI</td>
+          <td class="status"><b>Assessment pending</b><span>Public-source feasibility not yet reviewed</span></td>
+        </tr>
+        <tr>
+          <td class="no">05</td>
+          <td class="title">Egg &amp; Butter Brief</td>
+          <td class="for">Bakeries, pastry shops, breakfast businesses</td>
+          <td class="src">USDA AMS egg and dairy reports · USDA ERS · BLS PPI and CPI</td>
+          <td class="status"><b>Sources assessed</b><span>Next title after Lobster Monitor</span></td>
+        </tr>
+        <tr>
+          <td class="no">06</td>
+          <td class="title">Coffee Current</td>
+          <td class="for">Independent cafés, small roasters, hospitality buyers</td>
+          <td class="src">ICO composite indicator · USDA FAS coffee reports · BLS PPI and CPI</td>
+          <td class="status"><b>Sources assessed</b><span>Planned</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="register-foot">Status is stated as it stands. A title is listed when its sources have been examined, not when it is sold. Core sources are the working set and may change; each issue names the exact releases it used.</p>
+  </div>
+</section>
+
+<section class="section section--raise" id="issue" aria-labelledby="h-issue">
+  <div class="section-no">02<small>Specimen</small></div>
+  <div class="section-body">
+    <h2 id="h-issue">What an issue contains</h2>
+    <p>Every issue of every title has the same six parts, in the same order. The value is in connecting the evidence for one buyer, not in restating a government table. Excerpts below are from the Lobster Monitor baseline issue.</p>
+    <div class="specimen">
+      <div class="part">
+        <div class="k"><b>1</b>The read</div>
+        <div><h3>A short assessment of market conditions</h3><p>What the evidence says, in a few paragraphs, with the seasonal shape named so that a quote from one month is not compared to a claim from another.</p>
+        <blockquote>The 2026 winter peak ran higher than 2025's, then fell back to parity by August. A quote priced in March and an adjustment claimed in September compare two seasons, not two years.</blockquote></div>
+      </div>
+      <div class="part">
+        <div class="k"><b>2</b>The numbers</div>
+        <div><h3>Five to seven measures against the right comparison</h3><p>Latest period, same period a year earlier, and the change, with the series identifier so a reader can pull the source themselves. The board above is this section.</p></div>
+      </div>
+      <div class="part">
+        <div class="k"><b>3</b>The explanation</div>
+        <div><h3>How price, production, inventory, and trade relate</h3><p>The chain from dock to counter, and what moves each link.</p>
+        <blockquote>Maine's most recent September dock price is $6.15 a pound. Live Canadian imports entered Portland at $8.41 in July. A single 1¼ lb hard shell at the counter works out to about $15 a pound. The spread is handling, grading, mortality, and margin. It is wide, and it is where most of a buyer's price lives.</blockquote></div>
+      </div>
+      <div class="part">
+        <div class="k"><b>4</b>The uncertainty</div>
+        <div><h3>Conflicting signals, lags, gaps, and limits to the comparison</h3><p>Stated, not buried. Which figures are preliminary, which months get revised, which comparisons mix dates, and where a series is thin.</p>
+        <blockquote>The dock price is a year old. Maine publishes monthly landings once a year, in February. Any claim about 2026 dock prices in Maine rests on private data.</blockquote></div>
+      </div>
+      <div class="part">
+        <div class="k"><b>5</b>The buyer's question</div>
+        <div><h3>Something useful to put to a supplier</h3>
+        <blockquote>Which product: live, meat, or tail; what size and shell. Which dates: what the quote priced from, and what the adjustment references. Which evidence: what published series or invoice supports the number.</blockquote></div>
+      </div>
+      <div class="part">
+        <div class="k"><b>6</b>The record</div>
+        <div><h3>Sources, dates, methods, corrections</h3><p>Every release used, its retrieval time and file hash, the formulas, and any correction to an earlier issue, left visible.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="method" aria-labelledby="h-method">
+  <div class="section-no">03<small>Method</small></div>
+  <div class="section-body">
+    <h2 id="h-method">Public sources, retained evidence, dated claims</h2>
+    <p>These publications extend Field Assembly's standing practice: first-party sources, quoted exactly and dated; every capture retained and externally timestamped; evidence kept apart from judgment; corrections made on the record.</p>
+    <div class="method">
+      <div>
+        <h3>Sources</h3>
+        <p>Free government statistics, official market reports, trade-body publications, and a small set of public price observations. No paid data subscriptions. No product listings maintained by the hundred. Like is compared with like: grade, cut, size, unit, geography, and purchasing channel.</p>
+      </div>
+      <div>
+        <h3>Evidence</h3>
+        <p>Each issue ships with a preserved package: the source versions used, publication and retrieval dates, the calculations, and the issue as delivered. Files are hashed into an append-only chain anchored by RFC 3161 timestamp tokens and OpenTimestamps proofs.</p>
+      </div>
+      <div>
+        <h3>Limits</h3>
+        <p>A timestamp shows a captured record existed by a date. It does not show a source's figure was correct or that a quoted price was available to every buyer. Market evidence is not a supplier's cost, and no issue states whether a contractual adjustment is permitted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="subscribe" id="subscribe" aria-labelledby="h-sub">
+  <div class="inner">
+    <div class="section-no">04<small>Subscribe</small></div>
+    <div>
+      <h2 id="h-sub">Issues by subscription. Method and record free.</h2>
+      <p>The methodology page, source list, and evidence record for each title are public. The recurring analysis is what a subscription pays for. Commissioned reports answer a bounded question from the same research, for example how the relevant measures moved between an original quote and a proposed adjustment.</p>
+      <p>To receive the Lobster Monitor baseline issue when it publishes, or to be told when another title opens, write with the title in the subject line:</p>
+      <span class="addr">hello@fieldassembly.net</span>
+      <dl class="terms">
+        <div><dt>Per title</dt><dd>Each publication is offered on its own. Bundles follow once several titles have readers.</dd></div>
+        <div><dt>Cadence</dt><dd>Monthly, in the week after the relevant federal releases. Stated per title; not increased to fill a calendar.</dd></div>
+        <div><dt>Pricing</dt><dd>Set with the first readers and stated plainly when it is set. Nothing is charged before an issue exists.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="sf-top">
+    <div class="sf-brand">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#16191c"/><g transform="translate(4,4)"><path d="M12,0 L12,12 L0,12 M28,0 L28,12 L40,12 M12,40 L12,28 L0,28 M28,40 L28,28 L40,28" fill="none" stroke="#dda08f" stroke-width="4.2"/><rect x="17.3" y="17.3" width="5.4" height="5.4" fill="#dda08f"/></g></svg>
+      <div class="sf-tag">An imprint of<br><a href="https://fieldassembly.net">Field Assembly</a><br>A publisher of maintained reference and evidence works</div>
+    </div>
+    <div class="sf-nav">
+      <div class="sf-col">
+        <span class="sf-label">Publications</span>
+        <a href="#titles">Lobster Monitor</a>
+        <a href="#titles">Egg &amp; Butter Brief</a>
+        <a href="#titles">Beef Monitor</a>
+        <a href="#titles">All titles</a>
+      </div>
+      <div class="sf-col">
+        <span class="sf-label">Field Assembly</span>
+        <a href="https://fieldassembly.net">Home</a>
+        <a href="https://fieldassembly.net/standard">The Record Standard</a>
+        <a href="https://fieldassembly.net/diff">The Diff</a>
+        <a href="https://fieldassembly.net/contact">Contact</a>
+      </div>
+      <div class="sf-col">
+        <span class="sf-label">Legal</span>
+        <a href="https://fieldassembly.net/privacy">Privacy</a>
+        <a href="https://fieldassembly.net/terms">Terms</a>
+        <a href="https://fieldassembly.net/accessibility">Accessibility</a>
+        <a href="https://fieldassembly.net/security">Security</a>
+      </div>
+    </div>
+  </div>
+  <div class="sf-bottom">
+    <span>© 2026 Field Assembly LLC · Massachusetts</span>
+    <span>Corrections are made on the record.</span>
+  </div>
+</footer>
+</body>
+</html>
