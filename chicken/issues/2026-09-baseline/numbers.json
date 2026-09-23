@@ -20,9 +20,27 @@
   "year_to_date_pct_derived": 2.2,
   "yoy_pct_derived": -8.9
  },
- "computed_at": "2026-09-23T14:55:21+00:00",
- "cpi_chicken": null,
- "cpi_food_away_from_home": null,
+ "computed_at": "2026-09-23T15:10:52+00:00",
+ "cpi_chicken": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 202.401,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 196.881,
+  "value": 197.681,
+  "vs_two_years_pct": 0.4,
+  "yoy_pct": -2.3
+ },
+ "cpi_food_away_from_home": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 384.909,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 370.348,
+  "value": 397.868,
+  "vs_two_years_pct": 7.4,
+  "yoy_pct": 3.4
+ },
  "ers_food_price_outlook": {
   "All food \u2014 Lower bound of forecast interval 2027": -3.0,
   "All food \u2014 Mid point of forecast interval 2026": 3.0,
@@ -76,16 +94,61 @@
   "yoy_pct": 3.2
  },
  "issue": "2026-09-baseline",
- "ppi_slaughter_chickens": null,
- "ppi_young_chickens_processed": null,
- "retail_boneless_breast_usd_per_lb": null,
- "retail_legs_bone_in_usd_per_lb": null,
+ "ppi_slaughter_chickens": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 332.75,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 352.182,
+  "value": 330.406,
+  "vs_two_years_pct": -6.2,
+  "yoy_pct": -0.7
+ },
+ "ppi_young_chickens_processed": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 217.151,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 212.618,
+  "value": 190.028,
+  "vs_two_years_pct": -10.6,
+  "yoy_pct": -12.5
+ },
+ "retail_boneless_breast_usd_per_lb": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 4.212,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 3.952,
+  "value": 4.173,
+  "vs_two_years_pct": 5.6,
+  "yoy_pct": -0.9
+ },
+ "retail_legs_bone_in_usd_per_lb": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 1.797,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 1.835,
+  "value": 1.67,
+  "vs_two_years_pct": -9.0,
+  "yoy_pct": -7.1
+ },
  "retail_reference": {
   "record": null,
   "sellers": []
  },
- "retail_whole_chicken_usd_per_lb": null,
- "run_id": "2026-09-23T145458Z",
+ "retail_whole_chicken_usd_per_lb": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 2.076,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 1.988,
+  "value": 2.012,
+  "vs_two_years_pct": 1.2,
+  "yoy_pct": -3.1
+ },
+ "run_id": "2026-09-23T150941Z",
  "title": "Chicken Monitor",
  "wholesale_breast_bs": {
   "label": "Wholesale boneless skinless breast",

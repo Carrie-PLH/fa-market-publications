@@ -1,0 +1,79 @@
+{
+ "issue": "2026-09-baseline",
+ "run_id": "2026-09-23T150958Z",
+ "captures": [
+  {
+   "source_id": "bls",
+   "fetch": "series",
+   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "fetched_at": "2026-09-23T15:09:58+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/bls/series.json",
+   "sha256": "9553e31129a65bdb6c02b27189ffb736528798d1e3cf98ad0d6df6d179f3e003",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_boxed_beef",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2461/Weekly%20Average%20Cutout%20Values",
+   "fetched_at": "2026-09-23T15:10:00+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/ams_boxed_beef/json.json",
+   "sha256": "ae32d202a393e8b9c143a3530882b089bcd686529c98aec7b99823e92b5bc4bb",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_boxed_beef",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2461.pdf",
+   "fetched_at": "2026-09-23T15:10:03+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/ams_boxed_beef/pdf.pdf",
+   "sha256": "86e581690a876345af921b51074dfadbe4e1a1e10604654095a436f604b24da3",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_fed_cattle",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+   "fetched_at": "2026-09-23T15:10:05+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/ams_fed_cattle/json.json",
+   "sha256": "24651eadeb1cd3502a4d39a17c788044257bd7ddd174e376c0545a3e29261076",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_cattle_on_feed",
+   "fetch": "txt",
+   "url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd0926.txt",
+   "fetched_at": "2026-09-23T15:10:11+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/nass_cattle_on_feed/txt.txt",
+   "sha256": "1f881f017fbf1ca4ecaddb6bbc53617590474a16a8236795d7539a6d8fc8a0a4",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-09-23T15:10:14+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/usda_ers_fpo/landing.html",
+   "sha256": "ff5d4cf0fd5a41f7f8ab0c40ef77a6ca74c289cdfbd0936e5c047bae90f91e62",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=17526",
+   "fetched_at": "2026-09-23T15:10:16+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "d3454be871109792d9f6ffe7d766e338a4f264c6febe8ab725b1c554e3a77985",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_cattle_beef_summary",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/lswwcbs.pdf",
+   "fetched_at": "2026-09-23T15:10:18+00:00",
+   "path": "beef/captures/2026-09-23T150958Z/ams_cattle_beef_summary/pdf.pdf",
+   "sha256": "757ad8597e1c0e4ac80d1f57d71648dcae97d7c2a48270212fa7d9066a05674e",
+   "status": "OK"
+  }
+ ],
+ "retail_record": null
+}

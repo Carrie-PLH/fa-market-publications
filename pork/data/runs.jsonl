@@ -1,0 +1,1 @@
+{"parsed_at": "2026-09-23T15:10:47+00:00", "run_id": "2026-09-23T151021Z", "sources": {"ams_pork_cutout": {"rows": 2695, "status": "OK"}, "ams_pork_variety": {"rows": 0, "status": "OK"}, "bls": {"rows": 408, "status": "OK"}, "nass_hogs_pigs": {"rows": 28, "status": "OK"}, "usda_ers_fpo": {"rows": 65, "status": "OK"}}}
