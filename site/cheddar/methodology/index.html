@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Archive · Provision Record</title>
-<link rel="canonical" href="https://provisionrecord.com/archive/">
-<meta name="description" content="Every published edition of Provision Record&#x27;s food-market publications, by title and date.">
+<title>Methodology · Cheddar Monitor · Provision Record</title>
+<link rel="canonical" href="https://provisionrecord.com/cheddar/methodology/">
+<meta name="description" content="How Cheddar Monitor is compiled: sources, comparison rules, evidence and corrections.">
 <style>
 /* ============================================================
    Provision Record (Field Assembly Food Market Publications), all pages.
@@ -248,12 +248,31 @@ ul.files li span{display:block;color:var(--text-dim);font-size:.84rem;}
 <main id="main-content">
 
 <article class="article">
-  <div class="kicker">Archive</div>
-  <h1>Every edition, by title and date</h1>
-  <p class="standfirst">Each edition keeps its permanent address. A later edition never replaces an earlier one; a correction is dated on the affected page and the original text stays visible.</p>
-  <div class="prose"><p>No edition has been published yet. Titles with a drafted or scaffolded edition are listed on their own pages.</p>
-  <h2>Titles</h2>
-  <ul><li><a href="/lobster/">Lobster Monitor</a></li><li><a href="/beef/">Beef Monitor</a></li><li><a href="/pork/">Pork Monitor</a></li><li><a href="/chicken/">Chicken Monitor</a></li><li><a href="/egg-butter/">Egg &amp; Butter Brief</a></li><li><a href="/cheddar/">Cheddar Monitor</a></li></ul>
+  <div class="kicker"><a href="/cheddar/">Cheddar Monitor</a> · Methodology</div>
+  <h1>Cheddar Monitor: methodology</h1>
+  <div class="prose">
+<p>This page is public. It names every source, states every rule, and explains what the record can and cannot show.</p>
+<h2>What the publication reports</h2>
+<p>Market evidence about cheddar cheese prices in the United States, from public sources, arranged so a pizzeria, sandwich shop, or caterer can check a supplier&#x27;s price claim against it. Each issue has six parts: the read, the numbers, the explanation, the uncertainty, the buyer&#x27;s question, and the record.</p>
+<p>The publication does not estimate any supplier&#x27;s cost, does not state whether any contractual adjustment is permitted, and does not forecast.</p>
+<h2>Two block prices, and why the difference matters</h2>
+<p>A supplier who says the block market moved may mean either of two things, and they are not the same number.</p>
+<p>The first is the CME Group cash market: a spot market for immediate loads, quoted daily, reprinted by USDA. The second is the National Dairy Products Sales Report: what cheese manufacturers actually sold at during a week, collected under mandatory reporting, published with a lag. The spot market is thinly traded and moves fast; the mandatory report is broad and moves slowly behind it. In the September 2026 baseline the two were about twenty cents a pound apart.</p>
+<p>Each issue reports both, each with its own date, and never averages them. Where this record holds both series for the same week, it also reports the arithmetic difference, labeled derived. The difference is not a margin and is not presented as one.</p>
+<h2>Sources</h2>
+<p>Official series, fetched by script with no browser and retained byte for byte:</p>
+<div class="tablewrap wide"><table><thead><tr><th>Source</th><th>What it gives</th><th>Cadence and lag</th></tr></thead><tbody><tr><td>USDA Agricultural Marketing Service, National Dairy Products Sales Report (report 2993), 40-pound block cheddar</td><td>Weighted-average price and pounds sold under mandatory reporting, by week ending Saturday. Full history since 2012 in one request, so year-over-year is available in every issue. Each week is restated in the following four reports; the issue uses the latest restatement and notes the first-published figure when it differs.</td><td>Weekly, Wednesday, for the week ending the prior Saturday.</td></tr><tr><td>USDA Agricultural Marketing Service, same report, 500-pound barrel cheddar</td><td>A historical series. It ran from 2012 and carries no published price after the week ending 2025-05-31; every row since is null. It is captured and parsed so that the record shows when it stopped, and it is never used as a current price.</td><td>Ceased.</td></tr><tr><td>USDA Agricultural Marketing Service, Dairy Market News weekly report</td><td>CME Group cash market for cheese: barrels and 40-pound blocks, Friday close and weekly average, as reprinted by USDA. CME data is proprietary at source; the USDA reprint is the public record of it. Each report carries one week, so this series accumulates in this record one week per run and no history is available in a single request.</td><td>Weekly, Friday.</td></tr><tr><td>U.S. Bureau of Labor Statistics, public API v2</td><td>PPI commodity index WPU023302 (natural cheese, except cottage cheese). CPI-U CUUR0000SEFJ02 (cheese and related products) and CUUR0000SEFV (food away from home). Average prices in dollars per pound: APU0000710212 (natural cheddar), APU0000710211 (American processed). Not seasonally adjusted.</td><td>Monthly, released mid-month for the prior month.</td></tr><tr><td>USDA Economic Research Service, Food Price Outlook</td><td>Year-over-year CPI changes and forecast intervals for dairy products and for food away from home. Attribute text is kept verbatim.</td><td>Monthly, about the 25th.</td></tr></tbody></table></div>
+<p>This title fetches and retains its own copies of the National Dairy Products Sales Report and the Dairy Market News report, which the Egg &amp; Butter Brief also fetches, so that each edition&#x27;s evidence package stands alone and can be verified without reference to another title.</p>
+<h2>Rules</h2>
+<ul><li>Compare like with like: cheese by form (40-pound block, 500-pound barrel), by market (mandatory-reported sales, CME cash), and by grade. A spot quote and a mandatory-reported weighted average are never averaged together. Wholesale and retail are never averaged. An index is never converted to a price.</li><li>A weighted average is reported with the pounds it was weighted by.</li><li>Year-over-year means the week ending nearest to 52 weeks earlier, within four days, for weekly series, and the same month a year earlier for monthly series. A trailing four-week average is shown beside the single week.</li><li>A comparison that requires two series to cover the same week is reported only once both do. Where the record cannot yet make it, the issue says so and says why, rather than comparing two different weeks.</li><li>A series that has stopped being published is reported as having stopped, with the date of its last figure. Its last value is never carried forward.</li><li>A source that fails to fetch is recorded as failed. Nothing is substituted from another source.</li><li>A parser that cannot find what it expects fails the source rather than guessing. A week published as null is a gap, never a zero.</li><li>Rows are never edited or deleted. A corrected reading is appended and the earlier row stays.</li><li>A measure is added only when it helps answer a reader&#x27;s question.</li></ul>
+<h2>What this record cannot show</h2>
+<p>Cheddar is not mozzarella, and a pizzeria buys more of the second than the first. The mandatory report covers cheddar in two specific forms because those are what the statute requires reported; the block price is used across the dairy complex as a reference, but it is not a price for any other cheese. Mandatory reporting covers manufacturers above a size threshold, not every seller. Nothing here establishes why a particular supplier quoted a particular price.</p>
+<h2>Evidence and timestamps</h2>
+<p>Each issue directory holds <code>numbers.json</code> (every figure the issue quotes, regenerated from the data files), <code>evidence.json</code> (every capture file with URL, retrieval time, and SHA-256), and the issue as delivered. Capture files are hashed into an append-only chain anchored externally by RFC 3161 timestamp tokens and OpenTimestamps proofs.</p>
+<p>An external timestamp shows that a captured file existed unchanged by the anchor date. It does not show that the source&#x27;s figure was correct, or that a quoted price was available to every buyer.</p>
+<p>The BLS request carries a free registration key. The key is read from the environment at fetch time and is never written into a capture file, a data file, or this repository. A response body that repeats the key is discarded and the fetch recorded as failed, so a rejected credential cannot enter the record.</p>
+<h2>Corrections</h2>
+<p>Corrections are made by appending a note to the affected issue and to the next issue. The original text stays visible.</p>
   </div>
 </article>
 
