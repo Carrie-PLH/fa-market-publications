@@ -1,5 +1,5 @@
 {
- "computed_at": "2026-09-22T20:19:55+00:00",
+ "computed_at": "2026-09-23T15:42:22+00:00",
  "cpi_food_at_home": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -202,7 +202,8 @@
   "record": {
    "file": "data/observations.jsonl",
    "git_commit": "0d1757ff054aedff8818b47d586cf4d898122a70",
-   "path": "/Users/carries/Projects/websites/ABS wedding/lobster-monitor",
+   "name": "Field Assembly private observation record (Maine lobster, consumer direct-ship)",
+   "note": "A private Field Assembly record, not published. It is cited by its file hash and git commit, which are what a later reader can check a produced copy against; its location is not part of this record.",
    "sha256": "7ebd3d4877bc226c555f38308e51d7dc7b160aa2d1ccd738fa322298e8e1f67c"
   },
   "reference_series": {

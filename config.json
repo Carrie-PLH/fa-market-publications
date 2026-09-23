@@ -16,8 +16,10 @@
     "name": "Lobster Monitor",
     "audience": "Clients, event planners, and small buyers facing a supplier's lobster price claim.",
     "retail_reference": {
-      "_comment": "Read-only. The wedding evidence record supplies consumer direct-ship observations. Sellers are published as letters; names are on the methodology page. Never write to this path.",
-      "path": "/Users/carries/Projects/websites/ABS wedding/lobster-monitor",
+      "_comment": "Read-only. The wedding evidence record supplies consumer direct-ship observations. Sellers are published as letters; names are on the methodology page. Never write to this path. The location is not stored in this repository: it is read from the environment variable named in path_env, or from the gitignored file named in path_file at the repository root. A reader cannot open this record, so an edition cites it by name, SHA-256 and git commit rather than by path.",
+      "path_env": "FA_RETAIL_ROOT",
+      "path_file": ".fa-retail-root",
+      "record_name": "Field Assembly private observation record (Maine lobster, consumer direct-ship)",
       "observations": "data/observations.jsonl",
       "reference_series": {
         "product_category": "live",

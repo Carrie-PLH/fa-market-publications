@@ -25,7 +25,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import Title, config, iso, load_json, read_jsonl, sha256_file  # noqa: E402
+from common import ROOT, Title, config, iso, load_json, read_jsonl, sha256_file  # noqa: E402
 
 
 def pct(a, b):
@@ -57,21 +57,35 @@ def latest_period(sm, sid):
     return max(sm[sid]) if sm.get(sid) else None
 
 
-def resolve_retail_root(configured):
-    """The configured path is the Mac path. When this runs in the Cowork VM,
-    connected folders are mounted under $HOME/mnt/<folder>. FA_RETAIL_ROOT
-    overrides both. Fails visibly if none exists."""
+def resolve_retail_root(rr):
+    """Where the private observation record lives. The location is deliberately
+    not stored in this repository: it points into a private project, it is of no
+    use to a reader, and an edition cites that record by name, hash and commit
+    instead. It comes from the environment variable named in `path_env`, or from
+    the gitignored file named in `path_file` at the repository root. When this
+    runs in the Cowork VM, connected folders are mounted under $HOME/mnt/, so
+    each suffix of the resolved path is tried there too. Fails visibly if the
+    record cannot be found; nothing is substituted."""
     import os
-    cands = [os.environ.get("FA_RETAIL_ROOT"), configured]
+    configured = os.environ.get(rr.get("path_env", "FA_RETAIL_ROOT")) or ""
+    if not configured and rr.get("path_file"):
+        f = ROOT / rr["path_file"]
+        if f.exists():
+            configured = f.read_text().strip()
+    if not configured:
+        raise SystemExit(
+            f"retail record location not set: export {rr.get('path_env')} or write the "
+            f"path into {rr.get('path_file')} at the repository root")
+    cands = [configured]
     home = Path.home()
-    if configured.startswith("/Users/"):
-        parts = Path(configured).parts  # ('/', 'Users', name, 'Projects', 'websites', ...)
-        for i in range(3, len(parts)):  # any suffix may be the mounted folder
-            cands.append(str(home / "mnt" / Path(*parts[i:])))
+    parts = Path(configured).parts
+    for i in range(1, len(parts)):          # any suffix may be the mounted folder
+        cands.append(str(home / "mnt" / Path(*parts[i:])))
     for c in cands:
         if c and Path(c).is_dir():
             return Path(c)
-    raise SystemExit(f"retail record not found; tried {cands}")
+    raise SystemExit(f"retail record not found at the configured location or under "
+                     f"{home / 'mnt'}")
 
 
 def retail_reference(cfg_t, letters, baseline_month):
@@ -79,7 +93,7 @@ def retail_reference(cfg_t, letters, baseline_month):
     wedding record. Returns rows keyed by letter plus a flat/changed count over
     every live series the record holds for the month."""
     rr = cfg_t["retail_reference"]
-    root = resolve_retail_root(rr["path"])
+    root = resolve_retail_root(rr)
     obs_file = root / rr["observations"]
     rows = read_jsonl(obs_file)
     # highest revision per observation id
@@ -134,8 +148,13 @@ def retail_reference(cfg_t, letters, baseline_month):
             "live_series_with_2_or_more_observations": flat + changed,
             "flat": flat, "changed": changed, "changes": changes,
             "capture_dates": dates, "sellers_observed": len({r["source_id"] for r in rows}),
-            "record": {"path": rr["path"], "file": rr["observations"],
-                       "sha256": sha256_file(obs_file), "git_commit": git}}
+            "record": {"name": rr.get("record_name", "private observation record"),
+                       "file": rr["observations"],
+                       "sha256": sha256_file(obs_file), "git_commit": git,
+                       "note": "A private Field Assembly record, not published. It is cited "
+                               "by its file hash and git commit, which are what a later "
+                               "reader can check a produced copy against; its location is "
+                               "not part of this record."}}
 
 
 def compute_lobster(n, sm, t, cfg_t, a):

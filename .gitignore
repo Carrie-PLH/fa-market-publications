@@ -4,3 +4,4 @@ __pycache__/
 anchors/ots/*.bak
 .wrangler/
 site-preview/
+.fa-retail-root
