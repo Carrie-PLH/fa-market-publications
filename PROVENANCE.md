@@ -14,7 +14,7 @@ Collected under the Field Assembly Record Standard **1.2** (§8, market records)
 - Like with like, no causal inference, what the record does not do (§8.4, §8.5, §8.8): the methodology page of each title states the rules; the editorial standard in `CLAUDE.md` binds sessions to them.
 - Editions immutable and versioned (§8.6): `edition.json` carries status, version, publication and revision dates; the site keeps every edition at its permanent address; corrections are dated on the page and the original text stays visible.
 - Original observations by letter (§8.7): Lobster Monitor's consumer reference rows come read-only from the private wedding observation record, sellers appear as letters, and the letter map is on the methodology page.
-- Anchoring (§3.6, PROVENANCE §chain): `tools/anchor.py` hashes the captures, data and issues of every title listed in `tools/anchor-paths.txt` into `anchors/`, with RFC 3161 tokens from two authorities. Chain entry 2026-09-22T202107Z covers the Lobster Monitor baseline run.
+- Anchoring (§3.6, PROVENANCE §chain): `tools/anchor.py` hashes the captures, data and issues of every title listed in `tools/anchor-paths.txt` into `anchors/`, with RFC 3161 tokens from two authorities. Chain entry 2026-09-22T202107Z covers the Lobster Monitor baseline run. Entry 2026-09-23T153756Z covers 206 files: the September 2026 baselines of the Egg & Butter Brief, Chicken Monitor, Beef Monitor, Pork Monitor and Cheddar Monitor, and the corrected Lobster Issue 0. Both tokens verify and an OpenTimestamps proof is stored for the second entry.
 - Retention (§3.10): captures are never destroyed; a later run supersedes.
 - Recipes (§3.11): `<title>/sources.json` is the recipe (URL, fetch method, parser, parser arguments); `config.json` carries fetch settings.
 
@@ -24,7 +24,7 @@ Collected under the Field Assembly Record Standard **1.2** (§8, market records)
 - Reviewer attribution (§3.9): the edition page carries a reviewer line from `edition.json`; no edition has published yet, so none has been reviewed for publication.
 - Verification gate (§3.4): `tools/check.py` reads an issue's prose and its numbers table, pulls out every figure each asserts, and reports any that `numbers.json` does not hold at the precision the prose used. `tools/site.py` checks the built CSVs against `numbers.json`, and the editor reads the issue. What the mechanical check does not establish is that a figure was attached to the right measure: a figure equal to an unrelated stored value passes. A clean run means no figure was invented, not that every figure was used correctly.
 - Corroboration (ACQUISITION §corroboration): no Internet Archive capture is triggered at fetch time. Planned.
-- Titles in build without an anchor entry: the Egg & Butter Brief, Chicken Monitor, Beef Monitor, Pork Monitor and Cheddar Monitor all have a 2026-09-23 baseline run captured and parsed, and none is covered by a chain entry yet. Their capture, data and issue paths are in `tools/anchor-paths.txt`, so the next anchor run covers them.
+
 - Chicken Monitor's wholesale weighted averages: report 3649 states the current and previous month only, so the year-over-year comparison for that series accumulates in this record from 2026-09 rather than existing at the baseline. The same holds for the CME cheese reprint in Cheddar Monitor, which carries one week per report.
 
 ## Credentials
