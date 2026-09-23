@@ -481,10 +481,207 @@ def numbers_md_chicken(n):
     return "\n".join(L) + "\n"
 
 
+def _bls_block(n, sm, pairs):
+    for key, sid in pairs:
+        n[key] = yoy(sm, sid, latest_period(sm, sid)) if sm.get(sid) else None
+
+
+def _ers_block(n, t, a, cats):
+    rows = [r for r in read_jsonl(t.indicators)
+            if r["run_id"] == a.run_id and r["series_id"].startswith("ers_fpo|")]
+    want = ["Year-over-year", "Mid point of forecast interval 2026",
+            "Mid point of forecast interval 2027", "Lower bound of forecast interval 2027",
+            "Upper bound of forecast interval 2027"]
+    n["ers_food_price_outlook"] = {}
+    for r in rows:
+        _, cat, attr = r["series_id"].split("|", 2)
+        if cat in cats and any(attr.startswith(w) for w in want):
+            n["ers_food_price_outlook"][f"{cat} — {attr}"] = r["value"]
+
+
+def _weekly(sm, sid, label, unit):
+    if not sm.get(sid):
+        return None
+    return weekly_yoy(sm, sid, latest_period(sm, sid)) | {"label": label, "unit": unit}
+
+
+BEEF_WEEKLY = [
+    ("cutout_choice", "ams_boxed_beef_choice_600_900_usd_per_cwt",
+     "Boxed beef cutout, Choice 600-900 lb"),
+    ("cutout_select", "ams_boxed_beef_select_600_900_usd_per_cwt",
+     "Boxed beef cutout, Select 600-900 lb"),
+    ("fed_cattle_dressed", "ams_fed_cattle_usd_per_cwt_dressed",
+     "Fed cattle, steer and heifer, dressed"),
+    ("fed_cattle_live", "ams_fed_cattle_usd_per_cwt_live",
+     "Fed cattle, steer and heifer, live"),
+]
+
+
+def compute_beef(n, sm, t, cfg_t, a):
+    for key, sid, label in BEEF_WEEKLY:
+        n[key] = _weekly(sm, sid, label, "USD per cwt")
+
+    # Choice less Select, and cutout less the dressed cattle price. Both are
+    # arithmetic differences between two series in the same unit, computed here
+    # and marked derived. Neither is presented as anyone's margin.
+    c, s = n.get("cutout_choice"), n.get("cutout_select")
+    if c and s and c["period"] == s["period"] and None not in (c["value"], s["value"]):
+        n["choice_select_spread_usd_per_cwt"] = {
+            "period": c["period"], "value": round(c["value"] - s["value"], 2),
+            "prior_year_period": c["prior_year_period"],
+            "prior_year_value": (round(c["prior_year_value"] - s["prior_year_value"], 2)
+                                 if None not in (c["prior_year_value"], s["prior_year_value"]) else None),
+            "derived": "Choice 600-900 lb cutout less Select 600-900 lb cutout, same week"}
+    else:
+        n["choice_select_spread_usd_per_cwt"] = None
+    d = n.get("fed_cattle_dressed")
+    if c and d and None not in (c["value"], d["value"]):
+        n["cutout_less_dressed_cattle_usd_per_cwt"] = {
+            "cutout_period": c["period"], "cutout_value": c["value"],
+            "cattle_period": d["period"], "cattle_value": d["value"],
+            "value": round(c["value"] - d["value"], 2),
+            "derived": "Choice cutout less the fed cattle dressed price, both USD per cwt of "
+                       "carcass. An arithmetic difference between two reported series, not a "
+                       "statement of any packer's cost or margin.",
+            "same_week": c["period"] == d["period"]}
+    else:
+        n["cutout_less_dressed_cattle_usd_per_cwt"] = None
+
+    # what the fed cattle report itself states about the year
+    yc = "ams_fed_cattle_year_change_as_reported_usd_per_cwt_dressed"
+    if sm.get(yc):
+        p = latest_period(sm, yc)
+        n["fed_cattle_year_change_as_reported"] = {"period": p, "value": sm[yc][p],
+                                                   "unit": "USD per cwt", "basis": "dressed"}
+    hd = "ams_fed_cattle_head_dressed"
+    if sm.get(hd):
+        p = latest_period(sm, hd)
+        n["fed_cattle_head_dressed"] = {"period": p, "value": sm[hd][p]}
+
+    _bls_block(n, sm, [("ppi_slaughter_cattle", "WPU0131"),
+                       ("ppi_beef_primal_cuts", "WPU02210133"),
+                       ("cpi_beef_and_veal", "CUUR0000SEFC"),
+                       ("cpi_food_away_from_home", "CUUR0000SEFV"),
+                       ("retail_ground_beef_usd_per_lb", "APU0000FC1101"),
+                       ("retail_beef_steaks_usd_per_lb", "APU0000FC3101")])
+    for key, sid in [("cattle_on_feed", "nass_cattle_on_feed_thousand_head"),
+                     ("cattle_placements", "nass_cattle_placements_thousand_head"),
+                     ("cattle_marketings", "nass_cattle_marketings_thousand_head")]:
+        n[key] = yoy(sm, sid, latest_period(sm, sid)) if sm.get(sid) else None
+    _ers_block(n, t, a, ("Beef and veal", "Meats", "Meats, poultry, and fish",
+                         "Food away from home", "All food"))
+    n["retail_reference"] = {"record": None, "sellers": []}
+
+
+def _weekly_rows(L, n, keys, unit_label, source):
+    for key, label in keys:
+        x = n.get(key)
+        if not x:
+            continue
+        L.append(f"| {label} ({unit_label}, week ending) | {fm(x['value'])} ({x['period']}) | "
+                 f"{fm(x['prior_year_value'])} ({x['prior_year_period'] or '—'}) | "
+                 f"{fp(x['yoy_pct'])} | {source} |")
+        L.append(f"| {label}, trailing 4-week average ({unit_label}) | {fm(x['trailing_4wk_avg'])} | "
+                 f"{fm(x['prior_year_4wk_avg'])} | {fp(x['trailing_4wk_yoy_pct'])} | {source} |")
+
+
+def numbers_md_beef(n):
+    L = ["| Measure | Latest | Same period, prior year | Change | Source |", "|---|---|---|---|---|"]
+    _weekly_rows(L, n, [("cutout_choice", "Boxed beef cutout, Choice 600-900 lb"),
+                        ("cutout_select", "Boxed beef cutout, Select 600-900 lb")],
+                 "$/cwt", "USDA AMS report 2461")
+    sp = n.get("choice_select_spread_usd_per_cwt")
+    if sp:
+        L.append(f"| Choice less Select cutout (derived, $/cwt) | {fm(sp['value'])} ({sp['period']}) | "
+                 f"{fm(sp['prior_year_value'])} ({sp['prior_year_period'] or '—'}) | "
+                 f"{fp(pct(sp['prior_year_value'], sp['value']))} | Derived from USDA AMS report 2461 |")
+    _weekly_rows(L, n, [("fed_cattle_dressed", "Fed cattle, steer and heifer, dressed"),
+                        ("fed_cattle_live", "Fed cattle, steer and heifer, live")],
+                 "$/cwt", "USDA AMS report 2700")
+    cl = n.get("cutout_less_dressed_cattle_usd_per_cwt")
+    if cl:
+        L.append(f"| Choice cutout less fed cattle dressed price (derived, $/cwt) | "
+                 f"{fm(cl['value'])} (cutout {cl['cutout_period']}, cattle {cl['cattle_period']}) "
+                 f"| — | — | Derived from USDA AMS reports 2461 and 2700 |")
+    for key, label, src, d in [
+            ("retail_ground_beef_usd_per_lb", "Retail ground beef, all uncooked ($/lb)", "BLS APU0000FC1101", 3),
+            ("retail_beef_steaks_usd_per_lb", "Retail beef steaks, all uncooked ($/lb)", "BLS APU0000FC3101", 3),
+            ("ppi_slaughter_cattle", "PPI, slaughter cattle (index)", "BLS WPU0131", 1),
+            ("ppi_beef_primal_cuts", "PPI, beef primal and subprimal cuts (index)", "BLS WPU02210133", 1),
+            ("cpi_beef_and_veal", "CPI, beef and veal (index)", "BLS CUUR0000SEFC", 1),
+            ("cpi_food_away_from_home", "CPI, food away from home (index)", "BLS CUUR0000SEFV", 1),
+            ("cattle_on_feed", "Cattle on feed, 1,000+ head feedlots (1,000 head)", "USDA NASS", 0),
+            ("cattle_placements", "Placed on feed during the month (1,000 head)", "USDA NASS", 0),
+            ("cattle_marketings", "Fed cattle marketed during the month (1,000 head)", "USDA NASS", 0)]:
+        x = n.get(key)
+        if not x:
+            continue
+        L.append(f"| {label} | {fm(x['value'], d)} ({x['period']}) | {fm(x['prior_year_value'], d)} "
+                 f"({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
+    return "\n".join(L) + "\n"
+
+
+PORK_WEEKLY = [
+    ("cutout_carcass", "ams_pork_cutout_carcass_usd_per_cwt", "Pork carcass cutout"),
+    ("primal_belly", "ams_pork_primal_belly_usd_per_cwt", "Pork belly primal"),
+    ("primal_ham", "ams_pork_primal_ham_usd_per_cwt", "Pork ham primal"),
+    ("primal_loin", "ams_pork_primal_loin_usd_per_cwt", "Pork loin primal"),
+    ("primal_butt", "ams_pork_primal_butt_usd_per_cwt", "Pork butt primal"),
+    ("primal_rib", "ams_pork_primal_rib_usd_per_cwt", "Pork rib primal"),
+    ("primal_picnic", "ams_pork_primal_picnic_usd_per_cwt", "Pork picnic primal"),
+]
+
+
+def compute_pork(n, sm, t, cfg_t, a):
+    for key, sid, label in PORK_WEEKLY:
+        n[key] = _weekly(sm, sid, label, "USD per cwt")
+    # the primal that moved most on the year, so the issue does not default to
+    # the carcass when the carcass is not where the change is
+    moves = {k: n[k]["yoy_pct"] for k, _, _ in PORK_WEEKLY[1:]
+             if n.get(k) and n[k].get("yoy_pct") is not None}
+    n["primal_largest_yoy_move"] = (max(moves, key=lambda k: abs(moves[k])) if moves else None)
+    _bls_block(n, sm, [("ppi_slaughter_hogs", "WPU0132"),
+                       ("ppi_pork_fresh_frozen", "WPU02210444"),
+                       ("cpi_pork", "CUUR0000SEFD"),
+                       ("cpi_food_away_from_home", "CUUR0000SEFV"),
+                       ("retail_pork_chops_usd_per_lb", "APU0000FD3101"),
+                       ("retail_bacon_usd_per_lb", "APU0000704111")])
+    for key, sid in [("hogs_all", "nass_hogs_all_thousand_head"),
+                     ("hogs_breeding", "nass_hogs_breeding_thousand_head"),
+                     ("hogs_market", "nass_hogs_market_thousand_head"),
+                     ("hogs_market_180_lb_and_over", "nass_hogs_market_180_lb_and_over_thousand_head")]:
+        n[key] = yoy(sm, sid, latest_period(sm, sid)) if sm.get(sid) else None
+    _ers_block(n, t, a, ("Pork", "Meats", "Meats, poultry, and fish",
+                         "Food away from home", "All food"))
+    n["retail_reference"] = {"record": None, "sellers": []}
+
+
+def numbers_md_pork(n):
+    L = ["| Measure | Latest | Same period, prior year | Change | Source |", "|---|---|---|---|---|"]
+    _weekly_rows(L, n, [(k, lbl) for k, _, lbl in PORK_WEEKLY], "$/cwt", "USDA AMS report 2680")
+    for key, label, src, d in [
+            ("retail_pork_chops_usd_per_lb", "Retail pork chops, all ($/lb)", "BLS APU0000FD3101", 3),
+            ("retail_bacon_usd_per_lb", "Retail bacon, sliced ($/lb)", "BLS APU0000704111", 3),
+            ("ppi_slaughter_hogs", "PPI, slaughter hogs (index)", "BLS WPU0132", 1),
+            ("ppi_pork_fresh_frozen", "PPI, pork fresh and frozen, all cuts (index)", "BLS WPU02210444", 1),
+            ("cpi_pork", "CPI, pork (index)", "BLS CUUR0000SEFD", 1),
+            ("cpi_food_away_from_home", "CPI, food away from home (index)", "BLS CUUR0000SEFV", 1),
+            ("hogs_all", "All hogs and pigs (1,000 head)", "USDA NASS", 0),
+            ("hogs_breeding", "Kept for breeding (1,000 head)", "USDA NASS", 0),
+            ("hogs_market_180_lb_and_over", "Market hogs, 180 lb and over (1,000 head)", "USDA NASS", 0)]:
+        x = n.get(key)
+        if not x:
+            continue
+        L.append(f"| {label} | {fm(x['value'], d)} ({x['period']}) | {fm(x['prior_year_value'], d)} "
+                 f"({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
+    return "\n".join(L) + "\n"
+
+
 MODELS = {"lobster": compute_lobster, "egg_butter": compute_egg_butter,
-          "chicken": compute_chicken}
+          "chicken": compute_chicken, "beef": compute_beef, "pork": compute_pork}
 NUMBERS_MD = {"lobster": numbers_md_lobster, "egg_butter": numbers_md_egg_butter,
-              "chicken": numbers_md_chicken}
+              "chicken": numbers_md_chicken, "beef": numbers_md_beef,
+              "pork": numbers_md_pork}
 
 
 def main():

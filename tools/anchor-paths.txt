@@ -7,3 +7,9 @@ egg-butter/issues
 chicken/captures
 chicken/data
 chicken/issues
+beef/captures
+beef/data
+beef/issues
+pork/captures
+pork/data
+pork/issues

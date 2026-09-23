@@ -1,0 +1,128 @@
+{
+ "_comment": "Pork Monitor. Official sources fetched by tools/fetch.py (no browser). Every URL verified by fetching it on 2026-09-23. The pork cutout comes from the AMS Datamart, which serves mandatory price reporting keyless with the report's whole history, so year-over-year exists from the first issue. Append-only in spirit: retire, never delete.",
+ "sources": [
+  {
+   "id": "bls",
+   "name": "U.S. Bureau of Labor Statistics: PPI, CPI and average price series (public API v2)",
+   "label": "FOOD-COST INDICATOR (index) and OFFICIAL STATISTIC (average retail price)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "WPU0132 is the PPI commodity index for slaughter hogs (what a producer is paid); WPU02210444 pork, fresh and frozen, unprocessed, all cuts, made in slaughtering plants (what a packer sells); CUUR0000SEFD the CPI for pork; CUUR0000SEFV food away from home. APU0000FD3101 and APU0000704111 are average prices in dollars per pound for all pork chops and sliced bacon. All confirmed against the BLS flat files on 2026-09-23 and current through 2026-08.",
+   "page_url": "https://data.bls.gov/timeseries/WPU0132",
+   "fetches": [
+    {
+     "name": "series",
+     "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+     "ext": "json",
+     "method": "POST",
+     "body": {
+      "seriesid": ["WPU0132","WPU02210444","CUUR0000SEFD","CUUR0000SEFV","APU0000FD3101","APU0000704111"],
+      "startyear": "{YEAR_MINUS_5}",
+      "endyear": "{YEAR}",
+      "registrationkey": "ENV:BLS_API_KEY"
+     }
+    }
+   ],
+   "parser": "bls_api",
+   "parser_args": {
+    "titles": {
+     "WPU0132": "PPI commodity: Slaughter hogs (NSA)",
+     "WPU02210444": "PPI commodity: Pork, fresh/frozen, unprocessed, all cuts, except sausage, made in slaughtering plants (NSA)",
+     "CUUR0000SEFD": "CPI-U: Pork, U.S. city average (NSA)",
+     "CUUR0000SEFV": "CPI-U: Food away from home, U.S. city average (NSA)",
+     "APU0000FD3101": "BLS average price: All pork chops, U.S. city average (USD per lb)",
+     "APU0000704111": "BLS average price: Bacon, sliced, U.S. city average (USD per lb)"
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_pork_cutout",
+   "name": "USDA AMS: National Weekly Pork Report FOB Plant, comprehensive (Datamart report 2680)",
+   "label": "OFFICIAL STATISTIC (weekly cutout and primal values under mandatory price reporting, USD per cwt)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "The pork cutout is the wholesale value of a carcass broken into primals, reported weekly under mandatory price reporting, FOB plant. The six primals are carried separately: loin, butt, picnic, rib, ham and belly. A buyer told that pork has gone up is usually being told about one primal, not the carcass, and belly and rib move very differently from ham. The Datamart returns the whole series keyless, so a year-over-year comparison exists in the first issue. report_for_date is the week the prices are for; report_date is the day of publication.",
+   "page_url": "https://mymarketnews.ams.usda.gov/viewReport/2680",
+   "fetches": [
+    {
+     "name": "json",
+     "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2680/Weekly%20Average%20Cutout%20and%20Primal%20Values",
+     "ext": "json"
+    },
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/AMS_2680.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "datamart_json",
+   "parser_args": {
+    "fetch": "json",
+    "date_field": "report_for_date",
+    "min_rows": 200,
+    "note_fields": ["report_date"],
+    "columns": {
+     "avg_cutout_carcass": {"id": "ams_pork_cutout_carcass_usd_per_cwt", "title": "USDA AMS: pork carcass cutout value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"},
+     "avg_cutout_loin": {"id": "ams_pork_primal_loin_usd_per_cwt", "title": "USDA AMS: pork loin primal value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"},
+     "avg_cutout_butt": {"id": "ams_pork_primal_butt_usd_per_cwt", "title": "USDA AMS: pork butt primal value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"},
+     "avg_cutout_picnic": {"id": "ams_pork_primal_picnic_usd_per_cwt", "title": "USDA AMS: pork picnic primal value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"},
+     "avg_cutout_rib": {"id": "ams_pork_primal_rib_usd_per_cwt", "title": "USDA AMS: pork rib primal value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"},
+     "avg_cutout_ham": {"id": "ams_pork_primal_ham_usd_per_cwt", "title": "USDA AMS: pork ham primal value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"},
+     "avg_cutout_belly": {"id": "ams_pork_primal_belly_usd_per_cwt", "title": "USDA AMS: pork belly primal value, weekly average, FOB plant (USD per cwt)", "unit": "USD per cwt"}
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "nass_hogs_pigs",
+   "name": "USDA NASS: Quarterly Hogs and Pigs (text)",
+   "label": "OFFICIAL STATISTIC (supply: hog inventory by class and weight group)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "All hogs and pigs, breeding herd and market herd by weight group, both years side by side with NASS's own percent-of-previous-year column. Market hogs in the heaviest weight group are the slaughter supply of the next several weeks; the breeding herd is the supply of the next year. Released in late March, June, September and December, so the fetch is tried back across the quarterly cycle and takes the most recent report available.",
+   "page_url": "https://usda.library.cornell.edu/concern/publications/rj430453j",
+   "fetches": [
+    {
+     "name": "txt",
+     "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+     "ext": "txt"
+    }
+   ],
+   "parser": "nass_hogs_pigs_txt",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "usda_ers_fpo",
+   "name": "USDA ERS Food Price Outlook (CPI forecast table)",
+   "label": "FOOD-COST INDICATOR (official forecast table)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Monthly USDA table of year-over-year CPI changes and forecast intervals by food category, including pork. The CSV link changes each release, so the landing page is captured and the current link followed at run time.",
+   "page_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetches": [
+    {"name": "landing", "url": "https://www.ers.usda.gov/data-products/food-price-outlook", "ext": "html"},
+    {"name": "cpi_csv", "url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv", "ext": "csv"}
+   ],
+   "parser": "ers_fpo",
+   "parser_args": {"categories": ["pork", "meats", "meats, poultry, and fish", "food away from home", "all food"]},
+   "screenshot": false
+  },
+  {
+   "id": "ams_pork_variety",
+   "name": "USDA AMS: Weekly Pork and Beef Variety Meat Report (PDF)",
+   "label": "OFFICIAL MARKET REPORT (weekly narrative and variety meat prices; retained, not parsed)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Variety meats and the week's trading context, retained as evidence for the explanation section. Figures quoted from it are entered by the editor and checked against the capture.",
+   "page_url": "https://www.ams.usda.gov/market-news/weekly-pork-reports",
+   "fetches": [
+    {"name": "pdf", "url": "https://www.ams.usda.gov/mnreports/AMS_2838.pdf", "ext": "pdf"}
+   ],
+   "parser": "retain_only",
+   "parser_args": {},
+   "screenshot": false
+  }
+ ]
+}

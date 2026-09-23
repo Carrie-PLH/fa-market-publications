@@ -135,12 +135,17 @@ def expand_years(obj):
 
 
 def expand_template(url):
-    """{MMYY} and {MMYY_PREV}: release-month file names (NASS style), from the
-    current UTC month and the month before."""
+    """Release-month file names, NASS style. {MMYY} is the current UTC month;
+    {MMYY_PREV} the month before it; {MMYY_PREV<n>} n months before it, so a
+    quarterly report can be tried back across its cycle."""
     now = now_utc()
-    prev_m, prev_y = (now.month - 1 or 12), (now.year if now.month > 1 else now.year - 1)
-    return (url.replace("{MMYY}", f"{now.month:02d}{now.year % 100:02d}")
-               .replace("{MMYY_PREV}", f"{prev_m:02d}{prev_y % 100:02d}"))
+
+    def back(n):
+        total = (now.year * 12 + now.month - 1) - n
+        return f"{total % 12 + 1:02d}{(total // 12) % 100:02d}"
+
+    url = re.sub(r"\{MMYY_PREV(\d+)\}", lambda m: back(int(m.group(1))), url)
+    return url.replace("{MMYY}", back(0)).replace("{MMYY_PREV}", back(1))
 
 
 def fetch_try(url, timeout):
@@ -176,6 +181,7 @@ def capture_source(t, src, run_id, cfg):
                 entry["resolved_url"] = url
             entry["fetched_at"] = iso()
             post = None
+            secret_values = []
             if fspec.get("method", "GET").upper() == "POST":
                 spec_body = expand_years(fspec["body"])
                 # what is retained: the request as written, secrets named not shown.
@@ -184,8 +190,10 @@ def capture_source(t, src, run_id, cfg):
                 entry["request_method"] = "POST"
                 entry["request_body"] = redact_secrets(spec_body)
                 used = set()
-                post = json.dumps(resolve_secrets(spec_body, used)).encode()
+                resolved = resolve_secrets(spec_body, used)
+                post = json.dumps(resolved).encode()
                 entry["request_secrets"] = sorted(used)
+                secret_values = [os.environ[k] for k in used if os.environ.get(k)]
             if url.startswith("TRY:"):
                 url, (status, final_url, headers, body) = fetch_try(url, fc["timeout_seconds"])
                 entry["resolved_url"] = url
@@ -193,6 +201,15 @@ def capture_source(t, src, run_id, cfg):
                 status, final_url, headers, body = fetch(
                     url, fc["timeout_seconds"], data=post,
                     content_type="application/json" if post else None)
+            if secret_values and any(v.encode() in body for v in secret_values):
+                # Some services echo a rejected credential back in the error
+                # body. Retaining the response byte for byte would write that
+                # credential into the record, so the body is discarded and the
+                # fetch fails. A response that repeats the key is an error
+                # response; nothing that belongs in the record is lost.
+                raise RuntimeError(
+                    "response body contained a credential sent with the request "
+                    "and was discarded; the request was not successful")
             target = out_dir / f"{fspec['name']}.{fspec['ext']}"
             target.write_bytes(body)
             hpath = out_dir / f"{fspec['name']}.headers.txt"

@@ -1,0 +1,155 @@
+{
+ "_comment": "Beef Monitor. Official sources fetched by tools/fetch.py (no browser). Every URL verified by fetching it on 2026-09-23. Boxed beef and fed cattle come from the AMS Datamart, which serves mandatory price reporting keyless with the report's whole history, so year-over-year exists from the first issue. Append-only in spirit: retire, never delete.",
+ "sources": [
+  {
+   "id": "bls",
+   "name": "U.S. Bureau of Labor Statistics: PPI, CPI and average price series (public API v2)",
+   "label": "FOOD-COST INDICATOR (index) and OFFICIAL STATISTIC (average retail price)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "WPU0131 is the PPI commodity index for slaughter cattle (what a feedlot is paid); WPU02210133 beef primal and subprimal cuts made in slaughtering plants (what a packer sells); CUUR0000SEFC the CPI for beef and veal; CUUR0000SEFV food away from home. APU0000FC1101 and APU0000FC3101 are average prices in dollars per pound for all uncooked ground beef and all uncooked beef steaks. All confirmed against the BLS flat files on 2026-09-23 and current through 2026-08.",
+   "page_url": "https://data.bls.gov/timeseries/WPU0131",
+   "fetches": [
+    {
+     "name": "series",
+     "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+     "ext": "json",
+     "method": "POST",
+     "body": {
+      "seriesid": ["WPU0131","WPU02210133","CUUR0000SEFC","CUUR0000SEFV","APU0000FC1101","APU0000FC3101"],
+      "startyear": "{YEAR_MINUS_5}",
+      "endyear": "{YEAR}",
+      "registrationkey": "ENV:BLS_API_KEY"
+     }
+    }
+   ],
+   "parser": "bls_api",
+   "parser_args": {
+    "titles": {
+     "WPU0131": "PPI commodity: Slaughter cattle (NSA)",
+     "WPU02210133": "PPI commodity: Beef, fresh/frozen, primal and subprimal cuts, made in slaughtering plants (NSA)",
+     "CUUR0000SEFC": "CPI-U: Beef and veal, U.S. city average (NSA)",
+     "CUUR0000SEFV": "CPI-U: Food away from home, U.S. city average (NSA)",
+     "APU0000FC1101": "BLS average price: All uncooked ground beef, U.S. city average (USD per lb)",
+     "APU0000FC3101": "BLS average price: All uncooked beef steaks, U.S. city average (USD per lb)"
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_boxed_beef",
+   "name": "USDA AMS: National Weekly Boxed Beef Cutout and Boxed Beef Cuts, negotiated sales (Datamart report 2461)",
+   "label": "OFFICIAL STATISTIC (weekly cutout value under mandatory price reporting, USD per cwt)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "The boxed beef cutout is the wholesale value of a carcass broken into boxed cuts, and the number a distributor's own cost moves with. Reported weekly under mandatory price reporting, Choice and Select separately. The Datamart returns the whole series keyless, so a year-over-year comparison exists in the first issue. Note a break in the series: before roughly 2015 the report carried 600-750 and 750-900 pound carcass columns and now carries a single 600-900 pound column; the earlier columns are not the same measure and are parsed under their own series names.",
+   "page_url": "https://mymarketnews.ams.usda.gov/viewReport/2461",
+   "fetches": [
+    {
+     "name": "json",
+     "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2461/Weekly%20Average%20Cutout%20Values",
+     "ext": "json"
+    },
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/AMS_2461.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "datamart_json",
+   "parser_args": {
+    "fetch": "json",
+    "date_field": "report_date",
+    "min_rows": 200,
+    "columns": {
+     "choice_600_900_simple_avg": {"id": "ams_boxed_beef_choice_600_900_usd_per_cwt", "title": "USDA AMS: boxed beef cutout, Choice 600-900 lb carcass, weekly simple average (USD per cwt)", "unit": "USD per cwt"},
+     "select_600_900_simple_avg": {"id": "ams_boxed_beef_select_600_900_usd_per_cwt", "title": "USDA AMS: boxed beef cutout, Select 600-900 lb carcass, weekly simple average (USD per cwt)", "unit": "USD per cwt"},
+     "choice_600_750_simple_avg": {"id": "ams_boxed_beef_choice_600_750_usd_per_cwt", "title": "USDA AMS: boxed beef cutout, Choice 600-750 lb carcass, weekly simple average (USD per cwt; series discontinued)", "unit": "USD per cwt"},
+     "select_600_750_simple_avg": {"id": "ams_boxed_beef_select_600_750_usd_per_cwt", "title": "USDA AMS: boxed beef cutout, Select 600-750 lb carcass, weekly simple average (USD per cwt; series discontinued)", "unit": "USD per cwt"}
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_fed_cattle",
+   "name": "USDA AMS: National Weekly Fed Cattle Comprehensive (Datamart report 2700)",
+   "label": "OFFICIAL STATISTIC (weekly weighted-average fed cattle price under mandatory price reporting)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "What packers paid for fed cattle, live and dressed, weighted by head, with the report's own week-over-week and year-over-year change. The input side of a boxed beef price: cattle and cutout moving apart is the packer's margin, and it is what a buyer is being told about when a supplier says the market moved. Steer and heifer, all grades, is the series quoted; the dairy-type rows are a different animal and stay separate.",
+   "page_url": "https://mymarketnews.ams.usda.gov/viewReport/2700",
+   "fetches": [
+    {
+     "name": "json",
+     "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+     "ext": "json"
+    }
+   ],
+   "parser": "datamart_json",
+   "parser_args": {
+    "fetch": "json",
+    "date_field": "report_date",
+    "min_rows": 200,
+    "filter": {"CatCode": "Steer/Heifer", "ChoicePct": "Total all Grades"},
+    "key_fields": ["SellingDesc"],
+    "note_fields": ["Head_Count", "WkChange", "YrChange"],
+    "columns": {
+     "AvgPrice": {"id": "ams_fed_cattle_usd_per_cwt", "title": "USDA AMS: fed cattle weighted average price, steer and heifer, all grades (USD per cwt)", "unit": "USD per cwt"},
+     "YrChange": {"id": "ams_fed_cattle_year_change_as_reported_usd_per_cwt", "title": "USDA AMS: fed cattle price, change from a year earlier as stated in the report (USD per cwt)", "unit": "USD per cwt"},
+     "Head_Count": {"id": "ams_fed_cattle_head", "title": "USDA AMS: fed cattle purchased, head", "unit": "head"}
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "nass_cattle_on_feed",
+   "name": "USDA NASS: Cattle on Feed (monthly, text)",
+   "label": "OFFICIAL STATISTIC (supply: cattle on feed, placements, marketings)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Cattle on feed, placements and marketings for feedlots of 1,000 head or more, both years side by side with NASS's own percent-of-previous-year column. Placements today are the fed cattle supply five or six months from now, which is the supply story behind a beef price claim. File name carries the release month, so the current and prior months are tried in turn.",
+   "page_url": "https://usda.library.cornell.edu/concern/publications/m326m1749",
+   "fetches": [
+    {
+     "name": "txt",
+     "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY_PREV}.txt",
+     "ext": "txt"
+    }
+   ],
+   "parser": "nass_cattle_on_feed_txt",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "usda_ers_fpo",
+   "name": "USDA ERS Food Price Outlook (CPI forecast table)",
+   "label": "FOOD-COST INDICATOR (official forecast table)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Monthly USDA table of year-over-year CPI changes and forecast intervals by food category, including beef and veal. The CSV link changes each release, so the landing page is captured and the current link followed at run time.",
+   "page_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetches": [
+    {"name": "landing", "url": "https://www.ers.usda.gov/data-products/food-price-outlook", "ext": "html"},
+    {"name": "cpi_csv", "url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv", "ext": "csv"}
+   ],
+   "parser": "ers_fpo",
+   "parser_args": {"categories": ["beef and veal", "meats", "meats, poultry, and fish", "food away from home", "all food"]},
+   "screenshot": false
+  },
+  {
+   "id": "ams_cattle_beef_summary",
+   "name": "USDA AMS: National Weekly Cattle and Beef Summary (PDF)",
+   "label": "OFFICIAL MARKET REPORT (weekly narrative; retained, not parsed)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "The week's narrative: slaughter levels, carcass weights, packer margins, demand by cut. Retained as evidence for the explanation section; figures quoted from it are entered by the editor and checked against the capture.",
+   "page_url": "https://www.ams.usda.gov/market-news/weekly-and-monthly-beef-reports",
+   "fetches": [
+    {"name": "pdf", "url": "https://www.ams.usda.gov/mnreports/LSWWCBS.pdf", "ext": "pdf"}
+   ],
+   "parser": "retain_only",
+   "parser_args": {},
+   "screenshot": false
+  }
+ ]
+}

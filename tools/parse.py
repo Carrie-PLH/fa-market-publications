@@ -704,6 +704,289 @@ def p_ers_retail_csv(rec, src, args):
     return out
 
 
+# ---------- USDA AMS Datamart report sections, JSON ----------
+
+def p_datamart_json(rec, src, args):
+    """A section of a Datamart report. The Datamart serves mandatory price
+    reporting keyless with the report's whole history, so a year-over-year
+    comparison exists from the first capture.
+
+    parser_args:
+      fetch        the fetch name holding the JSON (default "json")
+      date_field   the column carrying the period, MM/DD/YYYY (default
+                   "report_date"; use "report_for_date" where the report
+                   distinguishes the week reported on from the publication day)
+      filter       {column: value} rows must match to be parsed at all
+      key_fields   columns whose values join into the series id, for a section
+                   that carries several rows per date
+      columns      {column: {id, title, unit}} the values to emit
+      note_fields  columns carried into each row's note, unparsed
+      min_rows     fail the source below this many rows (default 1)
+    """
+    f, body = read_fetch(rec, args.get("fetch", "json"))
+    payload = json.loads(body)
+    rows = payload.get("results")
+    if rows is None:
+        raise ParseFailure("datamart: no 'results' in the response")
+    if not rows:
+        raise ParseFailure("datamart: 'results' is empty")
+    cols = args.get("columns") or {}
+    if not cols:
+        raise ParseFailure("datamart: parser_args['columns'] is required")
+    date_field = args.get("date_field", "report_date")
+    if date_field not in rows[0]:
+        raise ParseFailure(f"datamart: date field {date_field!r} not in the section's columns: "
+                           f"{sorted(rows[0])[:20]}")
+    missing = [c for c in cols if c not in rows[0]]
+    if missing:
+        raise ParseFailure(f"datamart: requested columns not in the section: {missing}")
+    filt = args.get("filter") or {}
+    keys = args.get("key_fields") or []
+    notes = args.get("note_fields") or []
+    out, seen = [], set()
+    for r in rows:
+        if any((r.get(k) or "").strip() != v for k, v in filt.items()):
+            continue
+        period = _us_date(r.get(date_field))
+        suffix = "_".join(re.sub(r"[^a-z0-9]+", "_", str(r.get(k) or "").strip().lower()).strip("_")
+                          for k in keys)
+        note = "; ".join(f"{k} {r.get(k)}" for k in notes if r.get(k) not in (None, ""))
+        for col, spec in cols.items():
+            raw = r.get(col)
+            if raw in (None, "", "-"):
+                continue
+            try:
+                val = float(str(raw).replace(",", ""))
+            except (TypeError, ValueError):
+                continue
+            sid = spec["id"] + (f"_{suffix}" if suffix else "")
+            if (sid, period) in seen:
+                continue
+            seen.add((sid, period))
+            title = spec["title"]
+            if suffix:
+                title += " — " + ", ".join(str(r.get(k)).strip() for k in keys)
+            out.append(dict(series_id=sid, series_title=title, period=period,
+                            value=val, unit=spec["unit"],
+                            evidence_fetch=args.get("fetch", "json"),
+                            notes=note or f"Datamart {payload.get('results') and ''}"
+                                          f"report section as published"))
+    if len(out) < int(args.get("min_rows", 1)):
+        raise ParseFailure(f"datamart: only {len(out)} rows parsed, below min_rows")
+    return out
+
+
+# ---------- USDA NASS Cattle on Feed, monthly text ----------
+
+NASS_ROW = re.compile(r"^\s*(?P<item>\S.*?)\s*\.{2,}\s*:\s*(?P<a>[\d,]+)\s+(?P<b>[\d,]+)\s+(?P<pct>[\d,]+)?\s*$")
+NASS_TITLE_YEARS = re.compile(r"United States:\s*(?:[A-Z][a-z]+\s+\d{1,2},\s*)?(\d{4})\s+and\s+(\d{4})")
+COF_TABLE = "Cattle on Feed Inventory, Placements, Marketings, and Other Disappearance on"
+COF_ITEMS = [
+    (re.compile(r"^On feed ([A-Z][a-z]+) 1$"), "nass_cattle_on_feed_thousand_head",
+     "USDA NASS Cattle on Feed: cattle and calves on feed, 1,000+ head capacity feedlots, "
+     "United States (1,000 head, on the 1st)"),
+    (re.compile(r"^Placed on feed during ([A-Z][a-z]+)$"), "nass_cattle_placements_thousand_head",
+     "USDA NASS Cattle on Feed: placed on feed during the month, United States (1,000 head)"),
+    (re.compile(r"^Fed cattle marketed during ([A-Z][a-z]+)$"), "nass_cattle_marketings_thousand_head",
+     "USDA NASS Cattle on Feed: fed cattle marketed during the month, United States (1,000 head)"),
+    (re.compile(r"^Other disappearance during ([A-Z][a-z]+)$"),
+     "nass_cattle_other_disappearance_thousand_head",
+     "USDA NASS Cattle on Feed: other disappearance during the month, United States (1,000 head)"),
+]
+
+
+def _nass_release_note(text):
+    rel = re.search(r"Released ([A-Z][a-z]+ \d{1,2}, \d{4})", text)
+    return f"NASS release {rel.group(1) if rel else 'date not found'}"
+
+
+def p_nass_cattle_on_feed_txt(rec, src, args):
+    """The United States summary tables. Each table is headed with the month it
+    is taken on and the two years in its columns; items name their own month.
+    An item whose month is later in the year than the table's month belongs to
+    the year before the column's year, which is how a January table reports the
+    previous December."""
+    f, body = read_fetch(rec, "txt")
+    text = body.decode("utf-8", "ignore")
+    note = _nass_release_note(text)
+    lines = text.splitlines()
+    out, n = [], 0
+    for i, ln in enumerate(lines):
+        if not ln.strip().startswith(COF_TABLE):
+            continue
+        head = "\n".join(lines[i:i + 3])
+        ym = NASS_TITLE_YEARS.search(head)
+        tm = re.search(r"United States:\s*([A-Z][a-z]+)\s+\d{1,2},", head)
+        if not ym or not tm:
+            continue  # the contents listing repeats the caption without the years
+        years = (int(ym.group(1)), int(ym.group(2)))
+        table_month = MONTH_NAMES.index(tm.group(1)) + 1
+        for ln2 in lines[i + 3:i + 30]:
+            if ln2.strip().startswith("---") and n:
+                break
+            r = NASS_ROW.match(ln2)
+            if not r:
+                continue
+            for rx, sid, title in COF_ITEMS:
+                m = rx.match(r.group("item").strip())
+                if not m:
+                    continue
+                mo = MONTH_NAMES.index(m.group(1)) + 1
+                for col, y in zip(("a", "b"), years):
+                    yy = y - 1 if mo > table_month else y
+                    out.append(dict(series_id=sid, series_title=title,
+                                    period=f"{yy}-{mo:02d}",
+                                    value=float(r.group(col).replace(",", "")),
+                                    unit="1,000 head", evidence_fetch="txt",
+                                    notes=f"{note}; table as of {tm.group(1)} 1; "
+                                          f"NASS states the later year as "
+                                          f"{r.group('pct') or 'not given'} percent of the earlier"))
+                    n += 1
+                break
+    if n < 8:
+        raise ParseFailure(f"Cattle on Feed: only {n} rows parsed")
+    return out
+
+
+# ---------- USDA NASS Hogs and Pigs, quarterly text ----------
+
+HOGS_TABLE = "Hogs and Pigs Inventory by Class, Weight Group, and Quarter - United States"
+HOGS_SECTION = re.compile(r"^([A-Z][a-z]+) 1 inventory\s*:?\s*$")
+HOGS_ITEMS = {
+    "All hogs and pigs": ("nass_hogs_all_thousand_head",
+                          "USDA NASS Hogs and Pigs: all hogs and pigs, United States (1,000 head, on the 1st)"),
+    "Kept for breeding": ("nass_hogs_breeding_thousand_head",
+                          "USDA NASS Hogs and Pigs: kept for breeding, United States (1,000 head, on the 1st)"),
+    "Market": ("nass_hogs_market_thousand_head",
+               "USDA NASS Hogs and Pigs: market hogs and pigs, United States (1,000 head, on the 1st)"),
+    "Under 50 pounds": ("nass_hogs_market_under_50_lb_thousand_head",
+                        "USDA NASS Hogs and Pigs: market hogs under 50 pounds, United States (1,000 head)"),
+    "50-119 pounds": ("nass_hogs_market_50_119_lb_thousand_head",
+                      "USDA NASS Hogs and Pigs: market hogs 50-119 pounds, United States (1,000 head)"),
+    "120-179 pounds": ("nass_hogs_market_120_179_lb_thousand_head",
+                       "USDA NASS Hogs and Pigs: market hogs 120-179 pounds, United States (1,000 head)"),
+    "180 pounds and over": ("nass_hogs_market_180_lb_and_over_thousand_head",
+                            "USDA NASS Hogs and Pigs: market hogs 180 pounds and over, United States (1,000 head)"),
+}
+
+
+def p_nass_hogs_pigs_txt(rec, src, args):
+    """The United States quarterly inventory table. Sections name the quarter
+    date; the two columns are the two years in the table caption. NASS reports
+    this table on a December-through-November year, so a December 1 inventory
+    belongs to the calendar year before the column's year. Cells left blank
+    because the estimation period has not begun are skipped, not read as zero."""
+    f, body = read_fetch(rec, "txt")
+    text = body.decode("utf-8", "ignore")
+    note = _nass_release_note(text)
+    lines = text.splitlines()
+    start = next((i for i, ln in enumerate(lines)
+                  if ln.strip().startswith(HOGS_TABLE) and not re.search(r"\.{3,}\s*\d+\s*$", ln)), None)
+    if start is None:
+        raise ParseFailure(f"Hogs and Pigs: table {HOGS_TABLE!r} not found")
+    years = None
+    for ln in lines[start:start + 6]:
+        m = re.search(r"(\d{4})\s+and\s+(\d{4})", ln)
+        if m:
+            years = (int(m.group(1)), int(m.group(2)))
+            break
+    if not years:
+        raise ParseFailure("Hogs and Pigs: the table's two years were not found")
+    month = None
+    out, n = [], 0
+    for ln in lines[start:start + 120]:
+        s = ln.strip()
+        sec = HOGS_SECTION.match(s)
+        if sec:
+            if sec.group(1) not in MONTH_NAMES:
+                raise ParseFailure(f"Hogs and Pigs: unexpected section {sec.group(1)!r}")
+            month = MONTH_NAMES.index(sec.group(1)) + 1
+            continue
+        r = NASS_ROW.match(ln)
+        if not r or month is None:
+            continue
+        spec = HOGS_ITEMS.get(r.group("item").strip())
+        if not spec:
+            continue
+        sid, title = spec
+        for col, y in zip(("a", "b"), years):
+            yy = y - 1 if month == 12 else y
+            out.append(dict(series_id=sid, series_title=title, period=f"{yy}-{month:02d}",
+                            value=float(r.group(col).replace(",", "")), unit="1,000 head",
+                            evidence_fetch="txt",
+                            notes=f"{note}; quarterly inventory on {MONTH_NAMES[month - 1]} 1; "
+                                  f"NASS states the later year as "
+                                  f"{r.group('pct') or 'not given'} percent of the earlier"))
+            n += 1
+    if n < 8:
+        raise ParseFailure(f"Hogs and Pigs: only {n} rows parsed")
+    return out
+
+
+# ---------- International Coffee Organization, Coffee Market Report PDF ----------
+
+ICO_COLS = [
+    ("ico_composite_indicator_us_cents_per_lb",
+     "ICO Composite Indicator Price (I-CIP), monthly average (US cents/lb)"),
+    ("ico_colombian_milds_us_cents_per_lb",
+     "ICO group indicator: Colombian Milds, monthly average (US cents/lb)"),
+    ("ico_other_milds_us_cents_per_lb",
+     "ICO group indicator: Other Milds, monthly average (US cents/lb)"),
+    ("ico_brazilian_naturals_us_cents_per_lb",
+     "ICO group indicator: Brazilian Naturals, monthly average (US cents/lb)"),
+    ("ico_robustas_us_cents_per_lb",
+     "ICO group indicator: Robustas, monthly average (US cents/lb)"),
+    ("ico_new_york_futures_us_cents_per_lb",
+     "ICE New York futures, 2nd and 3rd positions, monthly average as published by the ICO "
+     "(US cents/lb). ICE data is proprietary at source; the ICO table is the public record of it."),
+    ("ico_london_futures_us_cents_per_lb",
+     "ICE London futures, 2nd and 3rd positions, monthly average as published by the ICO "
+     "(US cents/lb). ICE data is proprietary at source; the ICO table is the public record of it."),
+]
+ICO_MON = {m: i for i, m in enumerate(
+    ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], 1)}
+ICO_ROW = re.compile(r"^\s*([A-Z][a-z]{2})-(\d{2})\s+((?:[\d.]+\s+){6}[\d.]+)\s*$")
+
+
+def p_ico_cmr_pdf(rec, src, args):
+    """Table 1, 'ICO daily indicator prices and futures prices', monthly
+    averages block: twelve months ending with the report's month, in seven
+    columns. The block runs from the 'Monthly averages' line to the first
+    '% change' line; rows outside it (volatility, variation) are not prices and
+    are not parsed."""
+    f, body = read_fetch(rec, "pdf")
+    text = _pdf_text(body)
+    i = text.find("Table 1:")
+    if i < 0:
+        raise ParseFailure("ICO: 'Table 1:' not found")
+    block = text[i:]
+    j = block.find("Monthly averages")
+    if j < 0:
+        raise ParseFailure("ICO: 'Monthly averages' block not found in Table 1")
+    block = block[j:]
+    k = block.find("% change")
+    if k > 0:
+        block = block[:k]
+    out, n = [], 0
+    for ln in block.splitlines():
+        m = ICO_ROW.match(ln)
+        if not m:
+            continue
+        period = f"20{m.group(2)}-{ICO_MON[m.group(1)]:02d}"
+        vals = m.group(3).split()
+        if len(vals) != len(ICO_COLS):
+            raise ParseFailure(f"ICO: row {ln.strip()!r} has {len(vals)} values, "
+                               f"expected {len(ICO_COLS)}")
+        for (sid, title), v in zip(ICO_COLS, vals):
+            out.append(dict(series_id=sid, series_title=title, period=period,
+                            value=float(v), unit="US cents per lb", evidence_fetch="pdf",
+                            notes="ICO Coffee Market Report, Table 1, monthly averages"))
+        n += 1
+    if n < 6:
+        raise ParseFailure(f"ICO: only {n} monthly rows parsed from Table 1")
+    return out
+
+
 def p_retain_only(rec, src, args):
     """Evidence retained for the editor; no indicator rows. Fails if the fetch failed."""
     read_fetch(rec, src["fetches"][0]["name"] if src.get("fetches") else "pdf")
@@ -714,7 +997,10 @@ PARSERS = {"retain_only": p_retain_only, "foss_trade": p_foss_trade, "bls_api": 
            "dmr_landings_pdf": p_dmr_landings_pdf, "ndpsr_json": p_ndpsr_json,
            "dmn_weekly_pdf": p_dmn_weekly_pdf, "ams_shell_egg_pdf": p_ams_shell_egg_pdf,
            "nass_ckeg_txt": p_nass_ckeg_txt, "ams_chicken_pdf": p_ams_chicken_pdf,
-           "ams_py_slaughter_txt": p_ams_py_slaughter_txt, "ers_retail_csv": p_ers_retail_csv}
+           "ams_py_slaughter_txt": p_ams_py_slaughter_txt, "ers_retail_csv": p_ers_retail_csv,
+           "datamart_json": p_datamart_json,
+           "nass_cattle_on_feed_txt": p_nass_cattle_on_feed_txt,
+           "nass_hogs_pigs_txt": p_nass_hogs_pigs_txt, "ico_cmr_pdf": p_ico_cmr_pdf}
 
 
 def flag(t, run_id, source_id, kind, detail):
