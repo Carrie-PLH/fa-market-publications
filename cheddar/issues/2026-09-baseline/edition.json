@@ -1,0 +1,12 @@
+{
+ "edition_title": "Issue 0: September 2026 baseline",
+ "status": "scaffold",
+ "version": null,
+ "published": null,
+ "revised": null,
+ "information_available_as_of": "2026-09-23",
+ "revisions": [],
+ "reviewer": null,
+ "notes": "Numbers computed from the 2026-09-23 baseline capture; prose not yet written. The mandatory-reported block series carries its full history from 2012, so year-over-year is real at the baseline. The CME reprint carries one week per report, so this record holds a single week of it and the block-against-CME comparison is absent until the two series cover a common week. The 500-pound barrel series is recorded as having ceased publication after the week ending 2025-05-31. Publication gated by FA-D-20260923-01 as amended by FA-D-20260923-02 and FA-D-20260923-04.",
+ "standard": "Field Assembly Record Standard 1.2, §8 market records; see PROVENANCE.md"
+}

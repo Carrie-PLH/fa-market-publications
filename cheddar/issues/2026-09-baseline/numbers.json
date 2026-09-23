@@ -1,0 +1,146 @@
+{
+ "block_less_cme_usd_per_lb": {
+  "cme_latest_week": "2026-09-18",
+  "ndpsr_latest_week": "2026-09-12",
+  "unavailable_because": "No week is covered by both series yet. The mandatory report carries its full history in one request; the CME reprint carries one week per report, so this record accumulates it a week at a time.",
+  "value": null
+ },
+ "cme_barrels_weekly_avg": {
+  "label": "CME barrels, weekly average",
+  "period": "2026-09-18",
+  "unit": "USD per lb",
+  "value": 1.4475,
+  "weeks_in_record": 1
+ },
+ "cme_blocks_friday_close": {
+  "label": "CME 40-pound blocks, Friday close",
+  "period": "2026-09-18",
+  "unit": "USD per lb",
+  "value": 1.35,
+  "weeks_in_record": 1
+ },
+ "cme_blocks_weekly_avg": {
+  "label": "CME 40-pound blocks, weekly average",
+  "period": "2026-09-18",
+  "unit": "USD per lb",
+  "value": 1.412,
+  "weeks_in_record": 1
+ },
+ "computed_at": "2026-09-23T15:27:22+00:00",
+ "cpi_cheese": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 268.686,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 261.601,
+  "value": 258.372,
+  "vs_two_years_pct": -1.2,
+  "yoy_pct": -3.8
+ },
+ "cpi_food_away_from_home": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 384.909,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 370.348,
+  "value": 397.868,
+  "vs_two_years_pct": 7.4,
+  "yoy_pct": 3.4
+ },
+ "ers_food_price_outlook": {
+  "All food \u2014 Lower bound of forecast interval 2027": -3.0,
+  "All food \u2014 Mid point of forecast interval 2026": 3.0,
+  "All food \u2014 Mid point of forecast interval 2027": 2.4,
+  "All food \u2014 Upper bound of forecast interval 2027": 8.1,
+  "All food \u2014 Year-over-year July 2025 to July 2026": 3.0,
+  "Dairy products \u2014 Lower bound of forecast interval 2027": -6.5,
+  "Dairy products \u2014 Mid point of forecast interval 2026": 0.0,
+  "Dairy products \u2014 Mid point of forecast interval 2027": 0.6,
+  "Dairy products \u2014 Upper bound of forecast interval 2027": 8.0,
+  "Dairy products \u2014 Year-over-year July 2025 to July 2026": -0.5,
+  "Food away from home \u2014 Lower bound of forecast interval 2027": 0.0,
+  "Food away from home \u2014 Mid point of forecast interval 2026": 3.6,
+  "Food away from home \u2014 Mid point of forecast interval 2027": 2.7,
+  "Food away from home \u2014 Upper bound of forecast interval 2027": 5.5,
+  "Food away from home \u2014 Year-over-year July 2025 to July 2026": 3.4
+ },
+ "issue": "2026-09-baseline",
+ "ndpsr_barrel_500lb_last_published": {
+  "period": "2025-05-31",
+  "status": "No price published in this report after this week; every later row is null. Reported as a historical series, not a current price.",
+  "unit": "USD per lb",
+  "value": 1.9495
+ },
+ "ndpsr_block_40lb": {
+  "label": "Cheddar, 40-pound block, mandatory reported",
+  "period": "2026-09-12",
+  "prior_year_4wk_avg": 1.8264,
+  "prior_year_period": "2025-09-13",
+  "prior_year_value": 1.8428,
+  "trailing_4wk_avg": 1.6075,
+  "trailing_4wk_weeks": [
+   "2026-08-22",
+   "2026-08-29",
+   "2026-09-05",
+   "2026-09-12"
+  ],
+  "trailing_4wk_yoy_pct": -12.0,
+  "unit": "USD per lb",
+  "value": 1.579,
+  "yoy_pct": -14.3
+ },
+ "ndpsr_block_40lb_sales": {
+  "label": "Cheddar, 40-pound block, pounds sold",
+  "period": "2026-09-12",
+  "prior_year_4wk_avg": 10807747.5,
+  "prior_year_period": "2025-09-13",
+  "prior_year_value": 11113307.0,
+  "trailing_4wk_avg": 9520131.0,
+  "trailing_4wk_weeks": [
+   "2026-08-22",
+   "2026-08-29",
+   "2026-09-05",
+   "2026-09-12"
+  ],
+  "trailing_4wk_yoy_pct": -11.9,
+  "unit": "lb",
+  "value": 8764976.0,
+  "yoy_pct": -21.1
+ },
+ "ppi_natural_cheese": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 178.742,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 182.321,
+  "value": 171.637,
+  "vs_two_years_pct": -5.9,
+  "yoy_pct": -4.0
+ },
+ "retail_american_processed_usd_per_lb": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 5.008,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 4.841,
+  "value": 4.747,
+  "vs_two_years_pct": -1.9,
+  "yoy_pct": -5.2
+ },
+ "retail_cheddar_usd_per_lb": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 6.123,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 5.763,
+  "value": 5.983,
+  "vs_two_years_pct": 3.8,
+  "yoy_pct": -2.3
+ },
+ "retail_reference": {
+  "record": null,
+  "sellers": []
+ },
+ "run_id": "2026-09-23T152701Z",
+ "title": "Cheddar Monitor"
+}

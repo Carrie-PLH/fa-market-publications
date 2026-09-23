@@ -1,0 +1,1 @@
+{"parsed_at": "2026-09-23T15:27:22+00:00", "run_id": "2026-09-23T152701Z", "sources": {"ams_dmn_cheese": {"rows": 4, "status": "OK"}, "bls": {"rows": 340, "status": "OK"}, "ndpsr_barrel": {"rows": 1378, "status": "OK"}, "ndpsr_block": {"rows": 1512, "status": "OK"}, "usda_ers_fpo": {"rows": 39, "status": "OK"}}}
