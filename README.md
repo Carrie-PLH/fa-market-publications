@@ -9,9 +9,15 @@ Promise across all titles: a clear account of what's happening to food costs, an
 | Directory | Title | Status |
 |---|---|---|
 | `lobster/` | Lobster Monitor | Issue 0 (September 2026 baseline) drafted |
-| `egg-butter/` | Egg & Butter Brief | Sources verified, baseline run captured, Issue 0 scaffolded; publication gated by FA-D-20260923-01 |
+| `beef/` | Beef Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
+| `pork/` | Pork Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
+| `chicken/` | Chicken Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
+| `egg-butter/` | Egg & Butter Brief | Sources verified, baseline captured, Issue 0 scaffolded |
+| `cheddar/` | Cheddar Check | Sources verified, baseline captured, Issue 0 scaffolded |
 
-Planned: Beef Monitor. See `config.json` for the registry.
+Publication of every title but Lobster Monitor is gated by FA-D-20260923-01 as amended by -02 and -04: no second title publishes a first edition until Lobster Monitor ships a post-baseline issue, and a further title enters only after the existing titles have shipped on cadence for one measured quarter.
+
+Assessed and not scheduled: Coffee Current. Its sources verify, but only one institution publishes a coffee price, so no independent reading of it exists. See `config.json` for the registry and `tools/site.py` for the public register.
 
 ## Layout
 

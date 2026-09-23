@@ -14,7 +14,7 @@ Collected under the Field Assembly Record Standard **1.2** (§8, market records)
 - Like with like, no causal inference, what the record does not do (§8.4, §8.5, §8.8): the methodology page of each title states the rules; the editorial standard in `CLAUDE.md` binds sessions to them.
 - Editions immutable and versioned (§8.6): `edition.json` carries status, version, publication and revision dates; the site keeps every edition at its permanent address; corrections are dated on the page and the original text stays visible.
 - Original observations by letter (§8.7): Lobster Monitor's consumer reference rows come read-only from the private wedding observation record, sellers appear as letters, and the letter map is on the methodology page.
-- Anchoring (§3.6, PROVENANCE §chain): `tools/anchor.py` hashes the captures, data and issues of every title listed in `tools/anchor-paths.txt` into `anchors/`, with RFC 3161 tokens from two authorities. Chain entry 2026-09-22T202107Z covers the Lobster Monitor baseline run. Entry 2026-09-23T153756Z covers 206 files: the September 2026 baselines of the Egg & Butter Brief, Chicken Monitor, Beef Monitor, Pork Monitor and Cheddar Monitor, and the corrected Lobster Issue 0. Both tokens verify and an OpenTimestamps proof is stored for the second entry.
+- Anchoring (§3.6, PROVENANCE §chain): `tools/anchor.py` hashes the captures, data and issues of every title listed in `tools/anchor-paths.txt` into `anchors/`, with RFC 3161 tokens from two authorities. Chain entry 2026-09-22T202107Z covers the Lobster Monitor baseline run. Entry 2026-09-23T153756Z covers 206 files: the September 2026 baselines of the Egg & Butter Brief, Chicken Monitor, Beef Monitor, Pork Monitor and Cheddar Check, and the corrected Lobster Issue 0. Both tokens verify and an OpenTimestamps proof is stored for the second entry.
 - Retention (§3.10): captures are never destroyed; a later run supersedes.
 - Recipes (§3.11): `<title>/sources.json` is the recipe (URL, fetch method, parser, parser arguments); `config.json` carries fetch settings.
 
@@ -25,11 +25,15 @@ Collected under the Field Assembly Record Standard **1.2** (§8, market records)
 - Verification gate (§3.4): `tools/check.py` reads an issue's prose and its numbers table, pulls out every figure each asserts, and reports any that `numbers.json` does not hold at the precision the prose used. `tools/site.py` checks the built CSVs against `numbers.json`, and the editor reads the issue. What the mechanical check does not establish is that a figure was attached to the right measure: a figure equal to an unrelated stored value passes. A clean run means no figure was invented, not that every figure was used correctly.
 - Corroboration (ACQUISITION §corroboration): no Internet Archive capture is triggered at fetch time. Planned.
 
-- Chicken Monitor's wholesale weighted averages: report 3649 states the current and previous month only, so the year-over-year comparison for that series accumulates in this record from 2026-09 rather than existing at the baseline. The same holds for the CME cheese reprint in Cheddar Monitor, which carries one week per report.
+- Chicken Monitor's wholesale weighted averages: report 3649 states the current and previous month only, so the year-over-year comparison for that series accumulates in this record from 2026-09 rather than existing at the baseline. The same holds for the CME cheese reprint in Cheddar Check, which carries one week per report.
 
 ## Credentials
 
 The BLS request carries a free registration key for the public API v2. v1 is keyless but allows 25 queries per IP per day, which six titles do not fit inside; v2 allows 500 and takes a title's whole series set in one request. The key is read from the environment at fetch time, is stored outside this repository, and appears in no capture file, data file, commit or built page. `<title>/sources.json` names the environment variable, which is what makes the recipe reproducible without publishing the credential: anyone with their own free key can run the same fetch.
+
+## Naming
+
+The cheddar title was named Cheddar Monitor when it was scaffolded on 2026-09-23 and renamed Cheddar Check the same day, before any edition published. Its directory, `cheddar/`, is unchanged, so no capture path, data file or anchored hash is affected. Chain entry 2026-09-23T153756Z and the commits before the rename carry the former name; they are history and are not rewritten.
 
 ## Local extensions
 

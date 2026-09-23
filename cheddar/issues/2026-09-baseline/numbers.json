@@ -26,7 +26,7 @@
   "value": 1.412,
   "weeks_in_record": 1
  },
- "computed_at": "2026-09-23T15:27:22+00:00",
+ "computed_at": "2026-09-23T18:42:03+00:00",
  "cpi_cheese": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -142,5 +142,5 @@
   "sellers": []
  },
  "run_id": "2026-09-23T152701Z",
- "title": "Cheddar Monitor"
+ "title": "Cheddar Check"
 }

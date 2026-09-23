@@ -57,7 +57,7 @@
     "issue_model": "pork"
   },
   "cheddar": {
-    "name": "Cheddar Monitor",
+    "name": "Cheddar Check",
     "audience": "Pizzerias, sandwich shops, and caterers facing a supplier's price claim on cheese.",
     "issue_model": "cheddar"
   }

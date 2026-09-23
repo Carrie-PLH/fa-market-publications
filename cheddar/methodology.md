@@ -1,4 +1,4 @@
-# Cheddar Monitor: methodology
+# Cheddar Check: methodology
 
 This page is public. It names every source, states every rule, and explains what the record can and cannot show.
 
