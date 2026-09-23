@@ -1,0 +1,43 @@
+{
+ "captured_at": "2026-09-23T15:08:31+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 43286,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-23T15:08:31+00:00",
+   "final_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "headers_path": "chicken/captures/2026-09-23T150831Z/bls/series.headers.txt",
+   "http_status": 200,
+   "name": "series",
+   "path": "chicken/captures/2026-09-23T150831Z/bls/series.json",
+   "request_body": {
+    "endyear": "2026",
+    "registrationkey": "ENV:BLS_API_KEY",
+    "seriesid": [
+     "WPU0141",
+     "WPU022203",
+     "CUUR0000SEFF01",
+     "CUUR0000SEFV",
+     "APU0000706111",
+     "APU0000FF1101",
+     "APU0000706212"
+    ],
+    "startyear": "2021"
+   },
+   "request_method": "POST",
+   "request_secrets": [
+    "BLS_API_KEY"
+   ],
+   "requested_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "sha256": "a5467bb34ae02ca42e88e3bc8dac374e4b47a12da0f19204c96600919bf31d52",
+   "status": "OK"
+  }
+ ],
+ "label": "FOOD-COST INDICATOR (index) and OFFICIAL STATISTIC (average retail price)",
+ "run_id": "2026-09-23T150831Z",
+ "source_id": "bls",
+ "source_name": "U.S. Bureau of Labor Statistics: PPI, CPI and average price series (public API v2)",
+ "status": "OK"
+}

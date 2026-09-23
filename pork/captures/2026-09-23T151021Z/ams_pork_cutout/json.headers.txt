@@ -1,0 +1,22 @@
+# https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2680/Weekly%20Average%20Cutout%20and%20Primal%20Values
+HTTP 200
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Expires: Wed, 23 Sep 2026 15:10:23 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Wed, 23 Sep 2026 15:10:23 GMT
+Content-Length: 22071
+Connection: close
+Server-Timing: cdn-cache; desc=MISS
+Server-Timing: edge; dur=72
+Server-Timing: origin; dur=137
+Alt-Svc: h3=":443"; ma=93600
+Link: <https://www.google-analytics.com>;rel="preconnect"
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+Akamai-GRN: 0.8609c617.1790176223.8ddf9970
+Server-Timing: ak_p; desc="1790176223436_398854534_2380241264_20837_8621_8_13_-";dur=1
+# 2 Set-Cookie header(s) redacted at capture

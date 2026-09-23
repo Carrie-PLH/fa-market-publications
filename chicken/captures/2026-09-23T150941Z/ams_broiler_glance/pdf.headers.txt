@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/ams_2740.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 143610
+X-Content-Type-Options: nosniff
+Last-Modified: Tue, 22 Sep 2026 16:49:13 GMT
+ETag: "230fa-65c1525821761"
+X-Varnish: 7503636 2249084
+Accept-Ranges: bytes
+Expires: Wed, 23 Sep 2026 15:09:55 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Wed, 23 Sep 2026 15:09:55 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.8609c617.1790176195.8ddd5579

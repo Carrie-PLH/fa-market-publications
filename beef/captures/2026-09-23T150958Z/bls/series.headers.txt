@@ -1,0 +1,27 @@
+# https://api.bls.gov/publicAPI/v2/timeseries/data/
+HTTP 200
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+Vary: Origin, Accept-Encoding
+APC-Route-id: _02_09v
+Access-Control-Allow-Headers: origin,x-requested-with,access-control-request-headers,content-type,access-control-request-method,accept
+Access-Control-Allow-Origin: *
+Route-Id: _t8_06v; 
+Pool-Info: AP02
+X-Frame-Options: ALLOW-FROM https://www.bls.gov
+Content-Security-Policy: frame-ancestors https://*.bls.gov
+Cross-Origin-Opener-Policy: same-origin
+Content-Encoding: gzip
+Content-Length: 7701
+Expires: Wed, 23 Sep 2026 15:09:58 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Wed, 23 Sep 2026 15:09:58 GMT
+Connection: close
+Server-Timing: cdn-cache; desc=MISS
+Server-Timing: edge; dur=32
+Server-Timing: origin; dur=164
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Server-Timing: ak_p; desc="1790176198055_399605517_100023374_19583_7398_13_31_-";dur=1
+# 1 Set-Cookie header(s) redacted at capture

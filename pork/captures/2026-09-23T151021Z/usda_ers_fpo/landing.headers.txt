@@ -1,0 +1,26 @@
+# https://www.ers.usda.gov/data-products/food-price-outlook
+HTTP 200
+Date: Wed, 23 Sep 2026 15:10:32 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+Server: 
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Cache-Control: must-revalidate, no-cache, private
+Content-Encoding: gzip
+Content-Language: en
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Vary: Accept-Encoding,Origin
+Strict-Transport-Security: max-age=31536000;
+X-Content-Type-Options: nosniff
+X-Drupal-Dynamic-Cache: MISS
+X-Frame-Options: SAMEORIGIN
+X-Drupal-Cache-Tags: block_content:42 block_content:43 block_content:44 block_content:45 block_content:46 block_content:47 block_content:48 block_content:49 block_content:50 block_content:51 block_content:52 block_content:53 block_content:54 block_content:55 config:block_list config:context.context.data_products_data_files config:context.context.ers_csat_survey_invite config:context.context.hero_default config:easy_breadcrumb.settings config:filter.format.full_html config:system.menu.sidenav config:system.site config:user.role.anonymous config:workflows.workflow.cms_posting context_block_page http_response local_task node:3740 node:3838 node:3892 node:3947 node:4067 node:7067 node:7112 node_view rendered scheduled_transitions_for:node:3740 user:0
+X-Drupal-Cache-Contexts: cookies:big_pipe_nojs languages route session.exists theme timezone url user.permissions user.roles
+X-Drupal-Cache-Max-Age: -1 (Permanent)
+X-Generator: Drupal 11 (https://www.drupal.org)
+Content-Security-Policy: connect-src 'self' https://*.google-analytics.com https://api.data.gov https://dap.digitalgov.gov https://www.googletagmanager.com; frame-src 'self' https://*.ers.usda.gov https://*.tableau.com https://www.google.com; img-src 'self' https://ers.usda.gov https://ewapsdev.ers.usda.gov https://ewapsbeta.ers.usda.gov http://usda.sc.omtrdc.net https://www.googletagmanager.com data: w3.org/svg/2000 https://latex.codecogs.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.tableau.com https://api.data.gov https://www.gstatic.com/ https://cdnjs.cloudflare.com https://dap.digitalgov.gov https://public.tableau.com https://www.google.com; script-src-attr 'self' 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.tableau.com https://api.data.gov https://www.gstatic.com https://cdnjs.cloudflare.com https://dap.digitalgov.gov https://public.tableau.com https://www.google.com; style-src 'self' 'unsafe-inline' https://*.google-analytics.com https://googletagmanager.com https://cdnjs.cloudflare.com www.ers.usda.gov; style-src-attr 'self' 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline' https://*.google-analytics.com https://googletagmanager.com https://api.data.gov https://cdnjs.cloudflare.com www.ers.usda.gov; worker-src 'self' blob:; frame-ancestors 'self'; upgrade-insecure-requests
+X-Drupal-Cache: HIT
+Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+Referrer-Policy: strict-origin-when-cross-origin
