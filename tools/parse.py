@@ -987,6 +987,104 @@ def p_ico_cmr_pdf(rec, src, args):
     return out
 
 
+# ---------- USDA AMS NDPSR cheddar, Datamart JSON ----------
+
+def p_ndpsr_cheese_json(rec, src, args):
+    """NDPSR report 2993, the 40-pound block and 500-pound barrel cheddar
+    sections. Each published report restates the five most recent data weeks,
+    so a data week appears in up to five reports; the row from the latest
+    report carrying a data week is used and the first-published figure kept in
+    the note. Price and sales columns differ per section, so parser_args names
+    them. A week whose price is published as null is a gap in the source and is
+    skipped, never read as zero."""
+    fetch_name = args.get("fetch", "json")
+    price_col = args.get("price_column")
+    sales_col = args.get("sales_column")
+    if not price_col or not sales_col:
+        raise ParseFailure("ndpsr_cheese: parser_args needs price_column and sales_column")
+    f, body = read_fetch(rec, fetch_name)
+    rows = json.loads(body).get("results") or []
+    if not rows:
+        raise ParseFailure("NDPSR cheese: no results")
+    if price_col not in rows[0]:
+        raise ParseFailure(f"NDPSR cheese: column {price_col!r} not in the section: "
+                           f"{sorted(rows[0])[:12]}")
+    best, first, nulls = {}, {}, 0
+    for r in rows:
+        wk = _us_date(r.get("Week Ending Date"))
+        rep = _us_date(r.get("week_ending_date"))
+        if r.get(price_col) in (None, "", "-"):
+            nulls += 1
+            continue
+        try:
+            price = float(r[price_col])
+            sales = float(str(r.get(sales_col) or "").replace(",", ""))
+        except (TypeError, ValueError):
+            continue
+        if wk not in best or rep > best[wk][0]:
+            best[wk] = (rep, price, sales)
+        if wk not in first or rep < first[wk][0]:
+            first[wk] = (rep, price, sales)
+    sid_price = args["price_series_id"]
+    sid_sales = args["sales_series_id"]
+    label = args.get("label", "cheddar")
+    out = []
+    for wk in sorted(best):
+        rep, price, sales = best[wk]
+        note = f"latest revision, report week {rep}"
+        if first[wk][1] != price:
+            note += f"; first published {first[wk][1]} in report week {first[wk][0]}"
+        if nulls:
+            note += f"; {nulls} rows in this section carried no price and were skipped"
+        out.append(dict(series_id=sid_price,
+                        series_title=f"USDA AMS NDPSR: {label}, weighted average price USD/lb "
+                                     f"(week ending)",
+                        period=wk, value=round(price, 4), unit="USD per lb",
+                        evidence_fetch=fetch_name, notes=note))
+        out.append(dict(series_id=sid_sales,
+                        series_title=f"USDA AMS NDPSR: {label}, sales volume lb (week ending)",
+                        period=wk, value=round(sales, 0), unit="lb",
+                        evidence_fetch=fetch_name, notes=note))
+    if len(best) < int(args.get("min_weeks", 52)):
+        raise ParseFailure(f"NDPSR cheese: only {len(best)} data weeks parsed for {label}")
+    return out
+
+
+# ---------- USDA AMS Dairy Market News weekly PDF: CME cheese at a glance ----------
+
+def p_dmn_cheese_pdf(rec, src, args):
+    """Page 1 'At a Glance': the CME Group cash market for cheese, barrels and
+    40-pound blocks, Friday close and weekly average, as reprinted by USDA AMS.
+    A separate parser from the butter one so that changes here cannot affect
+    the Egg & Butter Brief, which reads the same file. Two-column layout, so
+    whitespace is collapsed before matching."""
+    f, body = read_fetch(rec, "pdf")
+    text = _pdf_text(body)
+    flat = re.sub(r"[ \t]+", " ", text)
+    m = re.search(r"CHEESE: Barrels closed at \$([\d.]+) and 40# blocks at \$([\d.]+)\."
+                  r".{0,500}?weekly average for barrels is \$([\d.]+).{0,200}?"
+                  r"blocks \$([\d.]+)", flat, re.S)
+    if not m:
+        raise ParseFailure("DMN: cheese 'At a Glance' pattern not found")
+    h = DMN_HEAD.search(text)
+    if not h:
+        raise ParseFailure("DMN: report week header not found")
+    week_end = f"{h.group(3)}-{MONTHS[h.group(1)]:02d}-{int(h.group(2)):02d}"
+    note = ("CME Group cash market, as reprinted by USDA AMS Dairy Market News; "
+            "CME data is proprietary at source")
+    spec = [("cme_cheese_barrels_friday_close_usd_per_lb",
+             "CME cheese, barrels, Friday close USD/lb (via USDA AMS DMN)", 1),
+            ("cme_cheese_blocks_40lb_friday_close_usd_per_lb",
+             "CME cheese, 40-pound blocks, Friday close USD/lb (via USDA AMS DMN)", 2),
+            ("cme_cheese_barrels_weekly_avg_usd_per_lb",
+             "CME cheese, barrels, weekly average USD/lb (via USDA AMS DMN)", 3),
+            ("cme_cheese_blocks_40lb_weekly_avg_usd_per_lb",
+             "CME cheese, 40-pound blocks, weekly average USD/lb (via USDA AMS DMN)", 4)]
+    return [dict(series_id=sid, series_title=title, period=week_end,
+                 value=float(m.group(g)), unit="USD per lb", evidence_fetch="pdf", notes=note)
+            for sid, title, g in spec]
+
+
 def p_retain_only(rec, src, args):
     """Evidence retained for the editor; no indicator rows. Fails if the fetch failed."""
     read_fetch(rec, src["fetches"][0]["name"] if src.get("fetches") else "pdf")
@@ -1000,7 +1098,8 @@ PARSERS = {"retain_only": p_retain_only, "foss_trade": p_foss_trade, "bls_api": 
            "ams_py_slaughter_txt": p_ams_py_slaughter_txt, "ers_retail_csv": p_ers_retail_csv,
            "datamart_json": p_datamart_json,
            "nass_cattle_on_feed_txt": p_nass_cattle_on_feed_txt,
-           "nass_hogs_pigs_txt": p_nass_hogs_pigs_txt, "ico_cmr_pdf": p_ico_cmr_pdf}
+           "nass_hogs_pigs_txt": p_nass_hogs_pigs_txt, "ico_cmr_pdf": p_ico_cmr_pdf,
+           "ndpsr_cheese_json": p_ndpsr_cheese_json, "dmn_cheese_pdf": p_dmn_cheese_pdf}
 
 
 def flag(t, run_id, source_id, kind, detail):

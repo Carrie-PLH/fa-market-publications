@@ -677,11 +677,130 @@ def numbers_md_pork(n):
     return "\n".join(L) + "\n"
 
 
+def compute_cheddar(n, sm, t, cfg_t, a):
+    blk = "ndpsr_cheddar_block_40lb_usd_per_lb"
+    n["ndpsr_block_40lb"] = _weekly(sm, blk, "Cheddar, 40-pound block, mandatory reported",
+                                    "USD per lb")
+    bs = "ndpsr_cheddar_block_40lb_sales_lb"
+    n["ndpsr_block_40lb_sales"] = _weekly(sm, bs, "Cheddar, 40-pound block, pounds sold", "lb")
+
+    # the barrel series stopped being published; report when, not a stale price
+    bar = "ndpsr_cheddar_barrel_500lb_usd_per_lb"
+    if sm.get(bar):
+        lp = latest_period(sm, bar)
+        n["ndpsr_barrel_500lb_last_published"] = {
+            "period": lp, "value": sm[bar][lp], "unit": "USD per lb",
+            "status": "No price published in this report after this week; every later row is "
+                      "null. Reported as a historical series, not a current price."}
+    else:
+        n["ndpsr_barrel_500lb_last_published"] = None
+
+    for key, sid, label in [
+            ("cme_blocks_weekly_avg", "cme_cheese_blocks_40lb_weekly_avg_usd_per_lb",
+             "CME 40-pound blocks, weekly average"),
+            ("cme_barrels_weekly_avg", "cme_cheese_barrels_weekly_avg_usd_per_lb",
+             "CME barrels, weekly average"),
+            ("cme_blocks_friday_close", "cme_cheese_blocks_40lb_friday_close_usd_per_lb",
+             "CME 40-pound blocks, Friday close")]:
+        if sm.get(sid):
+            p = latest_period(sm, sid)
+            n[key] = {"period": p, "value": sm[sid][p], "unit": "USD per lb", "label": label,
+                      "weeks_in_record": len(sm[sid])}
+            if len(sm[sid]) > 1:
+                n[key] |= weekly_yoy(sm, sid, p)
+        else:
+            n[key] = None
+
+    # The measure this title exists for: what manufacturers sold at against what
+    # the spot market did, in the same week. Computed only when both series hold
+    # the same week; the CME series accumulates one week per run, so this is
+    # absent until the record covers a week both cover.
+    cme = "cme_cheese_blocks_40lb_weekly_avg_usd_per_lb"
+    shared = sorted(set(sm.get(blk, {})) & set(sm.get(cme, {}))) if sm.get(cme) else []
+    if shared:
+        w = shared[-1]
+        n["block_less_cme_usd_per_lb"] = {
+            "week_ending": w,
+            "mandatory_reported": sm[blk][w], "cme_weekly_average": sm[cme][w],
+            "value": round(sm[blk][w] - sm[cme][w], 4),
+            "derived": "Mandatory-reported 40-pound block weighted average less the CME "
+                       "40-pound block weekly average, same week ending. Two different "
+                       "measures of the block market, subtracted; not a margin."}
+    else:
+        n["block_less_cme_usd_per_lb"] = {
+            "value": None,
+            "unavailable_because": "No week is covered by both series yet. The mandatory "
+                                   "report carries its full history in one request; the CME "
+                                   "reprint carries one week per report, so this record "
+                                   "accumulates it a week at a time.",
+            "ndpsr_latest_week": latest_period(sm, blk) if sm.get(blk) else None,
+            "cme_latest_week": latest_period(sm, cme) if sm.get(cme) else None}
+
+    _bls_block(n, sm, [("ppi_natural_cheese", "WPU023302"),
+                       ("cpi_cheese", "CUUR0000SEFJ02"),
+                       ("cpi_food_away_from_home", "CUUR0000SEFV"),
+                       ("retail_cheddar_usd_per_lb", "APU0000710212"),
+                       ("retail_american_processed_usd_per_lb", "APU0000710211")])
+    _ers_block(n, t, a, ("Dairy products", "Food away from home", "All food"))
+    n["retail_reference"] = {"record": None, "sellers": []}
+
+
+def numbers_md_cheddar(n):
+    L = ["| Measure | Latest | Same period, prior year | Change | Source |", "|---|---|---|---|---|"]
+    b = n.get("ndpsr_block_40lb")
+    if b:
+        L.append(f"| Cheddar, 40-pound block, mandatory reported ($/lb, week ending) | "
+                 f"{fm(b['value'], 4)} ({b['period']}) | {fm(b['prior_year_value'], 4)} "
+                 f"({b['prior_year_period'] or '—'}) | {fp(b['yoy_pct'])} | USDA AMS NDPSR |")
+        L.append(f"| Cheddar, 40-pound block, trailing 4-week average ($/lb) | "
+                 f"{fm(b['trailing_4wk_avg'], 4)} | {fm(b['prior_year_4wk_avg'], 4)} | "
+                 f"{fp(b['trailing_4wk_yoy_pct'])} | USDA AMS NDPSR |")
+    s = n.get("ndpsr_block_40lb_sales")
+    if s:
+        L.append(f"| Cheddar, 40-pound block, pounds sold (week ending) | {fm(s['value'], 0)} "
+                 f"({s['period']}) | {fm(s['prior_year_value'], 0)} "
+                 f"({s['prior_year_period'] or '—'}) | {fp(s['yoy_pct'])} | USDA AMS NDPSR |")
+    for key, label in [("cme_blocks_weekly_avg", "CME cheese, 40-pound blocks, weekly average ($/lb)"),
+                       ("cme_barrels_weekly_avg", "CME cheese, barrels, weekly average ($/lb)")]:
+        x = n.get(key)
+        if not x:
+            continue
+        py = (f"{fm(x.get('prior_year_value'), 4)} ({x.get('prior_year_period') or '—'})"
+              if x.get("prior_year_value") is not None
+              else f"— (this record holds {x['weeks_in_record']} week"
+                   f"{'s' if x['weeks_in_record'] != 1 else ''} of this series)")
+        L.append(f"| {label} | {fm(x['value'], 4)} ({x['period']}) | {py} | "
+                 f"{fp(x.get('yoy_pct'))} | CME via USDA AMS Dairy Market News |")
+    d = n.get("block_less_cme_usd_per_lb")
+    if d and d.get("value") is not None:
+        L.append(f"| Mandatory-reported block less CME block weekly average (derived, $/lb) | "
+                 f"{fm(d['value'], 4)} ({d['week_ending']}) | — | — | "
+                 f"Derived from USDA AMS NDPSR and Dairy Market News |")
+    bar = n.get("ndpsr_barrel_500lb_last_published")
+    if bar:
+        L.append(f"| Cheddar, 500-pound barrel, mandatory reported ($/lb) | last published "
+                 f"{fm(bar['value'], 4)} ({bar['period']}) | — | — | USDA AMS NDPSR, "
+                 f"series no longer carries a price |")
+    for key, label, src, d2 in [
+            ("retail_cheddar_usd_per_lb", "Retail cheddar, natural ($/lb)", "BLS APU0000710212", 3),
+            ("retail_american_processed_usd_per_lb", "Retail American processed cheese ($/lb)", "BLS APU0000710211", 3),
+            ("ppi_natural_cheese", "PPI, natural cheese except cottage (index)", "BLS WPU023302", 1),
+            ("cpi_cheese", "CPI, cheese and related products (index)", "BLS CUUR0000SEFJ02", 1),
+            ("cpi_food_away_from_home", "CPI, food away from home (index)", "BLS CUUR0000SEFV", 1)]:
+        x = n.get(key)
+        if not x:
+            continue
+        L.append(f"| {label} | {fm(x['value'], d2)} ({x['period']}) | {fm(x['prior_year_value'], d2)} "
+                 f"({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
+    return "\n".join(L) + "\n"
+
+
 MODELS = {"lobster": compute_lobster, "egg_butter": compute_egg_butter,
-          "chicken": compute_chicken, "beef": compute_beef, "pork": compute_pork}
+          "chicken": compute_chicken, "beef": compute_beef, "pork": compute_pork,
+          "cheddar": compute_cheddar}
 NUMBERS_MD = {"lobster": numbers_md_lobster, "egg_butter": numbers_md_egg_butter,
               "chicken": numbers_md_chicken, "beef": numbers_md_beef,
-              "pork": numbers_md_pork}
+              "pork": numbers_md_pork, "cheddar": numbers_md_cheddar}
 
 
 def main():

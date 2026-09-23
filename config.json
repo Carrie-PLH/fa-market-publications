@@ -5,7 +5,8 @@
     "egg-butter",
     "chicken",
     "beef",
-    "pork"
+    "pork",
+    "cheddar"
   ],
   "FETCH": {
     "request_delay_seconds": 2,
@@ -52,5 +53,10 @@
     "name": "Pork Monitor",
     "audience": "Restaurants, barbecue businesses, and caterers facing a supplier's price claim on pork.",
     "issue_model": "pork"
+  },
+  "cheddar": {
+    "name": "Cheddar Monitor",
+    "audience": "Pizzerias, sandwich shops, and caterers facing a supplier's price claim on cheese.",
+    "issue_model": "cheddar"
   }
 }

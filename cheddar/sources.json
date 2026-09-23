@@ -1,0 +1,117 @@
+{
+ "_comment": "Cheddar Monitor. Official sources fetched by tools/fetch.py (no browser). Every URL verified by fetching it on 2026-09-23. This title fetches and retains its own copies of the NDPSR report and the Dairy Market News PDF, which the Egg & Butter Brief also fetches, so that each edition's evidence package stands alone. Append-only in spirit: retire, never delete.",
+ "sources": [
+  {
+   "id": "bls",
+   "name": "U.S. Bureau of Labor Statistics: PPI, CPI and average price series (public API v2)",
+   "label": "FOOD-COST INDICATOR (index) and OFFICIAL STATISTIC (average retail price)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "WPU023302 is the PPI commodity index for natural cheese except cottage cheese; CUUR0000SEFJ02 the CPI for cheese and related products; CUUR0000SEFV food away from home. APU0000710212 and APU0000710211 are average prices in dollars per pound for natural cheddar and American processed cheese. All confirmed against the BLS flat files on 2026-09-23 and current through 2026-08.",
+   "page_url": "https://data.bls.gov/timeseries/WPU023302",
+   "fetches": [
+    {
+     "name": "series",
+     "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+     "ext": "json",
+     "method": "POST",
+     "body": {
+      "seriesid": ["WPU023302","CUUR0000SEFJ02","CUUR0000SEFV","APU0000710212","APU0000710211"],
+      "startyear": "{YEAR_MINUS_5}",
+      "endyear": "{YEAR}",
+      "registrationkey": "ENV:BLS_API_KEY"
+     }
+    }
+   ],
+   "parser": "bls_api",
+   "parser_args": {
+    "titles": {
+     "WPU023302": "PPI commodity: Natural cheese, except cottage cheese (NSA)",
+     "CUUR0000SEFJ02": "CPI-U: Cheese and related products, U.S. city average (NSA)",
+     "CUUR0000SEFV": "CPI-U: Food away from home, U.S. city average (NSA)",
+     "APU0000710212": "BLS average price: Cheddar cheese, natural, U.S. city average (USD per lb)",
+     "APU0000710211": "BLS average price: American processed cheese, U.S. city average (USD per lb)"
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ndpsr_block",
+   "name": "USDA AMS: National Dairy Products Sales Report, 40-pound block cheddar (Datamart report 2993)",
+   "label": "OFFICIAL STATISTIC (weekly weighted-average wholesale price under mandatory reporting, USD per lb)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Mandatory weekly reporting of what cheese manufacturers actually sold at: weighted-average price and pounds sold, week ending Saturday. The full history since 2012 comes in one keyless request, so year-over-year is available in every issue. This is the closest public series to what a distributor's supplier is paid, and it is a different measure from the CME spot market that a supplier may also call the block price.",
+   "page_url": "https://mpr.datamart.ams.usda.gov/menu.do?path=Products%5CDairy%5CNational%20Dairy%20Products%20Sales%20Report",
+   "fetches": [
+    {"name": "json", "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/40%20Pound%20Block%20Cheddar%20Cheese%20Prices%20and%20Sales", "ext": "json"},
+    {"name": "pdf", "url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf", "ext": "pdf"}
+   ],
+   "parser": "ndpsr_cheese_json",
+   "parser_args": {
+    "fetch": "json",
+    "price_column": "cheese_40_Price",
+    "sales_column": "cheese_40_Sales",
+    "price_series_id": "ndpsr_cheddar_block_40lb_usd_per_lb",
+    "sales_series_id": "ndpsr_cheddar_block_40lb_sales_lb",
+    "label": "cheddar, 40-pound block",
+    "min_weeks": 300
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ndpsr_barrel",
+   "name": "USDA AMS: National Dairy Products Sales Report, 500-pound barrel cheddar (Datamart report 2993)",
+   "label": "OFFICIAL STATISTIC (weekly weighted-average wholesale price under mandatory reporting, USD per lb; publication ceased mid-2025)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "The barrel series ran from 2012 and carries no published price after the week ending 2025-05-31; every row since is null. It is captured and parsed as a historical series because a buyer who remembers the barrel market needs to see that it stopped, and because the CME barrel quote continues and is not the same measure. It is not used as a current price.",
+   "page_url": "https://mpr.datamart.ams.usda.gov/menu.do?path=Products%5CDairy%5CNational%20Dairy%20Products%20Sales%20Report",
+   "fetches": [
+    {"name": "json", "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content", "ext": "json"}
+   ],
+   "parser": "ndpsr_cheese_json",
+   "parser_args": {
+    "fetch": "json",
+    "price_column": "cheese_500_Price",
+    "sales_column": "cheese_500_Sales",
+    "price_series_id": "ndpsr_cheddar_barrel_500lb_usd_per_lb",
+    "sales_series_id": "ndpsr_cheddar_barrel_500lb_sales_lb",
+    "label": "cheddar, 500-pound barrel (publication ceased mid-2025)",
+    "min_weeks": 300
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_dmn_cheese",
+   "name": "USDA AMS: Dairy Market News weekly report, CME cheese (PDF)",
+   "label": "OFFICIAL MARKET REPORT (CME cheese cash market as reprinted by USDA)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Page 1 reprints the CME Group cash market for cheese: barrels and 40-pound blocks, Friday close and weekly average. CME data is proprietary at source; USDA's reprint is the public record of it. Each report carries one week, so this series accumulates in the record one week per run; no history is available in a single request.",
+   "page_url": "https://www.ams.usda.gov/market-news/dairy-market-news-weekly-report",
+   "fetches": [
+    {"name": "pdf", "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf", "ext": "pdf"}
+   ],
+   "parser": "dmn_cheese_pdf",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "usda_ers_fpo",
+   "name": "USDA ERS Food Price Outlook (CPI forecast table)",
+   "label": "FOOD-COST INDICATOR (official forecast table)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Monthly USDA table of year-over-year CPI changes and forecast intervals by food category, including dairy products. The CSV link changes each release, so the landing page is captured and the current link followed at run time.",
+   "page_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetches": [
+    {"name": "landing", "url": "https://www.ers.usda.gov/data-products/food-price-outlook", "ext": "html"},
+    {"name": "cpi_csv", "url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv", "ext": "csv"}
+   ],
+   "parser": "ers_fpo",
+   "parser_args": {"categories": ["dairy products", "food away from home", "all food"]},
+   "screenshot": false
+  }
+ ]
+}

@@ -53,21 +53,24 @@ MARK = ('<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48
 
 # Titles the site lists that have no directory yet. Status text is stated as it stands.
 PLANNED = [
-    {"slug": "cheddar", "name": "Cheddar Monitor", "for": "Pizzerias, sandwich shops, caterers",
-     "src": "USDA AMS National Dairy Products Sales Report · CME cheese via USDA Dairy Market News · BLS PPI, CPI and average prices",
-     "status": "Sources assessed", "note": "Scaffolding; no edition yet"},
+    {"slug": "coffee", "name": "Coffee Current", "for": "Independent cafés, small roasters, hospitality buyers",
+     "src": "ICO composite indicator · USDA FAS coffee reports · BLS PPI, CPI and average prices",
+     "status": "Assessed, not scheduled",
+     "note": "Sources verified; only one institution publishes a price, so no independent reading of it exists"},
 ]
-ORDER = ["lobster", "beef", "pork", "chicken", "egg-butter", "cheddar"]
+ORDER = ["lobster", "beef", "pork", "chicken", "egg-butter", "cheddar", "coffee"]
 TITLE_FOR = {"lobster": "Caterers, event planners, seafood buyers",
              "egg-butter": "Bakeries, pastry shops, breakfast businesses",
              "chicken": "Restaurants, caterers, food-service buyers",
              "beef": "Independent restaurants, caterers, small food buyers",
-             "pork": "Restaurants, barbecue businesses, caterers"}
+             "pork": "Restaurants, barbecue businesses, caterers",
+             "cheddar": "Pizzerias, sandwich shops, caterers"}
 TITLE_SRC = {"lobster": "Maine DMR landings · NOAA FOSS trade · BLS PPI and CPI · USDA ERS outlook · Field Assembly observation record",
              "egg-butter": "USDA AMS egg and dairy reports · USDA NASS · USDA ERS · BLS PPI and CPI",
              "chicken": "USDA AMS National Chicken Report · USDA AMS broiler slaughter · USDA ERS · BLS PPI, CPI and average prices",
              "beef": "USDA AMS boxed beef cutout · USDA AMS fed cattle · USDA NASS Cattle on Feed · USDA ERS · BLS PPI, CPI and average prices",
-             "pork": "USDA AMS pork cutout and primals · USDA NASS Hogs and Pigs · USDA ERS · BLS PPI, CPI and average prices"}
+             "pork": "USDA AMS pork cutout and primals · USDA NASS Hogs and Pigs · USDA ERS · BLS PPI, CPI and average prices",
+             "cheddar": "USDA AMS National Dairy Products Sales Report · CME cheese via USDA Dairy Market News · USDA ERS · BLS PPI, CPI and average prices"}
 
 
 def esc(s):
@@ -687,7 +690,7 @@ def home_page(cfg, editions_by, out, draft_mode):
 <section class="section" id="titles" aria-labelledby="h-titles">
   <div class="section-no">01<small>The register</small></div>
   <div class="section-body">
-    <h2 id="h-titles">Six titles, one method</h2>
+    <h2 id="h-titles">Six titles in build, one method</h2>
     <p>Each title follows a small set of dependable public sources and five to seven measures, chosen because someone buying, reporting on, or studying that product asks about them. Several reports from one institution are not treated as independent corroboration. A measure is added only when it answers a reader's question.</p>
     <div class="tablewrap">
     <table class="register">
@@ -734,7 +737,7 @@ def home_page(cfg, editions_by, out, draft_mode):
 </section>
 """
     write(out, "/", shell("Provision Record", body, path="/",
-                          description="Provision Record, Field Assembly's food market publications: a free, dated public record of what is happening to lobster, beef, pork, chicken, egg and butter, and cheddar costs, with sources, calculations and downloadable tables.",
+                          description="Provision Record, Field Assembly's food market publications: a free, dated public record of what is happening to lobster, beef, pork, chicken, egg and butter, and cheddar cheese costs, with sources, calculations and downloadable tables.",
                           dateline=("<b>Free public resource</b> · dated editions", "Field Assembly · Food Market Publications")))
 
 

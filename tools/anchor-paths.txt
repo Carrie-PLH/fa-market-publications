@@ -13,3 +13,6 @@ beef/issues
 pork/captures
 pork/data
 pork/issues
+cheddar/captures
+cheddar/data
+cheddar/issues
