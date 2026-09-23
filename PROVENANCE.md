@@ -4,7 +4,7 @@ This repository is the record behind provisionrecord.com, a Field Assembly marke
 
 ## Standard version
 
-Collected under the Field Assembly Record Standard **1.2 as drafted** (§8, market records), recorded in FA-D-20260923-04. Version 1.2 is not yet released: it is frozen and anchored only on the owner's word. Until it is, the current released version is 1.1, and this work does not claim 1.1 conformance. Observations made before the 1.2 effective date are collected under the 1.2 draft and say so; an observation's standard version is pinned here rather than resolved by §6's date rule.
+Collected under the Field Assembly Record Standard **1.2** (§8, market records), effective 2026-09-23, frozen under `versions/1.2/` in the standard's repository and anchored there (entry 2026-09-23T143102Z), recorded in FA-D-20260923-04. Observations captured before the 1.2 effective date (the Lobster Monitor run of 2026-09-22 and the Egg & Butter Brief run of 2026-09-23) are pinned to 1.2 here rather than resolved by §6's date rule, because §8 describes the practice they were collected under and no earlier release does.
 
 ## What is met
 
