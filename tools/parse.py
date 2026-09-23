@@ -12,7 +12,9 @@ Usage:
 
 Parsers foss_trade, bls_api, ers_fpo are forked from the wedding lobster
 monitor. dmr_landings_pdf is new: Maine DMR monthly landings (pounds, value)
-and the derived ex-vessel price per pound.
+and the derived ex-vessel price per pound. ndpsr_json, dmn_weekly_pdf,
+ams_shell_egg_pdf and nass_ckeg_txt serve the Egg & Butter Brief. Weekly
+series use a YYYY-MM-DD week-ending period; monthly series use YYYY-MM.
 """
 
 import argparse
@@ -157,6 +159,7 @@ def _ers_clean_header(h):
 
 def p_ers_fpo(rec, src, args):
     f, body = read_fetch(rec, "cpi_csv")
+    cats = {c.lower() for c in args.get("categories", ERS_CATEGORIES)}
     out = []
     if body[:4] == b"PK\x03\x04":
         rows = _xlsx_rows(body)
@@ -166,7 +169,7 @@ def p_ers_fpo(rec, src, args):
             raise ParseFailure("xlsx: header row 'Consumer Price Index item' not found")
         for r in rows:
             cat = (r.get("A") or "").strip()
-            if cat.lower() not in ERS_CATEGORIES:
+            if cat.lower() not in cats:
                 continue
             for colref, htext in header.items():
                 if colref == "A" or not htext:
@@ -189,7 +192,7 @@ def p_ers_fpo(rec, src, args):
         for row in reader:
             cat = next((row[k] for k in ("Disaggregate", "Low-level", "Mid-level",
                                          "Aggregate", "Top-level") if row.get(k)), "")
-            if cat.strip().lower() not in ERS_CATEGORIES:
+            if cat.strip().lower() not in cats:
                 continue
             attr = (row.get("Attribute") or "").strip()
             try:
@@ -266,8 +269,221 @@ def p_dmr_landings_pdf(rec, src, args):
     return out
 
 
-PARSERS = {"foss_trade": p_foss_trade, "bls_api": p_bls_api, "ers_fpo": p_ers_fpo,
-           "dmr_landings_pdf": p_dmr_landings_pdf}
+
+# ---------- USDA AMS NDPSR (National Dairy Products Sales Report), Datamart JSON ----------
+
+def _us_date(s):
+    m = re.match(r"(\d{2})/(\d{2})/(\d{4})", s or "")
+    if not m:
+        raise ParseFailure(f"date not MM/DD/YYYY: {s!r}")
+    return f"{m.group(3)}-{m.group(1)}-{m.group(2)}"
+
+
+def p_ndpsr_json(rec, src, args):
+    """Datamart report 2993, section 'Butter Prices and Sales'. Each published
+    report (week_ending_date) restates the five most recent data weeks
+    ('Week Ending Date'), so a data week appears in up to five reports. The
+    row from the latest report that carries a data week is used (the most
+    revised figure); the first-published figure is retained in notes."""
+    f, body = read_fetch(rec, "butter")
+    j = json.loads(body)
+    rows = j.get("results") or []
+    if not rows or "Butter_Price" not in rows[0]:
+        raise ParseFailure("NDPSR: no results or Butter_Price column missing")
+    best, first = {}, {}
+    for r in rows:
+        wk = _us_date(r.get("Week Ending Date"))
+        rep = _us_date(r.get("week_ending_date"))
+        try:
+            price = float(r["Butter_Price"])
+            sales = float(str(r["Butter_Sales"]).replace(",", ""))
+        except (TypeError, ValueError, KeyError):
+            continue
+        if wk not in best or rep > best[wk][0]:
+            best[wk] = (rep, price, sales)
+        if wk not in first or rep < first[wk][0]:
+            first[wk] = (rep, price, sales)
+    out = []
+    for wk in sorted(best):
+        rep, price, sales = best[wk]
+        note = f"latest revision, report week {rep}"
+        if first[wk][1] != price:
+            note += f"; first published {first[wk][1]} in report week {first[wk][0]}"
+        out.append(dict(series_id="ndpsr_butter_usd_per_lb",
+                        series_title="USDA AMS NDPSR: butter, weighted average price USD/lb (week ending)",
+                        period=wk, value=round(price, 4), unit="USD per lb",
+                        evidence_fetch="butter", notes=note))
+        out.append(dict(series_id="ndpsr_butter_sales_lb",
+                        series_title="USDA AMS NDPSR: butter, sales volume lb (week ending)",
+                        period=wk, value=round(sales, 0), unit="lb",
+                        evidence_fetch="butter", notes=note))
+    if len(best) < 52:
+        raise ParseFailure(f"NDPSR: only {len(best)} data weeks parsed")
+    return out
+
+
+# ---------- USDA AMS Dairy Market News weekly PDF: CME butter at a glance ----------
+
+DMN_DATE = re.compile(r"CME GROUP CASH MARKETS \((\d{1,2})/(\d{1,2})\)")
+DMN_HEAD = re.compile(r"DAIRY MARKET NEWS,\s+([A-Z]+)\s+\d{1,2}\s*[–-]\s*(\d{1,2}),\s*(\d{4})")
+MONTHS = {m: i for i, m in enumerate(["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY",
+                                      "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"], 1)}
+
+
+def p_dmn_weekly_pdf(rec, src, args):
+    """Page 1 'At a Glance': CME Grade AA butter Friday close and weekly average,
+    as reprinted by USDA AMS. Two-column layout: pdftotext -layout interleaves
+    columns, so whitespace between the words is collapsed before matching."""
+    f, body = read_fetch(rec, "pdf")
+    text = _pdf_text(body)
+    flat = re.sub(r"[ \t]+", " ", text)
+    # remove the right-hand column bleed: join lines, then match with .{0,200}? between phrases
+    m = re.search(r"BUTTER: Grade AA closed at \$([\d.]+)\..{0,400}?weekly average for Grade.{0,300}?\bAA is \$([\d.]+)", flat, re.S)
+    if not m:
+        raise ParseFailure("DMN: butter 'At a Glance' pattern not found")
+    h = DMN_HEAD.search(text)
+    if not h:
+        raise ParseFailure("DMN: report week header not found")
+    week_end = f"{h.group(3)}-{MONTHS[h.group(1)]:02d}-{int(h.group(2)):02d}"
+    note = "CME Group cash market, as reprinted by USDA AMS Dairy Market News; CME data is proprietary at source"
+    return [dict(series_id="cme_butter_aa_friday_close_usd_per_lb",
+                 series_title="CME Grade AA butter, Friday close USD/lb (via USDA AMS DMN)",
+                 period=week_end, value=float(m.group(1)), unit="USD per lb",
+                 evidence_fetch="pdf", notes=note),
+            dict(series_id="cme_butter_aa_weekly_avg_usd_per_lb",
+                 series_title="CME Grade AA butter, weekly average USD/lb (via USDA AMS DMN)",
+                 period=week_end, value=float(m.group(2)), unit="USD per lb",
+                 evidence_fetch="pdf", notes=note)]
+
+
+# ---------- USDA AMS Weekly Combined Regional Shell Egg Report PDF ----------
+
+SHELL_ROW = re.compile(r"^\s*(Extra Large|Large|Medium|Small)\s+([\d.]+)\s*-\s*([\d.]+)\s+([\d.]+)\s+([+-]?[\d.]+)\s+([\d.]+)")
+
+
+def p_ams_shell_egg_pdf(rec, src, args):
+    """Blocks are 'Region Shell Eggs - Caged' then a channel line, then class
+    rows: range, average, change, last reported. Series per (region, channel,
+    class). Period is the report week's end date."""
+    f, body = read_fetch(rec, "pdf")
+    text = _pdf_text(body)
+    m = re.search(r"Report for:\s*(\d{2}/\d{2}/\d{4})\s*-\s*(\d{2}/\d{2}/\d{4})", text)
+    if not m:
+        raise ParseFailure("shell egg: 'Report for' week not found")
+    week_end = _us_date(m.group(2))
+    region = channel = None
+    out = []
+    want = args.get("want")  # list of [region, channel, class] triples, or None for all
+    for line in text.splitlines():
+        r = re.match(r"^\s*(\w[\w ]+?) Shell Eggs - Caged\s*$", line)
+        if r:
+            region = r.group(1).strip(); channel = None; continue
+        c = re.match(r"^\s*(Delivered Warehouse|Delivered Store Door|Paid to Producers[^,]*), White, Cents Per Dozen", line)
+        if c:
+            channel = c.group(1).strip(); continue
+        row = SHELL_ROW.match(line)
+        if row and region and channel:
+            cls = row.group(1)
+            if want and [region, channel, cls] not in want:
+                continue
+            slug = re.sub(r"[^a-z0-9]+", "_", f"{region} {channel} {cls}".lower()).strip("_")
+            out.append(dict(series_id=f"ams_shell_egg_{slug}_cents_per_dozen",
+                            series_title=f"USDA AMS shell eggs, caged, white: {region}, {channel}, {cls}, average cents/dozen",
+                            period=week_end, value=float(row.group(4)), unit="cents per dozen",
+                            evidence_fetch="pdf",
+                            notes=f"range {row.group(2)}-{row.group(3)}; change {row.group(5)}; last reported {row.group(6)}"))
+    if not out:
+        raise ParseFailure("shell egg: no class rows matched")
+    return out
+
+
+# ---------- USDA NASS Chickens and Eggs, monthly text ----------
+
+MONTH_NAMES = ["January", "February", "March", "April", "May", "June", "July", "August",
+               "September", "October", "November", "December"]
+
+
+def _nass_table(text, heading):
+    """Lines of the first table whose heading line starts with `heading`."""
+    lines = text.splitlines()
+    for i, ln in enumerate(lines):
+        if ln.strip().startswith(heading) and not re.search(r"\.{3,}\s*\d+\s*$", ln):  # skip the contents entry
+            block = []
+            for x in lines[i + 1:]:
+                block.append(x)
+                if x.strip().startswith("1/ December previous year"):
+                    return block
+            return block
+    raise ParseFailure(f"NASS: table '{heading}' not found")
+
+
+def _nass_years(block):
+    for ln in block:
+        m = re.findall(r"\b(20\d{2})\b", ln)
+        if len(m) >= 2 and ":" in ln:
+            return m
+    raise ParseFailure("NASS: year header not found")
+
+
+def p_nass_ckeg_txt(rec, src, args):
+    f, body = read_fetch(rec, "txt")
+    text = body.decode("utf-8", "ignore")
+    rel = re.search(r"Released ([A-Z][a-z]+ \d{1,2}, \d{4})", text)
+    note = f"NASS release {rel.group(1) if rel else 'date not found'}"
+    out = []
+    # layers: two columns (prior year, current year)
+    blk = _nass_table(text, "Average Layers During the Month - United States")
+    years = _nass_years(blk)[:2]
+    n = 0
+    for ln in blk:
+        m = re.match(r"^\s*([A-Z][a-z]+)(?: 1/)?\s*\.+:\s*([\d,]+)?\s+([\d,]+)?", ln)
+        if not m or m.group(1) not in MONTH_NAMES:
+            continue
+        mo = MONTH_NAMES.index(m.group(1)) + 1
+        for yi, val in ((0, m.group(2)), (1, m.group(3))):
+            if val is None:
+                continue
+            y = int(years[yi]) - (1 if m.group(1) == "December" else 0)
+            out.append(dict(series_id="nass_layers_avg_thousand",
+                            series_title="USDA NASS Chickens and Eggs: average layers during the month, U.S. (1,000 layers)",
+                            period=f"{y}-{mo:02d}", value=float(val.replace(",", "")), unit="1,000 layers",
+                            evidence_fetch="txt", notes=note)); n += 1
+    # table egg production: six columns, table eggs are columns 3 and 4
+    blk = _nass_table(text, "Egg Production During the Month by Type - United States")
+    years = _nass_years(blk)[:2]
+    for ln in blk:
+        m = re.match(r"^\s*([A-Z][a-z]+)(?: 1/)?\s*\.+:\s*(.*)$", ln)
+        if not m or m.group(1) not in MONTH_NAMES:
+            continue
+        vals = re.findall(r"[\d,]+\.\d", m.group(2))
+        # column layout: total(2), table(2), hatching(2); blanks collapse, so use positions only when all six present or three (prior-year only)
+        mo = MONTH_NAMES.index(m.group(1)) + 1
+        if len(vals) == 6:
+            pairs = ((0, vals[2]), (1, vals[3]))
+        elif len(vals) == 3:
+            pairs = ((0, vals[1]),)
+        else:
+            continue
+        for yi, val in pairs:
+            y = int(years[yi]) - (1 if m.group(1) == "December" else 0)
+            out.append(dict(series_id="nass_table_egg_production_million",
+                            series_title="USDA NASS Chickens and Eggs: table egg production during the month, U.S. (million eggs)",
+                            period=f"{y}-{mo:02d}", value=float(val.replace(",", "")), unit="million eggs",
+                            evidence_fetch="txt", notes=note)); n += 1
+    if n < 20:
+        raise ParseFailure(f"NASS: only {n} rows parsed")
+    return out
+
+def p_retain_only(rec, src, args):
+    """Evidence retained for the editor; no indicator rows. Fails if the fetch failed."""
+    read_fetch(rec, src["fetches"][0]["name"] if src.get("fetches") else "pdf")
+    return []
+
+
+PARSERS = {"retain_only": p_retain_only, "foss_trade": p_foss_trade, "bls_api": p_bls_api, "ers_fpo": p_ers_fpo,
+           "dmr_landings_pdf": p_dmr_landings_pdf, "ndpsr_json": p_ndpsr_json,
+           "dmn_weekly_pdf": p_dmn_weekly_pdf, "ams_shell_egg_pdf": p_ams_shell_egg_pdf,
+           "nass_ckeg_txt": p_nass_ckeg_txt}
 
 
 def flag(t, run_id, source_id, kind, detail):

@@ -1,3 +1,6 @@
 lobster/captures
 lobster/data
 lobster/issues
+egg-butter/captures
+egg-butter/data
+egg-butter/issues

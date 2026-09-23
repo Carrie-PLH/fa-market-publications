@@ -138,21 +138,7 @@ def retail_reference(cfg_t, letters, baseline_month):
                        "sha256": sha256_file(obs_file), "git_commit": git}}
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--title", required=True)
-    ap.add_argument("--issue", required=True)
-    ap.add_argument("--run-id", required=True)
-    ap.add_argument("--baseline-month", default=None, help="YYYY-MM for retail reference")
-    a = ap.parse_args()
-    t = Title(a.title)
-    cfg = config()
-    cfg_t = cfg[a.title]
-    sm = series_map(read_jsonl(t.indicators), a.run_id)
-    if not sm:
-        sys.exit(f"no indicator rows for run {a.run_id}")
-    n = {"issue": a.issue, "title": cfg_t["name"], "run_id": a.run_id, "computed_at": iso()}
-
+def compute_lobster(n, sm, t, cfg_t, a):
     ppi = "WPU02230503"
     n["ppi_lobsters"] = yoy(sm, ppi, latest_period(sm, ppi))
     # winter peak: max Jan-Apr of latest year vs prior year
@@ -222,23 +208,10 @@ def main():
         spec = cfg_t["retail_reference"]["reference_series"]
         n["retail_reference"]["implied_usd_per_lb_at_min_weight"] = [round(x / float(spec["size_class"]), 2) for x in n["retail_reference"]["range_last"]]
 
-    out = t.issues / a.issue
-    out.mkdir(parents=True, exist_ok=True)
-    (out / "numbers.json").write_text(json.dumps(n, indent=1, sort_keys=True) + "\n")
 
-    # evidence.json: the capture files behind this run
-    caps = []
-    for src in t.sources():
-        cj = t.captures / a.run_id / src["id"] / "capture.json"
-        if cj.exists():
-            rec = load_json(cj)
-            for f in rec["fetches"]:
-                caps.append({"source_id": src["id"], "fetch": f["name"], "url": f.get("final_url") or f["requested_url"],
-                             "fetched_at": f.get("fetched_at"), "path": f.get("path"), "sha256": f.get("sha256"),
-                             "status": f["status"]})
-    (out / "evidence.json").write_text(json.dumps({"issue": a.issue, "run_id": a.run_id, "captures": caps,
-                                                   "retail_record": n["retail_reference"]["record"]}, indent=1) + "\n")
 
+def numbers_md_lobster(n):
+    dy = int(n["dmr_latest_period"][:4])
     # numbers.md
     def fm(v, d=2):
         return "—" if v is None else f"{v:,.{d}f}"
@@ -257,7 +230,150 @@ def main():
     rr = n["retail_reference"]
     if rr["sellers"]:
         L.append(f"| Consumer reference: single live hard-shell 1.25 lb, counter or pickup ($ each) | {fm(rr['range_last'][0])} to {fm(rr['range_last'][1])} ({', '.join(rr['capture_dates'])}; sellers {', '.join(x['seller'] for x in rr['sellers'])}) | — | — | Field Assembly observation record |")
-    (out / "numbers.md").write_text("\n".join(L) + "\n")
+    return "\n".join(L) + "\n"
+
+
+def fm(v, d=2):
+    return "—" if v is None else f"{v:,.{d}f}"
+
+
+def fp(v):
+    return "—" if v is None else f"{v:+.1f}%"
+
+
+def weekly_yoy(sm, sid, period, window=4):
+    """Weekly series (YYYY-MM-DD week ending): latest week against the nearest
+    week ending within 4 days of one year earlier, and the trailing `window`
+    week average against the same window a year earlier."""
+    from datetime import date, timedelta
+    d = sm[sid]
+    def nearest(target):
+        c = [p for p in d if abs((date.fromisoformat(p) - target).days) <= 4]
+        return min(c, key=lambda p: abs((date.fromisoformat(p) - target).days)) if c else None
+    latest = date.fromisoformat(period)
+    prior = nearest(latest - timedelta(days=364))
+    weeks = sorted(p for p in d if p <= period)[-window:]
+    prior_weeks = [nearest(date.fromisoformat(w) - timedelta(days=364)) for w in weeks]
+    prior_weeks = [w for w in prior_weeks if w]
+    avg = round(sum(d[w] for w in weeks) / len(weeks), 4) if weeks else None
+    pavg = round(sum(d[w] for w in prior_weeks) / len(prior_weeks), 4) if len(prior_weeks) == window else None
+    return {"period": period, "value": d.get(period), "prior_year_period": prior,
+            "prior_year_value": d.get(prior) if prior else None,
+            "yoy_pct": pct(d.get(prior), d.get(period)) if prior else None,
+            f"trailing_{window}wk_avg": avg, f"trailing_{window}wk_weeks": weeks,
+            f"prior_year_{window}wk_avg": pavg, f"trailing_{window}wk_yoy_pct": pct(pavg, avg)}
+
+
+def compute_egg_butter(n, sm, t, cfg_t, a):
+    for key, sid in [("ppi_chicken_eggs", "WPU0171"), ("ppi_butter", "WPU0232"),
+                     ("cpi_eggs", "CUUR0000SEFH"), ("cpi_butter", "CUUR0000SS10011"),
+                     ("cpi_food_away_from_home", "CUUR0000SEFV")]:
+        n[key] = yoy(sm, sid, latest_period(sm, sid))
+    ppi = "WPU0171"
+    # egg PPI peak within the last 24 months, for the "how far from the peak" sentence
+    recent = sorted(sm[ppi])[-24:]
+    pk = max(recent, key=lambda p: sm[ppi][p])
+    n["ppi_chicken_eggs_24m_peak"] = {"period": pk, "value": sm[ppi][pk],
+                                      "latest_vs_peak_pct": pct(sm[ppi][pk], sm[ppi][recent[-1]])}
+    bw = "ndpsr_butter_usd_per_lb"
+    n["ndpsr_butter_weekly"] = weekly_yoy(sm, bw, latest_period(sm, bw))
+    bs = "ndpsr_butter_sales_lb"
+    n["ndpsr_butter_sales_weekly"] = weekly_yoy(sm, bs, latest_period(sm, bs))
+    cme = "cme_butter_aa_weekly_avg_usd_per_lb"
+    n["cme_butter_aa_weekly_avg"] = {"period": latest_period(sm, cme), "value": sm[cme].get(latest_period(sm, cme))} if sm.get(cme) else None
+    cl = "cme_butter_aa_friday_close_usd_per_lb"
+    n["cme_butter_aa_friday_close"] = {"period": latest_period(sm, cl), "value": sm[cl].get(latest_period(sm, cl))} if sm.get(cl) else None
+    for key, sid in [("shell_egg_national_warehouse_large", "ams_shell_egg_national_delivered_warehouse_large_cents_per_dozen"),
+                     ("shell_egg_midwest_producer_large", "ams_shell_egg_midwest_paid_to_producers_fob_large_cents_per_dozen"),
+                     ("shell_egg_northeast_warehouse_large", "ams_shell_egg_northeast_delivered_warehouse_large_cents_per_dozen")]:
+        if sm.get(sid):
+            lp = latest_period(sm, sid)
+            n[key] = weekly_yoy(sm, sid, lp) if len(sm[sid]) > 1 else {"period": lp, "value": sm[sid][lp], "prior_year_period": None, "prior_year_value": None, "yoy_pct": None}
+            # the report itself states last week's figure; carry it from the row note
+            row = next((r for r in read_jsonl(t.indicators) if r["run_id"] == a.run_id and r["series_id"] == sid and r["period"] == lp), None)
+            if row:
+                import re
+                m = re.search(r"last reported ([\d.]+)", row.get("notes", ""))
+                n[key]["prior_week_value_as_reported"] = float(m.group(1)) if m else None
+    for key, sid in [("nass_layers_avg", "nass_layers_avg_thousand"),
+                     ("nass_table_egg_production", "nass_table_egg_production_million")]:
+        n[key] = yoy(sm, sid, latest_period(sm, sid))
+    ers_rows = [r for r in read_jsonl(t.indicators) if r["run_id"] == a.run_id and r["series_id"].startswith("ers_fpo|")]
+    want = ["Year-over-year", "Mid point of forecast interval 2026", "Mid point of forecast interval 2027",
+            "Lower bound of forecast interval 2027", "Upper bound of forecast interval 2027"]
+    n["ers_food_price_outlook"] = {}
+    for r in ers_rows:
+        _, cat, attr = r["series_id"].split("|", 2)
+        if cat in ("Eggs", "Dairy products", "Fats and oils", "Food away from home") and any(attr.startswith(w) for w in want):
+            n["ers_food_price_outlook"][f"{cat} — {attr}"] = r["value"]
+    n["retail_reference"] = {"record": None, "sellers": []}
+
+
+def numbers_md_egg_butter(n):
+    L = ["| Measure | Latest | Same period, prior year | Change | Source |", "|---|---|---|---|---|"]
+    for key, label, src, d in [("ppi_chicken_eggs", "PPI, chicken eggs (index)", "BLS WPU0171", 1),
+                                ("cpi_eggs", "CPI, eggs (index)", "BLS CUUR0000SEFH", 1),
+                                ("ppi_butter", "PPI, butter (index)", "BLS WPU0232", 1),
+                                ("cpi_butter", "CPI, butter (index)", "BLS CUUR0000SS10011", 1),
+                                ("cpi_food_away_from_home", "CPI, food away from home (index)", "BLS CUUR0000SEFV", 1),
+                                ("nass_layers_avg", "Average layers during the month (thousand)", "USDA NASS Chickens and Eggs", 0),
+                                ("nass_table_egg_production", "Table egg production (million eggs)", "USDA NASS Chickens and Eggs", 1)]:
+        x = n[key]
+        L.append(f"| {label} | {fm(x['value'], d)} ({x['period']}) | {fm(x['prior_year_value'], d)} ({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
+    b = n["ndpsr_butter_weekly"]
+    L.append(f"| Butter, wholesale weighted average ($/lb, week ending) | {fm(b['value'], 4)} ({b['period']}) | {fm(b['prior_year_value'], 4)} ({b['prior_year_period']}) | {fp(b['yoy_pct'])} | USDA AMS NDPSR |")
+    L.append(f"| Butter, wholesale weighted average, trailing 4-week ($/lb) | {fm(b['trailing_4wk_avg'], 4)} | {fm(b['prior_year_4wk_avg'], 4)} | {fp(b['trailing_4wk_yoy_pct'])} | USDA AMS NDPSR |")
+    if n.get("cme_butter_aa_weekly_avg"):
+        c = n["cme_butter_aa_weekly_avg"]
+        L.append(f"| CME Grade AA butter, weekly average ($/lb, week ending) | {fm(c['value'], 4)} ({c['period']}) | — | — | CME via USDA AMS Dairy Market News |")
+    for key, label in [("shell_egg_national_warehouse_large", "Shell eggs, Large, national delivered warehouse (cents/dozen, week ending)"),
+                       ("shell_egg_midwest_producer_large", "Shell eggs, Large, Midwest paid to producers (cents/dozen, week ending)")]:
+        if key in n:
+            x = n[key]
+            pw = x.get("prior_week_value_as_reported")
+            L.append(f"| {label} | {fm(x['value'])} ({x['period']}; prior week {fm(pw)}) | {fm(x.get('prior_year_value'))} ({x.get('prior_year_period') or '—'}) | {fp(x.get('yoy_pct'))} | USDA AMS report 2848 |")
+    return "\n".join(L) + "\n"
+
+
+MODELS = {"lobster": compute_lobster, "egg_butter": compute_egg_butter}
+NUMBERS_MD = {"lobster": numbers_md_lobster, "egg_butter": numbers_md_egg_butter}
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--title", required=True)
+    ap.add_argument("--issue", required=True)
+    ap.add_argument("--run-id", required=True)
+    ap.add_argument("--baseline-month", default=None, help="YYYY-MM for retail reference")
+    a = ap.parse_args()
+    t = Title(a.title)
+    cfg = config()
+    cfg_t = cfg[a.title]
+    sm = series_map(read_jsonl(t.indicators), a.run_id)
+    if not sm:
+        sys.exit(f"no indicator rows for run {a.run_id}")
+    n = {"issue": a.issue, "title": cfg_t["name"], "run_id": a.run_id, "computed_at": iso()}
+
+    MODELS[cfg_t.get("issue_model", a.title)](n, sm, t, cfg_t, a)
+
+    out = t.issues / a.issue
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "numbers.json").write_text(json.dumps(n, indent=1, sort_keys=True) + "\n")
+
+    # evidence.json: the capture files behind this run
+    caps = []
+    for src in t.sources():
+        cj = t.captures / a.run_id / src["id"] / "capture.json"
+        if cj.exists():
+            rec = load_json(cj)
+            for f in rec["fetches"]:
+                caps.append({"source_id": src["id"], "fetch": f["name"], "url": f.get("final_url") or f["requested_url"],
+                             "fetched_at": f.get("fetched_at"), "path": f.get("path"), "sha256": f.get("sha256"),
+                             "status": f["status"]})
+    (out / "evidence.json").write_text(json.dumps({"issue": a.issue, "run_id": a.run_id, "captures": caps,
+                                                   "retail_record": n["retail_reference"]["record"]}, indent=1) + "\n")
+
+    (out / "numbers.md").write_text(NUMBERS_MD[cfg_t.get("issue_model", a.title)](n))
     print(json.dumps(n, indent=1, sort_keys=True))
 
 

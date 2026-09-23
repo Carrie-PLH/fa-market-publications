@@ -9,8 +9,9 @@ Promise across all titles: a clear account of what's happening to food costs, an
 | Directory | Title | Status |
 |---|---|---|
 | `lobster/` | Lobster Monitor | Issue 0 (September 2026 baseline) drafted |
+| `egg-butter/` | Egg & Butter Brief | Sources verified, baseline run captured, Issue 0 scaffolded; publication gated by FA-D-20260923-01 |
 
-Planned: Egg & Butter Brief, Beef Monitor. See `config.json` for the registry.
+Planned: Beef Monitor. See `config.json` for the registry.
 
 ## Layout
 
@@ -28,12 +29,12 @@ Planned: Egg & Butter Brief, Beef Monitor. See `config.json` for the registry.
 
 ## Issue cycle
 
-    python3 tools/fetch.py --title lobster                       # after the mid-month BLS PPI release
+    python3 tools/fetch.py --title lobster                       # after the mid-month BLS PPI release (egg-butter: same, plus weekly AMS reports)
     python3 tools/parse.py --title lobster --run-id <run>
     python3 tools/issue.py --title lobster --issue <YYYY-MM-slug> --run-id <run>
     # write or revise <title>/issues/<id>/issue.md against numbers.md
     python3 tools/anchor.py run --note "<issue id>"
-    git add -A && git commit
+    git add <paths> && git commit                                # explicit paths; never git add -A
 
 Every figure in an issue must appear in that issue's `numbers.json`. The editor reviews the evidence and interpretation before publication.
 

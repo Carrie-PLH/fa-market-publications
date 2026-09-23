@@ -1,0 +1,184 @@
+{
+ "_comment": "Egg & Butter Brief. Official sources fetched by tools/fetch.py (no browser, no key). Verified 2026-09-23 from the sandbox and the Mac. Append-only in spirit: retire, never delete. No retail reference for this title.",
+ "sources": [
+  {
+   "id": "bls",
+   "name": "U.S. Bureau of Labor Statistics: PPI and CPI series (public API v1)",
+   "label": "FOOD-COST INDICATOR (index, not a price)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Official monthly indices. WPU0171 is the PPI commodity index for chicken eggs; WPU0232 butter; CUUR0000SEFH CPI-U eggs; CUUR0000SS10011 CPI-U butter; CUUR0000SEFV CPI-U food away from home. API v1 needs no key (25 queries a day per IP; the Lobster Monitor's five come from the same allowance). Note: CUUR0000SEFJ01 is milk and WPU0231 is fluid milk, both easy to mistake for butter.",
+   "page_url": "https://data.bls.gov/timeseries/WPU0171",
+   "fetches": [
+    {
+     "name": "WPU0171",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0171",
+     "ext": "json"
+    },
+    {
+     "name": "WPU0232",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0232",
+     "ext": "json"
+    },
+    {
+     "name": "CUUR0000SEFH",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFH",
+     "ext": "json"
+    },
+    {
+     "name": "CUUR0000SS10011",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SS10011",
+     "ext": "json"
+    },
+    {
+     "name": "CUUR0000SEFV",
+     "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+     "ext": "json"
+    }
+   ],
+   "parser": "bls_api",
+   "parser_args": {
+    "titles": {
+     "WPU0171": "PPI commodity: Chicken eggs (NSA)",
+     "WPU0232": "PPI commodity: Butter (NSA)",
+     "CUUR0000SEFH": "CPI-U: Eggs, U.S. city average (NSA)",
+     "CUUR0000SS10011": "CPI-U: Butter, U.S. city average (NSA)",
+     "CUUR0000SEFV": "CPI-U: Food away from home, U.S. city average (NSA)"
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_shell_egg",
+   "name": "USDA AMS: Weekly Combined Regional Shell Egg Report (PDF, report 2848)",
+   "label": "OFFICIAL MARKET REPORT (weekly wholesale price, cents per dozen)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Weekly average wholesale prices for caged white shell eggs by region, channel and size: national delivered-warehouse Large is the price a distributor pays; Midwest paid-to-producers Large is the price a farm receives. Each report carries one week and the prior week's figure; the year-over-year comparison accumulates in this record from the first capture.",
+   "page_url": "https://mymarketnews.ams.usda.gov/viewReport/2848",
+   "fetches": [
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "ams_shell_egg_pdf",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "ams_egg_overview",
+   "name": "USDA AMS: Egg Markets Overview (weekly PDF, report 3725)",
+   "label": "OFFICIAL MARKET REPORT (weekly narrative; retained, not parsed)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "The weekly narrative that names the national loose Large price, the New York cartoned price, inventory and breaking-stock conditions. Retained as evidence for the explanation section; figures quoted from it are entered by the editor and checked against the capture, not parsed.",
+   "page_url": "https://www.ams.usda.gov/market-news/egg-market-news-reports",
+   "fetches": [
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/ams_3725.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "retain_only",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "ams_ndpsr",
+   "name": "USDA AMS: National Dairy Products Sales Report, butter (Datamart JSON, report 2993)",
+   "label": "OFFICIAL STATISTIC (weekly weighted-average wholesale price, USD per lb)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Mandatory weekly reporting of butter sales by manufacturers: weighted-average price and pounds sold, week ending Saturday, published Wednesday. The full history since 2012 comes in one keyless request, so year-over-year is available from the first issue. The closest public series to what a distributor's supplier pays.",
+   "page_url": "https://mpr.datamart.ams.usda.gov/menu.do?path=Products%5CDairy%5CNational%20Dairy%20Products%20Sales%20Report",
+   "fetches": [
+    {
+     "name": "butter",
+     "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/Butter%20Prices%20and%20Sales",
+     "ext": "json"
+    },
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "ndpsr_json",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "ams_dmn_weekly",
+   "name": "USDA AMS: Dairy Market News weekly report (PDF)",
+   "label": "OFFICIAL MARKET REPORT (CME butter cash market as reprinted by USDA)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Page 1 reprints the CME Group cash market for Grade AA butter: Friday close and weekly average. CME data is proprietary at source; USDA's reprint is the public record of it. The report's butter highlights are retained for the explanation section.",
+   "page_url": "https://www.ams.usda.gov/market-news/dairy-market-news-weekly-report",
+   "fetches": [
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "dmn_weekly_pdf",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "nass_chickens_eggs",
+   "name": "USDA NASS: Chickens and Eggs (monthly, text)",
+   "label": "OFFICIAL STATISTIC (supply: layers and table egg production)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Average layers and table egg production by month, current and prior year, released about three weeks after the month. The supply side of an egg price claim: a flock still rebuilding after avian influenza losses and a flock back at full size read differently. File name carries the release month, so the current and prior month are tried in turn.",
+   "page_url": "https://usda.library.cornell.edu/concern/publications/fb494842n",
+   "fetches": [
+    {
+     "name": "txt",
+     "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg{MMYY_PREV}.txt",
+     "ext": "txt"
+    }
+   ],
+   "parser": "nass_ckeg_txt",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "usda_ers_fpo",
+   "name": "USDA ERS Food Price Outlook (CPI forecast table)",
+   "label": "FOOD-COST INDICATOR (official forecast table)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Monthly USDA table of year-over-year CPI changes and forecast midpoints by food category, including eggs, dairy products, fats and oils, and food away from home. The CSV link changes each release, so the landing page is captured and the current link followed at run time.",
+   "page_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetches": [
+    {
+     "name": "landing",
+     "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+     "ext": "html"
+    },
+    {
+     "name": "cpi_csv",
+     "url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv",
+     "ext": "csv"
+    }
+   ],
+   "parser": "ers_fpo",
+   "parser_args": {
+    "categories": [
+     "eggs",
+     "dairy products",
+     "fats and oils",
+     "food away from home",
+     "all food"
+    ]
+   },
+   "screenshot": false
+  }
+ ]
+}

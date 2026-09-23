@@ -1,7 +1,13 @@
 {
   "_comment": "Field Assembly Market Publications. One directory per title. Each title has its own sources.json, captures/, data/, issues/ and methodology.md. Tools take --title.",
-  "titles": ["lobster"],
-  "FETCH": {"request_delay_seconds": 2, "timeout_seconds": 45},
+  "titles": [
+    "lobster",
+    "egg-butter"
+  ],
+  "FETCH": {
+    "request_delay_seconds": 2,
+    "timeout_seconds": 45
+  },
   "lobster": {
     "name": "Lobster Monitor",
     "audience": "Clients, event planners, and small buyers facing a supplier's lobster price claim.",
@@ -9,7 +15,19 @@
       "_comment": "Read-only. The wedding evidence record supplies consumer direct-ship observations. Sellers are published as letters; names are on the methodology page. Never write to this path.",
       "path": "/Users/carries/Projects/websites/ABS wedding/lobster-monitor",
       "observations": "data/observations.jsonl",
-      "reference_series": {"product_category": "live", "shell_type": "hard", "size_class": "1.25", "quantity": 1, "metric": "per_lobster"}
-    }
+      "reference_series": {
+        "product_category": "live",
+        "shell_type": "hard",
+        "size_class": "1.25",
+        "quantity": 1,
+        "metric": "per_lobster"
+      }
+    },
+    "issue_model": "lobster"
+  },
+  "egg-butter": {
+    "name": "Egg & Butter Brief",
+    "audience": "Bakeries, pastry shops, and breakfast businesses facing a supplier's price claim on eggs or butter.",
+    "issue_model": "egg_butter"
   }
 }

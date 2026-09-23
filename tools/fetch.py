@@ -87,6 +87,28 @@ def resolve_follow(spec, done, base_url):
     raise RuntimeError(f"no link containing '{needle}' in fetch '{name}'")
 
 
+def expand_template(url):
+    """{MMYY} and {MMYY_PREV}: release-month file names (NASS style), from the
+    current UTC month and the month before."""
+    now = now_utc()
+    prev_m, prev_y = (now.month - 1 or 12), (now.year if now.month > 1 else now.year - 1)
+    return (url.replace("{MMYY}", f"{now.month:02d}{now.year % 100:02d}")
+               .replace("{MMYY_PREV}", f"{prev_m:02d}{prev_y % 100:02d}"))
+
+
+def fetch_try(url, timeout):
+    """TRY:<url1>|<url2>|...: first URL that returns 200 wins; the URLs tried
+    and their errors are reported if all fail."""
+    errors = []
+    for cand in url[4:].split("|"):
+        cand = expand_template(cand)
+        try:
+            return cand, fetch(cand, timeout)
+        except Exception as e:  # noqa: BLE001
+            errors.append(f"{cand}: {repr(e)[:120]}")
+    raise RuntimeError("all candidates failed: " + " | ".join(errors))
+
+
 def capture_source(t, src, run_id, cfg):
     out_dir = t.captures / run_id / src["id"]
     out_dir.mkdir(parents=True, exist_ok=False)
@@ -106,7 +128,11 @@ def capture_source(t, src, run_id, cfg):
                 url = resolve_follow(url, done, src.get("page_url", ""))
                 entry["resolved_url"] = url
             entry["fetched_at"] = iso()
-            status, final_url, headers, body = fetch(url, fc["timeout_seconds"])
+            if url.startswith("TRY:"):
+                url, (status, final_url, headers, body) = fetch_try(url, fc["timeout_seconds"])
+                entry["resolved_url"] = url
+            else:
+                status, final_url, headers, body = fetch(url, fc["timeout_seconds"])
             target = out_dir / f"{fspec['name']}.{fspec['ext']}"
             target.write_bytes(body)
             hpath = out_dir / f"{fspec['name']}.headers.txt"
