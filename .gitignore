@@ -3,3 +3,4 @@ __pycache__/
 *.fuse_hidden*
 anchors/ots/*.bak
 .wrangler/
+site-preview/

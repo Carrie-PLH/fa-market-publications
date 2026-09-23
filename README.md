@@ -1,6 +1,6 @@
 # Field Assembly Market Publications
 
-Subscription publications that combine public data into documented explanations of what is happening to food costs, written for the buyer on the other side of a supplier's price claim. The research tools here are private. Customers pay for the publications.
+Provision Record (provisionrecord.com): a free public resource that combines public data into dated, documented editions on what is happening to food costs, with sources, calculations, downloadable tables and retained evidence. Redirected from a paid model on 2026-09-23 (FA-D-20260923-02). No account, payment or email address is needed to read or download anything published.
 
 Promise across all titles: a clear account of what's happening to food costs, and the evidence behind it.
 
@@ -25,7 +25,11 @@ Planned: Beef Monitor. See `config.json` for the registry.
     <title>/data/            indicators.jsonl, flags.jsonl, runs.jsonl (append-only)
     <title>/issues/<id>/     issue.md, numbers.json, numbers.md, evidence.json
     <title>/methodology.md   the public methods page
+    <title>/issues/<id>/edition.json  status (draft | published), version, dates, revisions
     anchors/                 timestamp chain, tokens, proofs
+    site-src/style.css       the site's stylesheet, inlined into every page
+    tools/site.py            builds site/ from the record (published editions only)
+    site/                    the deployable static site; deploy.sh publishes it by hand
 
 ## Issue cycle
 
@@ -34,7 +38,12 @@ Planned: Beef Monitor. See `config.json` for the registry.
     python3 tools/issue.py --title lobster --issue <YYYY-MM-slug> --run-id <run>
     # write or revise <title>/issues/<id>/issue.md against numbers.md
     python3 tools/anchor.py run --note "<issue id>"
+    # set "status": "published", "published": "<date>" in <title>/issues/<id>/edition.json
+    python3 tools/site.py                                        # rebuild site/ (preview drafts: --include-drafts --out site-preview)
     git add <paths> && git commit                                # explicit paths; never git add -A
+    ./deploy.sh                                                  # only when the owner asks
+
+Each published edition gets a permanent URL, /<title>/<id>/, with the edition text, a suggested citation, data.csv, measures.csv, observations.csv (where the title has original observations), dictionary.md, the record files, the retained source files under evidence/, and the timestamp chain entry and tokens that cover them. A correction is recorded in edition.json (revised date, version, revisions list) and in the edition text; the original text stays visible.
 
 Every figure in an issue must appear in that issue's `numbers.json`. The editor reviews the evidence and interpretation before publication.
 

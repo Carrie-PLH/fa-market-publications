@@ -4,7 +4,7 @@ Read `README.md` first. This file covers what a session needs to act.
 
 ## What this is
 
-A Field Assembly product repository. Public output is the issue text and the methodology page. Tools and data are private. The wedding lobster monitor at `../ABS wedding/lobster-monitor` is a separate private evidence record: read it, never write to it, never add it to the Field Assembly portfolio checkpoint.
+A Field Assembly repository for Provision Record, a free public resource (FA-D-20260923-02). Public output is the built site: edition text, numbers, downloadable tables, retained source files, timestamp records and methodology pages. The wedding observation record and its seller names stay private; sellers are letters in public output. The wedding lobster monitor at `../ABS wedding/lobster-monitor` is a separate private evidence record: read it, never write to it, never add it to the Field Assembly portfolio checkpoint.
 
 ## Where things run
 
@@ -17,6 +17,10 @@ Nothing under `<title>/captures/`, `<title>/data/*.jsonl`, or `anchors/` is edit
 ## Fail visibly
 
 A fetch failure is a fact about the transport. Record it and let the next run retry. A parser that cannot find its pattern fails the source. Report the full failure count.
+
+## Site
+
+`tools/site.py` builds `site/` from the record and publishes only editions whose `edition.json` says `published`. Never write pages into `site/` by hand. Never build drafts into `site/`; preview them with `--include-drafts --out site-preview`. Never remove paid-model language by editing built pages; edit `tools/site.py`.
 
 ## Issues
 
