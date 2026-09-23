@@ -69,7 +69,7 @@ Sources and retrieval, all September 22, 2026, run `2026-09-22T201642Z`:
 - USDA Economic Research Service, Food Price Outlook, CPI forecast table, release covering July 2026.
 - Field Assembly observation record: advertised prices at eight Maine direct-ship and counter sellers, captured September 11 and 19, 2026. Sellers appear here as letters A through H. Names and capture rules are on the methodology page. Record commit `0d1757f`, file hash in `evidence.json`.
 
-Method: every figure in this issue appears in `numbers.json`, regenerated from the data files by `tools/issue.py`. Every capture file, its URL, retrieval time, and SHA-256 are listed in `evidence.json`. Capture files are hashed into an external timestamp chain (RFC 3161 and OpenTimestamps) that proves they existed unchanged by the anchor date. An external timestamp shows when a captured record existed. It does not show that a source's figure was correct or that a quoted price was available to every buyer.
+Method: every figure in this issue appears in `numbers.json`, regenerated from the data files by `tools/issue.py`. Every capture file, its URL, retrieval time, and SHA-256 are listed in `evidence.json`. Capture files are hashed into an external timestamp chain anchored by RFC 3161 tokens from two timestamp authorities, which show they existed unchanged by the anchor date. No OpenTimestamps proof was produced for this edition's anchor. An external timestamp shows when a captured record existed. It does not show that a source's figure was correct or that a quoted price was available to every buyer.
 
 Corrections: none.
 
