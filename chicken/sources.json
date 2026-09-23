@@ -1,0 +1,164 @@
+{
+ "_comment": "Chicken Monitor. Official sources fetched by tools/fetch.py (no browser). Every URL verified by fetching it on 2026-09-23. Append-only in spirit: retire, never delete. No retail reference for this title; retail prices come from official series.",
+ "sources": [
+  {
+   "id": "bls",
+   "name": "U.S. Bureau of Labor Statistics: PPI, CPI and average price series (public API v2)",
+   "label": "FOOD-COST INDICATOR (index) and OFFICIAL STATISTIC (average retail price)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Official monthly series, one request for the set. WPU0141 is the PPI commodity index for slaughter chickens (what a grower is paid); WPU022203 young chickens after processing (what a processor sells); CUUR0000SEFF01 the CPI for chicken; CUUR0000SEFV food away from home. The APU series are average prices in dollars per pound, not indexes: APU0000706111 fresh whole chicken, APU0000FF1101 boneless breast, APU0000706212 bone-in legs. All series confirmed against the BLS flat files on 2026-09-23 and current through 2026-08. Note: APU0000706211, chicken breast bone-in, reads as a plausible series and was discontinued in 2011; it is not used.",
+   "page_url": "https://data.bls.gov/timeseries/WPU022203",
+   "fetches": [
+    {
+     "name": "series",
+     "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+     "ext": "json",
+     "method": "POST",
+     "body": {
+      "seriesid": [
+       "WPU0141",
+       "WPU022203",
+       "CUUR0000SEFF01",
+       "CUUR0000SEFV",
+       "APU0000706111",
+       "APU0000FF1101",
+       "APU0000706212"
+      ],
+      "startyear": "{YEAR_MINUS_5}",
+      "endyear": "{YEAR}",
+      "registrationkey": "ENV:BLS_API_KEY"
+     }
+    }
+   ],
+   "parser": "bls_api",
+   "parser_args": {
+    "titles": {
+     "WPU0141": "PPI commodity: Slaughter chickens (NSA)",
+     "WPU022203": "PPI commodity: Young chickens, including bulk, chilled, frozen, whole and in parts (NSA)",
+     "CUUR0000SEFF01": "CPI-U: Chicken, U.S. city average (NSA)",
+     "CUUR0000SEFV": "CPI-U: Food away from home, U.S. city average (NSA)",
+     "APU0000706111": "BLS average price: Chicken, fresh, whole, U.S. city average (USD per lb)",
+     "APU0000FF1101": "BLS average price: Chicken breast, boneless, U.S. city average (USD per lb)",
+     "APU0000706212": "BLS average price: Chicken legs, bone-in, U.S. city average (USD per lb)"
+    }
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_chicken_monthly",
+   "name": "USDA AMS: Monthly National Chicken Report (PDF, report 3649)",
+   "label": "OFFICIAL MARKET REPORT (monthly weighted-average wholesale price, cents per lb)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Monthly volume-weighted average wholesale prices with the pounds traded behind each one, by cut and by market: boneless skinless breast, tenderloins, whole wings, drumsticks, leg quarters, thighs, and the national composite whole bird. This is the closest public series to what a food-service distributor's supplier is paid. Each report carries the current and previous month only, so the year-over-year comparison for this series accumulates in this record from the first capture, September 2026.",
+   "page_url": "https://mymarketnews.ams.usda.gov/viewReport/3649",
+   "fetches": [
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/ams_3649.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "ams_chicken_pdf",
+   "parser_args": {
+    "period": "month"
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_broiler_slaughter",
+   "name": "USDA AMS: Weekly Young Chickens Slaughtered Under Federal Inspection (NW_PY002)",
+   "label": "OFFICIAL STATISTIC (supply: head slaughtered and average live weight)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "Head slaughtered by live-weight class and average live weight, with the comparable week a year earlier and the year-to-date total for both years stated in the report itself. The supply side of a chicken price claim, and the only chicken source that carries a year-over-year comparison from the first capture rather than accumulating one.",
+   "page_url": "https://www.ams.usda.gov/market-news/chicken-market-news-reports",
+   "fetches": [
+    {
+     "name": "txt",
+     "url": "https://www.ams.usda.gov/mnreports/nw_py002.txt",
+     "ext": "txt"
+    }
+   ],
+   "parser": "ams_py_slaughter_txt",
+   "parser_args": {},
+   "screenshot": false
+  },
+  {
+   "id": "ers_retail_broiler",
+   "name": "USDA ERS: Retail prices for beef, pork, poultry cuts, eggs and dairy products (CSV)",
+   "label": "OFFICIAL STATISTIC (wholesale and retail broiler composite, cents per lb)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "ERS computes a wholesale broiler composite, a retail broiler composite and the spread between them, monthly, with two years of history in one keyless file. The spread is what a buyer is looking at when a supplier says the market has moved. Only the three ERS-computed broiler items are taken: the other rows in this file are BLS average prices restated by ERS, and quoting both would present one institution's figure twice.",
+   "page_url": "https://www.ers.usda.gov/data-products/meat-price-spreads",
+   "fetches": [
+    {
+     "name": "csv",
+     "url": "https://www.ers.usda.gov/media/5024/retail-prices-for-beef-pork-poultry-cuts-eggs-and-dairy-products.csv",
+     "ext": "csv"
+    }
+   ],
+   "parser": "ers_retail_csv",
+   "parser_args": {
+    "items": [
+     "Wholesale broiler composite",
+     "Retail broiler composite",
+     "Wholesale-retail broiler spread"
+    ]
+   },
+   "screenshot": false
+  },
+  {
+   "id": "usda_ers_fpo",
+   "name": "USDA ERS Food Price Outlook (CPI forecast table)",
+   "label": "FOOD-COST INDICATOR (official forecast table)",
+   "tier": "indicator",
+   "added": "2026-09-23",
+   "why": "Monthly USDA table of year-over-year CPI changes and forecast intervals by food category, including poultry. The CSV link changes each release, so the landing page is captured and the current link followed at run time.",
+   "page_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetches": [
+    {
+     "name": "landing",
+     "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+     "ext": "html"
+    },
+    {
+     "name": "cpi_csv",
+     "url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv",
+     "ext": "csv"
+    }
+   ],
+   "parser": "ers_fpo",
+   "parser_args": {
+    "categories": [
+     "poultry",
+     "meats, poultry, and fish",
+     "food away from home",
+     "all food"
+    ]
+   },
+   "screenshot": false
+  },
+  {
+   "id": "ams_broiler_glance",
+   "name": "USDA AMS: National Broiler Market At-a-Glance (PDF, report 2740)",
+   "label": "OFFICIAL MARKET REPORT (daily narrative; retained, not parsed)",
+   "tier": "official",
+   "added": "2026-09-23",
+   "why": "The market narrative: whether supplies are light or adequate, which cuts are moving, how the export market reads. Retained as evidence for the explanation section; figures quoted from it are entered by the editor and checked against the capture, not parsed.",
+   "page_url": "https://www.ams.usda.gov/market-news/chicken-market-news-reports",
+   "fetches": [
+    {
+     "name": "pdf",
+     "url": "https://www.ams.usda.gov/mnreports/ams_2740.pdf",
+     "ext": "pdf"
+    }
+   ],
+   "parser": "retain_only",
+   "parser_args": {},
+   "screenshot": false
+  }
+ ]
+}

@@ -59,18 +59,17 @@ PLANNED = [
     {"slug": "pork", "name": "Pork Monitor", "for": "Restaurants, barbecue businesses, caterers",
      "src": "USDA AMS Market News · USDA ERS · BLS PPI",
      "status": "Assessment pending", "note": "Public-source feasibility not yet reviewed"},
-    {"slug": "chicken", "name": "Chicken Monitor", "for": "Restaurants, caterers, food-service businesses",
-     "src": "USDA AMS Market News · USDA ERS · BLS PPI",
-     "status": "Assessment pending", "note": "Public-source feasibility not yet reviewed"},
     {"slug": "coffee", "name": "Coffee Current", "for": "Independent cafés, small roasters, hospitality buyers",
      "src": "ICO composite indicator · USDA FAS coffee reports · BLS PPI and CPI",
      "status": "Sources assessed", "note": "No edition yet"},
 ]
 ORDER = ["lobster", "beef", "pork", "chicken", "egg-butter", "coffee"]
 TITLE_FOR = {"lobster": "Caterers, event planners, seafood buyers",
-             "egg-butter": "Bakeries, pastry shops, breakfast businesses"}
+             "egg-butter": "Bakeries, pastry shops, breakfast businesses",
+             "chicken": "Restaurants, caterers, food-service buyers"}
 TITLE_SRC = {"lobster": "Maine DMR landings · NOAA FOSS trade · BLS PPI and CPI · USDA ERS outlook · Field Assembly observation record",
-             "egg-butter": "USDA AMS egg and dairy reports · USDA NASS · USDA ERS · BLS PPI and CPI"}
+             "egg-butter": "USDA AMS egg and dairy reports · USDA NASS · USDA ERS · BLS PPI and CPI",
+             "chicken": "USDA AMS National Chicken Report · USDA AMS broiler slaughter · USDA ERS · BLS PPI, CPI and average prices"}
 
 
 def esc(s):

@@ -22,6 +22,7 @@ import gzip
 import http.cookiejar
 import io
 import json
+import os
 import re
 import sys
 import time
@@ -43,10 +44,13 @@ REQUEST_HEADERS = {
 }
 
 
-def fetch(url, timeout):
+def fetch(url, timeout, data=None, content_type=None):
     jar = http.cookiejar.CookieJar()
     opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(jar))
-    req = urllib.request.Request(url, headers=dict(REQUEST_HEADERS))
+    headers = dict(REQUEST_HEADERS)
+    if content_type:
+        headers["Content-Type"] = content_type
+    req = urllib.request.Request(url, data=data, headers=headers)
     with opener.open(req, timeout=timeout) as resp:
         body = resp.read()
         if resp.headers.get("Content-Encoding") == "gzip":
@@ -85,6 +89,49 @@ def resolve_follow(spec, done, base_url):
             return urllib.parse.urljoin(prior["final_url"] or base_url,
                                         href.replace("&amp;", "&"))
     raise RuntimeError(f"no link containing '{needle}' in fetch '{name}'")
+
+
+SECRET_PREFIX = "ENV:"
+
+
+def resolve_secrets(obj, used):
+    """Replace "ENV:NAME" leaves with os.environ[NAME]. Records each name in
+    `used` so the retained copy of the request can name it without its value.
+    A missing variable fails the fetch; nothing is substituted."""
+    if isinstance(obj, dict):
+        return {k: resolve_secrets(v, used) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [resolve_secrets(v, used) for v in obj]
+    if isinstance(obj, str) and obj.startswith(SECRET_PREFIX):
+        name = obj[len(SECRET_PREFIX):]
+        val = os.environ.get(name)
+        if not val:
+            raise RuntimeError(f"environment variable {name} is not set")
+        used.add(name)
+        return val
+    return obj
+
+
+def redact_secrets(obj):
+    """The request body as it is retained: every ENV: leaf stays as written."""
+    if isinstance(obj, dict):
+        return {k: redact_secrets(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [redact_secrets(v) for v in obj]
+    return obj
+
+
+def expand_years(obj):
+    """{YEAR} and {YEAR_MINUS_n} in string leaves, from the current UTC year."""
+    if isinstance(obj, dict):
+        return {k: expand_years(v) for k, v in obj.items()}
+    if isinstance(obj, list):
+        return [expand_years(v) for v in obj]
+    if isinstance(obj, str):
+        y = now_utc().year
+        obj = obj.replace("{YEAR}", str(y))
+        obj = re.sub(r"\{YEAR_MINUS_(\d+)\}", lambda m: str(y - int(m.group(1))), obj)
+    return obj
 
 
 def expand_template(url):
@@ -128,11 +175,24 @@ def capture_source(t, src, run_id, cfg):
                 url = resolve_follow(url, done, src.get("page_url", ""))
                 entry["resolved_url"] = url
             entry["fetched_at"] = iso()
+            post = None
+            if fspec.get("method", "GET").upper() == "POST":
+                spec_body = expand_years(fspec["body"])
+                # what is retained: the request as written, secrets named not shown.
+                # Recorded before the secrets are resolved, so a run that fails
+                # for want of a key still says what it tried to send.
+                entry["request_method"] = "POST"
+                entry["request_body"] = redact_secrets(spec_body)
+                used = set()
+                post = json.dumps(resolve_secrets(spec_body, used)).encode()
+                entry["request_secrets"] = sorted(used)
             if url.startswith("TRY:"):
                 url, (status, final_url, headers, body) = fetch_try(url, fc["timeout_seconds"])
                 entry["resolved_url"] = url
             else:
-                status, final_url, headers, body = fetch(url, fc["timeout_seconds"])
+                status, final_url, headers, body = fetch(
+                    url, fc["timeout_seconds"], data=post,
+                    content_type="application/json" if post else None)
             target = out_dir / f"{fspec['name']}.{fspec['ext']}"
             target.write_bytes(body)
             hpath = out_dir / f"{fspec['name']}.headers.txt"

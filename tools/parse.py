@@ -474,6 +474,236 @@ def p_nass_ckeg_txt(rec, src, args):
         raise ParseFailure(f"NASS: only {n} rows parsed")
     return out
 
+# ---------- USDA AMS National Chicken Report PDF (monthly 3649, weekly 3646) ----------
+
+CHK_ROW = re.compile(
+    r"^\s{0,6}(?P<label>\S.{0,44}?):?\s{2,}"
+    r"(?P<low>[\d.]+)\s*-\s*(?P<high>[\d.]+)\s+"
+    r"(?P<avg>[\d.]+)\s+(?P<chg>[+-]?[\d.]+)\s+(?P<vol>[\d,]+)\s+"
+    r"(?P<prev_avg>[\d.]+)\s+(?P<prev_vol>[\d,]+)\s*$")
+CHK_GROUP = re.compile(r"^\s*Chicken,\s+(Whole|Parts)\s+-\s+Cents Per Lb\s*$")
+CHK_MARKET = re.compile(r"^\s*(Domestic|Export)\s*-\s*(\w+)\s*-\s*(\w+)\s*-\s*(FOB|Delivered)\s*$")
+CHK_WRAP = re.compile(r"^\s*([A-Z][A-Za-z]{1,14}):\s*$")
+CHK_SUBGROUP = re.compile(r"^\s*([A-Z][A-Za-z]+(?: [\w/,()-]+){1,7}):\s*$")
+CHK_PERIOD = re.compile(r"Report For:\s*(\d{1,2}/\d{1,2}/\d{4})\s*to\s*(\d{1,2}/\d{1,2}/\d{4})")
+
+
+def _us_date_loose(s):
+    m = re.match(r"(\d{1,2})/(\d{1,2})/(\d{4})", s or "")
+    if not m:
+        raise ParseFailure(f"date not M/D/YYYY: {s!r}")
+    return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
+
+
+def p_ams_chicken_pdf(rec, src, args):
+    """National Chicken Report price tables. Two product groups (Whole, Parts),
+    each with one or more market blocks (Domestic/Export, Fresh/Frozen,
+    Conventional, FOB/Delivered), then item rows carrying a price range, a
+    weighted average, the change, the volume traded, and the previous period's
+    weighted average and volume. The series key is (group, market, item), so
+    the same item under a different market stays a different series.
+
+    `period` in parser_args is "month" (YYYY-MM, from the report's end date) or
+    "week" (YYYY-MM-DD week ending). Only the current period's weighted average
+    and volume are emitted: the previous period's figures restate what an
+    earlier capture already recorded, and are kept in the row note."""
+    f, body = read_fetch(rec, "pdf")
+    text = _pdf_text(body)
+    m = CHK_PERIOD.search(text)
+    if not m:
+        raise ParseFailure("chicken report: 'Report For:' period not found")
+    start, end = _us_date_loose(m.group(1)), _us_date_loose(m.group(2))
+    mode = args.get("period", "month")
+    if mode == "month":
+        period = end[:7]
+    elif mode == "week":
+        period = end
+    else:
+        raise ParseFailure(f"unknown period mode {mode!r}")
+    lines = text.splitlines()
+    group = market = None
+    subgroup = ""
+    out, seen = [], set()
+    for i, line in enumerate(lines):
+        g = CHK_GROUP.match(line)
+        if g:
+            group, market, subgroup = g.group(1), None, ""
+            continue
+        k = CHK_MARKET.match(line)
+        if k:
+            market, subgroup = " ".join(k.groups()), ""
+            continue
+        r = CHK_ROW.match(line)
+        if not r:
+            # a multi-word bare label line is a subgroup heading: it qualifies
+            # every row under it, so "National Composite" under one heading is
+            # not the same series as "National Composite" under another
+            sg = CHK_SUBGROUP.match(line)
+            if sg and group and market:
+                subgroup = sg.group(1).strip()
+            continue
+        if not group or not market:
+            continue
+        label = r.group("label").strip()
+        # a label too long for its column wraps onto the next line as "Word:"
+        if not line.strip().startswith(label + ":"):
+            nxt = lines[i + 1] if i + 1 < len(lines) else ""
+            w = CHK_WRAP.match(nxt)
+            if w and not CHK_ROW.match(nxt):
+                label = f"{label} {w.group(1)}"
+        key = " ".join(x for x in (group, market, subgroup, label) if x)
+        if key in seen:
+            continue
+        seen.add(key)
+        slug = re.sub(r"[^a-z0-9]+", "_", key.lower()).strip("_")
+        note = (f"report {start} to {end}; range {r.group('low')}-{r.group('high')}; "
+                f"change {r.group('chg')}; previous period wtd avg {r.group('prev_avg')} "
+                f"on {r.group('prev_vol')} thousand lb")
+        out.append(dict(series_id=f"ams_chicken_{slug}_cents_per_lb",
+                        series_title=f"USDA AMS National Chicken Report: {key}, weighted average cents/lb",
+                        period=period, value=float(r.group("avg")), unit="cents per lb",
+                        evidence_fetch="pdf", notes=note))
+        out.append(dict(series_id=f"ams_chicken_{slug}_volume_thousand_lb",
+                        series_title=f"USDA AMS National Chicken Report: {key}, volume traded (1,000 lb)",
+                        period=period, value=float(r.group("vol").replace(",", "")),
+                        unit="1,000 lb", evidence_fetch="pdf", notes=note))
+    if len(seen) < 10:
+        raise ParseFailure(f"chicken report: only {len(seen)} item rows matched")
+    return out
+
+
+# ---------- USDA AMS weekly young chickens slaughtered, text ----------
+
+PY_WEEK = re.compile(r"Week ending\s+(\d{1,2})-([A-Za-z]{3})-(\d{2})")
+PY_MON = {m: i for i, m in enumerate(
+    ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"], 1)}
+PY_CLASSES = ["4.25 lb and down", "4.26-6.25 lb", "6.26-7.75 lb", "7.76 lb and up"]
+
+
+def _py_nums(line):
+    return [float(x.replace(",", "")) for x in re.findall(r"[\d,]+\.?\d*", line)]
+
+
+def p_ams_py_slaughter_txt(rec, src, args):
+    """NW_PY002, weekly young chickens slaughtered under federal inspection.
+    Five columns: four live-weight classes then the total. The report states
+    the current week, last week, the year-ago comparable week, and year to date
+    for both years. The year-ago and year-to-date figures are published by the
+    report itself and are recorded as such: the report names no date for the
+    comparable week, so those rows carry the current week's period and say in
+    the series name that the figure is as reported."""
+    f, body = read_fetch(rec, "txt")
+    text = body.decode("utf-8", "ignore")
+    m = PY_WEEK.search(text)
+    if not m:
+        raise ParseFailure("py slaughter: 'Week ending' not found")
+    period = f"20{m.group(3)}-{PY_MON[m.group(2).title()]:02d}-{int(m.group(1)):02d}"
+    prelim = "(Preliminary)" in text
+    note = f"NW_PY002 week ending {period}" + ("; preliminary" if prelim else "")
+    lines = text.splitlines()
+    blocks, current = {}, None
+    for ln in lines:
+        s = ln.strip()
+        if s.startswith("Head"):
+            current = "current"
+            blocks[(current, "head")] = _py_nums(ln[4:])
+        elif s.startswith("Last week"):
+            current = "last_week"
+            blocks[(current, "head")] = _py_nums(ln[9:])
+        elif s.startswith("Year Ago"):
+            current = "year_ago"
+            blocks[(current, "head")] = _py_nums(re.sub(r"^\s*Year Ago\s*\d?/?", "", ln))
+        elif s.startswith("Avg Live Wgt") and current:
+            blocks[(current, "wgt")] = _py_nums(ln[ln.index("Wgt") + 3:])
+        elif s.startswith("To date/"):
+            y = re.match(r"\s*To date/(\d{4})", ln).group(1)
+            blocks[("ytd", y)] = _py_nums(re.sub(r"^\s*To date/\d{4}\*?", "", ln))
+    for k in [("current", "head"), ("current", "wgt"), ("year_ago", "head"), ("year_ago", "wgt")]:
+        if len(blocks.get(k, [])) != 5:
+            raise ParseFailure(f"py slaughter: row {k} has {len(blocks.get(k, []))} columns, expected 5")
+    out = []
+
+    def add(sid, title, value, unit):
+        out.append(dict(series_id=sid, series_title=title, period=period, value=value,
+                        unit=unit, evidence_fetch="txt", notes=note))
+
+    for i, cls in enumerate(PY_CLASSES):
+        slug = re.sub(r"[^a-z0-9]+", "_", cls.lower()).strip("_")
+        add(f"ams_broiler_slaughter_head_{slug}_thousand",
+            f"USDA AMS: young chickens slaughtered under federal inspection, {cls} (1,000 head)",
+            blocks[("current", "head")][i], "1,000 head")
+    add("ams_broiler_slaughter_head_total_thousand",
+        "USDA AMS: young chickens slaughtered under federal inspection, all classes (1,000 head)",
+        blocks[("current", "head")][4], "1,000 head")
+    add("ams_broiler_slaughter_avg_live_wgt_lb",
+        "USDA AMS: young chickens slaughtered, average live weight, all classes (lb)",
+        blocks[("current", "wgt")][4], "lb")
+    add("ams_broiler_slaughter_head_total_thousand_year_ago_as_reported",
+        "USDA AMS: young chickens slaughtered, all classes, comparable week a year earlier "
+        "as stated in the report (1,000 head)",
+        blocks[("year_ago", "head")][4], "1,000 head")
+    add("ams_broiler_slaughter_avg_live_wgt_lb_year_ago_as_reported",
+        "USDA AMS: young chickens slaughtered, average live weight, comparable week a year "
+        "earlier as stated in the report (lb)",
+        blocks[("year_ago", "wgt")][4], "lb")
+    ytd = {y: v for (tag, y), v in blocks.items() if tag == "ytd" and len(v) == 5}
+    if len(ytd) != 2:
+        raise ParseFailure(f"py slaughter: expected two 'To date' rows, found {len(ytd)}")
+    cur_y, prior_y = sorted(ytd)[1], sorted(ytd)[0]
+    add("ams_broiler_slaughter_ytd_head_thousand",
+        f"USDA AMS: young chickens slaughtered, year to date {cur_y}, all classes (1,000 head)",
+        ytd[cur_y][4], "1,000 head")
+    add("ams_broiler_slaughter_ytd_head_thousand_prior_year",
+        f"USDA AMS: young chickens slaughtered, year to date {prior_y} through the comparable "
+        f"week, all classes (1,000 head)",
+        ytd[prior_y][4], "1,000 head")
+    return out
+
+
+# ---------- USDA ERS retail and broiler composite prices, CSV ----------
+
+def p_ers_retail_csv(rec, src, args):
+    """ERS 'Retail prices for beef, pork, poultry cuts, eggs, and dairy
+    products'. Long format: Year, Month, Month_Number, Data_Item, Value, Units,
+    Source. Most rows restate BLS average prices; the Source column is carried
+    into every row so a reader can see which institution produced the figure.
+    Only the items named in parser_args are parsed."""
+    f, body = read_fetch(rec, "csv")
+    text = body.decode("utf-8-sig", "ignore")
+    reader = csv.DictReader(text.splitlines())
+    need = {"Year", "Month_Number", "Data_Item", "Value", "Units"}
+    if not reader.fieldnames or not need <= set(reader.fieldnames):
+        raise ParseFailure(f"ers retail csv: unexpected header {reader.fieldnames}")
+    want = args.get("items") or []
+    if not want:
+        raise ParseFailure("ers retail csv: parser_args['items'] is required")
+    wanted = {w.lower() for w in want}
+    out, hit = [], set()
+    for row in reader:
+        item = (row.get("Data_Item") or "").strip()
+        if item.lower() not in wanted:
+            continue
+        hit.add(item.lower())
+        try:
+            val = float(row["Value"])
+        except (TypeError, ValueError):
+            continue  # "NA" is published as a gap, not a zero
+        period = f"{row['Year']}-{int(row['Month_Number']):02d}"
+        slug = re.sub(r"[^a-z0-9]+", "_", item.lower()).strip("_")
+        src_name = (row.get("Source") or "").strip()
+        out.append(dict(series_id=f"ers_retail_{slug}",
+                        series_title=f"USDA ERS: {item}" + (f" (figure produced by {src_name})" if src_name else ""),
+                        period=period, value=val, unit=(row.get("Units") or "").strip(),
+                        evidence_fetch="csv",
+                        notes=f"Data_Item verbatim; source column {src_name or 'not stated'}"))
+    missing = wanted - hit
+    if missing:
+        raise ParseFailure(f"ers retail csv: items not found in the file: {sorted(missing)}")
+    if not out:
+        raise ParseFailure("ers retail csv: no numeric rows for the requested items")
+    return out
+
+
 def p_retain_only(rec, src, args):
     """Evidence retained for the editor; no indicator rows. Fails if the fetch failed."""
     read_fetch(rec, src["fetches"][0]["name"] if src.get("fetches") else "pdf")
@@ -483,7 +713,8 @@ def p_retain_only(rec, src, args):
 PARSERS = {"retain_only": p_retain_only, "foss_trade": p_foss_trade, "bls_api": p_bls_api, "ers_fpo": p_ers_fpo,
            "dmr_landings_pdf": p_dmr_landings_pdf, "ndpsr_json": p_ndpsr_json,
            "dmn_weekly_pdf": p_dmn_weekly_pdf, "ams_shell_egg_pdf": p_ams_shell_egg_pdf,
-           "nass_ckeg_txt": p_nass_ckeg_txt}
+           "nass_ckeg_txt": p_nass_ckeg_txt, "ams_chicken_pdf": p_ams_chicken_pdf,
+           "ams_py_slaughter_txt": p_ams_py_slaughter_txt, "ers_retail_csv": p_ers_retail_csv}
 
 
 def flag(t, run_id, source_id, kind, detail):

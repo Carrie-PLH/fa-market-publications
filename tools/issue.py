@@ -335,8 +335,156 @@ def numbers_md_egg_butter(n):
     return "\n".join(L) + "\n"
 
 
-MODELS = {"lobster": compute_lobster, "egg_butter": compute_egg_butter}
-NUMBERS_MD = {"lobster": numbers_md_lobster, "egg_butter": numbers_md_egg_butter}
+AMS_CHK = "ams_chicken_"
+CHK_WHOLESALE = [
+    ("wholesale_breast_bs", "parts_domestic_fresh_conventional_fob_breast_b_s",
+     "Wholesale boneless skinless breast"),
+    ("wholesale_tenderloins", "parts_domestic_fresh_conventional_fob_tenderloins",
+     "Wholesale tenderloins"),
+    ("wholesale_wings_whole", "parts_domestic_fresh_conventional_fob_wings_whole",
+     "Wholesale whole wings"),
+    ("wholesale_leg_quarters", "parts_domestic_fresh_conventional_fob_leg_quarters_bulk",
+     "Wholesale leg quarters, bulk"),
+    ("wholesale_drumsticks", "parts_domestic_fresh_conventional_fob_drumsticks",
+     "Wholesale drumsticks"),
+    ("wholesale_whole_bird_composite",
+     "whole_domestic_fresh_conventional_delivered_national_composite_whole_bird",
+     "Wholesale national composite whole bird"),
+]
+
+
+def compute_chicken(n, sm, t, cfg_t, a):
+    # BLS: indexes and average retail prices, monthly
+    for key, sid in [("ppi_slaughter_chickens", "WPU0141"),
+                     ("ppi_young_chickens_processed", "WPU022203"),
+                     ("cpi_chicken", "CUUR0000SEFF01"),
+                     ("cpi_food_away_from_home", "CUUR0000SEFV"),
+                     ("retail_whole_chicken_usd_per_lb", "APU0000706111"),
+                     ("retail_boneless_breast_usd_per_lb", "APU0000FF1101"),
+                     ("retail_legs_bone_in_usd_per_lb", "APU0000706212")]:
+        n[key] = yoy(sm, sid, latest_period(sm, sid)) if sm.get(sid) else None
+
+    # USDA AMS Monthly National Chicken Report: weighted average and the volume behind it
+    for key, slug, label in CHK_WHOLESALE:
+        pid = f"{AMS_CHK}{slug}_cents_per_lb"
+        vid = f"{AMS_CHK}{slug}_volume_thousand_lb"
+        if not sm.get(pid):
+            n[key] = None
+            continue
+        lp = latest_period(sm, pid)
+        n[key] = yoy(sm, pid, lp) | {"label": label, "unit": "cents per lb",
+                                     "volume_thousand_lb": sm.get(vid, {}).get(lp)}
+        prior = sorted(p for p in sm[pid] if p < lp)
+        n[key]["prior_period"] = prior[-1] if prior else None
+        n[key]["prior_period_value"] = sm[pid].get(prior[-1]) if prior else None
+        n[key]["vs_prior_period_pct"] = pct(n[key]["prior_period_value"], n[key]["value"])
+    n["ams_report_period"] = next((n[k]["period"] for k, _, _ in CHK_WHOLESALE
+                                   if n.get(k)), None)
+
+    # USDA ERS broiler composites and the spread between them
+    for key, slug in [("ers_wholesale_broiler_composite", "wholesale_broiler_composite"),
+                      ("ers_retail_broiler_composite", "retail_broiler_composite"),
+                      ("ers_wholesale_retail_broiler_spread", "wholesale_retail_broiler_spread")]:
+        sid = f"ers_retail_{slug}"
+        n[key] = yoy(sm, sid, latest_period(sm, sid)) if sm.get(sid) else None
+
+    # USDA AMS weekly slaughter. The report states its own year-ago and
+    # year-to-date figures; the percentage change between them is computed here
+    # and marked derived. A comparison built from this record's own weeks needs
+    # 52 weeks of captures and is reported only once it exists.
+    head = "ams_broiler_slaughter_head_total_thousand"
+    wgt = "ams_broiler_slaughter_avg_live_wgt_lb"
+    if sm.get(head):
+        wk = latest_period(sm, head)
+        ya_head = sm.get(head + "_year_ago_as_reported", {}).get(wk)
+        ya_wgt = sm.get(wgt + "_year_ago_as_reported", {}).get(wk)
+        ytd = sm.get("ams_broiler_slaughter_ytd_head_thousand", {}).get(wk)
+        ytd_prior = sm.get("ams_broiler_slaughter_ytd_head_thousand_prior_year", {}).get(wk)
+        n["broiler_slaughter"] = {
+            "week_ending": wk,
+            "head_thousand": sm[head][wk],
+            "head_thousand_year_ago_as_reported": ya_head,
+            "yoy_pct_derived": pct(ya_head, sm[head][wk]),
+            "avg_live_weight_lb": sm.get(wgt, {}).get(wk),
+            "avg_live_weight_lb_year_ago_as_reported": ya_wgt,
+            "avg_live_weight_yoy_pct_derived": pct(ya_wgt, sm.get(wgt, {}).get(wk)),
+            "year_to_date_head_thousand": ytd,
+            "year_to_date_head_thousand_prior_year": ytd_prior,
+            "year_to_date_pct_derived": pct(ytd_prior, ytd),
+            "weeks_in_record": len(sm[head]),
+            "record_based_yoy_available": len(sm[head]) >= 52,
+            "by_weight_class_thousand_head": {
+                sid[len("ams_broiler_slaughter_head_"):-len("_thousand")]: v[wk]
+                for sid, v in sm.items()
+                if sid.startswith("ams_broiler_slaughter_head_")
+                and sid.endswith("_thousand") and "total" not in sid and wk in v},
+        }
+    else:
+        n["broiler_slaughter"] = None
+
+    # USDA ERS Food Price Outlook: period is None on these rows, so read them directly
+    ers_rows = [r for r in read_jsonl(t.indicators)
+                if r["run_id"] == a.run_id and r["series_id"].startswith("ers_fpo|")]
+    want = ["Year-over-year", "Mid point of forecast interval 2026",
+            "Mid point of forecast interval 2027", "Lower bound of forecast interval 2027",
+            "Upper bound of forecast interval 2027"]
+    n["ers_food_price_outlook"] = {}
+    for r in ers_rows:
+        _, cat, attr = r["series_id"].split("|", 2)
+        if cat in ("Poultry", "Meats, poultry, and fish", "Food away from home", "All food") \
+                and any(attr.startswith(w) for w in want):
+            n["ers_food_price_outlook"][f"{cat} — {attr}"] = r["value"]
+
+    n["retail_reference"] = {"record": None, "sellers": []}
+
+
+def numbers_md_chicken(n):
+    L = ["| Measure | Latest | Same period, prior year | Change | Source |", "|---|---|---|---|---|"]
+    for key, _, label in CHK_WHOLESALE:
+        x = n.get(key)
+        if not x:
+            continue
+        vol = f"; {fm(x['volume_thousand_lb'], 0)} thousand lb traded" if x.get("volume_thousand_lb") else ""
+        L.append(f"| {label} (cents/lb, monthly weighted average) | {fm(x['value'])} "
+                 f"({x['period']}{vol}) | {fm(x['prior_year_value'])} ({x['prior_year_period']}) "
+                 f"| {fp(x['yoy_pct'])} | USDA AMS report 3649 |")
+    for key, label, src, d in [
+            ("retail_boneless_breast_usd_per_lb", "Retail boneless chicken breast ($/lb)", "BLS APU0000FF1101", 3),
+            ("retail_whole_chicken_usd_per_lb", "Retail whole chicken, fresh ($/lb)", "BLS APU0000706111", 3),
+            ("retail_legs_bone_in_usd_per_lb", "Retail chicken legs, bone-in ($/lb)", "BLS APU0000706212", 3),
+            ("ppi_slaughter_chickens", "PPI, slaughter chickens (index)", "BLS WPU0141", 1),
+            ("ppi_young_chickens_processed", "PPI, young chickens after processing (index)", "BLS WPU022203", 1),
+            ("cpi_chicken", "CPI, chicken (index)", "BLS CUUR0000SEFF01", 1),
+            ("cpi_food_away_from_home", "CPI, food away from home (index)", "BLS CUUR0000SEFV", 1),
+            ("ers_wholesale_broiler_composite", "ERS wholesale broiler composite (cents/lb)", "USDA ERS", 1),
+            ("ers_retail_broiler_composite", "ERS retail broiler composite (cents/lb)", "USDA ERS", 1),
+            ("ers_wholesale_retail_broiler_spread", "ERS wholesale-to-retail broiler spread (cents/lb)", "USDA ERS", 1)]:
+        x = n.get(key)
+        if not x:
+            continue
+        L.append(f"| {label} | {fm(x['value'], d)} ({x['period']}) | {fm(x['prior_year_value'], d)} "
+                 f"({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
+    s = n.get("broiler_slaughter")
+    if s:
+        L.append(f"| Young chickens slaughtered, all classes (1,000 head, week ending) | "
+                 f"{fm(s['head_thousand'], 0)} ({s['week_ending']}) | "
+                 f"{fm(s['head_thousand_year_ago_as_reported'], 0)} (comparable week, as the report states it) "
+                 f"| {fp(s['yoy_pct_derived'])} | USDA AMS NW_PY002 |")
+        L.append(f"| Average live weight, all classes (lb, week ending) | "
+                 f"{fm(s['avg_live_weight_lb'])} ({s['week_ending']}) | "
+                 f"{fm(s['avg_live_weight_lb_year_ago_as_reported'])} (comparable week, as the report states it) "
+                 f"| {fp(s['avg_live_weight_yoy_pct_derived'])} | USDA AMS NW_PY002 |")
+        L.append(f"| Young chickens slaughtered, year to date (1,000 head) | "
+                 f"{fm(s['year_to_date_head_thousand'], 0)} | "
+                 f"{fm(s['year_to_date_head_thousand_prior_year'], 0)} (prior year through the comparable week) "
+                 f"| {fp(s['year_to_date_pct_derived'])} | USDA AMS NW_PY002 |")
+    return "\n".join(L) + "\n"
+
+
+MODELS = {"lobster": compute_lobster, "egg_butter": compute_egg_butter,
+          "chicken": compute_chicken}
+NUMBERS_MD = {"lobster": numbers_md_lobster, "egg_butter": numbers_md_egg_butter,
+              "chicken": numbers_md_chicken}
 
 
 def main():

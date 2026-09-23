@@ -2,7 +2,8 @@
   "_comment": "Field Assembly Market Publications. One directory per title. Each title has its own sources.json, captures/, data/, issues/ and methodology.md. Tools take --title.",
   "titles": [
     "lobster",
-    "egg-butter"
+    "egg-butter",
+    "chicken"
   ],
   "FETCH": {
     "request_delay_seconds": 2,
@@ -29,5 +30,15 @@
     "name": "Egg & Butter Brief",
     "audience": "Bakeries, pastry shops, and breakfast businesses facing a supplier's price claim on eggs or butter.",
     "issue_model": "egg_butter"
+  },
+  "BLS": {
+    "_comment": "BLS public API v2. A free registration key raises the daily limit from 25 queries to 500 and allows up to 50 series in one request, so a title's whole BLS set is one query. The key is read from the environment at fetch time (sources.json carries the name, never the value) and is not written into any capture file. Without it the fetch fails visibly. v1 remains keyless at 25 queries per IP per day; the keyless flat files at download.bls.gov/pub/time.series have no cap but require a contact email in the User-Agent.",
+    "api": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+    "key_env": "BLS_API_KEY"
+  },
+  "chicken": {
+    "name": "Chicken Monitor",
+    "audience": "Restaurants, caterers, and food-service buyers facing a supplier's price claim on chicken.",
+    "issue_model": "chicken"
   }
 }
