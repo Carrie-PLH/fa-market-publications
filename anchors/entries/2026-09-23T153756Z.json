@@ -1,0 +1,33 @@
+{
+ "entry": {
+  "file_count": 206,
+  "id": "2026-09-23T153756Z",
+  "manifest_file": "manifests/2026-09-23T153756Z.txt",
+  "manifest_sha256": "7dc095dab3cb923a166ec3b32df92e36aa53fd38d9c83a96ed51d86d4780e9c9",
+  "note": "September 2026 baselines: chicken, beef, pork, cheddar; egg-butter; lobster Issue 0 corrected",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "b98320c09992d3e3171ddba19a48f5f8ad5ff6c8edb9e061170ac4f77cfd3293",
+  "repo": "fa-market-publications",
+  "utc": "2026-09-23T15:37:56+00:00"
+ },
+ "entry_sha256": "ef8c359f6dd90617d5fea55cc94cd4912c3ae3f5fc6aa8dfbc50855a85ca1613"
+}
