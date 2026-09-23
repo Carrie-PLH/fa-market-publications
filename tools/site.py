@@ -519,6 +519,7 @@ def edition_page(ed, cfg_t, out, draft_mode):
     <div><dt>Information available as of</dt><dd>{esc(dlong(ed.meta.get("information_available_as_of")))}</dd></div>
     <div><dt>Data run</dt><dd class="num">{esc(ed.run_id)}</dd></div>
     <div><dt>Permanent URL</dt><dd class="num">{esc(ed.url)}</dd></div>
+    <div><dt>Reviewer</dt><dd>{esc(ed.meta["reviewer"]) if ed.meta.get("reviewer") else "Review pending before publication"}</dd></div>
   </dl>
   <div class="prose">
 {md_to_html(body_md)}
