@@ -31,7 +31,7 @@ Two-year comparisons, where the record allows them: lobster PPI −3.9% against 
 
 Three prices describe the same lobster at different points in the chain, and they move together but not in step.
 
-The ex-vessel price is what the boat gets at the dock. Maine's most recent September figure is $6.15 a pound (2025, preliminary). Import unit value is what live Canadian lobster costs as it enters through Portland: $8.41 a pound in July 2026, rising toward $9 to $10 in the fall and $12 or more in late winter. The counter price for a single 1.25 lb hard shell at two Maine retailers, $18.90 to $19.50, works out to about $15 a pound at the stated minimum weight. The spread between dock and counter is handling, grading, mortality, and margin. It is wide, and it is where most of a buyer's price lives.
+The ex-vessel price is what the boat gets at the dock. Maine's most recent September figure is $6.15 a pound (2025, preliminary). Import unit value is what live Canadian lobster costs as it enters through Portland: $8.41 a pound in July 2026. The counter price for a single 1.25 lb hard shell at two Maine retailers, $18.90 to $19.50, works out to about $15 a pound at the stated minimum weight. The spread between dock and counter is handling, grading, mortality, and margin. It is wide, and it is where most of a buyer's price lives.
 
 Volume matters as much as price. Imports through Portland ran 12% below 2025 for January through July, and July alone was down 56%. Lower Canadian volume can mean less supply, less demand, or a shift in routing, and this record cannot tell which. Maine's own landings for 2026 will not be published until early 2027.
 
