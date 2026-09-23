@@ -105,17 +105,19 @@ table.prices td:last-child,table.prices th:last-child{padding-left:1.4rem;font-f
 strong{font-weight:600;}
 
 /* ---------- the register of titles ---------- */
-table.register{width:100%;border-collapse:collapse;min-width:720px;margin-top:.4rem;}
+table.register{width:100%;border-collapse:collapse;min-width:860px;margin-top:.4rem;}
 table.register th{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);font-weight:600;text-align:left;padding:.5rem .8rem .5rem 0;border-top:2px solid var(--text);border-bottom:1px solid var(--hair-strong);}
 table.register td{padding:1rem .8rem 1rem 0;border-bottom:1px solid var(--hair);vertical-align:top;font-size:.92rem;line-height:1.45;}
 table.register td.no{font-family:var(--mono);font-size:.74rem;color:var(--text-dim);padding-top:1.2rem;width:2.4rem;}
 table.register td.title{font-family:var(--serif);font-size:1.22rem;font-weight:500;line-height:1.2;white-space:nowrap;}
 table.register td.title a{text-decoration:none;border-bottom:1px solid var(--accent-dim);color:var(--text);}
 table.register td.title a:hover{border-bottom-color:var(--accent);color:var(--accent);}
-table.register td.for{max-width:18rem;}
-table.register td.src{font-size:.86rem;color:var(--text-dim);max-width:22rem;}
-table.register td.status{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;white-space:nowrap;}
-table.register td.status b{color:var(--accent);font-weight:600;}
+table.register td.for{min-width:11rem;max-width:18rem;}
+table.register td.src{font-size:.86rem;color:var(--text-dim);min-width:13rem;max-width:22rem;}
+/* The status note wraps. It was nowrap, which let a long note claim the whole
+   table and squeeze the two prose columns to one character each. */
+table.register td.status{font-family:var(--mono);font-size:.7rem;letter-spacing:.04em;min-width:12rem;max-width:16rem;}
+table.register td.status b{color:var(--accent);font-weight:600;white-space:nowrap;}
 table.register td.status span{display:block;color:var(--text-dim);margin-top:.25rem;}
 .register-foot{font-family:var(--sans);font-size:.84rem;color:var(--text-dim);margin-top:.9rem;max-width:var(--measure);line-height:1.55;}
 
@@ -148,22 +150,39 @@ table.register td.status span{display:block;color:var(--text-dim);margin-top:.25
 
 /* ---------- footer ---------- */
 footer{border-top:1px solid var(--hair-strong);background:var(--bg-raise);padding:clamp(2rem,4vw,3rem) var(--pad-x) 1.8rem;}
-footer .sf-top{max-width:80rem;display:grid;grid-template-columns:1.2fr 2fr;gap:2.4rem;}
+footer .sf-top{max-width:80rem;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,2fr);gap:2.4rem;}
 footer .sf-brand{display:flex;align-items:flex-start;gap:.75rem;}
 footer .sf-brand svg{width:30px;height:30px;flex:none;}
 footer .sf-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);line-height:1.5;}
 footer .sf-tag a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--accent-dim);}
-footer .sf-nav{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+footer .sf-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem;}
 footer .sf-col{display:flex;flex-direction:column;gap:.45rem;}
 footer .sf-label{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-dim);margin-bottom:.3rem;}
 footer .sf-col a{font-family:var(--sans);font-size:.9rem;color:var(--accent-muted);text-decoration:none;line-height:1.3;border-bottom:1px solid transparent;width:max-content;max-width:100%;}
 footer .sf-col a:hover{border-color:var(--accent-dim);}
 footer .sf-bottom{max-width:80rem;margin-top:2rem;padding-top:1rem;border-top:1px solid var(--hair);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-family:var(--mono);font-size:.68rem;letter-spacing:.04em;color:var(--text-dim);}
 
+@media (max-width:860px){
+  /* Below the table's own minimum the register stacks: a numbered title, then
+     each column under its own label. A register is read on phones, and a
+     sideways scroll hides the status column, which is the point of the table. */
+  .tablewrap:has(table.register){overflow-x:visible;}
+  table.register{display:block;min-width:0;}
+  table.register thead{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;}
+  table.register tbody,table.register tr,table.register td{display:block;width:auto;}
+  table.register tr{border-top:1px solid var(--hair-strong);padding:1.15rem 0 1.35rem;}
+  table.register tbody tr:first-child{border-top:2px solid var(--text);}
+  table.register td{border-bottom:none;padding:0;min-width:0;max-width:none;}
+  table.register td.no{display:inline-block;width:auto;padding:0 .55rem 0 0;vertical-align:.22em;}
+  table.register td.title{display:inline-block;white-space:normal;font-size:1.18rem;}
+  table.register td.for::before,table.register td.src::before,table.register td.status::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin:.85rem 0 .2rem;}
+  table.register td.status{font-size:.74rem;}
+}
+
 @media (max-width:720px){
   .section,.updates .inner{grid-template-columns:1fr;gap:.6rem;}
-  footer .sf-top{grid-template-columns:1fr;}
-  footer .sf-nav{grid-template-columns:repeat(2,1fr);}
+  footer .sf-top{grid-template-columns:minmax(0,1fr);}
+  footer .sf-nav{grid-template-columns:repeat(2,minmax(0,1fr));}
   .specimen .part{grid-template-columns:1fr;gap:.3rem;}
 }
 
@@ -228,6 +247,7 @@ ul.files li span{display:block;color:var(--text-dim);font-size:.84rem;}
 .editions .t small{display:block;font-family:var(--sans);font-size:.86rem;color:var(--text-dim);margin-top:.2rem;}
 .editions .s{font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);}
 @media (max-width:640px){.editions li{grid-template-columns:1fr;gap:.2rem;}}
+@media (max-width:460px){footer .sf-nav{grid-template-columns:minmax(0,1fr);gap:1.1rem;}}
 </style>
 </head>
 <body>

@@ -674,10 +674,10 @@ def home_page(cfg, editions_by, out, draft_mode):
                 st, note = "In development", "Sources verified and captured; first edition not yet written"
             else:
                 st, note = "In development", "Sources verified"
-            reg.append(f'<tr><td class="no">{i:02d}</td><td class="title"><a href="/{slug}/">{esc(t["name"])}</a></td><td class="for">{esc(TITLE_FOR.get(slug,""))}</td><td class="src">{esc(TITLE_SRC.get(slug,""))}</td><td class="status"><b>{esc(st)}</b><span>{esc(note)}</span></td></tr>')
+            reg.append(f'<tr><td class="no">{i:02d}</td><td class="title"><a href="/{slug}/">{esc(t["name"])}</a></td><td class="for" data-label="Written with">{esc(TITLE_FOR.get(slug,""))}</td><td class="src" data-label="Core public sources">{esc(TITLE_SRC.get(slug,""))}</td><td class="status" data-label="Status"><b>{esc(st)}</b><span>{esc(note)}</span></td></tr>')
         else:
             p = next(x for x in PLANNED if x["slug"] == slug)
-            reg.append(f'<tr><td class="no">{i:02d}</td><td class="title">{esc(p["name"])}</td><td class="for">{esc(p["for"])}</td><td class="src">{esc(p["src"])}</td><td class="status"><b>{esc(p["status"])}</b><span>{esc(p["note"])}</span></td></tr>')
+            reg.append(f'<tr><td class="no">{i:02d}</td><td class="title">{esc(p["name"])}</td><td class="for" data-label="Written with">{esc(p["for"])}</td><td class="src" data-label="Core public sources">{esc(p["src"])}</td><td class="status" data-label="Status"><b>{esc(p["status"])}</b><span>{esc(p["note"])}</span></td></tr>')
     body = f"""
 <section class="board" aria-labelledby="h1">
   <div class="inner">
