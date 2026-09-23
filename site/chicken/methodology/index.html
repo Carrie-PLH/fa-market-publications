@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Archive · Provision Record</title>
-<link rel="canonical" href="https://provisionrecord.com/archive/">
-<meta name="description" content="Every published edition of Provision Record&#x27;s food-market publications, by title and date.">
+<title>Methodology · Chicken Monitor · Provision Record</title>
+<link rel="canonical" href="https://provisionrecord.com/chicken/methodology/">
+<meta name="description" content="How Chicken Monitor is compiled: sources, comparison rules, evidence and corrections.">
 <style>
 /* ============================================================
    Provision Record (Field Assembly Food Market Publications), all pages.
@@ -248,12 +248,27 @@ ul.files li span{display:block;color:var(--text-dim);font-size:.84rem;}
 <main id="main-content">
 
 <article class="article">
-  <div class="kicker">Archive</div>
-  <h1>Every edition, by title and date</h1>
-  <p class="standfirst">Each edition keeps its permanent address. A later edition never replaces an earlier one; a correction is dated on the affected page and the original text stays visible.</p>
-  <div class="prose"><p>No edition has been published yet. Titles with a drafted or scaffolded edition are listed on their own pages.</p>
-  <h2>Titles</h2>
-  <ul><li><a href="/lobster/">Lobster Monitor</a></li><li><a href="/chicken/">Chicken Monitor</a></li><li><a href="/egg-butter/">Egg &amp; Butter Brief</a></li></ul>
+  <div class="kicker"><a href="/chicken/">Chicken Monitor</a> · Methodology</div>
+  <h1>Chicken Monitor: methodology</h1>
+  <div class="prose">
+<p>This page is public. It names every source, states every rule, and explains what the record can and cannot show.</p>
+<h2>What the publication reports</h2>
+<p>Market evidence about chicken prices in the United States, from public sources, arranged so a restaurant, caterer, or food-service buyer can check a supplier&#x27;s price claim against it. Each issue has six parts: the read, the numbers, the explanation, the uncertainty, the buyer&#x27;s question, and the record.</p>
+<p>The publication does not estimate any supplier&#x27;s cost, does not state whether any contractual adjustment is permitted, and does not forecast.</p>
+<h2>Sources</h2>
+<p>Official series, fetched by script with no browser and retained byte for byte:</p>
+<div class="tablewrap wide"><table><thead><tr><th>Source</th><th>What it gives</th><th>Cadence and lag</th></tr></thead><tbody><tr><td>U.S. Bureau of Labor Statistics, public API v2</td><td>PPI commodity indexes WPU0141 (slaughter chickens) and WPU022203 (young chickens, whole and in parts, after processing). CPI-U CUUR0000SEFF01 (chicken) and CUUR0000SEFV (food away from home). Average prices in dollars per pound: APU0000706111 (fresh whole chicken), APU0000FF1101 (boneless breast), APU0000706212 (bone-in legs). Not seasonally adjusted.</td><td>Monthly, released mid-month for the prior month.</td></tr><tr><td>USDA Agricultural Marketing Service, Monthly National Chicken Report (report 3649)</td><td>Volume-weighted average wholesale prices in cents per pound, with the pounds traded behind each one, by cut and by market: boneless skinless breast, tenderloins, whole wings, drumsticks, leg quarters, bone-in and boneless thighs, and the national composite whole bird. Each report states the current and previous month; the year-over-year comparison for this series accumulates in this record from the first capture, September 2026.</td><td>Monthly, first business day, for the month just ended.</td></tr><tr><td>USDA Agricultural Marketing Service, Weekly Young Chickens Slaughtered Under Federal Inspection (NW_PY002)</td><td>Head slaughtered by live-weight class and average live weight, with the comparable week a year earlier and year-to-date totals for both years as the report states them.</td><td>Weekly, Thursday, for the week ending the prior Saturday. Preliminary when so marked.</td></tr><tr><td>USDA Economic Research Service, retail prices for beef, pork and poultry cuts</td><td>The ERS wholesale broiler composite, the retail broiler composite, and the spread between them, monthly, in cents per pound.</td><td>Monthly, about four weeks after the month.</td></tr><tr><td>USDA Economic Research Service, Food Price Outlook</td><td>Year-over-year CPI changes and forecast intervals for poultry, for meats, poultry and fish, and for food away from home. Attribute text is kept verbatim.</td><td>Monthly, about the 25th.</td></tr><tr><td>USDA Agricultural Marketing Service, National Broiler Market At-a-Glance (report 2740)</td><td>Daily narrative on supply, demand and movement by cut, domestic and export. Retained as evidence; figures quoted from it are entered by the editor and checked against the capture.</td><td>Daily.</td></tr></tbody></table></div>
+<p>Two notes on what is not double counted. The ERS retail file also carries chicken retail prices, but those rows are BLS average prices restated by ERS; this publication takes only the three broiler composites, which ERS computes itself, and quotes the BLS average prices from BLS. Separately issued reports from one institution are not treated as independent corroboration of each other.</p>
+<h2>Rules</h2>
+<ul><li>Compare like with like: chicken by cut, by market (domestic or export), by state (fresh or frozen), and by delivery basis (FOB or delivered). Wholesale and retail are never averaged. A whole-bird price and a boneless breast price are never combined. An index is never converted to a price.</li><li>A weighted average is reported with the volume it was weighted by, because a thinly traded cut and a heavily traded one do not carry the same weight of evidence.</li><li>Year-over-year means the same month a year earlier for monthly series. Where a source states its own year-ago figure, that figure is recorded as the source&#x27;s statement and named as such in the series title, because the report does not give the date of the week it is comparing against.</li><li>A source that fails to fetch is recorded as failed. Nothing is substituted from another source.</li><li>A parser that cannot find what it expects fails the source rather than guessing.</li><li>Rows are never edited or deleted. A corrected reading is appended and the earlier row stays.</li><li>A measure is added only when it helps answer a reader&#x27;s question.</li></ul>
+<h2>What this record cannot show</h2>
+<p>Live-weight slaughter and ready-to-cook product are different things, and a change in average live weight changes how much meat a given number of birds yields. Weekly slaughter figures marked preliminary are revised. The forward availability figures USDA publishes from chick placements are estimates USDA makes, not measurements, and are not used here. Nothing in this record establishes why a particular supplier quoted a particular price.</p>
+<h2>Evidence and timestamps</h2>
+<p>Each issue directory holds <code>numbers.json</code> (every figure the issue quotes, regenerated from the data files), <code>evidence.json</code> (every capture file with URL, retrieval time, and SHA-256), and the issue as delivered. Capture files are hashed into an append-only chain anchored externally by RFC 3161 timestamp tokens and OpenTimestamps proofs.</p>
+<p>An external timestamp shows that a captured file existed unchanged by the anchor date. It does not show that the source&#x27;s figure was correct, or that a quoted price was available to every buyer.</p>
+<p>The BLS request carries a free registration key. The key is read from the environment at fetch time and is never written into a capture file, a data file, or this repository; the retained record of the request names the variable it came from and not its value.</p>
+<h2>Corrections</h2>
+<p>Corrections are made by appending a note to the affected issue and to the next issue. The original text stays visible.</p>
   </div>
 </article>
 
