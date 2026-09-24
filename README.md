@@ -53,6 +53,17 @@ Each published edition gets a permanent URL, /<title>/<id>/, with the edition te
 
 Every figure in an issue must appear in that issue's `numbers.json`. The editor reviews the evidence and interpretation before publication.
 
+## Routine
+
+A launchd job (`tools/com.fieldassembly.provision-record.plist`, installed at `~/Library/LaunchAgents/`) runs `tools/run-pass.sh` daily at 09:50, after the wedding monitor (09:20) and the seller observation passes (09:45 on the 1st and 15th). The wrapper calls `tools/run.py --check` and exits unless a title in `config.json` `RUN.titles` is due: the record's newest month of its PPI series is older than last month, the day is at or past that title's `earliest_day` (lobster: 16, so both observation passes are in), and no `issues/<YYYY-MM>/` exists. When due it runs fetch, parse, `issue.py`, an anchor run, a `site-preview` build, and commits the routine's own paths, then posts a macOS notification that the draft numbers are ready. On idle days it only runs `anchor.py upgrade`. Logs are under `logs/` (gitignored); `python3 tools/run.py --status` prints the schedule state.
+
+The routine never writes `issue.md`, never sets an issue published, never builds `site/` and never deploys. After writing the issue and setting `edition.json`:
+
+    tools/publish.sh lobster <YYYY-MM>     # check, anchor, build site/, commit, deploy
+    git push origin master
+
+Cadence decision, 2026-09-24: Lobster Monitor publishes monthly, mid-month, after the BLS PPI release. Issue 0 (September 2026 baseline) stands alone; Issue 1: October 2026 is the first month-over-month read. Other titles join `RUN.titles` when FA-D-20260923-01's gate is met (one measured quarter: October, November, December).
+
 ## Origin
 
 Forked from the private wedding lobster monitor (`~/Projects/websites/ABS wedding/lobster-monitor`; this repository moved from `~/Projects/websites/` to `~/Projects/Field Assembly/` on 2026-09-24, and `.fa-retail-root` holds the absolute path), which remains the evidence record for the September 25, 2027 wedding. This repository copies its official-source fetch and parse code and its anchoring convention. On 2026-09-24 the retail observation tooling was forked into `lobster/observations/`, which is the consumer-reference record from 2026-09-26; the wedding record is read only for observations before that date. Sellers are published by letter.

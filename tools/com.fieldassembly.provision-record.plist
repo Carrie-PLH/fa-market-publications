@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.fieldassembly.provision-record</string>
+
+    <!-- Runs the launcher every day at 09:30 local time. The launcher exits
+         at once unless run.py says an edition is due (the record's newest
+         PPI month is older than last month and the day is at or past
+         config RUN.earliest_day). BLS releases the PPI on a moving date
+         around mid-month, so the daily fire polls until it appears. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/carries/Projects/Field Assembly/fa-market-publications/tools/run-pass.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/carries/Projects/Field Assembly/fa-market-publications</string>
+
+    <key>StartCalendarInterval</key>
+    <dict>
+        <key>Hour</key>
+        <integer>9</integer>
+        <key>Minute</key>
+        <integer>50</integer>
+    </dict>
+
+    <key>ProcessType</key>
+    <string>Background</string>
+
+    <key>StandardOutPath</key>
+    <string>/Users/carries/Library/Logs/provision-record.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/carries/Library/Logs/provision-record-error.log</string>
+</dict>
+</plist>

@@ -63,5 +63,15 @@
     "name": "Cheddar Check",
     "audience": "Pizzerias, sandwich shops, and caterers facing a supplier's price claim on cheese.",
     "issue_model": "cheddar"
+  },
+  "RUN": {
+    "_comment": "tools/run.py. Titles listed here run on the daily launchd job; a title is due when the record's newest month of its ppi_series is older than last month, today's day of month is at or past earliest_day, and no issues/<YYYY-MM>/ exists. Lobster waits for the 16th so both seller observation passes (1st, 15th) are in the record. Other titles join this list when their publication is decided (FA-D-20260923-01).",
+    "titles": [
+      "lobster"
+    ],
+    "lobster": {
+      "ppi_series": "WPU02230503",
+      "earliest_day": 16
+    }
   }
 }
