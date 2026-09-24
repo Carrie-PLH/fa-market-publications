@@ -103,10 +103,12 @@
   }
  ],
  "retail_record": {
+  "kind": "wedding",
   "name": "Field Assembly private observation record (Maine lobster, consumer direct-ship)",
   "file": "data/observations.jsonl",
   "sha256": "7ebd3d4877bc226c555f38308e51d7dc7b160aa2d1ccd738fa322298e8e1f67c",
   "git_commit": "0d1757ff054aedff8818b47d586cf4d898122a70",
-  "note": "A private Field Assembly record, not published. It is cited by its file hash and git commit, which are what a later reader can check a produced copy against; its location is not part of this record."
+  "observations_used": 327,
+  "note": "A private Field Assembly record, not published, used for observations before 2026-09-26. It is cited by its file hash and git commit, which are what a later reader can check a produced copy against; its location is not part of this record."
  }
 }

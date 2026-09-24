@@ -19,7 +19,7 @@ Official series, fetched by script with no browser and retained byte for byte:
 | U.S. Bureau of Labor Statistics, public API v1 | PPI commodity indexes WPU02230503 (lobsters), WPU0223 (unprocessed and prepared seafood), WPUFD4111 (finished consumer foods). CPI-U CUUR0000SEFV (food away from home), CUUR0000SAF11 (food at home). Not seasonally adjusted. | Monthly, released mid-month for the prior month. |
 | USDA Economic Research Service, Food Price Outlook | Year-over-year CPI changes and forecast intervals by food category, including fish and seafood and food away from home. Attribute text is kept verbatim. | Monthly, about the 25th. |
 
-Consumer reference observations come from the Field Assembly observation record: advertised prices on the public pages of eight Maine sellers, captured on scheduled dates with page screenshots and PDFs retained. In issues, sellers appear as letters. The mapping:
+Consumer reference observations come from the Field Assembly observation record: advertised prices on the public pages of eight Maine sellers, captured on the 1st and 15th of each month with the page HTML, headers, screenshot and PDF retained. From 26 September 2026 that record is kept in this publication's own repository, anchored with it, and the captures behind an edition's observations are published under the edition's `evidence/observations/`. Observations before that date were made by an earlier private Field Assembly record with the same sellers and the same method, kept for another purpose; an edition that uses them cites that record by file hash and git commit. In issues, sellers appear as letters. The mapping:
 
 | Letter | Seller | Channel |
 |---|---|---|

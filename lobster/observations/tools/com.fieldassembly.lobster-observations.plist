@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.fieldassembly.lobster-observations</string>
+    <!-- Captures the eight Maine seller pages on the 1st and 15th of each
+         month at 09:45 local time, after the wedding monitor's 09:20 slot so
+         the two never run Chrome at once. A day the Mac is asleep at 09:45 is
+         a missed observation, recorded by its absence; there is no catch-up. -->
+    <key>ProgramArguments</key>
+    <array>
+        <string>/bin/bash</string>
+        <string>/Users/carries/Projects/Field Assembly/fa-market-publications/lobster/observations/tools/run-pass.sh</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/carries/Projects/Field Assembly/fa-market-publications/lobster/observations</string>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict><key>Day</key><integer>1</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>45</integer></dict>
+        <dict><key>Day</key><integer>15</integer><key>Hour</key><integer>9</integer><key>Minute</key><integer>45</integer></dict>
+    </array>
+    <key>ProcessType</key>
+    <string>Background</string>
+    <key>StandardOutPath</key>
+    <string>/Users/carries/Library/Logs/lobster-observations.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/carries/Library/Logs/lobster-observations-error.log</string>
+</dict>
+</plist>

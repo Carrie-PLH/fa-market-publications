@@ -55,7 +55,7 @@ Every figure in an issue must appear in that issue's `numbers.json`. The editor 
 
 ## Origin
 
-Forked from the private wedding lobster monitor (`~/Projects/websites/ABS wedding/lobster-monitor`; this repository moved from `~/Projects/websites/` to `~/Projects/Field Assembly/` on 2026-09-24, and `.fa-retail-root` holds the absolute path), which remains the evidence record for the September 25, 2027 wedding. This repository copies its official-source fetch and parse code and its anchoring convention. Retail scrapers stay in the wedding repo; this repository reads that record read-only for consumer reference rows and publishes sellers by letter.
+Forked from the private wedding lobster monitor (`~/Projects/websites/ABS wedding/lobster-monitor`; this repository moved from `~/Projects/websites/` to `~/Projects/Field Assembly/` on 2026-09-24, and `.fa-retail-root` holds the absolute path), which remains the evidence record for the September 25, 2027 wedding. This repository copies its official-source fetch and parse code and its anchoring convention. On 2026-09-24 the retail observation tooling was forked into `lobster/observations/`, which is the consumer-reference record from 2026-09-26; the wedding record is read only for observations before that date. Sellers are published by letter.
 
 ## Never
 

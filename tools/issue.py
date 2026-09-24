@@ -93,9 +93,23 @@ def retail_reference(cfg_t, letters, baseline_month):
     wedding record. Returns rows keyed by letter plus a flat/changed count over
     every live series the record holds for the month."""
     rr = cfg_t["retail_reference"]
-    root = resolve_retail_root(rr)
-    obs_file = root / rr["observations"]
-    rows = read_jsonl(obs_file)
+    # Two records, split at record_start. On or after it: Field Assembly's own
+    # observation record inside this repository. Before it: the private wedding
+    # record, read only where it is still needed. Each is cited by file hash and
+    # commit. A month entirely on or after record_start never opens the wedding
+    # record at all.
+    start = rr.get("record_start", "9999-12-31")
+    records = []
+    local_file = ROOT / rr["local_root"] / rr["observations"] if rr.get("local_root") else None
+    if local_file and local_file.exists():
+        records.append(("local", local_file, [r for r in read_jsonl(local_file)
+                                              if r.get("captured_at", "")[:10] >= start]))
+    if baseline_month < start[:7] or (baseline_month == start[:7] and start[8:] != "01"):
+        wroot = resolve_retail_root(rr)
+        wfile = wroot / rr["observations"]
+        records.append(("wedding", wfile, [r for r in read_jsonl(wfile)
+                                           if r.get("captured_at", "")[:10] < start]))
+    rows = [r for _, _, rs in records for r in rs]
     # highest revision per observation id
     latest = {}
     for r in rows:
@@ -142,19 +156,35 @@ def retail_reference(cfg_t, letters, baseline_month):
                             "series": s.split("|", 1)[1], "from": obs[0][1], "to": obs[-1][1],
                             "change_pct": pct(obs[0][1], obs[-1][1])})
     dates = sorted({r["captured_at"][:10] for r in rows})
-    git = subprocess.run(["git", "-C", str(root), "rev-parse", "HEAD"],
-                         capture_output=True, text=True).stdout.strip() or None
+    cited = []
+    for kind, f, rs in records:
+        if not rs:
+            continue
+        repo = ROOT if kind == "local" else f.parent.parent
+        git = subprocess.run(["git", "-C", str(repo), "rev-parse", "HEAD"],
+                             capture_output=True, text=True).stdout.strip() or None
+        if kind == "local":
+            cited.append({"kind": "local", "name": rr.get("local_record_name", "Field Assembly observation record"),
+                          "file": f"{rr['local_root']}/{rr['observations']}", "sha256": sha256_file(f),
+                          "git_commit": git, "observations_used": len(rs),
+                          "note": "Field Assembly's own observation record, kept in this repository and "
+                                  "anchored with it; the captures and screenshots behind these rows are "
+                                  "published under evidence/."})
+        else:
+            cited.append({"kind": "wedding", "name": rr.get("record_name", "private observation record"),
+                          "file": rr["observations"], "sha256": sha256_file(f), "git_commit": git,
+                          "observations_used": len(rs),
+                          "note": "A private Field Assembly record, not published, used for observations "
+                                  f"before {start}. It is cited by its file hash and git commit, which "
+                                  "are what a later reader can check a produced copy against; its "
+                                  "location is not part of this record."})
+    # `record` keeps its old shape for the site (the first record used); `records` lists every record used.
+    primary = cited[0] if cited else {"name": "no observation record", "file": None, "sha256": None, "git_commit": None, "note": ""}
     return {"reference_series": spec, "sellers": ref_rows,
             "live_series_with_2_or_more_observations": flat + changed,
             "flat": flat, "changed": changed, "changes": changes,
             "capture_dates": dates, "sellers_observed": len({r["source_id"] for r in rows}),
-            "record": {"name": rr.get("record_name", "private observation record"),
-                       "file": rr["observations"],
-                       "sha256": sha256_file(obs_file), "git_commit": git,
-                       "note": "A private Field Assembly record, not published. It is cited "
-                               "by its file hash and git commit, which are what a later "
-                               "reader can check a produced copy against; its location is "
-                               "not part of this record."}}
+            "record_start": start, "records": cited, "record": primary}
 
 
 def compute_lobster(n, sm, t, cfg_t, a):

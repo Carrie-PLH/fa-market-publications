@@ -16,7 +16,7 @@
     "name": "Lobster Monitor",
     "audience": "Clients, event planners, and small buyers facing a supplier's lobster price claim.",
     "retail_reference": {
-      "_comment": "Read-only. The wedding evidence record supplies consumer direct-ship observations. Sellers are published as letters; names are on the methodology page. Never write to this path. The location is not stored in this repository: it is read from the environment variable named in path_env, or from the gitignored file named in path_file at the repository root. A reader cannot open this record, so an edition cites it by name, SHA-256 and git commit rather than by path.",
+      "_comment": "Read-only. Consumer direct-ship and counter observations of eight Maine sellers, published by letter; names are on the methodology page. Two records: from record_start onward, Field Assembly's own observation record at local_root (lobster/observations/, in this repository, anchored with it); before record_start, the private wedding lobster monitor, whose location is not stored here (path_env, or the gitignored path_file) and which an edition cites by name, SHA-256 and git commit. Never write to either from here.",
       "path_env": "FA_RETAIL_ROOT",
       "path_file": ".fa-retail-root",
       "record_name": "Field Assembly private observation record (Maine lobster, consumer direct-ship)",
@@ -27,7 +27,10 @@
         "size_class": "1.25",
         "quantity": 1,
         "metric": "per_lobster"
-      }
+      },
+      "local_root": "lobster/observations",
+      "record_start": "2026-09-26",
+      "local_record_name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/"
     },
     "issue_model": "lobster"
   },

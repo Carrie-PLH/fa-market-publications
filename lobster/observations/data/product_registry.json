@@ -1,0 +1,69 @@
+{
+ "taylor": {
+  "chix_1lb": {
+   "advertised_size": "1 lb (chix)",
+   "comparability_series": "taylor|live|soft|1.00|per_lb|qNA",
+   "first_seen_run": "2026-09-24T213102Z",
+   "last_seen_run": "2026-09-24T213102Z",
+   "product_category": "live",
+   "product_name": "SOFT SHELL 1 lb (chix)",
+   "quantity": null,
+   "series_class": "live|soft|1.00",
+   "shell_type": "soft",
+   "size_class": "1.00",
+   "unit_of_sale": "per_lb"
+  },
+  "halves_1.5lb": {
+   "advertised_size": "1 1/2 lbs",
+   "comparability_series": "taylor|live|soft|1.50|per_lb|qNA",
+   "first_seen_run": "2026-09-24T213102Z",
+   "last_seen_run": "2026-09-24T213102Z",
+   "product_category": "live",
+   "product_name": "SOFT SHELL 1 1/2 lbs",
+   "quantity": null,
+   "series_class": "live|soft|1.50",
+   "shell_type": "soft",
+   "size_class": "1.50",
+   "unit_of_sale": "per_lb"
+  },
+  "meat_fresh_picked": {
+   "advertised_size": null,
+   "comparability_series": "taylor|meat|n/a|n/a|per_lb|qNA|meat_fresh_picked",
+   "first_seen_run": "2026-09-24T213102Z",
+   "last_seen_run": "2026-09-24T213102Z",
+   "product_category": "meat",
+   "product_name": "Fresh picked lobster meat",
+   "quantity": null,
+   "series_class": "meat|n/a|n/a",
+   "shell_type": "n/a",
+   "size_class": "n/a",
+   "unit_of_sale": "per_lb"
+  },
+  "quarters_1.25lb": {
+   "advertised_size": "1 1/4 lbs",
+   "comparability_series": "taylor|live|soft|1.25|per_lb|qNA",
+   "first_seen_run": "2026-09-24T213102Z",
+   "last_seen_run": "2026-09-24T213102Z",
+   "product_category": "live",
+   "product_name": "SOFT SHELL 1 1/4 lbs",
+   "quantity": null,
+   "series_class": "live|soft|1.25",
+   "shell_type": "soft",
+   "size_class": "1.25",
+   "unit_of_sale": "per_lb"
+  },
+  "selects": {
+   "advertised_size": "Selects",
+   "comparability_series": "taylor|live|soft|unsized|per_lb|qNA",
+   "first_seen_run": "2026-09-24T213102Z",
+   "last_seen_run": "2026-09-24T213102Z",
+   "product_category": "live",
+   "product_name": "SOFT SHELL Selects",
+   "quantity": null,
+   "series_class": "live|soft|unsized",
+   "shell_type": "soft",
+   "size_class": "unsized",
+   "unit_of_sale": "per_lb"
+  }
+ }
+}

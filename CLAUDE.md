@@ -4,11 +4,11 @@ Read `README.md` first. This file covers what a session needs to act.
 
 ## What this is
 
-A Field Assembly repository for Provision Record, a free public resource (FA-D-20260923-02). Public output is the built site: edition text, numbers, downloadable tables, retained source files, timestamp records and methodology pages. The wedding observation record and its seller names stay private; sellers are letters in public output. The wedding lobster monitor at `~/Projects/websites/ABS wedding/lobster-monitor` (absolute path in the gitignored `.fa-retail-root`) is a separate private evidence record: read it, never write to it, never add it to the Field Assembly portfolio checkpoint.
+A Field Assembly repository for Provision Record, a free public resource (FA-D-20260923-02). Public output is the built site: edition text, numbers, downloadable tables, retained source files, timestamp records and methodology pages. Sellers are letters in public output. Lobster Monitor's consumer observations come from `lobster/observations/` (this repository's own record, from 2026-09-26; see its README) and, for dates before that, from the wedding lobster monitor at `~/Projects/websites/ABS wedding/lobster-monitor` (absolute path in the gitignored `.fa-retail-root`), a separate private evidence record: read it, never write to it, never add it to the Field Assembly portfolio checkpoint. The observation tools under `lobster/observations/tools/` run only on the Mac (headless Chrome).
 
 ## Where things run
 
-`tools/fetch.py` needs only outbound HTTPS: it runs on the Mac, in the Cowork VM, or in the cloud sandbox. `tools/anchor.py run` needs network for the timestamp authorities. `tools/issue.py` needs the wedding record on disk; when it runs in the Cowork VM it resolves the Mac path under `$HOME/mnt/`, or set `FA_RETAIL_ROOT`.
+`tools/fetch.py` needs only outbound HTTPS: it runs on the Mac, in the Cowork VM, or in the cloud sandbox. `tools/anchor.py run` needs network for the timestamp authorities. `tools/issue.py` needs the wedding record on disk only for an edition whose month includes observations before 2026-09-26; when it runs in the Cowork VM it resolves the Mac path under `$HOME/mnt/`, or set `FA_RETAIL_ROOT`. `lobster/observations/tools/` needs the Mac (headless Chrome).
 
 ## Never edit the record
 

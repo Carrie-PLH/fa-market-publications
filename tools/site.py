@@ -534,10 +534,31 @@ def edition_page(ed, cfg_t, out, draft_mode):
         if c.get("path"):
             rel = Path(c["path"]).relative_to(f"{ed.slug}/captures/{ed.run_id}")
             rec_links.append(f'<li><a href="evidence/{rel}">{esc(rel)}</a><span>{esc(c["url"])} · retrieved {esc(c["fetched_at"][:19])}Z · SHA-256 {esc(c["sha256"][:16])}…</span></li>')
-    retail = (ed.numbers or {}).get("retail_reference", {}).get("record")
+    rr_all = (ed.numbers or {}).get("retail_reference", {}) or {}
+    records = rr_all.get("records") or ([rr_all["record"] | {"kind": "wedding"}] if rr_all.get("record", {}).get("sha256") else [])
     retail_html = ""
-    if retail and retail.get("sha256"):
-        retail_html = f'<li><span>Field Assembly observation record (private repository): commit <code>{esc(retail["git_commit"][:12])}</code>, file SHA-256 <code>{esc(retail["sha256"][:16])}…</code>. The observations used are in observations.csv.</span></li>'
+    for rec in records:
+        if not rec.get("sha256"):
+            continue
+        if rec.get("kind") == "local":
+            # Publish the observation captures behind this month's rows: page HTML,
+            # headers, screenshot and PDF for every seller captured on the dates used.
+            obs_root = ROOT / "lobster" / "observations" / "captures"
+            n_files = 0
+            runs = []
+            for run_dir in sorted(obs_root.iterdir()) if obs_root.exists() else []:
+                if not run_dir.is_dir() or run_dir.name[:10] not in set(rr_all.get("capture_dates", [])) or run_dir.name[:10] < rr_all.get("record_start", "9999"):
+                    continue
+                runs.append(run_dir.name)
+                for f in run_dir.rglob("*"):
+                    if f.is_file():
+                        copy(f, ev_out / "observations" / run_dir.name / f.relative_to(run_dir))
+                        n_files += 1
+            retail_html += (f'<li><span>{esc(rec["name"])}: commit <code>{esc((rec.get("git_commit") or "")[:12])}</code>, file SHA-256 <code>{esc(rec["sha256"][:16])}…</code>, '
+                            f'{rec.get("observations_used", 0)} observation rows. The seller pages as captured (HTML, headers, screenshot, PDF) are under '
+                            f'<a href="evidence/observations/">evidence/observations/</a>: {n_files} files from {len(runs)} capture run{"s" if len(runs) != 1 else ""}. The observations used are in observations.csv.</span></li>')
+        else:
+            retail_html += f'<li><span>{esc(rec["name"])} (private repository, observations before {esc(rr_all.get("record_start", ""))}): commit <code>{esc((rec.get("git_commit") or "")[:12])}</code>, file SHA-256 <code>{esc(rec["sha256"][:16])}…</code>, {rec.get("observations_used", "")} observation rows. The observations used are in observations.csv.</span></li>'
     body = f"""
 <article class="article">
   <div class="kicker"><a href="/{ed.slug}/">{esc(name)}</a> · {esc(status_line)}</div>

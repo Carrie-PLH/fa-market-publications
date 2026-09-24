@@ -1,0 +1,320 @@
+{
+  "_comment": "Lobster Monitor observation record: the eight Maine sellers whose public pages are captured on a schedule. Copied on 2026-09-24 from the private wedding lobster monitor's sources.json (retail sources only); the official sources it also listed are fetched by ../../tools/fetch.py instead. Sources are added or marked retired; never removed. Sellers appear in editions by letter; the letter map is lobster/sources.json retail_reference_sources.",
+  "sources": [
+    {
+      "id": "taylor",
+      "name": "Taylor Lobster (Kittery, ME)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "primary",
+      "added": "2026-09-11",
+      "why": "Requested by owner. Publishes a dated, shell-typed, per-pound retail price list on its homepage (chix / quarters / halves / selects, plus fresh picked meat). The only source found that states shell type and a price date on the page itself.",
+      "purchase_mode": "in-store pickup only (site states it no longer ships)",
+      "shipping_included": false,
+      "shipping_note": "Not applicable: pickup only per homepage text, 2026-09-11.",
+      "origin_claim": "Maine lobster (site text)",
+      "page_url": "https://taylorlobster.com/",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://taylorlobster.com/",
+          "ext": "html"
+        }
+      ],
+      "parser": "taylor_text",
+      "parser_args": {}
+    },
+    {
+      "id": "harborfish",
+      "name": "Harbor Fish Market (Portland, ME)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "primary",
+      "added": "2026-09-11",
+      "why": "Requested by owner. Portland retail market. WooCommerce Store API exposes per-size prices for live hard shell and live soft shell separately, plus fresh picked meat by variety.",
+      "purchase_mode": "ship or local pickup; soft shell listed as local customers only",
+      "shipping_included": false,
+      "shipping_note": "Shipping calculated at checkout, not in listed price (store checkout, 2026-09-11).",
+      "origin_claim": "Maine (product titles)",
+      "page_url": "https://harborfish.com/product-category/all/lobster/",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://harborfish.com/product-category/all/lobster/",
+          "ext": "html"
+        },
+        {
+          "name": "products",
+          "url": "https://harborfish.com/wp-json/wc/store/v1/products?search=lobster&per_page=100",
+          "ext": "json"
+        },
+        {
+          "name": "var_hard",
+          "url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=348&per_page=50",
+          "ext": "json"
+        },
+        {
+          "name": "var_soft",
+          "url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=36559&per_page=50",
+          "ext": "json"
+        },
+        {
+          "name": "var_meat",
+          "url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=25721&per_page=50",
+          "ext": "json"
+        }
+      ],
+      "parser": "wc_store",
+      "parser_args": {
+        "variation_fetches": {
+          "var_hard": {
+            "category": "live",
+            "shell": "hard",
+            "parent_id": 348
+          },
+          "var_soft": {
+            "category": "live",
+            "shell": "soft",
+            "parent_id": 36559
+          },
+          "var_meat": {
+            "category": "meat",
+            "shell": null,
+            "parent_id": 25721
+          }
+        },
+        "simple_products": {
+          "82802": {
+            "category": "tail",
+            "note": "Frozen Maine lobster tails, up to 4 oz each, 2 to a pack (product title); price is per pack of 2.",
+            "quantity": 2
+          }
+        }
+      }
+    },
+    {
+      "id": "lobsteranywhere",
+      "name": "LobsterAnywhere (Maine direct-ship)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "primary",
+      "added": "2026-09-11",
+      "why": "Requested by owner. WooCommerce Store API exposes per-lobster prices by weight (1.25, 1.5, 2, 3, 5-6 lb). Shell type not stated in product data.",
+      "purchase_mode": "ship",
+      "shipping_included": false,
+      "shipping_note": "Shipping shown separately at checkout (2026-09-11).",
+      "origin_claim": "Maine (site branding); product data does not state origin per item",
+      "page_url": "https://lobsteranywhere.com/product/live-lobster/",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://lobsteranywhere.com/product/live-lobster/",
+          "ext": "html"
+        },
+        {
+          "name": "products",
+          "url": "https://lobsteranywhere.com/wp-json/wc/store/v1/products?search=live%20lobster&per_page=100",
+          "ext": "json"
+        }
+      ],
+      "parser": "wc_store",
+      "parser_args": {
+        "simple_name_regex": "^Live Lobster\\s*[\\u2013-]",
+        "simple_category": "live",
+        "simple_shell": "unspecified",
+        "quantity_fixed": 1
+      },
+      "render_pdf": false,
+      "render_note": "PDF render dropped 2026-09-11 to bound repository size; HTML, full-page PNG, and the JSON product feed are retained."
+    },
+    {
+      "id": "pinetree",
+      "name": "Pine Tree Seafood & Produce (Scarborough, ME)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "primary",
+      "added": "2026-09-11",
+      "why": "Added during source investigation. Scarborough retail market whose WooCommerce Store API lists live Maine lobster by size with hard shell and soft shell as separate products and an in-stock flag. Second Maine source with an explicit shell split, which is what the hard/soft comparison needs.",
+      "purchase_mode": "unknown from product data",
+      "shipping_included": null,
+      "shipping_note": "Not stated in product data; not verified.",
+      "origin_claim": "Maine (product titles)",
+      "page_url": "https://pinetreeseafood.com/product-category/live-lobster/",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://pinetreeseafood.com/product-category/live-lobster/",
+          "ext": "html"
+        },
+        {
+          "name": "products_shell",
+          "url": "https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=shell&per_page=100",
+          "ext": "json"
+        },
+        {
+          "name": "products_live",
+          "url": "https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=live%20maine%20lobster&per_page=100",
+          "ext": "json"
+        }
+      ],
+      "parser": "wc_store",
+      "parser_args": {
+        "simple_name_regex": "^(Maine Lobster .*\\((Hard|Soft) Shell\\)|Live Maine Lobster \\d)",
+        "simple_category": "live",
+        "simple_shell": "from_name",
+        "quantity_fixed": 1
+      }
+    },
+    {
+      "id": "getmainelobster",
+      "name": "Get Maine Lobster (Portland, ME)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "secondary",
+      "added": "2026-09-11",
+      "why": "Added during source investigation. Shopify products.json exposes live Maine lobster by weight band and pack count. Shell type not stated. Adds an independent direct-ship price point.",
+      "purchase_mode": "ship",
+      "shipping_included": null,
+      "shipping_note": "Product page stated free shipping over an order threshold on 2026-09-11; unit prices below do not itemize shipping. Recorded as unknown.",
+      "origin_claim": "Maine (product titles)",
+      "page_url": "https://www.getmainelobster.com/products/live-maine-lobsters-1",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://www.getmainelobster.com/products/live-maine-lobsters-1",
+          "ext": "html"
+        },
+        {
+          "name": "products",
+          "url": "https://www.getmainelobster.com/collections/all/products.json?limit=250",
+          "ext": "json"
+        }
+      ],
+      "parser": "shopify_products",
+      "parser_args": {
+        "products": [
+          {
+            "handle": "live-maine-lobsters-1",
+            "category": "live",
+            "shell": "unspecified",
+            "variant_format": "size_slash_qty"
+          }
+        ]
+      },
+      "render_pdf": false,
+      "render_note": "PDF render dropped 2026-09-11 to bound repository size; HTML, full-page PNG, and the JSON product feed are retained."
+    },
+    {
+      "id": "mainelobsternow",
+      "name": "Maine Lobster Now (Saco, ME)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "secondary",
+      "added": "2026-09-11",
+      "why": "Added during source investigation. Shopify products.json exposes live Maine lobster at 1, 1.25, 1.5, 1.75, 2 lb with pack-count variants. Shell type not stated.",
+      "purchase_mode": "ship",
+      "shipping_included": null,
+      "shipping_note": "Site advertised conditional free shipping on 2026-09-11; unit prices do not itemize shipping. Recorded as unknown.",
+      "origin_claim": "Maine (product titles); Canadian items excluded by title regex",
+      "page_url": "https://www.mainelobsternow.com/collections/live-lobster",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://www.mainelobsternow.com/collections/live-lobster",
+          "ext": "html"
+        },
+        {
+          "name": "products",
+          "url": "https://www.mainelobsternow.com/collections/all/products.json?limit=250",
+          "ext": "json"
+        }
+      ],
+      "parser": "shopify_products",
+      "parser_args": {
+        "title_regex": "^(1|1\\.25|1\\.5|1\\.75|2) lb Live Maine Lobster$",
+        "category": "live",
+        "shell": "unspecified",
+        "variant_format": "size_slash_qty"
+      },
+      "render_pdf": false,
+      "render_note": "PDF render dropped 2026-09-11 to bound repository size; HTML, full-page PNG, and the JSON product feed are retained."
+    },
+    {
+      "id": "cousins",
+      "name": "Cousins Maine Lobster (online shop)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "secondary",
+      "added": "2026-09-11",
+      "why": "Added during source investigation. Shopify products.json exposes live lobster at 1.25, 1.5, 2 lb. Product title states a minimum of 2; the variant price is treated as per lobster only because the 4-pack bundle price is consistent with that reading. Flagged in notes on every observation.",
+      "purchase_mode": "ship",
+      "shipping_included": null,
+      "shipping_note": "Not stated in product data; not verified.",
+      "origin_claim": "Maine (brand); product title does not state origin",
+      "page_url": "https://shop.cousinsmainelobster.com/collections/live-lobster",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://shop.cousinsmainelobster.com/collections/live-lobster",
+          "ext": "html"
+        },
+        {
+          "name": "products",
+          "url": "https://shop.cousinsmainelobster.com/collections/live-lobster/products.json?limit=250",
+          "ext": "json"
+        }
+      ],
+      "parser": "shopify_products",
+      "parser_args": {
+        "title_regex": "^Live Lobsters \\(Minimum 2\\)$",
+        "category": "live",
+        "shell": "unspecified",
+        "variant_format": "size_only",
+        "quantity_fixed": 1,
+        "quantity_note": "Variant price read as per lobster; product title states minimum order of 2. Unverified against checkout."
+      },
+      "render_pdf": false,
+      "render_note": "PDF render dropped 2026-09-11 to bound repository size; HTML, full-page PNG, and the JSON product feed are retained."
+    },
+    {
+      "id": "greenhead",
+      "name": "Greenhead Lobster (Stonington, ME)",
+      "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+      "tier": "secondary",
+      "added": "2026-09-11",
+      "why": "Added during source investigation. Stonington dealer that also sells direct. WooCommerce variations expose price by (number of lobsters x size), so a per-lobster price is computable at several pack sizes. Shell type not stated.",
+      "purchase_mode": "ship",
+      "shipping_included": null,
+      "shipping_note": "Not stated in product data; not verified.",
+      "origin_claim": "Maine (brand, Stonington)",
+      "page_url": "https://greenheadlobster.com/product/live-lobsters/",
+      "fetches": [
+        {
+          "name": "page",
+          "url": "https://greenheadlobster.com/product/live-lobsters/",
+          "ext": "html"
+        },
+        {
+          "name": "var_live_p1",
+          "url": "https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=1",
+          "ext": "json"
+        },
+        {
+          "name": "var_live_p2",
+          "url": "https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=2",
+          "ext": "json"
+        }
+      ],
+      "parser": "wc_store",
+      "parser_args": {
+        "variation_fetches": {
+          "var_live_p1": {
+            "category": "live",
+            "shell": "unspecified",
+            "parent_id": 2034
+          },
+          "var_live_p2": {
+            "category": "live",
+            "shell": "unspecified",
+            "parent_id": 2034
+          }
+        }
+      },
+      "render_pdf": false,
+      "render_note": "PDF render dropped 2026-09-11 to bound repository size; HTML, full-page PNG, and the JSON product feed are retained."
+    }
+  ]
+}

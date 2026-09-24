@@ -1,0 +1,22 @@
+{
+  "_comment": "Configuration for the Lobster Monitor observation record. Forked from the private wedding lobster monitor on 2026-09-24. The wedding record stays where it is and keeps its own schedule; this record starts on the cut date below and is anchored and published (sellers by letter) with Provision Record.",
+  "RECORD_START": "2026-09-26",
+  "_record_start_note": "Observations captured on or after this date are read by tools/issue.py from this record; observations before it come from the private wedding record, cited by hash and commit. A test capture on 2026-09-24 (one source) validated the tooling and is retained but not read by any edition.",
+  "CADENCE": {
+    "_comment": "Capture days, local time (America/New_York): the 1st and 15th of each month, set by the publication's monthly cycle rather than by any event. launchd fires tools/run-pass.sh on those days.",
+    "days_of_month": [
+      1,
+      15
+    ]
+  },
+  "CAPTURE": {
+    "request_delay_seconds": 3,
+    "timeout_seconds": 45,
+    "chrome_path": "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+    "screenshot_width": 1280,
+    "screenshot_height": 6000,
+    "render_timeout_seconds": 40,
+    "_render_note": "Chrome 152 headless writes the PDF/PNG and then hangs; capture.py bounds each render at render_timeout_seconds and validates the file trailer."
+  },
+  "SIZE_CLASS_TOLERANCE_LB": 0.05
+}
