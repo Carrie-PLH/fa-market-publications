@@ -4,7 +4,7 @@ Read `README.md` first. This file covers what a session needs to act.
 
 ## What this is
 
-A Field Assembly repository for Provision Record, a free public resource (FA-D-20260923-02). Public output is the built site: edition text, numbers, downloadable tables, retained source files, timestamp records and methodology pages. The wedding observation record and its seller names stay private; sellers are letters in public output. The wedding lobster monitor at `../ABS wedding/lobster-monitor` is a separate private evidence record: read it, never write to it, never add it to the Field Assembly portfolio checkpoint.
+A Field Assembly repository for Provision Record, a free public resource (FA-D-20260923-02). Public output is the built site: edition text, numbers, downloadable tables, retained source files, timestamp records and methodology pages. The wedding observation record and its seller names stay private; sellers are letters in public output. The wedding lobster monitor at `~/Projects/websites/ABS wedding/lobster-monitor` (absolute path in the gitignored `.fa-retail-root`) is a separate private evidence record: read it, never write to it, never add it to the Field Assembly portfolio checkpoint.
 
 ## Where things run
 
