@@ -43,8 +43,24 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from common import ROOT, Title, config, load_json, read_jsonl  # noqa: E402
+import seo  # noqa: E402
 
 BASE = "https://provisionrecord.com"
+NAME = "Provision Record"
+FEED_PATH = "/feed.xml"
+COLLECTION_PATHS = {"/", "/archive/"} | {f"/{s}/" for s in config()["titles"]}
+SITE_DESC = ("Free, dated editions on lobster, beef, pork, chicken, egg, butter and cheddar costs, with public sources, "
+             "calculations and downloadable tables. From Field Assembly.")
+# The subject each title is searched for, used in page titles, descriptions and keywords.
+TITLE_SUBJECT = {"lobster": "Maine lobster prices", "beef": "beef prices", "pork": "pork prices", "chicken": "chicken prices",
+                 "egg-butter": "egg and butter prices", "cheddar": "cheddar cheese prices"}
+TITLE_KEYWORDS = {"lobster": ["lobster prices", "Maine lobster price", "lobster wholesale price", "lobster landings", "seafood prices"],
+                  "beef": ["beef prices", "boxed beef cutout", "fed cattle prices", "wholesale beef price", "food costs"],
+                  "pork": ["pork prices", "pork cutout", "hog prices", "wholesale pork price", "food costs"],
+                  "chicken": ["chicken prices", "broiler prices", "wholesale chicken price", "food costs"],
+                  "egg-butter": ["egg prices", "butter prices", "wholesale egg price", "dairy prices", "food costs"],
+                  "cheddar": ["cheddar prices", "cheese prices", "block cheddar", "CME cheese price", "food costs"]}
+COMMON_KEYWORDS = ["food prices", "producer price index", "consumer price index", "USDA", "BLS", "price evidence"]
 CSS = (ROOT / "site-src" / "style.css").read_text()
 MARK = ('<svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#14110f"/>'
         '<g transform="translate(4,4)"><path d="M12,0 L12,12 L0,12 M28,0 L28,12 L40,12 M12,40 L12,28 L0,28 '
@@ -144,9 +160,21 @@ def md_to_html(text, wide_tables=False):
 
 # ---------- page shell ----------
 
-def shell(title, body, *, path, description, noindex=False, dateline=None):
+def shell(title, body, *, path, description, noindex=False, dateline=None,
+          kind="website", published=None, modified=None, crumbs=None, nodes=None):
+    """crumbs: [(name, path)] below the home page; nodes: extra JSON-LD nodes
+    (a Report and Dataset on an edition page)."""
     canonical = BASE + path
     robots = '<meta name="robots" content="noindex">\n' if noindex else ""
+    social = seo.social_meta(title=title, description=description, url=canonical, site_name=NAME,
+                             kind=kind, published=published, modified=modified, feed_path=FEED_PATH)
+    graph = [seo.org_node(), seo.website_node(BASE, NAME, SITE_DESC)]
+    if crumbs:
+        graph.append(seo.breadcrumb_node(BASE, [(NAME, "/")] + list(crumbs)))
+    graph.append(seo.webpage_node(BASE, path, title, description, kind="CollectionPage" if path in COLLECTION_PATHS else "WebPage",
+                                  published=published, modified=modified))
+    graph.extend(nodes or [])
+    ld = seo.jsonld(graph)
     dl = ""
     if dateline:
         dl = f'<div class="dateline"><span>{dateline[0]}</span><span>{dateline[1]}</span></div>'
@@ -158,7 +186,9 @@ def shell(title, body, *, path, description, noindex=False, dateline=None):
 <title>{esc(title)}</title>
 <link rel="canonical" href="{canonical}">
 <meta name="description" content="{esc(description)}">
-{robots}<style>
+{social}
+{robots}{ld}
+<style>
 {CSS}</style>
 </head>
 <body>
@@ -225,7 +255,7 @@ WRITTEN = set()
 
 def write(out, path, content):
     p = out / path.strip("/")
-    if path.endswith("/") or not Path(path).suffix:
+    if path.endswith("/") or (not Path(path).suffix and not Path(path).name.startswith("_")):
         p = p / "index.html"
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(content, "utf-8")
@@ -561,9 +591,29 @@ def edition_page(ed, cfg_t, out, draft_mode):
 document.querySelectorAll('button.copy').forEach(function(b){{b.addEventListener('click',function(){{var t=document.getElementById(b.dataset.copy).innerText;navigator.clipboard.writeText(t).then(function(){{b.textContent='Copied';b.dataset.done='1';setTimeout(function(){{b.textContent='Copy citation';b.dataset.done='';}},2000);}});}});}});
 </script>
 """
+    subject = TITLE_SUBJECT.get(ed.slug, "food prices")
+    ed_desc = f"{name}, {ed.name}: dated evidence on {subject}, with public sources, calculations and downloadable tables."
+    pub, rev = ed.meta.get("published"), ed.meta.get("revised")
+    keywords = TITLE_KEYWORDS.get(ed.slug, []) + COMMON_KEYWORDS
+    srcs = [(s["name"], s.get("page_url", "")) for s in Title(ed.slug).sources()]
+    downloads = [(ed.url + "data.csv", "text/csv", "data.csv: every source-reported row in the edition's data run"),
+                 (ed.url + "measures.csv", "text/csv", "measures.csv: every figure the edition quotes"),
+                 (ed.url + "numbers.json", "application/json", "numbers.json: the computed numbers as kept"),
+                 (ed.url + "dictionary.md", "text/markdown", "dictionary.md: column definitions and formulas")]
+    if has_obs:
+        downloads.insert(2, (ed.url + "observations.csv", "text/csv", "observations.csv: original price observations, sellers as letters"))
+    ld_nodes = [seo.dataset_node(base=BASE, path=ed.path, name=f"{name}, {ed.name}: data tables", description=ed_desc,
+                                 published=pub, modified=rev, version=ed.meta.get("version"), downloads=downloads,
+                                 sources=srcs, keywords=keywords, catalog=(NAME, BASE + "/")),
+                seo.report_node(base=BASE, path=ed.path, headline=f"{name}, {ed.name}", description=ed_desc,
+                                published=pub, modified=rev, version=ed.meta.get("version"),
+                                periodical={"@type": "Periodical", "name": name, "url": BASE + f"/{ed.slug}/"},
+                                citation=citation(ed, name), dataset_id=BASE + ed.path + "#dataset", keywords=keywords)] if pub else []
     write(out, ed.path, shell(f"{ed.name} · {name} · Provision Record", body, path=ed.path,
-                              description=f"{name}, {ed.name}: dated food-market evidence with sources, calculations and downloadable tables.",
+                              description=ed_desc,
                               noindex=(ed.status != "published"),
+                              kind="article", published=pub, modified=rev,
+                              crumbs=[(name, f"/{ed.slug}/"), (ed.name, ed.path)], nodes=ld_nodes,
                               dateline=(f"<b>{esc(name)}</b> · {esc(ed.name)}", f"Data run {esc(ed.run_id)} · information as of {esc(dlong(ed.meta.get('information_available_as_of')))}")))
 
 
@@ -597,8 +647,11 @@ def publication_page(slug, cfg_t, editions, out, draft_mode):
   </div>
 </article>
 """
-    write(out, f"/{slug}/", shell(f"{name} · Provision Record", body, path=f"/{slug}/",
-                                   description=f"{name}: editions, sources and methodology. {cfg_t.get('audience','')}"))
+    subject = TITLE_SUBJECT.get(slug, "food prices")
+    pub_dates = [e.meta.get("revised") or e.meta.get("published") for e in editions if e.status == "published" and e.meta.get("published")]
+    write(out, f"/{slug}/", shell(f"{name}: {subject} · Provision Record", body, path=f"/{slug}/",
+                                   description=f"{name}: dated editions on {subject} from public sources, with calculations and downloadable tables. For {TITLE_FOR.get(slug, 'buyers').lower()}.",
+                                   modified=max(pub_dates) if pub_dates else None, crumbs=[(name, f"/{slug}/")]))
     meth = (ROOT / slug / "methodology.md").read_text()
     meth = re.sub(r"^# .*\n", "", meth, count=1)
     body = f"""
@@ -611,7 +664,7 @@ def publication_page(slug, cfg_t, editions, out, draft_mode):
 </article>
 """
     write(out, f"/{slug}/methodology/", shell(f"Methodology · {name} · Provision Record", body, path=f"/{slug}/methodology/",
-                                              description=f"How {name} is compiled: sources, comparison rules, evidence and corrections."))
+                                              description=f"How {name} is compiled: sources, comparison rules, evidence and corrections.", crumbs=[(name, f"/{slug}/"), ("Methodology", f"/{slug}/methodology/")]))
 
 
 def board_rows(ed):
@@ -630,6 +683,12 @@ def board_rows(ed):
             return f"{esc(m.group(1))}<span>{esc(m.group(2))}</span>" if m else esc(x)
         out.append(f'<tr><td class="measure">{esc(c[0])}</td><td class="num">{vp(c[1])}</td><td class="num">{vp(c[2])}</td><td class="num chg {cls}">{esc(chg.replace("-", "−", 1) if chg.startswith("-") else chg)}</td><td>{esc(c[4])}</td></tr>')
     return "".join(out)
+
+
+def latest_published_date(editions_by):
+    ds = [e.meta.get("revised") or e.meta.get("published") for eds in editions_by.values() for e in eds
+          if e.status == "published" and e.meta.get("published")]
+    return max(ds) if ds else None
 
 
 def home_page(cfg, editions_by, out, draft_mode):
@@ -736,8 +795,8 @@ def home_page(cfg, editions_by, out, draft_mode):
   </div>
 </section>
 """
-    write(out, "/", shell("Provision Record", body, path="/",
-                          description="Provision Record, Field Assembly's food market publications: a free, dated public record of what is happening to lobster, beef, pork, chicken, egg and butter, and cheddar cheese costs, with sources, calculations and downloadable tables.",
+    write(out, "/", shell("Provision Record: food price evidence, dated and sourced", body, path="/",
+                          description=SITE_DESC, modified=latest_published_date(editions_by),
                           dateline=("<b>Free public resource</b> · dated editions", "Field Assembly · Food Market Publications")))
 
 
@@ -760,7 +819,7 @@ def archive_page(cfg, editions_by, out, draft_mode):
   </div>
 </article>
 """
-    write(out, "/archive/", shell("Archive · Provision Record", body, path="/archive/", description="Every published edition of Provision Record's food-market publications, by title and date."))
+    write(out, "/archive/", shell("Archive · Provision Record", body, path="/archive/", description="Every published edition of Provision Record's food-market publications, by title and date.", crumbs=[("Archive", "/archive/")], modified=latest_published_date(editions_by)))
 
 
 def about_page(out):
@@ -788,7 +847,7 @@ def about_page(out):
   </div>
 </article>
 """
-    write(out, "/about/", shell("About · Provision Record", body, path="/about/", description="What Provision Record is, who it may serve, what an edition does and does not do, and how it is made."))
+    write(out, "/about/", shell("About · Provision Record", body, path="/about/", description="What Provision Record is, who it may serve, what an edition does and does not do, and how it is made.", crumbs=[("About", "/about/")]))
 
 
 def reuse_page(out):
@@ -813,7 +872,7 @@ def reuse_page(out):
   </div>
 </article>
 """
-    write(out, "/reuse/", shell("Cite and reuse · Provision Record", body, path="/reuse/", description="How to cite a Provision Record edition, what material is Field Assembly's, and the reuse terms."))
+    write(out, "/reuse/", shell("Cite and reuse · Provision Record", body, path="/reuse/", description="How to cite a Provision Record edition, what material is Field Assembly's, and the reuse terms.", crumbs=[("Cite and reuse", "/reuse/")]))
 
 
 def main():
@@ -849,8 +908,28 @@ def main():
     write(out, "/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     pages = sorted(str(p.relative_to(out)) for p in out.rglob("index.html"))
     unlisted = {e.path.strip("/") + "/index.html" for eds in editions_by.values() for e in eds if e.status != "published"}
-    urls = "".join(f"<url><loc>{BASE}/{p[:-10]}</loc></url>" for p in pages if p not in unlisted)
-    write(out, "/sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
+    published = [e for eds in editions_by.values() for e in eds if e.status == "published"]
+    lastmod = {e.path: (e.meta.get("revised") or e.meta.get("published")) for e in published}
+    newest = latest_published_date(editions_by)
+    lastmod.update({"/": newest, "/archive/": newest})
+    for slug, eds in editions_by.items():
+        ds = [e.meta.get("revised") or e.meta.get("published") for e in eds if e.status == "published" and e.meta.get("published")]
+        if ds:
+            lastmod[f"/{slug}/"] = max(ds)
+    entries = [(f"{BASE}/{p[:-10]}", lastmod.get("/" + p[:-10])) for p in pages if p not in unlisted]
+    write(out, "/sitemap.xml", seo.sitemap_xml(entries))
+    published.sort(key=lambda e: e.meta.get("published"), reverse=True)
+    feed_entries = [{"title": f"{cfg[e.slug]['name']}, {e.name}", "path": e.path, "published": e.meta.get("published"),
+                     "modified": e.meta.get("revised"), "summary": citation(e, cfg[e.slug]["name"])} for e in published]
+    write(out, FEED_PATH, seo.atom_feed(base=BASE, site_name=NAME, subtitle="A dated record of what is happening to food costs, and the evidence behind it.",
+                                        feed_path=FEED_PATH, entries=feed_entries))
+    # Retained source copies and the raw record files stay downloadable but out of
+    # search indexes: they are other publishers' pages and duplicates of the edition text.
+    write(out, "/_headers", seo.headers_file([
+        ("/:title/:id/evidence/*", [("X-Robots-Tag", "noindex")]),
+        ("/:title/:id/issue.md", [("X-Robots-Tag", "noindex")]),
+        ("/:title/:id/numbers.md", [("X-Robots-Tag", "noindex")]),
+    ]))
     stale = sorted(str(p.relative_to(out)) for p in (before - WRITTEN))
     if stale:
         print(f"stale files not written by this build (remove by hand): {stale}", file=sys.stderr)

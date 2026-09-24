@@ -1,0 +1,6 @@
+/:title/:id/evidence/*
+  X-Robots-Tag: noindex
+/:title/:id/issue.md
+  X-Robots-Tag: noindex
+/:title/:id/numbers.md
+  X-Robots-Tag: noindex
