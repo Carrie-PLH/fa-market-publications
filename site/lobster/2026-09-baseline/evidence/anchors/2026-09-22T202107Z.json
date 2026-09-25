@@ -1,0 +1,18 @@
+{
+ "entry": {
+  "file_count": 33,
+  "id": "2026-09-22T202107Z",
+  "manifest_file": "manifests/2026-09-22T202107Z.txt",
+  "manifest_sha256": "bb66feee711bfa728bf7a1fd757b4b8bd4d5b4d02705249930d947b3b4c386bb",
+  "note": "Issue 0: 2026-09-baseline, run 2026-09-22T201642Z",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues"
+  ],
+  "prev_entry_sha256": null,
+  "repo": "fa-market-publications",
+  "utc": "2026-09-22T20:21:07+00:00"
+ },
+ "entry_sha256": "b98320c09992d3e3171ddba19a48f5f8ad5ff6c8edb9e061170ac4f77cfd3293"
+}

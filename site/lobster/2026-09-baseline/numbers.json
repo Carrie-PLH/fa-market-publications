@@ -1,0 +1,272 @@
+{
+ "computed_at": "2026-09-24T21:34:56+00:00",
+ "cpi_food_at_home": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 314.608,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 306.402,
+  "value": 321.5,
+  "vs_two_years_pct": 4.9,
+  "yoy_pct": 2.2
+ },
+ "cpi_food_away_from_home": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 384.909,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 370.348,
+  "value": 397.868,
+  "vs_two_years_pct": 7.4,
+  "yoy_pct": 3.4
+ },
+ "dmr_annual": {
+  "2015": {
+   "pounds": 122663391.0,
+   "usd_per_lb": 4.1,
+   "value_usd": 502450308.0
+  },
+  "2016": {
+   "pounds": 132604691.0,
+   "usd_per_lb": 4.08,
+   "value_usd": 540671928.0
+  },
+  "2017": {
+   "pounds": 112101211.0,
+   "usd_per_lb": 3.92,
+   "value_usd": 438976768.0
+  },
+  "2018": {
+   "pounds": 121039987.0,
+   "usd_per_lb": 4.05,
+   "value_usd": 490596147.0
+  },
+  "2019": {
+   "pounds": 102251476.0,
+   "usd_per_lb": 4.82,
+   "value_usd": 493125879.0
+  },
+  "2020": {
+   "pounds": 97954590.0,
+   "usd_per_lb": 4.21,
+   "value_usd": 412629230.0
+  },
+  "2021": {
+   "pounds": 110704228.0,
+   "usd_per_lb": 6.71,
+   "value_usd": 742989020.0
+  },
+  "2022": {
+   "pounds": 98985320.0,
+   "usd_per_lb": 3.97,
+   "value_usd": 393277277.0
+  },
+  "2023": {
+   "pounds": 96965543.0,
+   "usd_per_lb": 4.97,
+   "value_usd": 482061884.0
+  },
+  "2024": {
+   "pounds": 87279523.0,
+   "usd_per_lb": 6.15,
+   "value_usd": 536466702.0
+  },
+  "2025": {
+   "pounds": 78826683.0,
+   "usd_per_lb": 5.85,
+   "value_usd": 461384405.0
+  }
+ },
+ "dmr_ex_vessel_september": {
+  "2020": 4.2893,
+  "2021": 6.9783,
+  "2022": 3.709,
+  "2023": 4.991,
+  "2024": 6.2815,
+  "2025": 6.1507,
+  "yoy_pct": -2.1
+ },
+ "dmr_landings_decline": {
+  "change_pct": -40.6,
+  "latest_is_preliminary": true,
+  "latest_pounds": 78826683.0,
+  "latest_year": "2025",
+  "peak_pounds": 132604691.0,
+  "peak_year": "2016"
+ },
+ "dmr_latest_period": "2025-12",
+ "ers_food_price_outlook": {
+  "Fish and seafood \u2014 Lower bound of forecast interval 2027": -4.2,
+  "Fish and seafood \u2014 Mid point of forecast interval 2026": 5.9,
+  "Fish and seafood \u2014 Mid point of forecast interval 2027": 1.2,
+  "Fish and seafood \u2014 Upper bound of forecast interval 2027": 7.0,
+  "Fish and seafood \u2014 Year-over-year July 2025 to July 2026": 7.0,
+  "Food away from home \u2014 Mid point of forecast interval 2026": 3.6,
+  "Food away from home \u2014 Mid point of forecast interval 2027": 2.7,
+  "Food away from home \u2014 Year-over-year July 2025 to July 2026": 3.4
+ },
+ "issue": "2026-09-baseline",
+ "noaa_import_kilos_portland": {
+  "period": "2026-07",
+  "prior_year_period": "2025-07",
+  "prior_year_value": 1848515.0,
+  "two_years_back_period": "2024-07",
+  "two_years_back_value": null,
+  "value": 805900.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -56.4
+ },
+ "noaa_import_kilos_portland_ytd": {
+  "2025": 15456920.0,
+  "2026": 13614855.0,
+  "change_pct": -11.9,
+  "through_month": "07"
+ },
+ "noaa_import_unit_value_portland": {
+  "period": "2026-07",
+  "prior_year_period": "2025-07",
+  "prior_year_value": 8.3015,
+  "two_years_back_period": "2024-07",
+  "two_years_back_value": null,
+  "value": 8.4058,
+  "vs_two_years_pct": null,
+  "yoy_pct": 1.3
+ },
+ "ppi_finished_consumer_foods": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 284.648,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 276.049,
+  "value": 283.335,
+  "vs_two_years_pct": 2.6,
+  "yoy_pct": -0.5
+ },
+ "ppi_lobsters": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 201.749,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 199.803,
+  "value": 191.941,
+  "vs_two_years_pct": -3.9,
+  "yoy_pct": -4.9
+ },
+ "ppi_lobsters_winter_peak": {
+  "2025": {
+   "period": "2025-03",
+   "value": 315.397
+  },
+  "2026": {
+   "period": "2026-03",
+   "value": 334.154
+  },
+  "change_pct": 5.9
+ },
+ "ppi_seafood": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 440.19,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": 411.26,
+  "value": 490.975,
+  "vs_two_years_pct": 19.4,
+  "yoy_pct": 11.5
+ },
+ "retail_reference": {
+  "capture_dates": [
+   "2026-09-11",
+   "2026-09-19"
+  ],
+  "changed": 1,
+  "changes": [
+   {
+    "change_pct": 25.0,
+    "from": 8.79,
+    "seller": "D",
+    "series": "live|soft|1.00|per_pack|q1",
+    "to": 10.99
+   }
+  ],
+  "flat": 151,
+  "implied_usd_per_lb_at_min_weight": [
+   15.12,
+   15.6
+  ],
+  "live_series_with_2_or_more_observations": 152,
+  "median_last": 19.2,
+  "range_last": [
+   18.9,
+   19.5
+  ],
+  "record": {
+   "file": "data/observations.jsonl",
+   "git_commit": "0d1757ff054aedff8818b47d586cf4d898122a70",
+   "kind": "wedding",
+   "name": "Field Assembly private observation record (Maine lobster, consumer direct-ship)",
+   "note": "A private Field Assembly record, not published, used for observations before 2026-09-26. It is cited by its file hash and git commit, which are what a later reader can check a produced copy against; its location is not part of this record.",
+   "observations_used": 327,
+   "sha256": "7ebd3d4877bc226c555f38308e51d7dc7b160aa2d1ccd738fa322298e8e1f67c"
+  },
+  "record_start": "2026-09-26",
+  "records": [
+   {
+    "file": "data/observations.jsonl",
+    "git_commit": "0d1757ff054aedff8818b47d586cf4d898122a70",
+    "kind": "wedding",
+    "name": "Field Assembly private observation record (Maine lobster, consumer direct-ship)",
+    "note": "A private Field Assembly record, not published, used for observations before 2026-09-26. It is cited by its file hash and git commit, which are what a later reader can check a produced copy against; its location is not part of this record.",
+    "observations_used": 327,
+    "sha256": "7ebd3d4877bc226c555f38308e51d7dc7b160aa2d1ccd738fa322298e8e1f67c"
+   }
+  ],
+  "reference_series": {
+   "metric": "per_lobster",
+   "product_category": "live",
+   "quantity": 1,
+   "shell_type": "hard",
+   "size_class": "1.25"
+  },
+  "sellers": [
+   {
+    "change_pct": 0.0,
+    "first": 18.9,
+    "last": 18.9,
+    "observations": [
+     {
+      "availability": "IN_STOCK",
+      "date": "2026-09-11",
+      "usd_per_lobster": 18.9
+     },
+     {
+      "availability": "IN_STOCK",
+      "date": "2026-09-19",
+      "usd_per_lobster": 18.9
+     }
+    ],
+    "seller": "D"
+   },
+   {
+    "change_pct": 0.0,
+    "first": 19.5,
+    "last": 19.5,
+    "observations": [
+     {
+      "availability": "IN_STOCK",
+      "date": "2026-09-11",
+      "usd_per_lobster": 19.5
+     },
+     {
+      "availability": "IN_STOCK",
+      "date": "2026-09-19",
+      "usd_per_lobster": 19.5
+     }
+    ],
+    "seller": "G"
+   }
+  ],
+  "sellers_observed": 8
+ },
+ "run_id": "2026-09-22T201642Z",
+ "title": "Lobster Monitor"
+}

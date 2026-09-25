@@ -1,0 +1,40 @@
+{
+ "captured_at": "2026-09-22T20:17:11+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 49013,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-09-22T20:17:11+00:00",
+   "final_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/usda_ers_fpo/landing.headers.txt",
+   "http_status": 200,
+   "name": "landing",
+   "path": "lobster/captures/2026-09-22T201642Z/usda_ers_fpo/landing.html",
+   "requested_url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "sha256": "db2d3aa238039424f7b36c82b430aafd8e2a4cb69f7c192c5c09d24dbb073606",
+   "status": "OK"
+  },
+  {
+   "bytes": 29544,
+   "content_type": "text/csv; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-09-22T20:17:13+00:00",
+   "final_url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=79349",
+   "headers_path": "lobster/captures/2026-09-22T201642Z/usda_ers_fpo/cpi_csv.headers.txt",
+   "http_status": 200,
+   "name": "cpi_csv",
+   "path": "lobster/captures/2026-09-22T201642Z/usda_ers_fpo/cpi_csv.csv",
+   "requested_url": "FOLLOW:landing:re:changes-in-consumer-price-indexes-[0-9]+-through-[0-9]+\\.csv",
+   "resolved_url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=79349",
+   "sha256": "d3454be871109792d9f6ffe7d766e338a4f264c6febe8ab725b1c554e3a77985",
+   "status": "OK"
+  }
+ ],
+ "label": "FOOD-COST INDICATOR (official forecast table)",
+ "run_id": "2026-09-22T201642Z",
+ "source_id": "usda_ers_fpo",
+ "source_name": "USDA ERS Food Price Outlook (CPI forecast table)",
+ "status": "OK"
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-<title>Provision Record</title><subtitle>A dated record of what is happening to food costs, and the evidence behind it.</subtitle><link href="https://provisionrecord.com/"/><link rel="self" href="https://provisionrecord.com/feed.xml"/><id>https://provisionrecord.com/</id><updated>2026-09-25T01:39:27Z</updated><author><name>Field Assembly</name><uri>https://fieldassembly.net</uri></author>
-
+<title>Provision Record</title><subtitle>A dated record of what is happening to food costs, and the evidence behind it.</subtitle><link href="https://provisionrecord.com/"/><link rel="self" href="https://provisionrecord.com/feed.xml"/><id>https://provisionrecord.com/</id><updated>2026-09-25T00:00:00Z</updated><author><name>Field Assembly</name><uri>https://fieldassembly.net</uri></author>
+<entry><title>Lobster Monitor, Issue 0: September 2026 baseline</title><link rel="alternate" href="https://provisionrecord.com/lobster/2026-09-baseline/"/><id>https://provisionrecord.com/lobster/2026-09-baseline/</id><published>2026-09-25T00:00:00Z</published><updated>2026-09-25T00:00:00Z</updated><summary>Field Assembly. Lobster Monitor, Issue 0: September 2026 baseline. Provision Record, 25 September 2026, version 1.0. https://provisionrecord.com/lobster/2026-09-baseline/</summary></entry>
 </feed>

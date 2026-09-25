@@ -1,0 +1,24 @@
+# https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=79349
+HTTP 200
+Date: Tue, 22 Sep 2026 20:17:14 GMT
+Content-Type: text/csv; charset=utf-8
+Content-Length: 29544
+Connection: close
+Server: 
+Accept-Ranges: bytes
+Access-Control-Allow-Headers: Content-Type
+Access-Control-Allow-Methods: GET, POST, OPTIONS
+Cache-Control: must-revalidate, no-cache, private
+Content-Language: en
+Expires: Sun, 19 Nov 1978 05:00:00 GMT
+Vary: Origin
+Strict-Transport-Security: max-age=31536000;
+X-Content-Type-Options: nosniff
+X-Drupal-Dynamic-Cache: UNCACHEABLE (no cacheability)
+X-Frame-Options: SAMEORIGIN
+X-Generator: Drupal 11 (https://www.drupal.org)
+Content-Security-Policy: connect-src 'self' https://*.google-analytics.com https://api.data.gov https://dap.digitalgov.gov https://www.googletagmanager.com; frame-src 'self' https://*.ers.usda.gov https://*.tableau.com https://www.google.com; img-src 'self' https://ers.usda.gov https://ewapsdev.ers.usda.gov https://ewapsbeta.ers.usda.gov http://usda.sc.omtrdc.net https://www.googletagmanager.com data: w3.org/svg/2000 https://latex.codecogs.com; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.tableau.com https://api.data.gov https://www.gstatic.com/ https://cdnjs.cloudflare.com https://dap.digitalgov.gov https://public.tableau.com https://www.google.com; script-src-attr 'self' 'unsafe-inline'; script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://*.google-analytics.com https://*.tableau.com https://api.data.gov https://www.gstatic.com https://cdnjs.cloudflare.com https://dap.digitalgov.gov https://public.tableau.com https://www.google.com; style-src 'self' 'unsafe-inline' https://*.google-analytics.com https://googletagmanager.com https://cdnjs.cloudflare.com www.ers.usda.gov; style-src-attr 'self' 'unsafe-inline'; style-src-elem 'self' 'unsafe-inline' https://*.google-analytics.com https://googletagmanager.com https://api.data.gov https://cdnjs.cloudflare.com www.ers.usda.gov; worker-src 'self' blob:; frame-ancestors 'self'; upgrade-insecure-requests
+X-Drupal-Cache: UNCACHEABLE (no cacheability)
+Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Disposition: attachment; filename="CPI-forecast.csv"

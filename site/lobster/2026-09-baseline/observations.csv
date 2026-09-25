@@ -1,0 +1,5 @@
+seller_letter,observed_date,usd_per_lobster,availability,product_category,shell_type,size_class_lb,quantity,channel
+D,2026-09-11,18.9,IN_STOCK,live,hard,1.25,1,counter or pickup
+D,2026-09-19,18.9,IN_STOCK,live,hard,1.25,1,counter or pickup
+G,2026-09-11,19.5,IN_STOCK,live,hard,1.25,1,counter or pickup
+G,2026-09-19,19.5,IN_STOCK,live,hard,1.25,1,counter or pickup
