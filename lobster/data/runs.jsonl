@@ -1,1 +1,2 @@
 {"parsed_at": "2026-09-22T20:17:24+00:00", "run_id": "2026-09-22T201642Z", "sources": {"bls": {"rows": 160, "status": "OK"}, "maine_dmr_landings": {"rows": 792, "status": "OK"}, "noaa_foss_trade": {"rows": 76, "status": "OK"}, "usda_ers_fpo": {"rows": 52, "status": "OK"}}}
+{"parsed_at": "2026-09-25T22:03:09+00:00", "run_id": "2026-09-25T220229Z", "sources": {"bls": {"rows": 160, "status": "OK"}, "maine_dmr_landings": {"rows": 792, "status": "OK"}, "noaa_foss_trade": {"rows": 76, "status": "OK"}, "usda_ers_fpo": {"rows": 52, "status": "OK"}}}
