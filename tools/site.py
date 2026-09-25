@@ -896,6 +896,54 @@ def reuse_page(out):
     write(out, "/reuse/", shell("Cite and reuse · Provision Record", body, path="/reuse/", description="How to cite a Provision Record edition, what material is Field Assembly's, and the reuse terms.", crumbs=[("Cite and reuse", "/reuse/")]))
 
 
+def not_found_page(out):
+    """404.html at the root: Cloudflare Pages serves it, with status 404, for
+    any address with no file. Without it Pages answered every missing address
+    with the home page and status 200 (a soft 404), found 2026-09-25."""
+    body = """
+<article class="article">
+  <div class="kicker">Not found</div>
+  <h1>There is no page at this address</h1>
+  <p class="standfirst">The address may be mistyped, or it may point to something that was never published. Editions keep their addresses permanently once published.</p>
+  <div class="prose">
+    <p><a href="/">Go to the home page</a> or <a href="/archive/">browse every edition</a>.</p>
+  </div>
+</article>
+"""
+    write(out, "/404.html", shell(f"Not found · {NAME}", body, path="/404.html", noindex=True,
+                                  description="There is no page at this address."))
+
+
+def llms_txt(cfg, out):
+    """/llms.txt: a plain-text map of the site for language-model readers,
+    in the same shape as the other Field Assembly sites (2026-09-25)."""
+    titles = "\n".join(f"- [{cfg[s]['name']}]({BASE}/{s}/): {TITLE_SUBJECT.get(s, s)}, each edition with its sources, "
+                       f"calculations and downloadable tables." for s in cfg["titles"])
+    text = f"""# {NAME}
+
+> {SITE_DESC}
+
+{NAME} is a free public resource published by Field Assembly LLC. Each title follows a small set of public sources, retained byte for byte, and each edition is written by a person, dated, versioned and citable. An edition does not forecast, does not find that a price is unfair, and does not determine whether a contractual adjustment is permitted.
+
+## Titles
+
+{titles}
+
+## Core pages
+
+- [Home]({BASE}/): the current state of every title.
+- [Archive]({BASE}/archive/): every published edition, by date.
+- [About]({BASE}/about/): what the resource is, who it may serve, and how it is made.
+- [Cite and reuse]({BASE}/reuse/): the citation form and the reuse terms (Field Assembly's own material is CC BY 4.0).
+
+## Optional
+
+- [Feed]({BASE}/feed.xml): new editions.
+- [Field Assembly](https://fieldassembly.net): the publisher.
+"""
+    write(out, "/llms.txt", text)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default="site")
@@ -926,6 +974,8 @@ def main():
     archive_page(cfg, editions_by, out, a.include_drafts)
     about_page(out)
     reuse_page(out)
+    not_found_page(out)
+    llms_txt(cfg, out)
     copy(ROOT / "site-src" / "og.png", out / "og.png")  # link-preview card, named by seo.social_meta
     write(out, "/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     pages = sorted(str(p.relative_to(out)) for p in out.rglob("index.html"))

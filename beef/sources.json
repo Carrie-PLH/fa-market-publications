@@ -108,7 +108,7 @@
    "tier": "official",
    "added": "2026-09-23",
    "why": "Cattle on feed, placements and marketings for feedlots of 1,000 head or more, both years side by side with NASS's own percent-of-previous-year column. Placements today are the fed cattle supply five or six months from now, which is the supply story behind a beef price claim. File name carries the release month, so the current and prior months are tried in turn.",
-   "page_url": "https://usda.library.cornell.edu/concern/publications/m326m1749",
+   "page_url": "https://esmis.nal.usda.gov/publication/cattle-feed",
    "fetches": [
     {
      "name": "txt",

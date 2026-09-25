@@ -1,0 +1,26 @@
+# Provision Record
+
+> Free, dated editions on lobster, beef, pork, chicken, egg, butter and cheddar costs, with public sources, calculations and downloadable tables. From Field Assembly.
+
+Provision Record is a free public resource published by Field Assembly LLC. Each title follows a small set of public sources, retained byte for byte, and each edition is written by a person, dated, versioned and citable. An edition does not forecast, does not find that a price is unfair, and does not determine whether a contractual adjustment is permitted.
+
+## Titles
+
+- [Lobster Monitor](https://provisionrecord.com/lobster/): Maine lobster prices, each edition with its sources, calculations and downloadable tables.
+- [Egg & Butter Brief](https://provisionrecord.com/egg-butter/): egg and butter prices, each edition with its sources, calculations and downloadable tables.
+- [Chicken Monitor](https://provisionrecord.com/chicken/): chicken prices, each edition with its sources, calculations and downloadable tables.
+- [Beef Monitor](https://provisionrecord.com/beef/): beef prices, each edition with its sources, calculations and downloadable tables.
+- [Pork Monitor](https://provisionrecord.com/pork/): pork prices, each edition with its sources, calculations and downloadable tables.
+- [Cheddar Check](https://provisionrecord.com/cheddar/): cheddar cheese prices, each edition with its sources, calculations and downloadable tables.
+
+## Core pages
+
+- [Home](https://provisionrecord.com/): the current state of every title.
+- [Archive](https://provisionrecord.com/archive/): every published edition, by date.
+- [About](https://provisionrecord.com/about/): what the resource is, who it may serve, and how it is made.
+- [Cite and reuse](https://provisionrecord.com/reuse/): the citation form and the reuse terms (Field Assembly's own material is CC BY 4.0).
+
+## Optional
+
+- [Feed](https://provisionrecord.com/feed.xml): new editions.
+- [Field Assembly](https://fieldassembly.net): the publisher.
