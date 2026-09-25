@@ -7,3 +7,4 @@ site-preview/
 .fa-retail-root
 lobster/observations/.capture.lock
 lobster/observations/logs/
+logs/
