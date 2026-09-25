@@ -338,7 +338,12 @@ def p_dmn_weekly_pdf(rec, src, args):
     text = _pdf_text(body)
     flat = re.sub(r"[ \t]+", " ", text)
     # remove the right-hand column bleed: join lines, then match with .{0,200}? between phrases
-    m = re.search(r"BUTTER: Grade AA closed at \$([\d.]+)\..{0,400}?weekly average for Grade.{0,300}?\bAA is \$([\d.]+)", flat, re.S)
+    # The reprint's spacing varies between issues: 2026-09-25 printed the weekly
+    # average as "AA is $ 1.3645", with a space after the dollar sign, where
+    # 2026-09-18 printed "$1.3590". \s* after each \$ tolerates both.
+    m = re.search(r"BUTTER:\s+Grade\s+AA\s+closed\s+at\s+\$\s*([\d.]+)\."
+                  r".{0,400}?weekly\s+average\s+for\s+Grade"
+                  r".{0,300}?\bAA\s+is\s+\$\s*([\d.]+)", flat, re.S)
     if not m:
         raise ParseFailure("DMN: butter 'At a Glance' pattern not found")
     h = DMN_HEAD.search(text)
@@ -1061,9 +1066,12 @@ def p_dmn_cheese_pdf(rec, src, args):
     f, body = read_fetch(rec, "pdf")
     text = _pdf_text(body)
     flat = re.sub(r"[ \t]+", " ", text)
-    m = re.search(r"CHEESE: Barrels closed at \$([\d.]+) and 40# blocks at \$([\d.]+)\."
-                  r".{0,500}?weekly average for barrels is \$([\d.]+).{0,200}?"
-                  r"blocks \$([\d.]+)", flat, re.S)
+    # \s* after each \$ for the same reason as the butter parser: the reprint's
+    # spacing after the dollar sign varies between issues. Not yet seen in the
+    # cheese block; tolerated here before it is.
+    m = re.search(r"CHEESE:\s+Barrels\s+closed\s+at\s+\$\s*([\d.]+)\s+and\s+40#\s+blocks\s+at\s+\$\s*([\d.]+)\."
+                  r".{0,500}?weekly\s+average\s+for\s+barrels\s+is\s+\$\s*([\d.]+).{0,200}?"
+                  r"blocks\s+\$\s*([\d.]+)", flat, re.S)
     if not m:
         raise ParseFailure("DMN: cheese 'At a Glance' pattern not found")
     h = DMN_HEAD.search(text)
