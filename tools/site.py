@@ -926,6 +926,7 @@ def main():
     archive_page(cfg, editions_by, out, a.include_drafts)
     about_page(out)
     reuse_page(out)
+    copy(ROOT / "site-src" / "og.png", out / "og.png")  # link-preview card, named by seo.social_meta
     write(out, "/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
     pages = sorted(str(p.relative_to(out)) for p in out.rglob("index.html"))
     unlisted = {e.path.strip("/") + "/index.html" for eds in editions_by.values() for e in eds if e.status != "published"}

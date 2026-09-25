@@ -20,8 +20,9 @@ def esc(s):
 def social_meta(*, title, description, url, site_name, kind="website",
                 published=None, modified=None, feed_path=None):
     """Open Graph and Twitter card tags. kind is 'website' or 'article'.
-    No image is declared until the site has one; a missing og:image is better
-    than a wrong one."""
+    The image is the site's own 1200x630 card, site/og.png, copied there from
+    site-src/og.png by site.py (2026-09-25)."""
+    origin = "/".join(url.split("/")[:3])
     tags = [
         f'<meta property="og:site_name" content="{esc(site_name)}">',
         f'<meta property="og:type" content="{esc(kind)}">',
@@ -29,7 +30,12 @@ def social_meta(*, title, description, url, site_name, kind="website",
         f'<meta property="og:description" content="{esc(description)}">',
         f'<meta property="og:url" content="{esc(url)}">',
         '<meta property="og:locale" content="en_US">',
-        '<meta name="twitter:card" content="summary">',
+        f'<meta property="og:image" content="{esc(origin)}/og.png">',
+        '<meta property="og:image:width" content="1200">',
+        '<meta property="og:image:height" content="630">',
+        f'<meta property="og:image:alt" content="{esc(site_name)}">',
+        '<meta name="twitter:card" content="summary_large_image">',
+        f'<meta name="twitter:image" content="{esc(origin)}/og.png">',
         f'<meta name="twitter:title" content="{esc(title)}">',
         f'<meta name="twitter:description" content="{esc(description)}">',
     ]
