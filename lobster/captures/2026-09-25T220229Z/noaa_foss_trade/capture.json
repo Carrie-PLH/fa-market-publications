@@ -1,0 +1,53 @@
+{
+ "captured_at": "2026-09-25T22:02:31+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 19275,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-25T22:02:31+00:00",
+   "final_url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
+   "headers_path": "lobster/captures/2026-09-25T220229Z/noaa_foss_trade/trade_2026.headers.txt",
+   "http_status": 200,
+   "name": "trade_2026",
+   "path": "lobster/captures/2026-09-25T220229Z/noaa_foss_trade/trade_2026.json",
+   "requested_url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
+   "sha256": "30b232b87732ff52a59703cd19497c065b527708405529d214e565696f58404b",
+   "status": "OK"
+  },
+  {
+   "bytes": 701,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-25T22:02:42+00:00",
+   "final_url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
+   "headers_path": "lobster/captures/2026-09-25T220229Z/noaa_foss_trade/trade_2027.headers.txt",
+   "http_status": 200,
+   "name": "trade_2027",
+   "path": "lobster/captures/2026-09-25T220229Z/noaa_foss_trade/trade_2027.json",
+   "requested_url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
+   "sha256": "8c082332ec3bbb91b9ee712e5b4fc921b6851e458ba58330e31deb9f4afcb1fb",
+   "status": "OK"
+  },
+  {
+   "bytes": 37099,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-09-25T22:02:45+00:00",
+   "final_url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
+   "headers_path": "lobster/captures/2026-09-25T220229Z/noaa_foss_trade/trade_2025.headers.txt",
+   "http_status": 200,
+   "name": "trade_2025",
+   "path": "lobster/captures/2026-09-25T220229Z/noaa_foss_trade/trade_2025.json",
+   "requested_url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
+   "sha256": "d059a0fd37024922244f7d8ba8e4adb8e66b57fa2109365ed32b6df951d0a7ac",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (monthly import value; not a retail price)",
+ "run_id": "2026-09-25T220229Z",
+ "source_id": "noaa_foss_trade",
+ "source_name": "NOAA Fisheries FOSS trade data: live lobster imports (Homarus spp.)",
+ "status": "OK"
+}
