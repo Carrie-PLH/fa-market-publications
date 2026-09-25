@@ -1,0 +1,26 @@
+{
+ "captured_at": "2026-09-25T22:05:05+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 71214,
+   "content_type": "text/plain; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-09-25T22:05:05+00:00",
+   "final_url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0626.txt",
+   "headers_path": "pork/captures/2026-09-25T220456Z/nass_hogs_pigs/txt.headers.txt",
+   "http_status": 200,
+   "name": "txt",
+   "path": "pork/captures/2026-09-25T220456Z/nass_hogs_pigs/txt.txt",
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+   "resolved_url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0626.txt",
+   "sha256": "471e78ed2fee1b4a3d2ac3f186a180171abe17bc8dd988c3665ce6c681363097",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: hog inventory by class and weight group)",
+ "run_id": "2026-09-25T220456Z",
+ "source_id": "nass_hogs_pigs",
+ "source_name": "USDA NASS: Quarterly Hogs and Pigs (text)",
+ "status": "OK"
+}

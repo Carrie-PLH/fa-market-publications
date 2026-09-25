@@ -1,0 +1,18 @@
+# https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0626.txt
+HTTP 200
+Date: Fri, 25 Sep 2026 22:05:07 GMT
+Content-Type: text/plain; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+ETag: W/"1162e-655189b00b0c6"
+Last-Modified: Thu, 25 Jun 2026 19:00:28 GMT
+Strict-Transport-Security: max-age=31536000; includeSubDomains;preload
+x-handler-apgw-05-12: APPGW-Public
+X-Content-Type-Options: nosniff
+x-azure-ref: 20260925T220507Z-15df8c46995kqwmghS1SNRk4000000000rm0000000000ak3
+x-fd-int-roxy-purgeid: 0
+X-Cache: TCP_MISS
+Content-Encoding: gzip
+x-handler-fd: FD-ORIGIN-CORE.05122025-1
+cache-control: max-age=86400
