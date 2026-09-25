@@ -1,0 +1,35 @@
+{
+ "entry": {
+  "file_count": 354,
+  "id": "2026-09-25T230105Z",
+  "manifest_file": "manifests/2026-09-25T230105Z.txt",
+  "manifest_sha256": "a505301c663a67ea2969b4089f12bd8bffa505197a9cec427f0cde91f07ec774",
+  "note": "re-parse egg-butter 2026-09-25T220314Z: DMN butter reading recovered",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "lobster/observations/captures",
+   "lobster/observations/data",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "832c28b8e1cac8bc505ce46976441a1ae3af9a8b4623fbfea4fe83d072eb12e2",
+  "repo": "fa-market-publications",
+  "utc": "2026-09-25T23:01:05+00:00"
+ },
+ "entry_sha256": "ac406a0bc3d24924aa64a3df26ea9da1ba4596b2fe9fb80c24180388057bf296"
+}
