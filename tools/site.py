@@ -213,7 +213,7 @@ def shell(title, body, *, path, description, noindex=False, dateline=None,
   <div class="sf-top">
     <div class="sf-brand">
       {MARK}
-      <div class="sf-tag">Provision Record<br>Food market publications, a free public resource from<br><a href="https://fieldassembly.net">Field Assembly</a><br>A publisher of maintained reference and evidence works</div>
+      <div class="sf-tag">Provision Record<br>Food market publications, a free public resource from<br><a href="https://fieldassembly.net">Field Assembly</a><br>A publisher of maintained reference works, evidence works and market records</div>
     </div>
     <div class="sf-nav">
       <div class="sf-col">
@@ -864,7 +864,7 @@ def about_page(out):
     <h2>How it is made</h2>
     <p>Each title follows a small set of dependable, accessible public sources, fetched by script and retained byte for byte, with automation assisting collection and calculation and a person writing the edition. There are no paid data subscriptions and no attempt to track hundreds of individual listings. The method for each title is on its methodology page, and every edition names the exact releases it used.</p>
     <h2>Relationship to Field Assembly</h2>
-    <p>Provision Record is published by Field Assembly LLC, a Massachusetts publisher of maintained reference and evidence works. It follows the same practice as Field Assembly's other works: first-party sources, retained evidence, dated claims, and corrections on the record. Contact: hello@fieldassembly.net.</p>
+    <p>Provision Record is published by Field Assembly LLC, a Massachusetts publisher of maintained reference works, evidence works and market records. It follows the same practice as Field Assembly's other works: first-party sources, retained evidence, dated claims, and corrections on the record. Contact: hello@fieldassembly.net.</p>
   </div>
 </article>
 """
