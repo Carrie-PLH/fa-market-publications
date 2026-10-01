@@ -1,0 +1,38 @@
+{
+ "captured_at": "2026-10-01T13:45:02+00:00",
+ "errors": [
+  "render png: chrome did not exit within timeout; output validated by file trailer",
+  "render pdf: rn: -6670\n[69219:1940968:1001/094548.526424:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[69219:1940968:1001/094548.526497:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[69219:1940968:1001/094548.526555:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\nTrying to load the allocator multiple times. This is *not* supported.\n"
+ ],
+ "fetches": [
+  {
+   "bytes": 165,
+   "content_type": "text/html",
+   "error": null,
+   "fetched_at": "2026-10-01T13:45:02+00:00",
+   "final_url": "https://taylorlobster.com/",
+   "headers_path": "captures/2026-10-01T134502Z/taylor/page.headers.txt",
+   "http_status": 202,
+   "name": "page",
+   "path": "captures/2026-10-01T134502Z/taylor/page.html",
+   "requested_url": "https://taylorlobster.com/",
+   "sha256": "8ece03640f4e6194b158a3832fdf1d44ba5ebbbb7fe58e3b24c2017a803f5113",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "pdf": {
+   "error": "rn: -6670\n[69219:1940968:1001/094548.526424:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[69219:1940968:1001/094548.526497:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\n[69219:1940968:1001/094548.526555:ERROR:ui/display/mac/cv_display_link_mac.mm:188] CVDisplayLinkCreateWithCGDisplay failed. CVReturn: -6670\nTrying to load the allocator multiple times. This is *not* supported.\n",
+   "status": "FAILED"
+  },
+  "png": {
+   "error": "chrome did not exit within timeout; output validated by file trailer",
+   "status": "FAILED"
+  }
+ },
+ "run_id": "2026-10-01T134502Z",
+ "source_id": "taylor",
+ "source_name": "Taylor Lobster (Kittery, ME)",
+ "status": "PARTIAL"
+}

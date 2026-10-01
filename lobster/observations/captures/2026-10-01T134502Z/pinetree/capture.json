@@ -1,0 +1,69 @@
+{
+ "captured_at": "2026-10-01T13:48:15+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 102140,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-10-01T13:48:15+00:00",
+   "final_url": "https://pinetreeseafood.com/product-category/live-lobster/",
+   "headers_path": "captures/2026-10-01T134502Z/pinetree/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-10-01T134502Z/pinetree/page.html",
+   "requested_url": "https://pinetreeseafood.com/product-category/live-lobster/",
+   "sha256": "00eecfd0be5a7e7f904c6fb9417063d4bd1995bf271b88925251fb13b6a9d1dd",
+   "status": "OK"
+  },
+  {
+   "bytes": 110050,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-01T13:48:19+00:00",
+   "final_url": "https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=shell&per_page=100",
+   "headers_path": "captures/2026-10-01T134502Z/pinetree/products_shell.headers.txt",
+   "http_status": 200,
+   "name": "products_shell",
+   "path": "captures/2026-10-01T134502Z/pinetree/products_shell.json",
+   "requested_url": "https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=shell&per_page=100",
+   "sha256": "754dc2a68e12840ddae96e12e4fdae6682d841568017ef6c09267911bc8a2d5e",
+   "status": "OK"
+  },
+  {
+   "bytes": 13403,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-01T13:48:23+00:00",
+   "final_url": "https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=live%20maine%20lobster&per_page=100",
+   "headers_path": "captures/2026-10-01T134502Z/pinetree/products_live.headers.txt",
+   "http_status": 200,
+   "name": "products_live",
+   "path": "captures/2026-10-01T134502Z/pinetree/products_live.json",
+   "requested_url": "https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=live%20maine%20lobster&per_page=100",
+   "sha256": "e81573d061addfbcea1e62e2e783a344de4d64ca2c379b12bde4e4ed3daad0fc",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "pdf": {
+   "bytes": 348222,
+   "note": "chrome did not exit within timeout; output validated by file trailer",
+   "path": "captures/2026-10-01T134502Z/pinetree/page.pdf",
+   "sha256": "2559d1a4ffed60629d63a0fd8f977f0d9be676cd0f9a3e6b479060087592380a",
+   "status": "OK"
+  },
+  "png": {
+   "bytes": 1780703,
+   "note": "chrome did not exit within timeout; output validated by file trailer",
+   "path": "captures/2026-10-01T134502Z/pinetree/page.png",
+   "sha256": "2d6c090d96e232a9d27f377edf1099ba351a71d81a0be70dd96eee5ab24f2174",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-01T134502Z",
+ "source_id": "pinetree",
+ "source_name": "Pine Tree Seafood & Produce (Scarborough, ME)",
+ "status": "OK"
+}

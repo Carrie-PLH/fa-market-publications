@@ -1,0 +1,37 @@
+# https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=1
+HTTP 200
+Date: Thu, 01 Oct 2026 13:52:17 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+x-robots-tag: noindex
+link: <https://greenheadlobster.com/wp-json/>; rel="https://api.w.org/"
+x-content-type-options: nosniff
+access-control-expose-headers: X-WP-Total, X-WP-TotalPages, Link, Cart-Token
+access-control-allow-headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type, X-HTTP-Method-Override, Cart-Token, Nonce
+x-wp-total: 22
+x-wp-totalpages: 1
+last-modified: Wed, 30 Sep 2026 16:49:18 GMT
+allow: GET
+access-control-allow-methods: OPTIONS, GET, POST, PUT, PATCH, DELETE
+access-control-allow-credentials: true
+vary: Origin,User-Agent
+Cache-Control: public, max-age=172800
+expires: Sat, 03 Oct 2026 13:52:17 GMT
+strict-transport-security: max-age=300;includeSubDomains; preload
+edit: Set-Cookie (.*) "$1;HttpOnly;Secure"
+x-frame-options: sameorigin
+setifempty: Referrer-Policy: same-origin
+x-xss-protection: 1; mode=block
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+alt-svc: h3=":443"; ma=86400
+x-turbo-charged-by: LiteSpeed
+cf-cache-status: DYNAMIC
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Server-Timing: cfCacheStatus;desc="DYNAMIC"
+Server-Timing: cfEdge;dur=10,cfOrigin;dur=2102
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=D%2FaIYw56bEf7m%2FJA%2BF3hQl6ipQaq%2B%2BXqtAhSClDqEx5wnJ8BHM%2FKtTyZOexrGYZTWhJF8T8OXjzyj4fqZG3hbDxLjF9bm6hqP1m2Bn4h6uNY%2BKaskJpN5WS5yAeYMcBcYtzFO6dWww%3D%3D"}]}
+Content-Encoding: gzip
+Server: cloudflare
+CF-RAY: a43bf2615e91533a-DFW

@@ -1,0 +1,22 @@
+# https://pinetreeseafood.com/wp-json/wc/store/v1/products?search=shell&per_page=100
+HTTP 200
+Server: nginx
+Date: Thu, 01 Oct 2026 13:48:20 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+X-Robots-Tag: noindex
+Link: <https://pinetreeseafood.com/wp-json/>; rel="https://api.w.org/"
+X-Content-Type-Options: nosniff
+Access-Control-Expose-Headers: X-WP-Total, X-WP-TotalPages, Link, Cart-Token
+Access-Control-Allow-Headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type, Cart-Token, Nonce
+X-WP-Total: 1
+X-WP-TotalPages: 1
+Allow: GET
+Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, PATCH, DELETE
+Access-Control-Allow-Credentials: true
+Vary: Origin,Accept-Encoding,User-Agent
+Last-Modified: Wed, 30 Sep 2026 21:57:41 GMT
+Content-Encoding: gzip
+# 1 Set-Cookie header(s) redacted at capture
