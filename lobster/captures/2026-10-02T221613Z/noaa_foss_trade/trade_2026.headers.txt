@@ -1,0 +1,12 @@
+# https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={"hts_number":"0306320010","source":"IMP","year":"2026"}&limit=2000
+HTTP 200
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+ETag: "iofwbMAPGRGAI6dwoMqQbK5EsyJbnmf5SCHebFuohEgr0eomQHr+9Eqb6bcWBKSrKO2qBVXN/G/M22A8JEB6LQ=="
+Content-Type: application/json
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Date: Fri, 02 Oct 2026 22:16:21 GMT
+Content-Length: 1476
+Connection: close
+Strict-Transport-Security: max-age=31536000
