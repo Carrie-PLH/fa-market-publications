@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-10-02T22:41:16+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 3100722,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-10-02T22:41:16+00:00",
+   "final_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content",
+   "headers_path": "cheddar/captures/2026-10-02T224106Z/ndpsr_barrel/json.headers.txt",
+   "http_status": 200,
+   "name": "json",
+   "path": "cheddar/captures/2026-10-02T224106Z/ndpsr_barrel/json.json",
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content",
+   "sha256": "12ce9cb130dd2a671996f9e48050a6465074f5c2677658005256990f76a66d20",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly weighted-average wholesale price under mandatory reporting, USD per lb; publication ceased mid-2025)",
+ "run_id": "2026-10-02T224106Z",
+ "source_id": "ndpsr_barrel",
+ "source_name": "USDA AMS: National Dairy Products Sales Report, 500-pound barrel cheddar (Datamart report 2993)",
+ "status": "OK"
+}
