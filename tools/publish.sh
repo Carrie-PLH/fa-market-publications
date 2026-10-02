@@ -21,6 +21,14 @@ status="$("$PY" -c "import json;print(json.load(open('$T/issues/$ED/edition.json
 rm -rf site
 "$PY" tools/site.py
 git add "$T/issues/$ED" anchors site
-git commit -q -m "Publish $T $ED" || true
+# Nothing staged is benign: a rebuild can be byte for byte what is already
+# committed. A commit that is attempted and fails is not, and must stop the
+# run before deploy.sh, or the site goes out ahead of the git history that is
+# supposed to corroborate it. set -e carries the failure.
+if git diff --cached --quiet; then
+  echo "nothing new to commit; the record and site/ already match HEAD"
+else
+  git commit -q -m "Publish $T $ED"
+fi
 ./deploy.sh
 echo "published $T $ED; push with: git push origin master"
