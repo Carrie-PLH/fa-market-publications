@@ -1,0 +1,56 @@
+{
+ "captured_at": "2026-10-02T22:52:55+00:00",
+ "errors": [
+  "txt: RuntimeError(\"all candidates failed: https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg1026.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0926.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0826.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0726.txt: <HTTPError 404: 'Not Found'>\")"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "RuntimeError(\"all candidates failed: https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg1026.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0926.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0826.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0726.txt: <HTTPError 404: 'Not Found'>\")",
+   "fetched_at": "2026-10-02T22:52:55+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "txt",
+   "path": null,
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+   "sha256": null,
+   "status": "FAILED"
+  },
+  {
+   "bytes": 63384,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-10-02T22:52:59+00:00",
+   "final_url": "https://esmis.nal.usda.gov/publication/hogs-and-pigs",
+   "headers_path": "pork/captures/2026-10-02T225245Z/nass_hogs_pigs/landing.headers.txt",
+   "http_status": 200,
+   "name": "landing",
+   "path": "pork/captures/2026-10-02T225245Z/nass_hogs_pigs/landing.html",
+   "requested_url": "https://usda.library.cornell.edu/concern/publications/rj430453j?locale=en",
+   "sha256": "76d50a7cdfc693e6aa3224b4ae01e0c4bbeeea3d5db5ecd386c61ccd2543cfa8",
+   "status": "OK"
+  },
+  {
+   "bytes": 70710,
+   "content_type": "text/plain",
+   "error": null,
+   "fetched_at": "2026-10-02T22:53:03+00:00",
+   "final_url": "https://esmis.nal.usda.gov/sites/default/release-files/796073/hgpg0926.txt",
+   "headers_path": "pork/captures/2026-10-02T225245Z/nass_hogs_pigs/archive_txt.headers.txt",
+   "http_status": 200,
+   "name": "archive_txt",
+   "path": "pork/captures/2026-10-02T225245Z/nass_hogs_pigs/archive_txt.txt",
+   "requested_url": "FOLLOW:landing:re:release-files/.*hgpg({MMYY}|{MMYY_PREV}|{MMYY_PREV2}|{MMYY_PREV3})\\.txt",
+   "resolved_url": "https://esmis.nal.usda.gov/sites/default/release-files/796073/hgpg0926.txt",
+   "sha256": "287955aa629e8a91d395b74b34887abe58aba2827b262e7755d177eaf8e60993",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: hog inventory by class and weight group)",
+ "run_id": "2026-10-02T225245Z",
+ "source_id": "nass_hogs_pigs",
+ "source_name": "USDA NASS: Quarterly Hogs and Pigs (text)",
+ "status": "PARTIAL"
+}
