@@ -1,0 +1,35 @@
+{
+ "entry": {
+  "file_count": 555,
+  "id": "2026-10-02T225427Z",
+  "manifest_file": "manifests/2026-10-02T225427Z.txt",
+  "manifest_sha256": "6566294ed1de5aea15adec23ada02951d6fe9711b005e7417be1a57c50279a01",
+  "note": "DMN cross-month week header, NASS Hogs and Pigs archive fallback, 2026-10-02",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "lobster/observations/captures",
+   "lobster/observations/data",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "a6081435277dad225ae83ed9200831f1c5a5d261f1d263a692bc170d3d4dd357",
+  "repo": "fa-market-publications",
+  "utc": "2026-10-02T22:54:27+00:00"
+ },
+ "entry_sha256": "d098099af93fb86ba906304d9b92f10438b3ddd5e9faa47fc3a50b8ed428d6d1"
+}
