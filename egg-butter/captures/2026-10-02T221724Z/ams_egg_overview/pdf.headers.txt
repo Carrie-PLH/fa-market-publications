@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/ams_3725.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 1139733
+X-Content-Type-Options: nosniff
+Last-Modified: Fri, 02 Oct 2026 18:24:54 GMT
+ETag: "116415-65cdfa61584a6"
+X-Varnish: 26931423 27115791
+Accept-Ranges: bytes
+Expires: Fri, 02 Oct 2026 22:17:44 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Fri, 02 Oct 2026 22:17:44 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.c7d07868.1790979464.d9277ec
