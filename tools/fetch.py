@@ -73,7 +73,8 @@ def header_block(status, final_url, headers):
 
 def resolve_follow(spec, done, base_url):
     """FOLLOW:<fetch-name>:<substring|re:regex> -> first matching href in that
-    fetch's HTML, resolved against the fetch's final URL."""
+    fetch's HTML, resolved against the fetch's final URL. The needle has already
+    had its {MMYY} placeholders expanded by the caller."""
     _, name, needle = spec.split(":", 2)
     prior = done.get(name)
     if not prior or prior.get("status") != "OK":
@@ -177,7 +178,10 @@ def capture_source(t, src, run_id, cfg):
                  "bytes": None, "fetched_at": None, "error": None}
         try:
             if url.startswith("FOLLOW:"):
-                url = resolve_follow(url, done, src.get("page_url", ""))
+                # The needle takes the same {MMYY} placeholders as a TRY
+                # candidate, so a follow can name the release month it wants.
+                url = resolve_follow(expand_template(url), done,
+                                     src.get("page_url", ""))
                 entry["resolved_url"] = url
             entry["fetched_at"] = iso()
             post = None

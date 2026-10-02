@@ -48,6 +48,19 @@ def read_fetch(rec, name):
     return f, (ROOT / f["path"]).read_bytes()
 
 
+def read_fetch_first(rec, names):
+    """The first of `names` that fetched OK, for a source held at a primary site
+    and at an archive. Returns the fetch name as well, so a row can record which
+    copy it was read from."""
+    for name in names:
+        f = fetch_entry(rec, name)
+        if f and f["status"] == "OK":
+            return name, f, (ROOT / f["path"]).read_bytes()
+    tried = ", ".join(f"'{n}'" for n in names)
+    detail = "; ".join(f"{n}: {(fetch_entry(rec, n) or {}).get('error')}" for n in names)
+    raise ParseFailure(f"no fetch available among {tried} ({detail})")
+
+
 # ---------- NOAA FOSS trade ----------
 
 def p_foss_trade(rec, src, args):
@@ -325,9 +338,28 @@ def p_ndpsr_json(rec, src, args):
 # ---------- USDA AMS Dairy Market News weekly PDF: CME butter at a glance ----------
 
 DMN_DATE = re.compile(r"CME GROUP CASH MARKETS \((\d{1,2})/(\d{1,2})\)")
-DMN_HEAD = re.compile(r"DAIRY MARKET NEWS,\s+([A-Z]+)\s+\d{1,2}\s*[–-]\s*(\d{1,2}),\s*(\d{4})")
+# The running header names the report week. A week inside one month prints
+# "DAIRY MARKET NEWS, SEPTEMBER 21 - 25, 2026"; a week that straddles a month
+# end prints the second month too, "SEPTEMBER 28 - OCTOBER 2, 2026". The
+# optional second month name is what distinguishes them, and the week-ending
+# month is that one where it appears. The printed year is the ending year, so
+# a week straddling a year end reads correctly as well.
+DMN_HEAD = re.compile(r"DAIRY MARKET NEWS,\s+([A-Z]+)\s+\d{1,2}\s*[–-]\s*"
+                      r"(?:([A-Z]+)\s+)?(\d{1,2}),\s*(\d{4})")
 MONTHS = {m: i for i, m in enumerate(["JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE", "JULY",
                                       "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"], 1)}
+
+
+def dmn_week_end(text):
+    """The report week's ending date, YYYY-MM-DD, from the DMN running header."""
+    h = DMN_HEAD.search(text)
+    if not h:
+        raise ParseFailure("DMN: report week header not found")
+    start_month, end_month, end_day, year = h.groups()
+    month = end_month or start_month
+    if month not in MONTHS:
+        raise ParseFailure(f"DMN: unrecognised month name '{month}' in report week header")
+    return f"{year}-{MONTHS[month]:02d}-{int(end_day):02d}"
 
 
 def p_dmn_weekly_pdf(rec, src, args):
@@ -346,10 +378,7 @@ def p_dmn_weekly_pdf(rec, src, args):
                   r".{0,300}?\bAA\s+is\s+\$\s*([\d.]+)", flat, re.S)
     if not m:
         raise ParseFailure("DMN: butter 'At a Glance' pattern not found")
-    h = DMN_HEAD.search(text)
-    if not h:
-        raise ParseFailure("DMN: report week header not found")
-    week_end = f"{h.group(3)}-{MONTHS[h.group(1)]:02d}-{int(h.group(2)):02d}"
+    week_end = dmn_week_end(text)
     note = "CME Group cash market, as reprinted by USDA AMS Dairy Market News; CME data is proprietary at source"
     return [dict(series_id="cme_butter_aa_friday_close_usd_per_lb",
                  series_title="CME Grade AA butter, Friday close USD/lb (via USDA AMS DMN)",
@@ -881,7 +910,10 @@ def p_nass_hogs_pigs_txt(rec, src, args):
     this table on a December-through-November year, so a December 1 inventory
     belongs to the calendar year before the column's year. Cells left blank
     because the estimation period has not begun are skipped, not read as zero."""
-    f, body = read_fetch(rec, "txt")
+    # NASS serves this report from Todays_Reports only for a window after each
+    # quarterly release, then it ages out; the Cornell ESMIS archive keeps every
+    # release. Whichever copy is present is read, and the row names it.
+    used, f, body = read_fetch_first(rec, ["txt", "archive_txt"])
     text = body.decode("utf-8", "ignore")
     note = _nass_release_note(text)
     lines = text.splitlines()
@@ -918,7 +950,7 @@ def p_nass_hogs_pigs_txt(rec, src, args):
             yy = y - 1 if month == 12 else y
             out.append(dict(series_id=sid, series_title=title, period=f"{yy}-{month:02d}",
                             value=float(r.group(col).replace(",", "")), unit="1,000 head",
-                            evidence_fetch="txt",
+                            evidence_fetch=used,
                             notes=f"{note}; quarterly inventory on {MONTH_NAMES[month - 1]} 1; "
                                   f"NASS states the later year as "
                                   f"{r.group('pct') or 'not given'} percent of the earlier"))
@@ -1074,10 +1106,7 @@ def p_dmn_cheese_pdf(rec, src, args):
                   r"blocks\s+\$\s*([\d.]+)", flat, re.S)
     if not m:
         raise ParseFailure("DMN: cheese 'At a Glance' pattern not found")
-    h = DMN_HEAD.search(text)
-    if not h:
-        raise ParseFailure("DMN: report week header not found")
-    week_end = f"{h.group(3)}-{MONTHS[h.group(1)]:02d}-{int(h.group(2)):02d}"
+    week_end = dmn_week_end(text)
     note = ("CME Group cash market, as reprinted by USDA AMS Dairy Market News; "
             "CME data is proprietary at source")
     spec = [("cme_cheese_barrels_friday_close_usd_per_lb",

@@ -80,12 +80,22 @@
    "label": "OFFICIAL STATISTIC (supply: hog inventory by class and weight group)",
    "tier": "official",
    "added": "2026-09-23",
-   "why": "All hogs and pigs, breeding herd and market herd by weight group, both years side by side with NASS's own percent-of-previous-year column. Market hogs in the heaviest weight group are the slaughter supply of the next several weeks; the breeding herd is the supply of the next year. Released in late March, June, September and December, so the fetch is tried back across the quarterly cycle and takes the most recent report available.",
+   "why": "All hogs and pigs, breeding herd and market herd by weight group, both years side by side with NASS's own percent-of-previous-year column. Market hogs in the heaviest weight group are the slaughter supply of the next several weeks; the breeding herd is the supply of the next year. Released in late March, June, September and December, so the fetch is tried back across the quarterly cycle and takes the most recent report available. NASS serves it from Todays_Reports only for a window after each release and then it ages out, so from 2026-10-02 the Cornell ESMIS archive on the publication page named in page_url, which keeps every release, is fetched as a second copy and read when the NASS fetch fails. The NASS candidates are kept and tried first; the file is the same report either way.",
    "page_url": "https://usda.library.cornell.edu/concern/publications/rj430453j",
    "fetches": [
     {
      "name": "txt",
      "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+     "ext": "txt"
+    },
+    {
+     "name": "landing",
+     "url": "https://usda.library.cornell.edu/concern/publications/rj430453j?locale=en",
+     "ext": "html"
+    },
+    {
+     "name": "archive_txt",
+     "url": "FOLLOW:landing:re:release-files/.*hgpg({MMYY}|{MMYY_PREV}|{MMYY_PREV2}|{MMYY_PREV3})\\.txt",
      "ext": "txt"
     }
    ],
