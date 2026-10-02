@@ -1,0 +1,27 @@
+{
+ "captured_at": "2026-10-02T22:40:37+00:00",
+ "errors": [
+  "txt: RuntimeError(\"all candidates failed: https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg1026.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0926.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0826.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0726.txt: <HTTPError 404: 'Not Found'>\")"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "RuntimeError(\"all candidates failed: https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg1026.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0926.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0826.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg0726.txt: <HTTPError 404: 'Not Found'>\")",
+   "fetched_at": "2026-10-02T22:40:37+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "txt",
+   "path": null,
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+   "sha256": null,
+   "status": "FAILED"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: hog inventory by class and weight group)",
+ "run_id": "2026-10-02T224027Z",
+ "source_id": "nass_hogs_pigs",
+ "source_name": "USDA NASS: Quarterly Hogs and Pigs (text)",
+ "status": "FAILED"
+}
