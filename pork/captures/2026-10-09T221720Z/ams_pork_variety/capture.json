@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-10-09T22:17:41+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 246408,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-10-09T22:17:41+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_2838.pdf",
+   "headers_path": "pork/captures/2026-10-09T221720Z/ams_pork_variety/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "pork/captures/2026-10-09T221720Z/ams_pork_variety/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/AMS_2838.pdf",
+   "sha256": "48bcb2f6d39163bf94150d5c53ecf377a07de5c710e7da880eb85e2a369883ca",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (weekly narrative and variety meat prices; retained, not parsed)",
+ "run_id": "2026-10-09T221720Z",
+ "source_id": "ams_pork_variety",
+ "source_name": "USDA AMS: Weekly Pork and Beef Variety Meat Report (PDF)",
+ "status": "OK"
+}
