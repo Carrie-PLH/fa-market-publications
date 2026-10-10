@@ -238,7 +238,7 @@ def shell(title, body, *, path, description, noindex=False, dateline=None,
         <a href="https://fieldassembly.net/privacy">Privacy</a>
         <a href="https://fieldassembly.net/accessibility">Accessibility</a>
       </div>
-      <div class="sf-col more-fa"><span class="sf-label">More from Field Assembly</span><a href="https://boardandborder.com">Board &amp; Border</a><a href="https://rulesandrecord.com">Rules &amp; Record</a><a href="https://roomandrecourse.com">Room &amp; Recourse</a><a href="https://gatheredwork.com">Gathered Work</a><a href="https://ai-learningevidence.com">AI Learning Evidence</a><a href="https://glp-1evidence.com">GLP-1 Evidence</a><a href="https://materialsmonitor.com">Materials Monitor</a></div>
+      <div class="sf-col more-fa"><span class="sf-label">More from Field Assembly</span><a href="https://boardandborder.com">Board &amp; Border</a><a href="https://rulesandrecord.com">Rules &amp; Record</a><a href="https://roomandrecourse.com">Room &amp; Recourse</a><a href="https://gatheredwork.com">Gathered Work</a><a href="https://ai-learningevidence.com">AI Learning Evidence</a><a href="https://glp-1evidence.com">GLP-1 Evidence</a><a href="https://materialsmonitor.com">Materials Monitor</a><a href="https://learnthings.online">Learn Things</a></div>
     </div>
   </div>
   <div class="sf-bottom">
