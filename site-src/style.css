@@ -49,6 +49,28 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:1re
 header.top nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
 header.top nav a{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-decoration:none;color:var(--text-dim);padding-bottom:2px;border-bottom:1px solid transparent;white-space:nowrap;}
 header.top nav a:hover{color:var(--accent);border-color:var(--accent-dim);}
+/* Collapsed masthead. The script after the header adds .nav-collapsed whenever
+   the links would not fit on one line beside the brand, so the nav goes behind
+   a Menu button instead of wrapping to a second row. Without script the nav
+   wraps as before. */
+.nav-toggle,.nav-button{display:none;}
+.nav-bars{display:block;position:relative;width:1.05rem;height:.7rem;border-top:2px solid currentColor;border-bottom:2px solid currentColor;}
+.nav-bars::before{content:"";position:absolute;top:50%;left:0;right:0;border-top:2px solid currentColor;transform:translateY(-1px);}
+header.top.nav-measuring{flex-wrap:nowrap;}
+header.top.nav-measuring .brand{flex-shrink:0;}
+header.top.nav-measuring nav{flex-wrap:nowrap;}
+/* The brand gives up width before the button drops to its own row. */
+header.top.nav-collapsed .brand{flex:1 1 0;}
+header.top.nav-collapsed .nav-toggle{display:block;position:absolute;width:1px;height:1px;margin:0;opacity:0;pointer-events:none;}
+header.top.nav-collapsed .nav-button{display:inline-flex;align-items:center;gap:.55rem;min-height:44px;padding:0 .2rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--text-dim);cursor:pointer;-webkit-user-select:none;user-select:none;}
+header.top.nav-collapsed .nav-button:hover{color:var(--accent);}
+header.top.nav-collapsed .nav-toggle:focus-visible + .nav-button{outline:2px solid var(--accent);outline-offset:3px;}
+header.top.nav-collapsed nav{display:none;flex-basis:100%;flex-direction:column;gap:0;padding-bottom:.35rem;}
+header.top.nav-collapsed .nav-toggle:checked ~ nav{display:flex;}
+header.top.nav-collapsed nav a{display:flex;align-items:center;min-height:44px;padding-bottom:0;border-bottom:none;border-top:1px solid var(--hair);}
+header.top.nav-collapsed .nav-toggle:checked ~ .nav-button .nav-bars{border-color:transparent;}
+header.top.nav-collapsed .nav-toggle:checked ~ .nav-button .nav-bars::before{transform:translateY(-1px) rotate(45deg);}
+header.top.nav-collapsed .nav-toggle:checked ~ .nav-button .nav-bars::after{content:"";position:absolute;top:50%;left:0;right:0;border-top:2px solid currentColor;transform:translateY(-1px) rotate(-45deg);}
 
 /* ---------- dateline ---------- */
 .dateline{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.55rem var(--pad-x);border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);}

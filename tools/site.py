@@ -198,6 +198,8 @@ def shell(title, body, *, path, description, noindex=False, dateline=None,
     {MARK}
     <span><span class="imprint">Field Assembly · Food Market Publications</span><br><span class="name">Provision Record</span></span>
   </a>
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Menu">
+  <label class="nav-button" for="nav-toggle"><span class="nav-bars"></span>Menu</label>
   <nav aria-label="Primary">
     <a href="/#titles">Titles</a>
     <a href="/archive/">Archive</a>
@@ -205,6 +207,25 @@ def shell(title, body, *, path, description, noindex=False, dateline=None,
     <a href="/reuse/">Cite and reuse</a>
   </nav>
 </header>
+<script>(function () {{
+  /* Collapse the nav behind the Menu button whenever its links would not fit
+     on one line beside the brand. */
+  var h = document.querySelector("header.top"); if (!h) return;
+  function check() {{
+    h.classList.remove("nav-collapsed");
+    h.classList.add("nav-measuring");
+    var nav = h.querySelector("nav"), cs = getComputedStyle(h);
+    var edge = h.getBoundingClientRect().right - parseFloat(cs.paddingRight);
+    var over = nav.getBoundingClientRect().right > edge + 0.5;
+    h.classList.remove("nav-measuring");
+    if (over) h.classList.add("nav-collapsed");
+  }}
+  var queued = false;
+  function soon() {{ if (!queued) {{ queued = true; requestAnimationFrame(function () {{ queued = false; check(); }}); }} }}
+  check();
+  window.addEventListener("resize", soon);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(check);
+}})();</script>
 {dl}
 <main id="main-content">
 {body}

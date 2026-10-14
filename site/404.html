@@ -75,6 +75,28 @@ header.top{display:flex;align-items:center;justify-content:space-between;gap:1re
 header.top nav{display:flex;gap:1.5rem;flex-wrap:wrap;}
 header.top nav a{font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;text-decoration:none;color:var(--text-dim);padding-bottom:2px;border-bottom:1px solid transparent;white-space:nowrap;}
 header.top nav a:hover{color:var(--accent);border-color:var(--accent-dim);}
+/* Collapsed masthead. The script after the header adds .nav-collapsed whenever
+   the links would not fit on one line beside the brand, so the nav goes behind
+   a Menu button instead of wrapping to a second row. Without script the nav
+   wraps as before. */
+.nav-toggle,.nav-button{display:none;}
+.nav-bars{display:block;position:relative;width:1.05rem;height:.7rem;border-top:2px solid currentColor;border-bottom:2px solid currentColor;}
+.nav-bars::before{content:"";position:absolute;top:50%;left:0;right:0;border-top:2px solid currentColor;transform:translateY(-1px);}
+header.top.nav-measuring{flex-wrap:nowrap;}
+header.top.nav-measuring .brand{flex-shrink:0;}
+header.top.nav-measuring nav{flex-wrap:nowrap;}
+/* The brand gives up width before the button drops to its own row. */
+header.top.nav-collapsed .brand{flex:1 1 0;}
+header.top.nav-collapsed .nav-toggle{display:block;position:absolute;width:1px;height:1px;margin:0;opacity:0;pointer-events:none;}
+header.top.nav-collapsed .nav-button{display:inline-flex;align-items:center;gap:.55rem;min-height:44px;padding:0 .2rem;font-family:var(--mono);font-size:.76rem;letter-spacing:.06em;color:var(--text-dim);cursor:pointer;-webkit-user-select:none;user-select:none;}
+header.top.nav-collapsed .nav-button:hover{color:var(--accent);}
+header.top.nav-collapsed .nav-toggle:focus-visible + .nav-button{outline:2px solid var(--accent);outline-offset:3px;}
+header.top.nav-collapsed nav{display:none;flex-basis:100%;flex-direction:column;gap:0;padding-bottom:.35rem;}
+header.top.nav-collapsed .nav-toggle:checked ~ nav{display:flex;}
+header.top.nav-collapsed nav a{display:flex;align-items:center;min-height:44px;padding-bottom:0;border-bottom:none;border-top:1px solid var(--hair);}
+header.top.nav-collapsed .nav-toggle:checked ~ .nav-button .nav-bars{border-color:transparent;}
+header.top.nav-collapsed .nav-toggle:checked ~ .nav-button .nav-bars::before{transform:translateY(-1px) rotate(45deg);}
+header.top.nav-collapsed .nav-toggle:checked ~ .nav-button .nav-bars::after{content:"";position:absolute;top:50%;left:0;right:0;border-top:2px solid currentColor;transform:translateY(-1px) rotate(-45deg);}
 
 /* ---------- dateline ---------- */
 .dateline{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.55rem var(--pad-x);border-bottom:1px solid var(--hair);font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-dim);}
@@ -320,6 +342,8 @@ ul.files li span{display:block;color:var(--text-dim);font-size:.84rem;}
     <svg viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" fill="#14110f"/><g transform="translate(4,4)"><path d="M12,0 L12,12 L0,12 M28,0 L28,12 L40,12 M12,40 L12,28 L0,28 M28,40 L28,28 L40,28" fill="none" stroke="#dda08f" stroke-width="4.2"/><rect x="17.3" y="17.3" width="5.4" height="5.4" fill="#dda08f"/></g></svg>
     <span><span class="imprint">Field Assembly · Food Market Publications</span><br><span class="name">Provision Record</span></span>
   </a>
+  <input class="nav-toggle" type="checkbox" id="nav-toggle" aria-label="Menu">
+  <label class="nav-button" for="nav-toggle"><span class="nav-bars"></span>Menu</label>
   <nav aria-label="Primary">
     <a href="/#titles">Titles</a>
     <a href="/archive/">Archive</a>
@@ -327,6 +351,25 @@ ul.files li span{display:block;color:var(--text-dim);font-size:.84rem;}
     <a href="/reuse/">Cite and reuse</a>
   </nav>
 </header>
+<script>(function () {
+  /* Collapse the nav behind the Menu button whenever its links would not fit
+     on one line beside the brand. */
+  var h = document.querySelector("header.top"); if (!h) return;
+  function check() {
+    h.classList.remove("nav-collapsed");
+    h.classList.add("nav-measuring");
+    var nav = h.querySelector("nav"), cs = getComputedStyle(h);
+    var edge = h.getBoundingClientRect().right - parseFloat(cs.paddingRight);
+    var over = nav.getBoundingClientRect().right > edge + 0.5;
+    h.classList.remove("nav-measuring");
+    if (over) h.classList.add("nav-collapsed");
+  }
+  var queued = false;
+  function soon() { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; check(); }); } }
+  check();
+  window.addEventListener("resize", soon);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(check);
+})();</script>
 
 <main id="main-content">
 
