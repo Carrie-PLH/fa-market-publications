@@ -1,0 +1,17 @@
+# https://harborfish.com/product-category/all/lobster/
+HTTP 200
+Server: nginx
+Date: Thu, 15 Oct 2026 13:45:13 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+Link: <https://harborfish.com/wp-json/>; rel="https://api.w.org/"
+Link: <https://harborfish.com/wp-json/wp/v2/product_cat/11>; rel="alternate"; title="JSON"; type="application/json"
+X-Httpd-Modphp: 1
+Vary: User-Agent
+Host-Header: 6b7412fb82ca5edfd0917e3957f05d89
+X-Proxy-Cache: MISS
+X-Proxy-Cache-Info: 0 NC:000000 UP:
+X-CDN-C: static
+Content-Encoding: gzip

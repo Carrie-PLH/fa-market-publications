@@ -1,0 +1,41 @@
+{
+ "captured_at": "2026-10-15T13:45:01+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 53709,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-15T13:45:01+00:00",
+   "final_url": "https://taylorlobster.com/",
+   "headers_path": "captures/2026-10-15T134501Z/taylor/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-10-15T134501Z/taylor/page.html",
+   "requested_url": "https://taylorlobster.com/",
+   "sha256": "42c01c978b23c0016abb659bb17285693141e4a0ed9b0e0a6a88f699f3993952",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "pdf": {
+   "bytes": 344608,
+   "note": "",
+   "path": "captures/2026-10-15T134501Z/taylor/page.pdf",
+   "sha256": "6d6d4cd853f2d705ac8fcd231b3c4a7bd627c48191724d3bead740d5cbc26230",
+   "status": "OK"
+  },
+  "png": {
+   "bytes": 1024253,
+   "note": "",
+   "path": "captures/2026-10-15T134501Z/taylor/page.png",
+   "sha256": "7b6c929c6f8c487b91f33471cb66d8eef95821a57cacb32a214ce6e76f2241de",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-15T134501Z",
+ "source_id": "taylor",
+ "source_name": "Taylor Lobster (Kittery, ME)",
+ "status": "OK"
+}

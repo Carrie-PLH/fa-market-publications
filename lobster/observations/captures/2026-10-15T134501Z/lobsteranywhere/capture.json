@@ -1,0 +1,48 @@
+{
+ "captured_at": "2026-10-15T13:45:48+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 365910,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-15T13:45:48+00:00",
+   "final_url": "https://lobsteranywhere.com/shop/live-lobster/",
+   "headers_path": "captures/2026-10-15T134501Z/lobsteranywhere/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-10-15T134501Z/lobsteranywhere/page.html",
+   "requested_url": "https://lobsteranywhere.com/product/live-lobster/",
+   "sha256": "8fdc4066e6222d8ccdbf1c384390f6feedd7cb0a9d649b59f57161e7e533ab09",
+   "status": "OK"
+  },
+  {
+   "bytes": 47727,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-15T13:45:54+00:00",
+   "final_url": "https://lobsteranywhere.com/wp-json/wc/store/v1/products?search=live%20lobster&per_page=100",
+   "headers_path": "captures/2026-10-15T134501Z/lobsteranywhere/products.headers.txt",
+   "http_status": 200,
+   "name": "products",
+   "path": "captures/2026-10-15T134501Z/lobsteranywhere/products.json",
+   "requested_url": "https://lobsteranywhere.com/wp-json/wc/store/v1/products?search=live%20lobster&per_page=100",
+   "sha256": "997be2a121b39bbc5a982c1ea470ff263c8afed33decbf9f7a57bb5763aa4f6b",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 2296520,
+   "note": "",
+   "path": "captures/2026-10-15T134501Z/lobsteranywhere/page.png",
+   "sha256": "03ba06378610d249e556cb94bd34d5f83ab6e7cbd7e71743d71149b8fac151ea",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-15T134501Z",
+ "source_id": "lobsteranywhere",
+ "source_name": "LobsterAnywhere (Maine direct-ship)",
+ "status": "OK"
+}

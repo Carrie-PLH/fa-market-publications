@@ -1,0 +1,35 @@
+# https://www.mainelobsternow.com/collections/all/products.json?limit=250
+HTTP 200
+Date: Thu, 15 Oct 2026 13:46:48 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Download-Options: noopen
+cf-cache-status: DYNAMIC
+x-request-id: 2a6be702-f911-4bee-8df2-2a8356c0d0ca-1792072008
+etag: W/"page_cache:66461270259:ProductListController:a5b9ee150daeb920051a4fea406bc95a"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 389
+shopify-complexity-score-v2: 389
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+access-control-allow-origin: *
+strict-transport-security: max-age=7889238
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept
+vary: accept-encoding
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+link: </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+powered-by: Shopify
+server-timing: processing;dur=395;desc="gc:8", db;dur=23, db_async;dur=74.977, asn;desc="701", edge;desc="BOS", country;desc="US", servedBy;desc="n6lv", requestID;desc="2a6be702-f911-4bee-8df2-2a8356c0d0ca-1792072008", _y;desc="1647ecce-6fae-477e-9039-319aa4a65984", _s;desc="434fc52c-28fd-4610-a853-d7a4db16426b", _cmp;desc="3.AMPS_USMA_f_f_JQ8wDcMaSjKhoKVYWD-MyA", _ye;desc="1823629608", _se;desc="1792073808", compressionLevel;desc="5", compressionTime;dur=21.089
+Server-Timing: ipv6
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+X-XSS-Protection: 1; mode=block
+alt-svc: h3=":443"; ma=86400
+Server: cloudflare
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=CVYSR5GyfMhcMMwxFN32%2F5xxbNFL5Dlh22m%2Fn8A0pH80rg2th1oMHct20EcYv57%2BvkLn1ptb%2BladhLZ8tqR6AqyPa4xY%2FTqfXYE5AF23e1mx34YF6GGFk90LzVs8G%2BCYZsnCeYz1cZVk2hC0a0C%2BCcoF1eq7"}]}
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+CF-RAY: a4af45a50c5d228f-BOS
+# 4 Set-Cookie header(s) redacted at capture
