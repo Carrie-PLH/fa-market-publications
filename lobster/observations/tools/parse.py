@@ -140,11 +140,23 @@ def wc_row(p, category, shell, quantity, advertised_size, key, name, note):
                 notes=note)
 
 
+def _json_body(body, fname):
+    """A retained body that is not JSON fails this source. A seller behind a bot
+    check serves an HTML interstitial with a 200, so the capture is recorded OK
+    and the body is a captcha page; that is a failure to read the source, not a
+    reason to end the pass."""
+    try:
+        return json.loads(body)
+    except ValueError as e:
+        head = body[:120].decode("utf-8", "replace") if isinstance(body, bytes) else str(body)[:120]
+        raise ParseFailure(f"{fname}: body is not JSON ({e}); starts {head!r}")
+
+
 def p_wc_store(rec, src, args):
     rows = []
     for fname, spec in (args.get("variation_fetches") or {}).items():
         f, body = read_fetch(rec, fname)
-        items = json.loads(body)
+        items = _json_body(body, fname)
         if not isinstance(items, list):
             raise ParseFailure(f"{fname}: expected JSON list")
         for p in items:
@@ -185,7 +197,7 @@ def p_wc_store(rec, src, args):
         found = False
         for fname in [f["name"] for f in rec["fetches"] if f["name"].startswith("products")]:
             f, body = read_fetch(rec, fname)
-            for p in json.loads(body):
+            for p in _json_body(body, fname):
                 name = clean_html_text(p["name"])
                 if p.get("type") not in ("simple", "variable") or not rx.search(name):
                     continue
@@ -208,7 +220,7 @@ def p_wc_store(rec, src, args):
             raise ParseFailure("no simple products matched simple_name_regex")
     for pid, spec in (args.get("simple_products") or {}).items():
         f, body = read_fetch(rec, "products")
-        hit = [p for p in json.loads(body) if str(p.get("id")) == pid]
+        hit = [p for p in _json_body(body, "products") if str(p.get("id")) == pid]
         if not hit:
             rows.append(dict(product_key=f"p{pid}", product_name=spec.get("note"),
                              product_category=spec["category"], shell_type=None,
@@ -264,7 +276,7 @@ def shopify_variant(v, product, category, shell, fmt, qty_fixed, qty_note):
 
 def p_shopify_products(rec, src, args):
     f, body = read_fetch(rec, "products")
-    products = json.loads(body).get("products")
+    products = _json_body(body, "products").get("products")
     if products is None:
         raise ParseFailure("no 'products' key in Shopify JSON")
     rows = []
@@ -653,6 +665,11 @@ def main():
                 print(f"PARSE_FAILED: {e}")
                 flag(args.run_id, src["id"], "PARSE_FAILED", str(e))
                 summary["sources"][src["id"]] = {"status": "PARSE_FAILED", "error": str(e)}
+            except Exception as e:
+                d = f"{type(e).__name__}: {e}"
+                print(f"PARSER_ERROR: {d}")
+                flag(args.run_id, src["id"], "PARSER_ERROR", d)
+                summary["sources"][src["id"]] = {"status": "PARSER_ERROR", "error": d}
             continue
 
         if rec["status"] == "FAILED":
@@ -671,19 +688,29 @@ def main():
             continue
         try:
             rows = parser(rec, src, src.get("parser_args") or {})
-        except ParseFailure as e:
+        except Exception as e:
+            # A parser raises ParseFailure when it cannot find its pattern. Any
+            # other exception is a defect in the parser or an unforeseen body,
+            # and it is recorded as PARSER_ERROR so the two are told apart. Both
+            # fail this source alone: before 2026-10-18 anything but a
+            # ParseFailure ended the pass, and on 2026-10-01 a captcha
+            # interstitial served to one seller's product endpoint raised
+            # JSONDecodeError and cost the six sellers after it in source order,
+            # two of which had captured cleanly.
+            kind = "PARSE_FAILED" if isinstance(e, ParseFailure) else "PARSER_ERROR"
+            d = str(e) if isinstance(e, ParseFailure) else f"{type(e).__name__}: {e}"
             n = 0
             if not args.no_registry:
                 for key, e2 in reg.items():
                     row = status_row(src, args.run_id, rec["captured_at"],
-                                     args.observation_type, e2, key, "PARSE_FAILED",
-                                     f"Parser failed: {e}")
+                                     args.observation_type, e2, key, kind,
+                                     f"Parser failed: {d}")
                     if row["observation_id"] not in existing_ids:
                         append_jsonl(OBSERVATIONS, row)
                         n += 1
-            print(f"PARSE_FAILED: {e}")
-            flag(args.run_id, src["id"], "PARSE_FAILED", str(e))
-            summary["sources"][src["id"]] = {"status": "PARSE_FAILED", "error": str(e)}
+            print(f"{kind}: {d}")
+            flag(args.run_id, src["id"], kind, d)
+            summary["sources"][src["id"]] = {"status": kind, "error": d}
             continue
         seen = set()
         n_new = 0
