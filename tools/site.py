@@ -369,7 +369,8 @@ def flat_measures(n):
     """numbers.json -> rows (measure, key, period, value, unit-less). Nested dicts are flattened
     with dotted keys so nothing is lost; lists are JSON-encoded."""
     rows = []
-    skip = {"issue", "title", "run_id", "computed_at", "retail_reference"}
+    skip = {"issue", "title", "run_id", "computed_at", "retail_reference",
+            "accumulated_sources"}
 
     def walk(prefix, v):
         if isinstance(v, dict):
@@ -558,7 +559,7 @@ def edition_page(ed, cfg_t, out, draft_mode):
             rel = Path(c["path"]).relative_to(f"{ed.slug}/captures/{ed.run_id}")
             rec_links.append(f'<li><a href="evidence/{rel}">{esc(rel)}</a><span>{esc(c["url"])} · retrieved {esc(c["fetched_at"][:19])}Z · SHA-256 {esc(c["sha256"][:16])}…</span></li>')
     rr_all = (ed.numbers or {}).get("retail_reference", {}) or {}
-    records = rr_all.get("records") or ([rr_all["record"] | {"kind": "wedding"}] if rr_all.get("record", {}).get("sha256") else [])
+    records = rr_all.get("records") or ([rr_all["record"] | {"kind": "wedding"}] if (rr_all.get("record") or {}).get("sha256") else [])
     retail_html = ""
     for rec in records:
         if not rec.get("sha256"):
@@ -1031,7 +1032,13 @@ def main():
         ("/:title/:id/issue.md", [("X-Robots-Tag", "noindex")]),
         ("/:title/:id/numbers.md", [("X-Robots-Tag", "noindex")]),
     ]))
-    stale = sorted(str(p.relative_to(out)) for p in (before - WRITTEN))
+    # .well-known/security.txt is not built from the record. It is maintained in
+    # this repository at the path every Field Assembly site uses, renewed by the
+    # standard's securitytxt-check.py and checked by deploy.sh before a deploy.
+    # It is kept, not stale: reporting it as stale every build is noise that
+    # hides a page this build really did leave behind.
+    kept = {pp for pp in before if pp.relative_to(out).parts[:1] == (".well-known",)}
+    stale = sorted(str(pp.relative_to(out)) for pp in (before - WRITTEN - kept))
     if stale:
         print(f"stale files not written by this build (remove by hand): {stale}", file=sys.stderr)
     print(json.dumps({"out": str(out), "pages": len(pages), "editions_built": built, "stale": stale}))

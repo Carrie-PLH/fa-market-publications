@@ -18,8 +18,17 @@ status="$("$PY" -c "import json;print(json.load(open('$T/issues/$ED/edition.json
 [[ "$status" == "published" ]] || { echo "edition.json status is '$status', not 'published'; set it (and published date, reviewer) first"; exit 1; }
 "$PY" tools/check.py --title "$T" --issue "$ED"
 "$PY" tools/anchor.py run --note "publish $T $ED"
+# site/ is rebuilt from scratch so a page removed from the build cannot linger.
+# .well-known/security.txt is the exception: it is not built from the record, it
+# is maintained in this repository at the path every Field Assembly site uses,
+# and deploy.sh refuses to deploy without it. Carry it across the rebuild. On
+# 2026-10-14 a rebuild dropped it and it had to be restored by hand.
+KEEP="$(mktemp -d)"
+[[ -d site/.well-known ]] && cp -R site/.well-known "$KEEP/"
 rm -rf site
 "$PY" tools/site.py
+if [[ -d "$KEEP/.well-known" ]]; then mkdir -p site && cp -R "$KEEP/.well-known" site/; fi
+rm -rf "$KEEP"
 git add "$T/issues/$ED" anchors site
 # Nothing staged is benign: a rebuild can be byte for byte what is already
 # committed. A commit that is attempted and fails is not, and must stop the
