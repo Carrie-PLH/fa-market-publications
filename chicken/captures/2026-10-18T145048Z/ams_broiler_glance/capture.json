@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-10-18T14:51:03+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 143395,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-10-18T14:51:03+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_2740.pdf",
+   "headers_path": "chicken/captures/2026-10-18T145048Z/ams_broiler_glance/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "chicken/captures/2026-10-18T145048Z/ams_broiler_glance/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/ams_2740.pdf",
+   "sha256": "48ef7c00873dbcc16c7ad06270f6e7eaa3e8cfadfb967de79b34e4f97ac7553e",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (daily narrative; retained, not parsed)",
+ "run_id": "2026-10-18T145048Z",
+ "source_id": "ams_broiler_glance",
+ "source_name": "USDA AMS: National Broiler Market At-a-Glance (PDF, report 2740)",
+ "status": "OK"
+}
