@@ -24,7 +24,21 @@ A fetch failure is a fact about the transport. Record it and let the next run re
 
 ## Issues
 
-A session may draft an issue from `numbers.md`; the prose never carries a figure absent from `numbers.json`. A drafted issue is still read and signed by the editor before it publishes: the reviewer line in `edition.json` is a public statement that a named person checked the evidence and the interpretation, and `tools/check.py` cannot do that part. It establishes that no figure was invented, not that each figure was attached to the right measure. Do not set an edition published, and do not fill in a reviewer line, on text the editor has not read. The unattended routine still never writes `issue.md`: there is nobody reading it at 09:50. Sellers in the retail reference are letters in issue text and named only in `methodology.md`. The audience is the buyer facing a supplier's price claim. The issue states market evidence and draws no conclusion about any contract.
+A session may draft an issue from `numbers.md`; the prose never carries a figure absent from `numbers.json`. A drafted issue is reviewed and signed before it publishes; see Review before publication. Sellers in the retail reference are letters in issue text and named only in `methodology.md`. The audience is the buyer facing a supplier's price claim. The issue states market evidence and draws no conclusion about any contract.
+
+## Review before publication
+
+Every issue is reviewed before it publishes, and the review is a step in the path rather than a habit. `tools/check.py` establishes that no figure was invented. It cannot read a sentence, so it cannot see most of what has actually gone wrong. The first two issues of this record were each reviewed and each review found real errors the gate had passed.
+
+The review recalculates the headline figures from the captured sources rather than from `numbers.json`, and then reads for these five, which are where the errors have been:
+
+- **Units and semantics.** What the series actually measures. A customs value is not a landed cost. A producer price index measures domestic producers' selling prices and excludes imports. A customs district is not a port.
+- **Sample coverage.** What stands behind a count. "39 comparable series" across two sellers is not across eight; three shell egg markets reported is not the seven the report carries.
+- **Scope of claims.** Whether a sentence claims more than the measurement supports, about a supplier, a cause, or a trend. Different measures are not one thing at different points, and a spread is not a margin.
+- **Worded and bare quantities.** The gate reads only figures carrying a unit in prose, and nothing written in words. "Within a point and a half" of a 2.687-point difference passed it. Check every count and every quantity written out, by hand, against the computed set.
+- **Manifest completeness.** Whether `evidence.json` covers every capture the issue rests on, including the earlier runs behind an accumulated comparison.
+
+A session may draft an issue and may apply a review's findings. Only the editor signs one. The reviewer line in `edition.json` is a public statement that a named person checked the evidence and the interpretation; do not set an edition published, and do not fill in a reviewer line, on text the editor has not read. The unattended routine never writes `issue.md`: there is nobody reading it at 09:50.
 
 ## Decision requests
 

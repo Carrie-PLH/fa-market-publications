@@ -22,6 +22,19 @@ Official series, fetched by script with no browser and retained byte for byte:
 | USDA National Agricultural Statistics Service, Chickens and Eggs | Average layers and table egg production by month, current and prior year. | Monthly, about three weeks after the month. |
 | USDA Economic Research Service, Food Price Outlook | Year-over-year CPI changes and forecast intervals for eggs, dairy products, fats and oils, and food away from home. Attribute text is kept verbatim. | Monthly, about the 25th. |
 
+### What the weekly series actually price
+
+Two of the series above are narrower than the words "eggs" and "butter", and a buyer whose product differs should read them with that in mind. These specifications come from the reports themselves and are quoted here so a figure in an issue can be matched to a product.
+
+| Series | Specification as the report states it |
+|---|---|
+| Shell eggs, report 2848 | Caged white eggs in cartons, by size, region and channel. Not cage-free, organic, brown or pasteurized. |
+| Butter price, National Dairy Products Sales Report | Salted butter at eighty percent butterfat, fresh or storage, in 25-kilogram and 68-pound boxes meeting USDA Grade AA standards. Not unsalted, not higher-butterfat or European-style, not printed retail packs. |
+| Butter volume, same report | The pounds that qualified for that report in the week, which is not total butter sold or produced in the United States. |
+| Layers, Chickens and Eggs | The average number of layers during the month, all layers including those producing hatching eggs. Table egg production beside it counts table eggs only, so the two are not a matched pair. The separate table-egg flock the same report publishes is not parsed into this record. |
+
+An issue states the specification in its own text where a reader could otherwise take a figure for a product it does not price.
+
 This title carries no consumer reference row. Retail egg and butter prices are advertised weekly by the same USDA office (Weekly Grocery Store Egg Feature, report 2757) and can be added if a reader's question needs them.
 
 ## Rules
