@@ -672,7 +672,13 @@ def publication_page(slug, cfg_t, editions, out, draft_mode):
             items.append(f'<li><span class="d">{esc(dlong(d))}</span><span class="t"><a href="{e.path}">{esc(e.name)}</a><small>Data run {esc(e.run_id)}</small></span><span class="s">{"published" if e.status == "published" else "draft"}</span></li>')
         else:
             label = {"draft": "Drafted, publication pending", "scaffold": "Numbers computed, text not yet written"}.get(e.status, e.status)
-            items.append(f'<li><span class="d">{esc(dlong(e.meta.get("information_available_as_of")))}</span><span class="t">{esc(e.name)}<small>{esc(label)}. {esc(e.meta.get("notes",""))}</small></span><span class="s">{esc(e.status)}</span></li>')
+            # The register states that an edition exists and is not written yet. It
+            # does not reprint edition.json's notes: those are the editor's working
+            # record of what is missing or wrong in a month's figures, written for
+            # whoever writes the edition, and they name tools and record paths. What
+            # a reader needs to know about a gap belongs in the edition text and on
+            # the methodology page, in a reader's terms, once there is an edition.
+            items.append(f'<li><span class="d">{esc(dlong(e.meta.get("information_available_as_of")))}</span><span class="t">{esc(e.name)}<small>{esc(label)}</small></span><span class="s">{esc(e.status)}</span></li>')
     latest_html = (f'<p>Latest edition: <a href="{latest.path}">{esc(latest.name)}</a>. Each edition keeps its own permanent address; this page always points at the most recent one and never replaces an earlier one.</p>'
                    if latest else "<p>No edition has been published yet. The methodology and source list are public now; the first edition will be listed here with its permanent address when it publishes.</p>")
     srcs = "".join(f"<tr><td>{esc(s['name'])}</td><td>{esc(s['label'])}</td><td><a href=\"{esc(s.get('page_url',''))}\">{esc(s.get('page_url',''))}</a></td></tr>" for s in Title(slug).sources())
