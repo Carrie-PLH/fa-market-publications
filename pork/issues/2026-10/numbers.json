@@ -1,0 +1,254 @@
+{
+ "computed_at": "2026-10-18T14:55:08+00:00",
+ "cpi_food_away_from_home": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 385.451,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 371.604,
+  "value": 398.783,
+  "vs_two_years_pct": 7.3,
+  "yoy_pct": 3.5
+ },
+ "cpi_pork": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 277.429,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 273.01,
+  "value": 275.371,
+  "vs_two_years_pct": 0.9,
+  "yoy_pct": -0.7
+ },
+ "cutout_carcass": {
+  "label": "Pork carcass cutout",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 111.7925,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 107.27,
+  "trailing_4wk_avg": 87.2475,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -22.0,
+  "unit": "USD per cwt",
+  "value": 84.22,
+  "yoy_pct": -21.5
+ },
+ "ers_food_price_outlook": {
+  "All food \u2014 Lower bound of forecast interval 2027": -2.7,
+  "All food \u2014 Upper bound of forecast interval 2027": 7.0,
+  "All food \u2014 Year-over-year August 2025 to August 2026": 2.7,
+  "Food away from home \u2014 Lower bound of forecast interval 2027": 0.2,
+  "Food away from home \u2014 Upper bound of forecast interval 2027": 5.1,
+  "Food away from home \u2014 Year-over-year August 2025 to August 2026": 3.4,
+  "Meats \u2014 Lower bound of forecast interval 2027": -8.7,
+  "Meats \u2014 Upper bound of forecast interval 2027": 11.7,
+  "Meats \u2014 Year-over-year August 2025 to August 2026": 3.6,
+  "Meats, poultry, and fish \u2014 Lower bound of forecast interval 2027": -4.8,
+  "Meats, poultry, and fish \u2014 Upper bound of forecast interval 2027": 10.8,
+  "Meats, poultry, and fish \u2014 Year-over-year August 2025 to August 2026": 3.5,
+  "Pork \u2014 Lower bound of forecast interval 2027": -8.1,
+  "Pork \u2014 Upper bound of forecast interval 2027": 10.1,
+  "Pork \u2014 Year-over-year August 2025 to August 2026": 0.6
+ },
+ "hogs_all": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 75438.0,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": null,
+  "value": 74302.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -1.5
+ },
+ "hogs_breeding": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 5936.0,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": null,
+  "value": 5875.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -1.0
+ },
+ "hogs_market": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 69502.0,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": null,
+  "value": 68427.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -1.5
+ },
+ "hogs_market_180_lb_and_over": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 12650.0,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": null,
+  "value": 12443.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -1.6
+ },
+ "issue": "2026-10",
+ "ppi_pork_fresh_frozen": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 140.061,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 126.873,
+  "value": 100.443,
+  "vs_two_years_pct": -20.8,
+  "yoy_pct": -28.3
+ },
+ "ppi_slaughter_hogs": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 136.453,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 101.174,
+  "value": 107.829,
+  "vs_two_years_pct": 6.6,
+  "yoy_pct": -21.0
+ },
+ "primal_belly": {
+  "label": "Pork belly primal",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 168.6025,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 147.3,
+  "trailing_4wk_avg": 97.995,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -41.9,
+  "unit": "USD per cwt",
+  "value": 97.21,
+  "yoy_pct": -34.0
+ },
+ "primal_butt": {
+  "label": "Pork butt primal",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 124.6475,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 121.51,
+  "trailing_4wk_avg": 110.4175,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -11.4,
+  "unit": "USD per cwt",
+  "value": 109.99,
+  "yoy_pct": -9.5
+ },
+ "primal_ham": {
+  "label": "Pork ham primal",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 103.475,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 103.9,
+  "trailing_4wk_avg": 82.0925,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -20.7,
+  "unit": "USD per cwt",
+  "value": 74.1,
+  "yoy_pct": -28.7
+ },
+ "primal_largest_yoy_move": "primal_belly",
+ "primal_loin": {
+  "label": "Pork loin primal",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 96.6575,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 95.77,
+  "trailing_4wk_avg": 86.0725,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -11.0,
+  "unit": "USD per cwt",
+  "value": 83.95,
+  "yoy_pct": -12.3
+ },
+ "primal_picnic": {
+  "label": "Pork picnic primal",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 91.1225,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 88.0,
+  "trailing_4wk_avg": 66.4675,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -27.1,
+  "unit": "USD per cwt",
+  "value": 63.02,
+  "yoy_pct": -28.4
+ },
+ "primal_rib": {
+  "label": "Pork rib primal",
+  "period": "2026-10-09",
+  "prior_year_4wk_avg": 170.01,
+  "prior_year_period": "2025-10-10",
+  "prior_year_value": 166.27,
+  "trailing_4wk_avg": 156.3225,
+  "trailing_4wk_weeks": [
+   "2026-09-18",
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09"
+  ],
+  "trailing_4wk_yoy_pct": -8.1,
+  "unit": "USD per cwt",
+  "value": 153.7,
+  "yoy_pct": -7.6
+ },
+ "retail_bacon_usd_per_lb": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 7.29,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 6.955,
+  "value": 6.756,
+  "vs_two_years_pct": -2.9,
+  "yoy_pct": -7.3
+ },
+ "retail_pork_chops_usd_per_lb": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 4.349,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 4.328,
+  "value": 4.219,
+  "vs_two_years_pct": -2.5,
+  "yoy_pct": -3.0
+ },
+ "retail_reference": {
+  "record": null,
+  "sellers": []
+ },
+ "run_id": "2026-10-18T145155Z",
+ "title": "Pork Monitor"
+}

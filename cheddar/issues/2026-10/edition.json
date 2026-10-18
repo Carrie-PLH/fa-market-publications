@@ -1,0 +1,12 @@
+{
+ "edition_title": "October 2026",
+ "status": "scaffold",
+ "version": null,
+ "published": null,
+ "revised": null,
+ "information_available_as_of": "2026-10-18",
+ "revisions": [],
+ "reviewer": null,
+ "standard": "Field Assembly Record Standard 1.2, \u00a78 market records; see PROVENANCE.md",
+ "notes": "Numbers computed from run 2026-10-18T145249Z. The BLS PPI, CPI and average-price series carry September 2026. Prose not yet written. Gaps in this month's figures: the CME block and barrel weekly averages and the blocks Friday close carry no year-over-year comparison, because Dairy Market News reprints one week per report and this record holds one week of each series so far. The derived mandatory-block less CME spread could not be computed at all: no week is covered by both series yet, the NDPSR block week ending 2026-10-10 against the CME week ending 2026-10-16. The NDPSR 500-pound barrel series no longer carries a price; the last published figure, 1.9495 for the week ending 2025-05-31, is held as a historical series and is not a current reading. Publication gated by FA-D-20260923-01 as amended by FA-D-20260923-02 and FA-D-20260923-04."
+}

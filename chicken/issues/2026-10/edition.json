@@ -1,0 +1,12 @@
+{
+ "edition_title": "October 2026",
+ "status": "scaffold",
+ "version": null,
+ "published": null,
+ "revised": null,
+ "information_available_as_of": "2026-10-18",
+ "revisions": [],
+ "reviewer": null,
+ "standard": "Field Assembly Record Standard 1.2, \u00a78 market records; see PROVENANCE.md",
+ "notes": "Numbers computed from run 2026-10-18T145048Z. The BLS PPI, CPI and average-price series carry September 2026. Prose not yet written. Gaps in this month's figures, and the first is a period-labelling defect that affects every wholesale measure: the six AMS report 3649 weighted averages are stored under period 2026-10, but the report they come from is dated October 2, 2026 and states 'Report For: 8/31/2026 to 10/2/2026', which is the September reporting month. The parser derives a monthly period from the report's end date (tools/parse.py, p_ams_chicken_pdf), so a reporting period that straddles a month end is labelled with the second month. The consequence is that the record holds no 2026-09 period for this source, the figures labelled 2026-10 are September's, and no October reporting month has been published yet. This is the same defect class PROVENANCE.md records for the Dairy Market News running header; it is unresolved here and the rows stand as captured, since nothing under data/ is edited. Separately, and independently of the labelling, the year-over-year comparison for this source accumulates in this record from the first capture in September 2026, so no 2025-10 reading exists; month-over-month is null as well, for the reason above. No figure from this source should appear in prose with a month attached until the period question is settled. The daily broiler market glance is retained and not parsed, so it contributes no figure. Publication gated by FA-D-20260923-01 as amended by FA-D-20260923-02 and FA-D-20260923-04."
+}

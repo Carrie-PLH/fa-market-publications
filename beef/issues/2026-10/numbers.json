@@ -1,0 +1,215 @@
+{
+ "cattle_marketings": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 1571.0,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": null,
+  "value": 1519.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -3.3
+ },
+ "cattle_on_feed": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 11080.0,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": null,
+  "value": 11163.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": 0.7
+ },
+ "cattle_placements": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 1780.0,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": null,
+  "value": 1617.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": -9.2
+ },
+ "choice_select_spread_usd_per_cwt": {
+  "derived": "Choice 600-900 lb cutout less Select 600-900 lb cutout, same week",
+  "period": "2026-10-16",
+  "prior_year_period": "2025-10-17",
+  "prior_year_value": 15.81,
+  "value": 20.31
+ },
+ "computed_at": "2026-10-18T14:55:03+00:00",
+ "cpi_beef_and_veal": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 495.239,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 431.79,
+  "value": 512.606,
+  "vs_two_years_pct": 18.7,
+  "yoy_pct": 3.5
+ },
+ "cpi_food_away_from_home": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 385.451,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 371.604,
+  "value": 398.783,
+  "vs_two_years_pct": 7.3,
+  "yoy_pct": 3.5
+ },
+ "cutout_choice": {
+  "label": "Boxed beef cutout, Choice 600-900 lb",
+  "period": "2026-10-16",
+  "prior_year_4wk_avg": 368.63,
+  "prior_year_period": "2025-10-17",
+  "prior_year_value": 365.54,
+  "trailing_4wk_avg": 376.945,
+  "trailing_4wk_weeks": [
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09",
+   "2026-10-16"
+  ],
+  "trailing_4wk_yoy_pct": 2.3,
+  "unit": "USD per cwt",
+  "value": 374.7,
+  "yoy_pct": 2.5
+ },
+ "cutout_less_dressed_cattle_usd_per_cwt": {
+  "cattle_period": "2026-10-13",
+  "cattle_value": 358.22,
+  "cutout_period": "2026-10-16",
+  "cutout_value": 374.7,
+  "derived": "Choice cutout less the fed cattle dressed price, both USD per cwt of carcass. An arithmetic difference between two reported series, not a statement of any packer's cost or margin.",
+  "same_week": false,
+  "value": 16.48
+ },
+ "cutout_select": {
+  "label": "Boxed beef cutout, Select 600-900 lb",
+  "period": "2026-10-16",
+  "prior_year_4wk_avg": 349.8775,
+  "prior_year_period": "2025-10-17",
+  "prior_year_value": 349.73,
+  "trailing_4wk_avg": 355.5775,
+  "trailing_4wk_weeks": [
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09",
+   "2026-10-16"
+  ],
+  "trailing_4wk_yoy_pct": 1.6,
+  "unit": "USD per cwt",
+  "value": 354.39,
+  "yoy_pct": 1.3
+ },
+ "ers_food_price_outlook": {
+  "All food \u2014 Lower bound of forecast interval 2027": -2.7,
+  "All food \u2014 Upper bound of forecast interval 2027": 7.0,
+  "All food \u2014 Year-over-year August 2025 to August 2026": 2.7,
+  "Beef and veal \u2014 Lower bound of forecast interval 2027": -7.7,
+  "Beef and veal \u2014 Upper bound of forecast interval 2027": 18.9,
+  "Beef and veal \u2014 Year-over-year August 2025 to August 2026": 5.9,
+  "Food away from home \u2014 Lower bound of forecast interval 2027": 0.2,
+  "Food away from home \u2014 Upper bound of forecast interval 2027": 5.1,
+  "Food away from home \u2014 Year-over-year August 2025 to August 2026": 3.4,
+  "Meats \u2014 Lower bound of forecast interval 2027": -8.7,
+  "Meats \u2014 Upper bound of forecast interval 2027": 11.7,
+  "Meats \u2014 Year-over-year August 2025 to August 2026": 3.6,
+  "Meats, poultry, and fish \u2014 Lower bound of forecast interval 2027": -4.8,
+  "Meats, poultry, and fish \u2014 Upper bound of forecast interval 2027": 10.8,
+  "Meats, poultry, and fish \u2014 Year-over-year August 2025 to August 2026": 3.5
+ },
+ "fed_cattle_dressed": {
+  "label": "Fed cattle, steer and heifer, dressed",
+  "period": "2026-10-13",
+  "prior_year_4wk_avg": 375.8875,
+  "prior_year_period": "2025-10-13",
+  "prior_year_value": 369.37,
+  "trailing_4wk_avg": 358.145,
+  "trailing_4wk_weeks": [
+   "2026-09-22",
+   "2026-09-29",
+   "2026-10-06",
+   "2026-10-13"
+  ],
+  "trailing_4wk_yoy_pct": -4.7,
+  "unit": "USD per cwt",
+  "value": 358.22,
+  "yoy_pct": -3.0
+ },
+ "fed_cattle_head_dressed": {
+  "period": "2026-10-13",
+  "value": 255344.0
+ },
+ "fed_cattle_live": {
+  "label": "Fed cattle, steer and heifer, live",
+  "period": "2026-10-13",
+  "prior_year_4wk_avg": 236.285,
+  "prior_year_period": "2025-10-13",
+  "prior_year_value": 233.83,
+  "trailing_4wk_avg": 225.705,
+  "trailing_4wk_weeks": [
+   "2026-09-22",
+   "2026-09-29",
+   "2026-10-06",
+   "2026-10-13"
+  ],
+  "trailing_4wk_yoy_pct": -4.5,
+  "unit": "USD per cwt",
+  "value": 224.86,
+  "yoy_pct": -3.8
+ },
+ "fed_cattle_year_change_as_reported": {
+  "basis": "dressed",
+  "period": "2026-10-13",
+  "unit": "USD per cwt",
+  "value": -11.15
+ },
+ "issue": "2026-10",
+ "ppi_beef_primal_cuts": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 330.528,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 248.656,
+  "value": 322.831,
+  "vs_two_years_pct": 29.8,
+  "yoy_pct": -2.3
+ },
+ "ppi_slaughter_cattle": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 375.316,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 287.978,
+  "value": 346.792,
+  "vs_two_years_pct": 20.4,
+  "yoy_pct": -7.6
+ },
+ "retail_beef_steaks_usd_per_lb": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 12.262,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 10.882,
+  "value": 12.69,
+  "vs_two_years_pct": 16.6,
+  "yoy_pct": 3.5
+ },
+ "retail_ground_beef_usd_per_lb": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 6.643,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 5.917,
+  "value": 7.062,
+  "vs_two_years_pct": 19.4,
+  "yoy_pct": 6.3
+ },
+ "retail_reference": {
+  "record": null,
+  "sellers": []
+ },
+ "run_id": "2026-10-18T145119Z",
+ "title": "Beef Monitor"
+}

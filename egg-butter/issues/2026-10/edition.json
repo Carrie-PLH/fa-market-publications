@@ -1,0 +1,12 @@
+{
+ "edition_title": "October 2026",
+ "status": "scaffold",
+ "version": null,
+ "published": null,
+ "revised": null,
+ "information_available_as_of": "2026-10-18",
+ "revisions": [],
+ "reviewer": null,
+ "standard": "Field Assembly Record Standard 1.2, \u00a78 market records; see PROVENANCE.md",
+ "notes": "Numbers computed from run 2026-10-18T144956Z. The BLS PPI and CPI series carry September 2026. Prose not yet written. Gaps in this month's figures: the CME Grade AA butter weekly average and Friday close carry no year-over-year comparison, because Dairy Market News reprints one week per report and this record accumulates the series a week at a time. The shell egg prices from AMS report 2848, week ending 2026-10-17, carry no year-over-year comparison either: that report states the current and prior week only, and the prior-week figure is shown as the report states it. The NASS average-layers and table-egg-production figures are for 2026-08, the newest month published, and carry no two-year comparison. The weekly egg market overview is retained and not parsed, so it contributes no figure. Publication gated by FA-D-20260923-01 as amended by FA-D-20260923-02 and FA-D-20260923-04."
+}

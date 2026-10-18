@@ -1,0 +1,12 @@
+{
+ "edition_title": "October 2026",
+ "status": "scaffold",
+ "version": null,
+ "published": null,
+ "revised": null,
+ "information_available_as_of": "2026-10-18",
+ "revisions": [],
+ "reviewer": null,
+ "standard": "Field Assembly Record Standard 1.2, \u00a78 market records; see PROVENANCE.md",
+ "notes": "Numbers computed from run 2026-10-18T145155Z. The BLS PPI, CPI and average-price series carry September 2026. Prose not yet written. Gaps in this month's figures: the NASS Quarterly Hogs and Pigs source was recorded PARTIAL. All four rolling Todays_Reports candidates returned HTTP 404 and the quarterly reading was recovered from the ESMIS archive copy, hgpg0926.txt, the September 2026 release, by the archive fallback PROVENANCE.md describes. The reading is present and complete; what failed is the rolling directory path, and the failure is recorded in the capture. The pork cutout and primal figures are for the week ending 2026-10-09, published 2026-10-12, which is the newest week the AMS dataset carried at this run; the week ending 2026-10-16 is not yet in the source, so this title reads one week behind beef and cheddar this month. The hogs and pigs figures carry no two-year comparison. The weekly pork variety meat report is retained and not parsed, so it contributes no figure. Publication gated by FA-D-20260923-01 as amended by FA-D-20260923-02 and FA-D-20260923-04."
+}

@@ -1,0 +1,12 @@
+{
+ "edition_title": "Issue 1: October 2026",
+ "status": "scaffold",
+ "version": null,
+ "published": null,
+ "revised": null,
+ "information_available_as_of": "2026-10-18",
+ "revisions": [],
+ "reviewer": null,
+ "standard": "Field Assembly Record Standard 1.2, \u00a78 market records; see PROVENANCE.md",
+ "notes": "Numbers computed from run 2026-10-18T144903Z. The BLS PPI and CPI series carry September 2026. Prose not yet written. Gaps in this month's figures: the consumer reference rests on a single capture date, 2026-10-15, and on two sellers, D and G, of the eight observed, because those were the only observations matching the reference series of a single live hard-shell 1.25 lb lobster. The 2026-10-01 observation pass reached one seller only and all five of its rows are flagged PARSE_FAILED in lobster/observations/data/flags.jsonl, so no first-of-month reading enters this month. No seller has two or more reference-series observations in the month, so no within-month change is computed. The consumer reference carries no year-over-year comparison: the Field Assembly observation record begins 2026-09-26. The NOAA import figures are for 2026-08, the newest month that series publishes, and the record holds no 2024-08 reading, so neither import measure carries a two-year comparison. The Maine DMR September ex-vessel figure is 2025 and preliminary. The USDA ERS Food Price Outlook year-over-year attribute is August 2025 to August 2026, not September."
+}

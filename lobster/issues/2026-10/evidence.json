@@ -1,0 +1,114 @@
+{
+ "issue": "2026-10",
+ "run_id": "2026-10-18T144903Z",
+ "captures": [
+  {
+   "source_id": "maine_dmr_landings",
+   "fetch": "pdf",
+   "url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
+   "fetched_at": "2026-10-18T14:49:03+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/maine_dmr_landings/pdf.pdf",
+   "sha256": "3bff08eeef50efc9788ffaa1e4198548c6edc5ed6ab0e8fdcacc082738928280",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "fetch": "trade_2026",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
+   "fetched_at": "2026-10-18T14:49:06+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2026.json",
+   "sha256": "989345e6dd39dd0897382040f16c6f510dc5d1853d61db2bad801ca2d99d0e94",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "fetch": "trade_2027",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
+   "fetched_at": "2026-10-18T14:49:09+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2027.json",
+   "sha256": "8c082332ec3bbb91b9ee712e5b4fc921b6851e458ba58330e31deb9f4afcb1fb",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "fetch": "trade_2025",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
+   "fetched_at": "2026-10-18T14:49:12+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2025.json",
+   "sha256": "22471ed2b745024eab4f322e3c3fecf3ec3a0f52fab9c3ae51ead17eb490ffc9",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "fetch": "WPU02230503",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU02230503",
+   "fetched_at": "2026-10-18T14:49:14+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/bls/WPU02230503.json",
+   "sha256": "277975b77fccec006f9dfe6bc0bdfd4cbed5da7be1e317de349d161f5abed394",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "fetch": "WPU0223",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0223",
+   "fetched_at": "2026-10-18T14:49:17+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/bls/WPU0223.json",
+   "sha256": "57de5f3b0c9d70b8aca6b240344b6b85713eecbedb095f865981594d4cc66a16",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "fetch": "WPUFD4111",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPUFD4111",
+   "fetched_at": "2026-10-18T14:49:19+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/bls/WPUFD4111.json",
+   "sha256": "25993919e5ccd7e06e443e842bd7eeaf8641aa0179819531b63b2cce69febf99",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "fetch": "CUUR0000SEFV",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+   "fetched_at": "2026-10-18T14:49:21+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/bls/CUUR0000SEFV.json",
+   "sha256": "85d9e68b73bd97e5fa2f8c2befa7a234fb76e3f6936c8bc049968dc62170f267",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "fetch": "CUUR0000SAF11",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SAF11",
+   "fetched_at": "2026-10-18T14:49:24+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/bls/CUUR0000SAF11.json",
+   "sha256": "52405c65aba1e2db2eec8c59c78577d7baa55a3f43494d2c1a16cf23931f310f",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-10-18T14:49:26+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/usda_ers_fpo/landing.html",
+   "sha256": "88996e56e3516363f4a0e8dad4c40b45ae229e9d879824326673a74615b2db29",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=21200",
+   "fetched_at": "2026-10-18T14:49:28+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "b5f4087f6fac7a31e24e772ed9ceafa17a68b80ac6a488155f0cf23799d7eb9c",
+   "status": "OK"
+  }
+ ],
+ "retail_record": {
+  "kind": "local",
+  "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
+  "file": "lobster/observations/data/observations.jsonl",
+  "sha256": "48d762c14d940ea7602904f9068eb9106af618d8fb5299f11f06d5f0d9040e67",
+  "git_commit": "8eb496eb1096cb670a5d42cf9a5cc87674c810d9",
+  "observations_used": 162,
+  "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/."
+ }
+}
