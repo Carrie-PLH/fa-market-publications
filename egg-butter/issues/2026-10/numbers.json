@@ -9,9 +9,13 @@
  },
  "cme_butter_aa_weekly_avg": {
   "period": "2026-10-16",
-  "value": 1.311
+  "prior_week_period": "2026-10-09",
+  "prior_week_value": 1.288,
+  "value": 1.311,
+  "vs_prior_week_pct": 1.8,
+  "weeks_in_record": 5
  },
- "computed_at": "2026-10-18T16:05:07+00:00",
+ "computed_at": "2026-10-18T18:08:06+00:00",
  "cpi_butter": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
@@ -83,6 +87,13 @@
   "prior_year_period": "2025-10-11",
   "prior_year_value": 3135144.0,
   "trailing_4wk_avg": 3524941.75,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   2421428.0,
+   3502674.0,
+   5395605.0,
+   2780060.0
+  ],
   "trailing_4wk_weeks": [
    "2026-09-19",
    "2026-09-26",
@@ -99,6 +110,13 @@
   "prior_year_period": "2025-10-11",
   "prior_year_value": 1.7959,
   "trailing_4wk_avg": 1.386,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   1.4338,
+   1.3805,
+   1.3696,
+   1.36
+  ],
   "trailing_4wk_weeks": [
    "2026-09-19",
    "2026-09-26",
@@ -146,6 +164,13 @@
   "prior_year_period": null,
   "prior_year_value": null,
   "trailing_4wk_avg": 44.5,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   47.0,
+   47.0,
+   46.0,
+   38.0
+  ],
   "trailing_4wk_weeks": [
    "2026-09-26",
    "2026-10-03",
@@ -163,6 +188,13 @@
   "prior_year_period": null,
   "prior_year_value": null,
   "trailing_4wk_avg": 71.815,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   72.94,
+   73.94,
+   74.19,
+   66.19
+  ],
   "trailing_4wk_weeks": [
    "2026-09-26",
    "2026-10-03",
@@ -180,6 +212,13 @@
   "prior_year_period": null,
   "prior_year_value": null,
   "trailing_4wk_avg": 73.0,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   75.0,
+   75.0,
+   75.0,
+   67.0
+  ],
   "trailing_4wk_weeks": [
    "2026-09-26",
    "2026-10-03",
