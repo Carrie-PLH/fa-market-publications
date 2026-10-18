@@ -1,0 +1,117 @@
+measure,value,kind
+cpi_food_at_home.period,2026-09,source-reported or period label
+cpi_food_at_home.prior_year_period,2025-09,source-reported or period label
+cpi_food_at_home.prior_year_value,316.042,source-reported or period label
+cpi_food_at_home.two_years_back_period,2024-09,source-reported or period label
+cpi_food_at_home.two_years_back_value,307.767,source-reported or period label
+cpi_food_at_home.value,321.758,source-reported or period label
+cpi_food_at_home.vs_two_years_pct,4.5,calculated
+cpi_food_at_home.yoy_pct,1.8,calculated
+cpi_food_away_from_home.period,2026-09,source-reported or period label
+cpi_food_away_from_home.prior_year_period,2025-09,source-reported or period label
+cpi_food_away_from_home.prior_year_value,385.451,source-reported or period label
+cpi_food_away_from_home.two_years_back_period,2024-09,source-reported or period label
+cpi_food_away_from_home.two_years_back_value,371.604,source-reported or period label
+cpi_food_away_from_home.value,398.783,source-reported or period label
+cpi_food_away_from_home.vs_two_years_pct,7.3,calculated
+cpi_food_away_from_home.yoy_pct,3.5,calculated
+dmr_annual.2015.pounds,122663391.0,source-reported or period label
+dmr_annual.2015.usd_per_lb,4.1,source-reported or period label
+dmr_annual.2015.value_usd,502450308.0,source-reported or period label
+dmr_annual.2016.pounds,132604691.0,source-reported or period label
+dmr_annual.2016.usd_per_lb,4.08,source-reported or period label
+dmr_annual.2016.value_usd,540671928.0,source-reported or period label
+dmr_annual.2017.pounds,112101211.0,source-reported or period label
+dmr_annual.2017.usd_per_lb,3.92,source-reported or period label
+dmr_annual.2017.value_usd,438976768.0,source-reported or period label
+dmr_annual.2018.pounds,121039987.0,source-reported or period label
+dmr_annual.2018.usd_per_lb,4.05,source-reported or period label
+dmr_annual.2018.value_usd,490596147.0,source-reported or period label
+dmr_annual.2019.pounds,102251476.0,source-reported or period label
+dmr_annual.2019.usd_per_lb,4.82,source-reported or period label
+dmr_annual.2019.value_usd,493125879.0,source-reported or period label
+dmr_annual.2020.pounds,97954590.0,source-reported or period label
+dmr_annual.2020.usd_per_lb,4.21,source-reported or period label
+dmr_annual.2020.value_usd,412629230.0,source-reported or period label
+dmr_annual.2021.pounds,110704228.0,source-reported or period label
+dmr_annual.2021.usd_per_lb,6.71,source-reported or period label
+dmr_annual.2021.value_usd,742989020.0,source-reported or period label
+dmr_annual.2022.pounds,98985320.0,source-reported or period label
+dmr_annual.2022.usd_per_lb,3.97,source-reported or period label
+dmr_annual.2022.value_usd,393277277.0,source-reported or period label
+dmr_annual.2023.pounds,96965543.0,source-reported or period label
+dmr_annual.2023.usd_per_lb,4.97,source-reported or period label
+dmr_annual.2023.value_usd,482061884.0,source-reported or period label
+dmr_annual.2024.pounds,87279523.0,source-reported or period label
+dmr_annual.2024.usd_per_lb,6.15,source-reported or period label
+dmr_annual.2024.value_usd,536466702.0,source-reported or period label
+dmr_annual.2025.pounds,78826683.0,source-reported or period label
+dmr_annual.2025.usd_per_lb,5.85,source-reported or period label
+dmr_annual.2025.value_usd,461384405.0,source-reported or period label
+dmr_ex_vessel_september.2020,4.2893,source-reported or period label
+dmr_ex_vessel_september.2021,6.9783,source-reported or period label
+dmr_ex_vessel_september.2022,3.709,source-reported or period label
+dmr_ex_vessel_september.2023,4.991,source-reported or period label
+dmr_ex_vessel_september.2024,6.2815,source-reported or period label
+dmr_ex_vessel_september.2025,6.1507,source-reported or period label
+dmr_ex_vessel_september.yoy_pct,-2.1,calculated
+dmr_landings_decline.change_pct,-40.6,calculated
+dmr_landings_decline.latest_is_preliminary,True,calculated
+dmr_landings_decline.latest_pounds,78826683.0,calculated
+dmr_landings_decline.latest_year,2025,calculated
+dmr_landings_decline.peak_pounds,132604691.0,calculated
+dmr_landings_decline.peak_year,2016,calculated
+dmr_latest_period,2025-12,source-reported or period label
+ers_food_price_outlook.Fish and seafood — Lower bound of forecast interval 2027,-3.8,source-reported or period label
+ers_food_price_outlook.Fish and seafood — Upper bound of forecast interval 2027,6.6,source-reported or period label
+ers_food_price_outlook.Fish and seafood — Year-over-year August 2025 to August 2026,6.5,source-reported or period label
+ers_food_price_outlook.Food away from home — Year-over-year August 2025 to August 2026,3.4,source-reported or period label
+noaa_import_kilos_portland.period,2026-08,source-reported or period label
+noaa_import_kilos_portland.prior_year_period,2025-08,source-reported or period label
+noaa_import_kilos_portland.prior_year_value,924011.0,source-reported or period label
+noaa_import_kilos_portland.two_years_back_period,2024-08,source-reported or period label
+noaa_import_kilos_portland.two_years_back_value,,source-reported or period label
+noaa_import_kilos_portland.value,329208.0,source-reported or period label
+noaa_import_kilos_portland.vs_two_years_pct,,calculated
+noaa_import_kilos_portland.yoy_pct,-64.4,calculated
+noaa_import_kilos_portland_ytd.2025,16380931.0,calculated
+noaa_import_kilos_portland_ytd.2026,13944063.0,calculated
+noaa_import_kilos_portland_ytd.change_pct,-14.9,calculated
+noaa_import_kilos_portland_ytd.through_month,08,calculated
+noaa_import_unit_value_portland.period,2026-08,source-reported or period label
+noaa_import_unit_value_portland.prior_year_period,2025-08,source-reported or period label
+noaa_import_unit_value_portland.prior_year_value,8.995,source-reported or period label
+noaa_import_unit_value_portland.two_years_back_period,2024-08,source-reported or period label
+noaa_import_unit_value_portland.two_years_back_value,,source-reported or period label
+noaa_import_unit_value_portland.value,9.0175,source-reported or period label
+noaa_import_unit_value_portland.vs_two_years_pct,,calculated
+noaa_import_unit_value_portland.yoy_pct,0.3,calculated
+ppi_finished_consumer_foods.period,2026-09,source-reported or period label
+ppi_finished_consumer_foods.prior_year_period,2025-09,source-reported or period label
+ppi_finished_consumer_foods.prior_year_value,286.618,source-reported or period label
+ppi_finished_consumer_foods.two_years_back_period,2024-09,source-reported or period label
+ppi_finished_consumer_foods.two_years_back_value,277.392,source-reported or period label
+ppi_finished_consumer_foods.value,283.977,source-reported or period label
+ppi_finished_consumer_foods.vs_two_years_pct,2.4,calculated
+ppi_finished_consumer_foods.yoy_pct,-0.9,calculated
+ppi_lobsters.period,2026-09,source-reported or period label
+ppi_lobsters.prior_year_period,2025-09,source-reported or period label
+ppi_lobsters.prior_year_value,201.466,source-reported or period label
+ppi_lobsters.two_years_back_period,2024-09,source-reported or period label
+ppi_lobsters.two_years_back_value,203.719,source-reported or period label
+ppi_lobsters.value,198.779,source-reported or period label
+ppi_lobsters.vs_two_years_pct,-2.4,calculated
+ppi_lobsters.yoy_pct,-1.3,calculated
+ppi_lobsters_winter_peak.2025.period,2025-03,source-reported or period label
+ppi_lobsters_winter_peak.2025.value,315.397,source-reported or period label
+ppi_lobsters_winter_peak.2026.period,2026-03,source-reported or period label
+ppi_lobsters_winter_peak.2026.value,334.154,source-reported or period label
+ppi_lobsters_winter_peak.change_pct,5.9,calculated
+ppi_seafood.period,2026-09,source-reported or period label
+ppi_seafood.prior_year_period,2025-09,source-reported or period label
+ppi_seafood.prior_year_value,452.547,source-reported or period label
+ppi_seafood.two_years_back_period,2024-09,source-reported or period label
+ppi_seafood.two_years_back_value,414.125,source-reported or period label
+ppi_seafood.value,543.607,source-reported or period label
+ppi_seafood.vs_two_years_pct,31.3,calculated
+ppi_seafood.yoy_pct,20.1,calculated

@@ -1,0 +1,35 @@
+# https://www.mainelobsternow.com/collections/live-lobster
+HTTP 200
+Date: Thu, 15 Oct 2026 13:46:44 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept-Encoding, Accept
+link: <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+speculation-rules: "/cdn/shopifycloud/storefront/assets/storefront/storefronts.moderate.specrules-eb468f32.json"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 0
+shopify-complexity-score-v2: 131
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+strict-transport-security: max-age=7889238
+X-Download-Options: noopen
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+Cache-Control: private, max-age=0, must-revalidate
+powered-by: Shopify
+server-timing: processing;dur=139;desc="gc:2", streaming;dur=0, db;dur=34, db_async;dur=52.08, asn;desc="701", edge;desc="BOS", country;desc="US", theme;desc="189290414323", pageType;desc="collection", servedBy;desc="fh8q", requestID;desc="d9834c8f-6067-40b7-9506-26b2b83f2953-1792072004", _y;desc="9d684c63-2dc5-4334-ad55-6d7a2309de39", _s;desc="82678ab8-f7c5-48a6-9516-d6a2224fc0ff", _cmp;desc="3.AMPS_USMA_f_f_00hGcUONRkmNbC1vun6Rbw", _ye;desc="1823629604", _se;desc="1792073804"
+Server-Timing: ipv6
+x-request-id: d9834c8f-6067-40b7-9506-26b2b83f2953-1792072004
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+X-XSS-Protection: 1; mode=block
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=qGk8HKdZMV2horrKT%2F0MRXo0vW5TFyJLcvEWIiHy1YXDxH2RedSKbuJverZVoKJhIH1ZqlifP1DmmDbvvQuU2rZ6%2FFr5%2B3S26cmbv0krqwJfDUJ%2BoNRQwa6i6UeqAxe5N2LF8GNz7cJjkEO9O4HVsPxNcKhJ"}]}
+X-Content-Type-Options: nosniff
+Server: cloudflare
+Content-Encoding: gzip
+CF-RAY: a4af458daba62fc4-BOS
+# 5 Set-Cookie header(s) redacted at capture

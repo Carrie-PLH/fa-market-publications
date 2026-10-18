@@ -1,0 +1,16 @@
+# https://taylorlobster.com/
+HTTP 200
+Server: nginx
+Date: Thu, 15 Oct 2026 13:45:02 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+X-Cache-Enabled: True
+Link: <https://taylorlobster.com/wp-json/>; rel="https://api.w.org/", <https://taylorlobster.com/wp-json/wp/v2/pages/78>; rel="alternate"; title="JSON"; type="application/json", <https://taylorlobster.com/>; rel=shortlink
+X-Httpd: 1
+Host-Header: 6b7412fb82ca5edfd0917e3957f05d89
+X-Proxy-Cache: MISS
+X-Proxy-Cache-Info: 0 NC:000000 UP:SKIP_CACHE_SET_COOKIE
+Content-Encoding: gzip
+# 1 Set-Cookie header(s) redacted at capture

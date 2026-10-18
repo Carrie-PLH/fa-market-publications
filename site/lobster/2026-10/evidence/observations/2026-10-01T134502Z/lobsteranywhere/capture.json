@@ -1,0 +1,51 @@
+{
+ "captured_at": "2026-10-01T13:47:28+00:00",
+ "errors": [
+  "page: <HTTPError 403: 'Forbidden'>",
+  "products: <HTTPError 403: 'Forbidden'>"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "<HTTPError 403: 'Forbidden'>",
+   "fetched_at": "2026-10-01T13:47:28+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "page",
+   "path": null,
+   "requested_url": "https://lobsteranywhere.com/product/live-lobster/",
+   "sha256": null,
+   "status": "FAILED"
+  },
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "<HTTPError 403: 'Forbidden'>",
+   "fetched_at": "2026-10-01T13:47:31+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "products",
+   "path": null,
+   "requested_url": "https://lobsteranywhere.com/wp-json/wc/store/v1/products?search=live%20lobster&per_page=100",
+   "sha256": null,
+   "status": "FAILED"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 108234,
+   "note": "chrome did not exit within timeout; output validated by file trailer",
+   "path": "captures/2026-10-01T134502Z/lobsteranywhere/page.png",
+   "sha256": "4e28ea0e8b544cf49fded536c0d6d14c67de52df07b7aa7398625a9ad26252a1",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-01T134502Z",
+ "source_id": "lobsteranywhere",
+ "source_name": "LobsterAnywhere (Maine direct-ship)",
+ "status": "FAILED"
+}

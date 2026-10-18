@@ -1,0 +1,51 @@
+{
+ "captured_at": "2026-10-01T13:51:23+00:00",
+ "errors": [
+  "page: <HTTPError 429: 'Too Many Requests'>",
+  "products: <HTTPError 429: 'Too Many Requests'>"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "<HTTPError 429: 'Too Many Requests'>",
+   "fetched_at": "2026-10-01T13:51:23+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "page",
+   "path": null,
+   "requested_url": "https://shop.cousinsmainelobster.com/collections/live-lobster",
+   "sha256": null,
+   "status": "FAILED"
+  },
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "<HTTPError 429: 'Too Many Requests'>",
+   "fetched_at": "2026-10-01T13:51:26+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "products",
+   "path": null,
+   "requested_url": "https://shop.cousinsmainelobster.com/collections/live-lobster/products.json?limit=250",
+   "sha256": null,
+   "status": "FAILED"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 1680593,
+   "note": "chrome did not exit within timeout; output validated by file trailer",
+   "path": "captures/2026-10-01T134502Z/cousins/page.png",
+   "sha256": "c85bd2c43e6d20e7e8268055521f52e5761eec4ef01a46ea16e1e66d7884fbf2",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-01T134502Z",
+ "source_id": "cousins",
+ "source_name": "Cousins Maine Lobster (online shop)",
+ "status": "FAILED"
+}

@@ -1,0 +1,15 @@
+# https://lobsteranywhere.com/shop/live-lobster/
+HTTP 200
+Date: Thu, 15 Oct 2026 13:45:51 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Server: cloudflare
+vary: Accept-Encoding
+link: <https://lobsteranywhere.com/sitemaps.xml>; rel="sitemap"; type="application/xml", <https://lobsteranywhere.com/llms.txt>; rel="describedby"; type="text/plain", <https://lobsteranywhere.com/wp-content/uploads/2025/10/1555_vector_pb-03.svg>; rel=preload; as=image; fetchpriority=high
+Cache-Control: public, max-age=0, s-maxage=2592000
+last-modified: Thu, 15 Oct 2026 13:45:51 GMT
+cf-cache-status: MISS
+Content-Encoding: gzip
+CF-RAY: a4af44363e0d4f75-BOS
+alt-svc: h3=":443"; ma=86400

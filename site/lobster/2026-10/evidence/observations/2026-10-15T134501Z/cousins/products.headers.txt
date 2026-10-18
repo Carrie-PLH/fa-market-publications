@@ -1,0 +1,35 @@
+# https://shop.cousinsmainelobster.com/collections/live-lobster/products.json?limit=250
+HTTP 200
+Date: Thu, 15 Oct 2026 13:47:04 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Download-Options: noopen
+cf-cache-status: DYNAMIC
+x-request-id: 4cd2bfa3-dff2-4ef7-a24a-d0c9ea2b85f3-1792072023
+etag: W/"page_cache:29470916656:ProductListController:868181c87d00d1d74f0b272956286887"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 101
+shopify-complexity-score-v2: 101
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+access-control-allow-origin: *
+strict-transport-security: max-age=7889238
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept
+vary: accept-encoding
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+link: </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+powered-by: Shopify
+server-timing: processing;dur=106;desc="gc:2", db;dur=33, db_async;dur=15.851, asn;desc="701", edge;desc="BOS", country;desc="US", servedBy;desc="2vf2", requestID;desc="4cd2bfa3-dff2-4ef7-a24a-d0c9ea2b85f3-1792072023", _y;desc="00000000-0000-0000-5000-000000000000", _s;desc="00000000-0000-0000-5000-000000000000", _cmp;desc="3.ampS_USMA_t_f_4nqQ7QvaRjOeXJEpGRSRvA", _ye;desc="1823629624", _se;desc="1792073824", compressionLevel;desc="5", compressionTime;dur=3.763
+Server-Timing: ipv6
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+X-XSS-Protection: 1; mode=block
+alt-svc: h3=":443"; ma=86400
+Server: cloudflare
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=9r4GN4swgt8nMNXOQVXntZWVZy9n9FMboXuL8DsPQ8OjJPY4bUB0vQGPg2ZF6%2BFVYO68ZlAhr1C4uKhI%2Bt3f2EDKLQOmcjG4K3SJDFoNTvh2qun%2BR%2F1TGD4LOhEE2JAiWK3o8EW0Gn5bk3lukw2Y1h4ZlYN3inHfq%2B4%3D"}]}
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+CF-RAY: a4af4605d8684cd9-BOS
+# 2 Set-Cookie header(s) redacted at capture

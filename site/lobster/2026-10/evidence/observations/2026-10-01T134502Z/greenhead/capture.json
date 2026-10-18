@@ -1,0 +1,62 @@
+{
+ "captured_at": "2026-10-01T13:52:10+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 293849,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-01T13:52:10+00:00",
+   "final_url": "https://greenheadlobster.com/product/live-lobsters/",
+   "headers_path": "captures/2026-10-01T134502Z/greenhead/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-10-01T134502Z/greenhead/page.html",
+   "requested_url": "https://greenheadlobster.com/product/live-lobsters/",
+   "sha256": "7fe943061493a65e478b27b153425888ee5232b5a503933870687650f2524347",
+   "status": "OK"
+  },
+  {
+   "bytes": 114991,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-01T13:52:15+00:00",
+   "final_url": "https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=1",
+   "headers_path": "captures/2026-10-01T134502Z/greenhead/var_live_p1.headers.txt",
+   "http_status": 200,
+   "name": "var_live_p1",
+   "path": "captures/2026-10-01T134502Z/greenhead/var_live_p1.json",
+   "requested_url": "https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=1",
+   "sha256": "a8689ed4b11beb70de55cf9b9aec4d4390d37b32d671990d3a8568f88d401d43",
+   "status": "OK"
+  },
+  {
+   "bytes": 2,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-01T13:52:20+00:00",
+   "final_url": "https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=2",
+   "headers_path": "captures/2026-10-01T134502Z/greenhead/var_live_p2.headers.txt",
+   "http_status": 200,
+   "name": "var_live_p2",
+   "path": "captures/2026-10-01T134502Z/greenhead/var_live_p2.json",
+   "requested_url": "https://greenheadlobster.com/wp-json/wc/store/v1/products?type=variation&parent=2034&per_page=100&page=2",
+   "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 2368697,
+   "note": "chrome did not exit within timeout; output validated by file trailer",
+   "path": "captures/2026-10-01T134502Z/greenhead/page.png",
+   "sha256": "6b76249272d2e15a426d74802ce77aa5bc9ccb6b8f0139cd8ad13d98388d4db3",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-01T134502Z",
+ "source_id": "greenhead",
+ "source_name": "Greenhead Lobster (Stonington, ME)",
+ "status": "OK"
+}

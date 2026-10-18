@@ -1,0 +1,35 @@
+# https://getmainelobster.com/products/live-maine-lobsters-1
+HTTP 200
+Date: Thu, 15 Oct 2026 13:46:27 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept-Encoding, Accept
+link: </cart/32180533264499:1?ucp/version=2026-08-25>; rel="buy"; payment="com.google.pay dev.shopify.card dev.shopify.shop_pay", <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+speculation-rules: "/cdn/shopifycloud/storefront/assets/storefront/storefronts.moderate.specrules-eb468f32.json"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 0
+shopify-complexity-score-v2: 94
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+access-control-allow-origin: *
+strict-transport-security: max-age=7889238
+X-Download-Options: noopen
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+Cache-Control: private, max-age=0, must-revalidate
+powered-by: Shopify
+server-timing: processing;dur=102, streaming;dur=0, db;dur=38, db_async;dur=25.52, asn;desc="701", edge;desc="BOS", country;desc="US", theme;desc="175682617707", pageType;desc="product", servedBy;desc="d6sh", requestID;desc="0ae64284-7cc3-42b4-8218-6ce442a98cb9-1792071987", _y;desc="4bc10c1f-2ad8-4ff4-928f-35ac88602a2d", _s;desc="948fb0ab-1baf-4164-b85d-41a74e36304a", _cmp;desc="3.AMPS_USMA_f_f_2rEecE0FRlaj1I*E4mI5yw", _ye;desc="1823629587", _se;desc="1792073787"
+x-request-id: 0ae64284-7cc3-42b4-8218-6ce442a98cb9-1792071987
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+X-XSS-Protection: 1; mode=block
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=0CNpWRyDOQcALWHoKon5zksq7Oy4%2FMwwWR3I77AHYVHSwTE2uav0qOj5%2FTFiCtGJxUAwm1MybYdRbcKq7bVW3HZkv%2FkZPINBR%2B%2FWdvMf4tdascxjoldBswlGwEIM22PKC2b2LW8%3D"}]}
+X-Content-Type-Options: nosniff
+Server: cloudflare
+Content-Encoding: gzip
+CF-RAY: a4af4520ea8078bc-BOS
+# 4 Set-Cookie header(s) redacted at capture

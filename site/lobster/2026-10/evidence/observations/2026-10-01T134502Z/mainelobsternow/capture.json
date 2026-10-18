@@ -1,0 +1,51 @@
+{
+ "captured_at": "2026-10-01T13:50:35+00:00",
+ "errors": [
+  "page: <HTTPError 429: 'Too Many Requests'>",
+  "products: <HTTPError 429: 'Too Many Requests'>"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "<HTTPError 429: 'Too Many Requests'>",
+   "fetched_at": "2026-10-01T13:50:35+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "page",
+   "path": null,
+   "requested_url": "https://www.mainelobsternow.com/collections/live-lobster",
+   "sha256": null,
+   "status": "FAILED"
+  },
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "<HTTPError 429: 'Too Many Requests'>",
+   "fetched_at": "2026-10-01T13:50:39+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "products",
+   "path": null,
+   "requested_url": "https://www.mainelobsternow.com/collections/all/products.json?limit=250",
+   "sha256": null,
+   "status": "FAILED"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 7056783,
+   "note": "chrome did not exit within timeout; output validated by file trailer",
+   "path": "captures/2026-10-01T134502Z/mainelobsternow/page.png",
+   "sha256": "70487da39af78ff1d6d4b6554f9fea14c7a32b4b6ae561602e7ea101a5b88dc4",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-10-01T134502Z",
+ "source_id": "mainelobsternow",
+ "source_name": "Maine Lobster Now (Saco, ME)",
+ "status": "FAILED"
+}

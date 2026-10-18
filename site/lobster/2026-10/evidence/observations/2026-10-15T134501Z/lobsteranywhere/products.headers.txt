@@ -1,0 +1,26 @@
+# https://lobsteranywhere.com/wp-json/wc/store/v1/products?search=live%20lobster&per_page=100
+HTTP 200
+Date: Thu, 15 Oct 2026 13:45:56 GMT
+Content-Type: application/json; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Server: cloudflare
+vary: Accept-Encoding
+x-wp-doingitwrong: WP_Ability_Categories_Registry::get_registered (since 6.9.0; Ability category "plugin" not found.)
+x-robots-tag: noindex
+x-content-type-options: nosniff
+access-control-expose-headers: X-WP-Total, X-WP-TotalPages, Link, Cart-Token
+access-control-allow-headers: Authorization, X-WP-Nonce, Content-Disposition, Content-MD5, Content-Type, Cart-Token, Nonce
+x-wp-total: 6
+x-wp-totalpages: 1
+allow: GET
+access-control-allow-methods: OPTIONS, GET, POST, PUT, PATCH, DELETE
+access-control-allow-credentials: true
+last-modified: Thu, 15 Oct 2026 13:29:42 GMT
+Cache-Control: public, max-age=0, s-maxage=2592000
+Content-Encoding: gzip
+link: <https://lobsteranywhere.com/wp-json/>; rel="https://api.w.org/"
+cf-cache-status: DYNAMIC
+CF-RAY: a4af4456a818f1c4-BOS
+alt-svc: h3=":443"; ma=86400
+# 1 Set-Cookie header(s) redacted at capture

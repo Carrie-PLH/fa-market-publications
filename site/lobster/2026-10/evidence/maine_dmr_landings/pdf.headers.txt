@@ -1,0 +1,18 @@
+# https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf
+HTTP 200
+Content-Type: application/pdf
+Transfer-Encoding: chunked
+Connection: close
+Date: Sun, 18 Oct 2026 14:49:04 GMT
+Server: Apache
+Last-Modified: Fri, 06 Mar 2026 14:05:01 GMT
+X-Frame-Options: SAMEORIGIN
+Content-Encoding: gzip
+zbe: vphp8
+zfe: vw1
+ETag: W/"2fecd-64c5b8a0b2f2e"
+Vary: Accept-Encoding
+X-Cache: Miss from cloudfront
+Via: 1.1 37d94e77ea5ef204701fb119d20b69fe.cloudfront.net (CloudFront)
+X-Amz-Cf-Pop: BOS50-P3
+X-Amz-Cf-Id: 6_X4AyOeTRk0PqNXuBPHD-1B5EWDONptugP26506S_dJn7m9IJZYXw==

@@ -1,0 +1,37 @@
+# https://shop.cousinsmainelobster.com/collections/live-lobster
+HTTP 200
+Date: Thu, 15 Oct 2026 13:47:00 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Download-Options: noopen
+product-filtering-backend: bitset_roaring
+cf-cache-status: DYNAMIC
+link: <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, <https://cmp.osano.com>; rel="preconnect", <https://cmp.osano.com/wZwvDsjnLI/1b9d26cc-9d75-412d-9ad2-80b9722b9f4b/osano.js>; as="script"; rel="preload", <//shop.cousinsmainelobster.com/cdn/shop/t/8/assets/theme.css?v=183419005554516032091787312081>; as="style"; rel="preload", <//shop.cousinsmainelobster.com/cdn/shop/t/8/assets/custom.css?v=147334128712486481571790833180>; as="style"; rel="preload", <https://cdn.shopify.com/extensions/01a13b3e-cd03-77e5-987c-383b21da04e8/klaviyo-email-marketing-77/assets/app.css>; as="style"; rel="preload", <https://shop.cousinsmainelobster.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css>; as="style"; rel="preload"; crossorigin, </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+speculation-rules: "/cdn/shopifycloud/storefront/assets/storefront/storefronts.moderate.specrules-eb468f32.json"
+x-request-id: afb6722b-dd70-464f-9faa-e0974e791699-1792072020
+etag: W/"page_cache:29470916656:CollectionDetailsController:e43107674ed3e732519f04fbc6c2dc4f:62b1a0a3e6f38515e1ba729bee211379"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 0
+shopify-complexity-score-v2: 188
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+strict-transport-security: max-age=7889238
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept
+vary: accept-encoding
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+powered-by: Shopify
+server-timing: processing;dur=195;desc="gc:1", db;dur=44, db_async;dur=24.892, render;dur=86, asn;desc="701", edge;desc="BOS", country;desc="US", theme;desc="126327029808", pageType;desc="collection", servedBy;desc="vlpx", requestID;desc="afb6722b-dd70-464f-9faa-e0974e791699-1792072020", _y;desc="00000000-0000-0000-5000-000000000000", _s;desc="00000000-0000-0000-5000-000000000000", _cmp;desc="3.ampS_USMA_t_f_A72a0ZxhSX6x-yZaOm48yQ", _ye;desc="1823629620", _se;desc="1792073820", compressionLevel;desc="5", compressionTime;dur=7.651
+Server-Timing: ipv6
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+X-XSS-Protection: 1; mode=block
+alt-svc: h3=":443"; ma=86400
+Server: cloudflare
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=oE54a7aUGLf1s9PItlmPiduUX1eaxmQWjVyfH0RyITcqrYtB3aDNqY6eLbciibwIb6%2FKC6q3siE%2FFbewsqY3Be%2Fs42hagO480u2%2Fb9hNpg5ttTJgO8vhctEMg%2BNd1QFIX9DDF8T%2Fu9Aqp8BWCIWILo%2FltV%2B%2BiiY9ROE%3D"}]}
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+CF-RAY: a4af45f088338d15-BOS
+# 3 Set-Cookie header(s) redacted at capture
