@@ -65,7 +65,9 @@
    ],
    "parser": "ams_shell_egg_pdf",
    "parser_args": {},
-   "screenshot": false
+   "screenshot": false,
+   "accumulates": true,
+   "accumulates_why": "This report states one period per issue, so its history exists only because this record keeps every run. tools/issue.py merges this source's earlier runs into the computed set; the issue's own run still wins for the periods it holds."
   },
   {
    "id": "ams_egg_overview",
@@ -127,7 +129,9 @@
    ],
    "parser": "dmn_weekly_pdf",
    "parser_args": {},
-   "screenshot": false
+   "screenshot": false,
+   "accumulates": true,
+   "accumulates_why": "This report states one period per issue, so its history exists only because this record keeps every run. tools/issue.py merges this source's earlier runs into the computed set; the issue's own run still wins for the periods it holds."
   },
   {
    "id": "nass_chickens_eggs",

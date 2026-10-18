@@ -32,12 +32,45 @@ def pct(a, b):
     return None if not a or b is None else round((b - a) / a * 100, 1)
 
 
-def series_map(rows, run_id):
-    """{series_id: {period: value}} from the given run (last row per key wins)."""
+def superseded_keys(flag_rows):
+    """{(run_id, source_id, period)} that a later correction replaced. A row
+    under data/ is never edited, so a reading corrected by re-parsing its
+    retained capture leaves the original row in place; a SUPERSEDED flag names
+    what the correction replaced and this is how the computed set skips it."""
+    return {(f["run_id"], f["source_id"], f["superseded_period"])
+            for f in flag_rows
+            if f.get("flag") == "SUPERSEDED" and f.get("superseded_period")}
+
+
+def series_map(rows, run_id, accumulating=(), superseded=frozenset()):
+    """{series_id: {period: value}} for the named run (last row per key wins).
+
+    A source whose report states one period per issue cannot carry its own
+    history: the year-over-year and month-over-month comparisons for it exist
+    only because this record keeps every run. Those sources are declared
+    `accumulates` in sources.json and their earlier runs are merged in here, so
+    the comparison the record has accumulated is actually available to the
+    computed set. The named run still wins for every period it holds, so the
+    issue remains pinned to its run for everything that run reported.
+
+    Every other source is read from the named run alone, as before: those
+    reports carry their full history in one response, and reading across runs
+    would silently pull a later revision into an issue pinned to an earlier
+    one."""
     out = collections.defaultdict(dict)
+    acc = collections.defaultdict(dict)
+    accumulating = set(accumulating)
     for r in rows:
-        if r["run_id"] == run_id and r.get("period") and r.get("value") is not None:
+        if not r.get("period") or r.get("value") is None:
+            continue
+        if (r["run_id"], r.get("source_id"), r["period"]) in superseded:
+            continue
+        if r["run_id"] == run_id:
             out[r["series_id"]][r["period"]] = r["value"]
+        elif r.get("source_id") in accumulating:
+            acc[r["series_id"]][r["period"]] = r["value"]
+    for sid, earlier in acc.items():
+        out[sid] = earlier | out.get(sid, {})
     return out
 
 
@@ -381,6 +414,11 @@ def numbers_md_egg_butter(n):
             x = n[key]
             pw = x.get("prior_week_value_as_reported")
             L.append(f"| {label} | {fm(x['value'])} ({x['period']}; prior week {fm(pw)}) | {fm(x.get('prior_year_value'))} ({x.get('prior_year_period') or '—'}) | {fp(x.get('yoy_pct'))} | USDA AMS report 2848 |")
+            if x.get("trailing_4wk_avg") is not None:
+                base = label.replace(" (cents/dozen, week ending)", "")
+                L.append(f"| {base}, trailing 4-week average (cents/dozen) "
+                         f"| {fm(x['trailing_4wk_avg'])} | {fm(x.get('prior_year_4wk_avg'))} | "
+                         f"{fp(x.get('trailing_4wk_yoy_pct'))} | USDA AMS report 2848 |")
     return "\n".join(L) + "\n"
 
 
@@ -497,6 +535,11 @@ def numbers_md_chicken(n):
         L.append(f"| {label} (cents/lb, monthly weighted average) | {fm(x['value'])} "
                  f"({x['period']}{vol}) | {fm(x['prior_year_value'])} ({x['prior_year_period']}) "
                  f"| {fp(x['yoy_pct'])} | USDA AMS report 3649 |")
+        if x.get("prior_period"):
+            L.append(f"| {label}, against the prior reporting month (cents/lb) | "
+                     f"{fm(x['value'])} ({x['period']}) | {fm(x['prior_period_value'])} "
+                     f"({x['prior_period']}) | {fp(x['vs_prior_period_pct'])} | "
+                     f"USDA AMS report 3649 |")
     for key, label, src, d in [
             ("retail_boneless_breast_usd_per_lb", "Retail boneless chicken breast ($/lb)", "BLS APU0000FF1101", 3),
             ("retail_whole_chicken_usd_per_lb", "Retail whole chicken, fresh ($/lb)", "BLS APU0000706111", 3),
@@ -729,6 +772,27 @@ def numbers_md_pork(n):
     return "\n".join(L) + "\n"
 
 
+def _nearest_week_pair(left, right, tolerance=4):
+    """The latest week of `left` that has a week of `right` within `tolerance`
+    days, as (left_week, right_week, offset_days). Two weekly series measuring
+    the same market need not share a week-ending day: the mandatory dairy report
+    ends Saturday and the CME reprint ends the Friday before, so requiring an
+    exact match never pairs them. This is the same nearest-week rule the record
+    already uses for weekly year-over-year."""
+    from datetime import date
+    if not left or not right:
+        return None
+    rights = sorted(right)
+    for lw in sorted(left, reverse=True):
+        ld = date.fromisoformat(lw)
+        cands = [(abs((date.fromisoformat(rw) - ld).days), rw) for rw in rights]
+        cands = [c for c in cands if c[0] <= tolerance]
+        if cands:
+            days, rw = min(cands)
+            return lw, rw, (date.fromisoformat(rw) - ld).days
+    return None
+
+
 def compute_cheddar(n, sm, t, cfg_t, a):
     blk = "ndpsr_cheddar_block_40lb_usd_per_lb"
     n["ndpsr_block_40lb"] = _weekly(sm, blk, "Cheddar, 40-pound block, mandatory reported",
@@ -768,23 +832,25 @@ def compute_cheddar(n, sm, t, cfg_t, a):
     # the same week; the CME series accumulates one week per run, so this is
     # absent until the record covers a week both cover.
     cme = "cme_cheese_blocks_40lb_weekly_avg_usd_per_lb"
-    shared = sorted(set(sm.get(blk, {})) & set(sm.get(cme, {}))) if sm.get(cme) else []
-    if shared:
-        w = shared[-1]
+    pair = _nearest_week_pair(sm.get(blk, {}), sm.get(cme, {}))
+    if pair:
+        bw, cw, offset = pair
         n["block_less_cme_usd_per_lb"] = {
-            "week_ending": w,
-            "mandatory_reported": sm[blk][w], "cme_weekly_average": sm[cme][w],
-            "value": round(sm[blk][w] - sm[cme][w], 4),
+            "week_ending": bw, "cme_week_ending": cw, "week_offset_days": offset,
+            "mandatory_reported": sm[blk][bw], "cme_weekly_average": sm[cme][cw],
+            "value": round(sm[blk][bw] - sm[cme][cw], 4),
             "derived": "Mandatory-reported 40-pound block weighted average less the CME "
-                       "40-pound block weekly average, same week ending. Two different "
-                       "measures of the block market, subtracted; not a margin."}
+                       "40-pound block weekly average. Two different measures of the block "
+                       "market, subtracted; not a margin. The two series do not share a "
+                       "week-ending day: the mandatory report's week ends Saturday and the "
+                       "CME reprint's week ends the Friday before, so the nearest week "
+                       "within four days is paired, as the data dictionary states, and the "
+                       "offset in days is recorded with the figure."}
     else:
         n["block_less_cme_usd_per_lb"] = {
             "value": None,
-            "unavailable_because": "No week is covered by both series yet. The mandatory "
-                                   "report carries its full history in one request; the CME "
-                                   "reprint carries one week per report, so this record "
-                                   "accumulates it a week at a time.",
+            "unavailable_because": "No week of the mandatory report has a CME week within "
+                                   "four days of it in this record.",
             "ndpsr_latest_week": latest_period(sm, blk) if sm.get(blk) else None,
             "cme_latest_week": latest_period(sm, cme) if sm.get(cme) else None}
 
@@ -823,10 +889,16 @@ def numbers_md_cheddar(n):
                    f"{'s' if x['weeks_in_record'] != 1 else ''} of this series)")
         L.append(f"| {label} | {fm(x['value'], 4)} ({x['period']}) | {py} | "
                  f"{fp(x.get('yoy_pct'))} | CME via USDA AMS Dairy Market News |")
+        if x.get("trailing_4wk_avg") is not None:
+            base = label.replace(" ($/lb)", "")
+            L.append(f"| {base}, trailing 4-week average ($/lb) | {fm(x['trailing_4wk_avg'], 4)} | "
+                     f"{fm(x.get('prior_year_4wk_avg'), 4)} | {fp(x.get('trailing_4wk_yoy_pct'))} "
+                     f"| CME via USDA AMS Dairy Market News |")
     d = n.get("block_less_cme_usd_per_lb")
     if d and d.get("value") is not None:
         L.append(f"| Mandatory-reported block less CME block weekly average (derived, $/lb) | "
-                 f"{fm(d['value'], 4)} ({d['week_ending']}) | — | — | "
+                 f"{fm(d['value'], 4)} (mandatory week ending {d['week_ending']}, "
+                 f"CME week ending {d['cme_week_ending']}) | — | — | "
                  f"Derived from USDA AMS NDPSR and Dairy Market News |")
     bar = n.get("ndpsr_barrel_500lb_last_published")
     if bar:
@@ -865,10 +937,13 @@ def main():
     t = Title(a.title)
     cfg = config()
     cfg_t = cfg[a.title]
-    sm = series_map(read_jsonl(t.indicators), a.run_id)
+    accumulating = sorted(s["id"] for s in t.sources() if s.get("accumulates"))
+    sm = series_map(read_jsonl(t.indicators), a.run_id, accumulating,
+                    superseded_keys(read_jsonl(t.flags)))
     if not sm:
         sys.exit(f"no indicator rows for run {a.run_id}")
-    n = {"issue": a.issue, "title": cfg_t["name"], "run_id": a.run_id, "computed_at": iso()}
+    n = {"issue": a.issue, "title": cfg_t["name"], "run_id": a.run_id, "computed_at": iso(),
+         "accumulated_sources": accumulating}
 
     MODELS[cfg_t.get("issue_model", a.title)](n, sm, t, cfg_t, a)
 
