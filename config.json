@@ -67,10 +67,16 @@
   "RUN": {
     "_comment": "tools/run.py. Titles listed here run on the daily launchd job; a title is due when the record's newest month of its ppi_series is older than last month, today's day of month is at or past earliest_day, and no issues/<YYYY-MM>/ exists. Lobster waits for the 16th so both seller observation passes (1st, 15th) are in the record. Other titles join this list when their publication is decided (FA-D-20260923-01).",
     "titles": [
-      "lobster"
+      "lobster",
+      "egg-butter"
     ],
     "lobster": {
       "ppi_series": "WPU02230503",
+      "earliest_day": 16
+    },
+    "egg-butter": {
+      "_comment": "The second title under FA-D-20260923-01 as amended by -02, whose first issue waits on Lobster Monitor's first post-baseline issue. Listed here so its numbers are computed on the same mid-month cadence from now on; the routine never writes issue.md and never publishes, so listing it decides nothing about publication. WPU0171 is the chicken egg PPI, the title's lead indicator. The 16th matches lobster and keeps the weekly AMS reports this title also reads inside the pass.",
+      "ppi_series": "WPU0171",
       "earliest_day": 16
     }
   }
