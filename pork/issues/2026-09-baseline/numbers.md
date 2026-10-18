@@ -1,13 +1,13 @@
 | Measure | Latest | Same period, prior year | Change | Source |
 |---|---|---|---|---|
 | Pork carcass cutout ($/cwt, week ending) | 89.94 (2026-09-18) | 114.14 (2025-09-19) | -21.2% | USDA AMS report 2680 |
-| Pork carcass cutout, trailing 4-week average ($/cwt) | 94.16 | 115.28 | -18.3% | USDA AMS report 2680 |
+| Pork carcass cutout, trailing 4-week average ($/cwt) | 94.16 | 115.29 | -18.3% | USDA AMS report 2680 |
 | Pork belly primal ($/cwt, week ending) | 104.85 (2026-09-18) | 180.42 (2025-09-19) | -41.9% | USDA AMS report 2680 |
 | Pork belly primal, trailing 4-week average ($/cwt) | 137.60 | 187.46 | -26.6% | USDA AMS report 2680 |
 | Pork ham primal ($/cwt, week ending) | 83.44 (2026-09-18) | 103.67 (2025-09-19) | -19.5% | USDA AMS report 2680 |
 | Pork ham primal, trailing 4-week average ($/cwt) | 77.96 | 105.80 | -26.3% | USDA AMS report 2680 |
 | Pork loin primal ($/cwt, week ending) | 87.89 (2026-09-18) | 97.15 (2025-09-19) | -9.5% | USDA AMS report 2680 |
-| Pork loin primal, trailing 4-week average ($/cwt) | 88.61 | 96.63 | -8.3% | USDA AMS report 2680 |
+| Pork loin primal, trailing 4-week average ($/cwt) | 88.62 | 96.63 | -8.3% | USDA AMS report 2680 |
 | Pork butt primal ($/cwt, week ending) | 111.63 (2026-09-18) | 124.69 (2025-09-19) | -10.5% | USDA AMS report 2680 |
 | Pork butt primal, trailing 4-week average ($/cwt) | 113.91 | 123.58 | -7.8% | USDA AMS report 2680 |
 | Pork rib primal ($/cwt, week ending) | 158.83 (2026-09-18) | 168.94 (2025-09-19) | -6.0% | USDA AMS report 2680 |

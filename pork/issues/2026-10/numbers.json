@@ -1,6 +1,6 @@
 {
  "accumulated_sources": [],
- "computed_at": "2026-10-18T16:03:00+00:00",
+ "computed_at": "2026-10-18T18:07:06+00:00",
  "cpi_food_away_from_home": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
@@ -28,6 +28,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 107.27,
   "trailing_4wk_avg": 87.2475,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   89.94,
+   88.69,
+   86.14,
+   84.22
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",
@@ -124,6 +131,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 147.3,
   "trailing_4wk_avg": 97.995,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   104.85,
+   96.2,
+   93.72,
+   97.21
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",
@@ -142,6 +156,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 121.51,
   "trailing_4wk_avg": 110.4175,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   111.63,
+   109.83,
+   110.22,
+   109.99
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",
@@ -160,6 +181,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 103.9,
   "trailing_4wk_avg": 82.0925,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   83.44,
+   87.79,
+   83.04,
+   74.1
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",
@@ -179,6 +207,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 95.77,
   "trailing_4wk_avg": 86.0725,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   87.89,
+   87.05,
+   85.4,
+   83.95
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",
@@ -197,6 +232,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 88.0,
   "trailing_4wk_avg": 66.4675,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   70.04,
+   67.19,
+   65.62,
+   63.02
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",
@@ -215,6 +257,13 @@
   "prior_year_period": "2025-10-10",
   "prior_year_value": 166.27,
   "trailing_4wk_avg": 156.3225,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   158.83,
+   158.18,
+   154.58,
+   153.7
+  ],
   "trailing_4wk_weeks": [
    "2026-09-18",
    "2026-09-25",

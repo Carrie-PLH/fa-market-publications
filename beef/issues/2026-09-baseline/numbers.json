@@ -1,4 +1,5 @@
 {
+ "accumulated_sources": [],
  "cattle_marketings": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -34,9 +35,10 @@
   "period": "2026-09-18",
   "prior_year_period": "2025-09-19",
   "prior_year_value": 21.53,
-  "value": 20.13
+  "value": 20.13,
+  "yoy_pct": -6.5
  },
- "computed_at": "2026-09-23T15:10:52+00:00",
+ "computed_at": "2026-10-18T18:07:05+00:00",
  "cpi_beef_and_veal": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -64,6 +66,13 @@
   "prior_year_period": "2025-09-19",
   "prior_year_value": 389.44,
   "trailing_4wk_avg": 378.325,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   383.39,
+   377.49,
+   378.16,
+   374.26
+  ],
   "trailing_4wk_weeks": [
    "2026-08-28",
    "2026-09-04",
@@ -91,6 +100,13 @@
   "prior_year_period": "2025-09-19",
   "prior_year_value": 367.91,
   "trailing_4wk_avg": 356.6425,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   363.39,
+   355.82,
+   353.23,
+   354.13
+  ],
   "trailing_4wk_weeks": [
    "2026-08-28",
    "2026-09-04",
@@ -136,6 +152,13 @@
   "prior_year_period": "2025-09-22",
   "prior_year_value": 382.07,
   "trailing_4wk_avg": 358.3675,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   363.46,
+   357.9,
+   354.97,
+   357.14
+  ],
   "trailing_4wk_weeks": [
    "2026-09-01",
    "2026-09-08",
@@ -158,6 +181,13 @@
   "prior_year_period": "2025-09-22",
   "prior_year_value": 240.22,
   "trailing_4wk_avg": 226.1825,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   226.98,
+   225.09,
+   226.07,
+   226.59
+  ],
   "trailing_4wk_weeks": [
    "2026-09-01",
    "2026-09-08",

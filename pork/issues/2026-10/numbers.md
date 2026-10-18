@@ -5,7 +5,7 @@
 | Pork belly primal ($/cwt, week ending) | 97.21 (2026-10-09) | 147.30 (2025-10-10) | -34.0% | USDA AMS report 2680 |
 | Pork belly primal, trailing 4-week average ($/cwt) | 98.00 | 168.60 | -41.9% | USDA AMS report 2680 |
 | Pork ham primal ($/cwt, week ending) | 74.10 (2026-10-09) | 103.90 (2025-10-10) | -28.7% | USDA AMS report 2680 |
-| Pork ham primal, trailing 4-week average ($/cwt) | 82.09 | 103.47 | -20.7% | USDA AMS report 2680 |
+| Pork ham primal, trailing 4-week average ($/cwt) | 82.09 | 103.48 | -20.7% | USDA AMS report 2680 |
 | Pork loin primal ($/cwt, week ending) | 83.95 (2026-10-09) | 95.77 (2025-10-10) | -12.3% | USDA AMS report 2680 |
 | Pork loin primal, trailing 4-week average ($/cwt) | 86.07 | 96.66 | -11.0% | USDA AMS report 2680 |
 | Pork butt primal ($/cwt, week ending) | 109.99 (2026-10-09) | 121.51 (2025-10-10) | -9.5% | USDA AMS report 2680 |

@@ -1,12 +1,12 @@
 | Measure | Latest | Same period, prior year | Change | Source |
 |---|---|---|---|---|
 | Boxed beef cutout, Choice 600-900 lb ($/cwt, week ending) | 374.26 (2026-09-18) | 389.44 (2025-09-19) | -3.9% | USDA AMS report 2461 |
-| Boxed beef cutout, Choice 600-900 lb, trailing 4-week average ($/cwt) | 378.32 | 405.12 | -6.6% | USDA AMS report 2461 |
+| Boxed beef cutout, Choice 600-900 lb, trailing 4-week average ($/cwt) | 378.33 | 405.12 | -6.6% | USDA AMS report 2461 |
 | Boxed beef cutout, Select 600-900 lb ($/cwt, week ending) | 354.13 (2026-09-18) | 367.91 (2025-09-19) | -3.7% | USDA AMS report 2461 |
 | Boxed beef cutout, Select 600-900 lb, trailing 4-week average ($/cwt) | 356.64 | 381.36 | -6.5% | USDA AMS report 2461 |
 | Choice less Select cutout (derived, $/cwt) | 20.13 (2026-09-18) | 21.53 (2025-09-19) | -6.5% | Derived from USDA AMS report 2461 |
 | Fed cattle, steer and heifer, dressed ($/cwt, week ending) | 357.14 (2026-09-22) | 382.07 (2025-09-22) | -6.5% | USDA AMS report 2700 |
-| Fed cattle, steer and heifer, dressed, trailing 4-week average ($/cwt) | 358.37 | 381.45 | -6.1% | USDA AMS report 2700 |
+| Fed cattle, steer and heifer, dressed, trailing 4-week average ($/cwt) | 358.37 | 381.46 | -6.1% | USDA AMS report 2700 |
 | Fed cattle, steer and heifer, live ($/cwt, week ending) | 226.59 (2026-09-22) | 240.22 (2025-09-22) | -5.7% | USDA AMS report 2700 |
 | Fed cattle, steer and heifer, live, trailing 4-week average ($/cwt) | 226.18 | 241.77 | -6.4% | USDA AMS report 2700 |
 | Choice cutout less fed cattle dressed price (derived, $/cwt) | 17.12 (cutout 2026-09-18, cattle 2026-09-22) | — | — | Derived from USDA AMS reports 2461 and 2700 |
