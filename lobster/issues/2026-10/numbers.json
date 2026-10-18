@@ -1,6 +1,6 @@
 {
  "accumulated_sources": [],
- "computed_at": "2026-10-18T17:12:15+00:00",
+ "computed_at": "2026-10-18T17:44:19+00:00",
  "cpi_food_at_home": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
@@ -177,6 +177,10 @@
   ],
   "changed": 0,
   "changes": [],
+  "comparable_series_by_seller": {
+   "C": 22,
+   "G": 17
+  },
   "flat": 39,
   "implied_usd_per_lb_at_min_weight": [
    15.12,
@@ -190,7 +194,7 @@
   ],
   "record": {
    "file": "lobster/observations/data/observations.jsonl",
-   "git_commit": "ebe2e356088c1df7693dbf18ec1f596a727bb6c8",
+   "git_commit": "9080531befd4cd3f1c8339b7610e34f50f7bdf9c",
    "kind": "local",
    "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
    "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/.",
@@ -201,7 +205,7 @@
   "records": [
    {
     "file": "lobster/observations/data/observations.jsonl",
-    "git_commit": "ebe2e356088c1df7693dbf18ec1f596a727bb6c8",
+    "git_commit": "9080531befd4cd3f1c8339b7610e34f50f7bdf9c",
     "kind": "local",
     "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
     "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/.",
@@ -249,7 +253,8 @@
     "seller": "G"
    }
   ],
-  "sellers_observed": 8
+  "sellers_observed": 8,
+  "sellers_with_comparable_series": 2
  },
  "run_id": "2026-10-18T144903Z",
  "title": "Lobster Monitor"

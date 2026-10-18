@@ -107,7 +107,7 @@
   "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
   "file": "lobster/observations/data/observations.jsonl",
   "sha256": "b3dd9c0b61daf0c39535d769c4b0f0a85eb5393f4c405569a9d496c0cf2887a9",
-  "git_commit": "ebe2e356088c1df7693dbf18ec1f596a727bb6c8",
+  "git_commit": "9080531befd4cd3f1c8339b7610e34f50f7bdf9c",
   "observations_used": 314,
   "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/."
  }

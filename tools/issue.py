@@ -176,10 +176,12 @@ def retail_reference(cfg_t, letters, baseline_month):
             by_series[r["comparability_series"]].append((r["captured_at"], r["listed_price"]))
     flat = changed = 0
     changes = []
+    by_seller = collections.Counter()
     for s, obs in by_series.items():
         if len(obs) < 2:
             continue
         obs.sort()
+        by_seller[letters.get(s.split("|")[0], {}).get("letter", "?")] += 1
         if obs[0][1] == obs[-1][1]:
             flat += 1
         else:
@@ -215,6 +217,8 @@ def retail_reference(cfg_t, letters, baseline_month):
     primary = cited[0] if cited else {"name": "no observation record", "file": None, "sha256": None, "git_commit": None, "note": ""}
     return {"reference_series": spec, "sellers": ref_rows,
             "live_series_with_2_or_more_observations": flat + changed,
+            "comparable_series_by_seller": dict(sorted(by_seller.items())),
+            "sellers_with_comparable_series": len(by_seller),
             "flat": flat, "changed": changed, "changes": changes,
             "capture_dates": dates, "sellers_observed": len({r["source_id"] for r in rows}),
             "record_start": start, "records": cited, "record": primary}
@@ -303,8 +307,8 @@ def numbers_md_lobster(n):
     for key, label, src, d in [("ppi_lobsters", "PPI, lobsters (index)", "BLS WPU02230503", 1),
                                 ("ppi_seafood", "PPI, unprocessed and prepared seafood (index)", "BLS WPU0223", 1),
                                 ("cpi_food_away_from_home", "CPI, food away from home (index)", "BLS CUUR0000SEFV", 1),
-                                ("noaa_import_unit_value_portland", "Live lobster imports through Portland, ME, unit value ($/lb)", "NOAA FOSS, HTS 0306320010", 2),
-                                ("noaa_import_kilos_portland", "Live lobster imports through Portland, ME (kg)", "NOAA FOSS, HTS 0306320010", 0)]:
+                                ("noaa_import_unit_value_portland", "Live lobster imports, Portland ME customs district, declared customs value ($/lb)", "NOAA FOSS, HTS 0306320010", 2),
+                                ("noaa_import_kilos_portland", "Live lobster imports, Portland ME customs district, volume (kg)", "NOAA FOSS, HTS 0306320010", 0)]:
         x = n[key]
         L.append(f"| {label} | {fm(x['value'], d)} ({x['period']}) | {fm(x['prior_year_value'], d)} ({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
     s = n["dmr_ex_vessel_september"]
