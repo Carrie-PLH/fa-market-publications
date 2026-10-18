@@ -3,43 +3,9 @@
  "run_id": "2026-10-18T144903Z",
  "captures": [
   {
-   "source_id": "maine_dmr_landings",
-   "fetch": "pdf",
-   "url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
-   "fetched_at": "2026-10-18T14:49:03+00:00",
-   "path": "lobster/captures/2026-10-18T144903Z/maine_dmr_landings/pdf.pdf",
-   "sha256": "3bff08eeef50efc9788ffaa1e4198548c6edc5ed6ab0e8fdcacc082738928280",
-   "status": "OK"
-  },
-  {
-   "source_id": "noaa_foss_trade",
-   "fetch": "trade_2026",
-   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
-   "fetched_at": "2026-10-18T14:49:06+00:00",
-   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2026.json",
-   "sha256": "989345e6dd39dd0897382040f16c6f510dc5d1853d61db2bad801ca2d99d0e94",
-   "status": "OK"
-  },
-  {
-   "source_id": "noaa_foss_trade",
-   "fetch": "trade_2027",
-   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
-   "fetched_at": "2026-10-18T14:49:09+00:00",
-   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2027.json",
-   "sha256": "8c082332ec3bbb91b9ee712e5b4fc921b6851e458ba58330e31deb9f4afcb1fb",
-   "status": "OK"
-  },
-  {
-   "source_id": "noaa_foss_trade",
-   "fetch": "trade_2025",
-   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
-   "fetched_at": "2026-10-18T14:49:12+00:00",
-   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2025.json",
-   "sha256": "22471ed2b745024eab4f322e3c3fecf3ec3a0f52fab9c3ae51ead17eb490ffc9",
-   "status": "OK"
-  },
-  {
    "source_id": "bls",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "WPU02230503",
    "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU02230503",
    "fetched_at": "2026-10-18T14:49:14+00:00",
@@ -49,6 +15,8 @@
   },
   {
    "source_id": "bls",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "WPU0223",
    "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0223",
    "fetched_at": "2026-10-18T14:49:17+00:00",
@@ -58,6 +26,8 @@
   },
   {
    "source_id": "bls",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "WPUFD4111",
    "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPUFD4111",
    "fetched_at": "2026-10-18T14:49:19+00:00",
@@ -67,6 +37,8 @@
   },
   {
    "source_id": "bls",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "CUUR0000SEFV",
    "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
    "fetched_at": "2026-10-18T14:49:21+00:00",
@@ -76,6 +48,8 @@
   },
   {
    "source_id": "bls",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "CUUR0000SAF11",
    "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SAF11",
    "fetched_at": "2026-10-18T14:49:24+00:00",
@@ -84,7 +58,53 @@
    "status": "OK"
   },
   {
+   "source_id": "maine_dmr_landings",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
+   "fetched_at": "2026-10-18T14:49:03+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/maine_dmr_landings/pdf.pdf",
+   "sha256": "3bff08eeef50efc9788ffaa1e4198548c6edc5ed6ab0e8fdcacc082738928280",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
+   "fetch": "trade_2026",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
+   "fetched_at": "2026-10-18T14:49:06+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2026.json",
+   "sha256": "989345e6dd39dd0897382040f16c6f510dc5d1853d61db2bad801ca2d99d0e94",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
+   "fetch": "trade_2027",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
+   "fetched_at": "2026-10-18T14:49:09+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2027.json",
+   "sha256": "8c082332ec3bbb91b9ee712e5b4fc921b6851e458ba58330e31deb9f4afcb1fb",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
+   "fetch": "trade_2025",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
+   "fetched_at": "2026-10-18T14:49:12+00:00",
+   "path": "lobster/captures/2026-10-18T144903Z/noaa_foss_trade/trade_2025.json",
+   "sha256": "22471ed2b745024eab4f322e3c3fecf3ec3a0f52fab9c3ae51ead17eb490ffc9",
+   "status": "OK"
+  },
+  {
    "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "landing",
    "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
    "fetched_at": "2026-10-18T14:49:26+00:00",
@@ -94,6 +114,8 @@
   },
   {
    "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T144903Z",
+   "role": "issue run",
    "fetch": "cpi_csv",
    "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=21200",
    "fetched_at": "2026-10-18T14:49:28+00:00",
@@ -107,7 +129,7 @@
   "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
   "file": "lobster/observations/data/observations.jsonl",
   "sha256": "b3dd9c0b61daf0c39535d769c4b0f0a85eb5393f4c405569a9d496c0cf2887a9",
-  "git_commit": "9080531befd4cd3f1c8339b7610e34f50f7bdf9c",
+  "git_commit": "80ab303ff35aa64fe07c260f341a52f920619e66",
   "observations_used": 314,
   "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/."
  }
