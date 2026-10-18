@@ -1,0 +1,35 @@
+{
+ "entry": {
+  "file_count": 1061,
+  "id": "2026-10-18T171334Z",
+  "manifest_file": "manifests/2026-10-18T171334Z.txt",
+  "manifest_sha256": "ee78610fd49c2ae34e4603c6db66d2e94d2a818cd04f8cb1857d4f7014b0324c",
+  "note": "recover the 2026-10-01 observation pass; egg-butter joins the routine",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "lobster/observations/captures",
+   "lobster/observations/data",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "ccd681ed5c47ef7c109a65fdc68e937ac01f15fbf4ea395080b7093696ed2f96",
+  "repo": "fa-market-publications",
+  "utc": "2026-10-18T17:13:34+00:00"
+ },
+ "entry_sha256": "bbf31cd3e218fea2246aaa33b3a8573ed0581ec0a026074e585bdea18a184076"
+}
