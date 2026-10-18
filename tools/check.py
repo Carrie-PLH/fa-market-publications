@@ -44,7 +44,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import Title, config, load_json  # noqa: E402
+from common import Title, config, load_json, round_half_up  # noqa: E402
 
 NUMBER = re.compile(r"(?<![\w.$-])(\d[\d,]*(?:\.\d+)?)")
 UNIT_NUMBER = re.compile(
@@ -98,7 +98,7 @@ def present(val, stored, places, scale=1.0):
     val = abs(val)
     for s in stored:
         t = s / scale
-        if t == val or round(t, places) == round(val, places):
+        if t == val or round_half_up(t, places) == round_half_up(val, places):
             return True
     return False
 

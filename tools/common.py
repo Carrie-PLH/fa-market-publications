@@ -86,3 +86,17 @@ def read_jsonl(p: Path):
 
 def rel(p: Path) -> str:
     return str(Path(p).resolve().relative_to(ROOT))
+
+
+def round_half_up(v, places=2):
+    """Round for publication: half away from zero, on the decimal the value
+    prints as, not on its binary approximation. A four-week average of 71.815
+    is 71.82; Python's own round and its f-string give 71.81, because the
+    nearest double to 71.815 is just below it. The formatter in issue.py and
+    the figure check in check.py both round through here, or a figure the
+    edition prints would not match the figure the gate looks for."""
+    from decimal import Decimal, ROUND_HALF_UP
+    if v is None:
+        return None
+    q = Decimal(1).scaleb(-places)
+    return float(Decimal(str(v)).quantize(q, rounding=ROUND_HALF_UP))

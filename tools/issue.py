@@ -25,7 +25,8 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from common import ROOT, Title, config, iso, load_json, read_jsonl, sha256_file  # noqa: E402
+from common import (ROOT, Title, config, iso, load_json, read_jsonl, round_half_up,  # noqa: E402
+                    sha256_file)
 
 
 def pct(a, b):
@@ -300,7 +301,7 @@ def numbers_md_lobster(n):
     dy = int(n["dmr_latest_period"][:4])
     # numbers.md
     def fm(v, d=2):
-        return "—" if v is None else f"{v:,.{d}f}"
+        return "—" if v is None else f"{round_half_up(v, d):,.{d}f}"
     def fp(v):
         return "—" if v is None else f"{v:+.1f}%"
     L = ["| Measure | Latest | Same period, prior year | Change | Source |", "|---|---|---|---|---|"]
@@ -320,7 +321,7 @@ def numbers_md_lobster(n):
 
 
 def fm(v, d=2):
-    return "—" if v is None else f"{v:,.{d}f}"
+    return "—" if v is None else f"{round_half_up(v, d):,.{d}f}"
 
 
 def fp(v):
@@ -347,6 +348,8 @@ def weekly_yoy(sm, sid, period, window=4):
             "prior_year_value": d.get(prior) if prior else None,
             "yoy_pct": pct(d.get(prior), d.get(period)) if prior else None,
             f"trailing_{window}wk_avg": avg, f"trailing_{window}wk_weeks": weeks,
+            f"trailing_{window}wk_values": [d[w] for w in weeks],
+            f"trailing_{window}wk_basis": f"simple average of {len(weeks)} weekly values",
             f"prior_year_{window}wk_avg": pavg, f"trailing_{window}wk_yoy_pct": pct(pavg, avg)}
 
 
@@ -366,7 +369,16 @@ def compute_egg_butter(n, sm, t, cfg_t, a):
     bs = "ndpsr_butter_sales_lb"
     n["ndpsr_butter_sales_weekly"] = weekly_yoy(sm, bs, latest_period(sm, bs))
     cme = "cme_butter_aa_weekly_avg_usd_per_lb"
-    n["cme_butter_aa_weekly_avg"] = {"period": latest_period(sm, cme), "value": sm[cme].get(latest_period(sm, cme))} if sm.get(cme) else None
+    if sm.get(cme):
+        lp = latest_period(sm, cme)
+        earlier = sorted(w for w in sm[cme] if w < lp)
+        pw = earlier[-1] if earlier else None
+        n["cme_butter_aa_weekly_avg"] = {
+            "period": lp, "value": sm[cme][lp], "weeks_in_record": len(sm[cme]),
+            "prior_week_period": pw, "prior_week_value": sm[cme].get(pw) if pw else None,
+            "vs_prior_week_pct": pct(sm[cme].get(pw), sm[cme][lp]) if pw else None}
+    else:
+        n["cme_butter_aa_weekly_avg"] = None
     cl = "cme_butter_aa_friday_close_usd_per_lb"
     n["cme_butter_aa_friday_close"] = {"period": latest_period(sm, cl), "value": sm[cl].get(latest_period(sm, cl))} if sm.get(cl) else None
     for key, sid in [("shell_egg_national_warehouse_large", "ams_shell_egg_national_delivered_warehouse_large_cents_per_dozen"),
@@ -408,10 +420,13 @@ def numbers_md_egg_butter(n):
         L.append(f"| {label} | {fm(x['value'], d)} ({x['period']}) | {fm(x['prior_year_value'], d)} ({x['prior_year_period']}) | {fp(x['yoy_pct'])} | {src} |")
     b = n["ndpsr_butter_weekly"]
     L.append(f"| Butter, wholesale weighted average ($/lb, week ending) | {fm(b['value'], 4)} ({b['period']}) | {fm(b['prior_year_value'], 4)} ({b['prior_year_period']}) | {fp(b['yoy_pct'])} | USDA AMS NDPSR |")
-    L.append(f"| Butter, wholesale weighted average, trailing 4-week ($/lb) | {fm(b['trailing_4wk_avg'], 4)} | {fm(b['prior_year_4wk_avg'], 4)} | {fp(b['trailing_4wk_yoy_pct'])} | USDA AMS NDPSR |")
+    L.append(f"| Butter, four-week simple average of weekly weighted prices ($/lb) | {fm(b['trailing_4wk_avg'], 4)} | {fm(b['prior_year_4wk_avg'], 4)} | {fp(b['trailing_4wk_yoy_pct'])} | USDA AMS NDPSR |")
     if n.get("cme_butter_aa_weekly_avg"):
         c = n["cme_butter_aa_weekly_avg"]
-        L.append(f"| CME Grade AA butter, weekly average ($/lb, week ending) | {fm(c['value'], 4)} ({c['period']}) | — | — | CME via USDA AMS Dairy Market News |")
+        L.append(f"| CME Grade AA butter, weekly average ($/lb, week ending) | {fm(c['value'], 4)} "
+                 f"({c['period']}) | {fm(c.get('prior_week_value'), 4)} (prior week "
+                 f"{c.get('prior_week_period') or '—'}) | {fp(c.get('vs_prior_week_pct'))} | "
+                 f"CME via USDA AMS Dairy Market News |")
     for key, label in [("shell_egg_national_warehouse_large", "Shell eggs, Large, national delivered warehouse (cents/dozen, week ending)"),
                        ("shell_egg_midwest_producer_large", "Shell eggs, Large, Midwest paid to producers (cents/dozen, week ending)")]:
         if key in n:
@@ -955,16 +970,31 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     (out / "numbers.json").write_text(json.dumps(n, indent=1, sort_keys=True) + "\n")
 
-    # evidence.json: the capture files behind this run
+    # evidence.json: the capture files behind this issue. That is this run's
+    # captures, and for a source declared `accumulates` the captures of every
+    # earlier run whose rows the computed set can reach, because the comparison
+    # it carries exists only in those earlier captures. Each entry says which
+    # run it came from and whether it is this issue's run or accumulated
+    # history, so a reader can tell a reading taken today from one the record
+    # kept.
+    runs = {(a.run_id, s["id"]) for s in t.sources()}
+    acc_set = set(accumulating)
+    if acc_set:
+        for r in read_jsonl(t.indicators):
+            if r.get("source_id") in acc_set and r.get("run_id") != a.run_id:
+                runs.add((r["run_id"], r["source_id"]))
     caps = []
-    for src in t.sources():
-        cj = t.captures / a.run_id / src["id"] / "capture.json"
-        if cj.exists():
-            rec = load_json(cj)
-            for f in rec["fetches"]:
-                caps.append({"source_id": src["id"], "fetch": f["name"], "url": f.get("final_url") or f["requested_url"],
-                             "fetched_at": f.get("fetched_at"), "path": f.get("path"), "sha256": f.get("sha256"),
-                             "status": f["status"]})
+    for run_id, source_id in sorted(runs):
+        cj = t.captures / run_id / source_id / "capture.json"
+        if not cj.exists():
+            continue
+        rec = load_json(cj)
+        for f in rec["fetches"]:
+            caps.append({"source_id": source_id, "run_id": run_id,
+                         "role": "issue run" if run_id == a.run_id else "accumulated history",
+                         "fetch": f["name"], "url": f.get("final_url") or f["requested_url"],
+                         "fetched_at": f.get("fetched_at"), "path": f.get("path"),
+                         "sha256": f.get("sha256"), "status": f["status"]})
     (out / "evidence.json").write_text(json.dumps({"issue": a.issue, "run_id": a.run_id, "captures": caps,
                                                    "retail_record": n["retail_reference"]["record"]}, indent=1) + "\n")
 
