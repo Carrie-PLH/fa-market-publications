@@ -1,0 +1,35 @@
+{
+ "entry": {
+  "file_count": 1063,
+  "id": "2026-10-18T181049Z",
+  "manifest_file": "manifests/2026-10-18T181049Z.txt",
+  "manifest_sha256": "424b2eea9fca85734d6d9a90535794bf7778726258bd39f6b2ebc30b06e1abab",
+  "note": "rounding rule, evidence manifest, egg-butter Issue 1 revision",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "lobster/observations/captures",
+   "lobster/observations/data",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "db322641ec886552add65bba6a67aa8d9089e3e36ed032c988ffa7b2cdd646b8",
+  "repo": "fa-market-publications",
+  "utc": "2026-10-18T18:10:49+00:00"
+ },
+ "entry_sha256": "4d1867bb193ccf97c392203ab24ed53b71bdf09f760dd937c830b87b2b5940d3"
+}
