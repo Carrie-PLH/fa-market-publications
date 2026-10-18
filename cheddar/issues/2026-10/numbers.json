@@ -1,32 +1,74 @@
 {
+ "accumulated_sources": [
+  "ams_dmn_cheese"
+ ],
  "block_less_cme_usd_per_lb": {
-  "cme_latest_week": "2026-10-16",
-  "ndpsr_latest_week": "2026-10-10",
-  "unavailable_because": "No week is covered by both series yet. The mandatory report carries its full history in one request; the CME reprint carries one week per report, so this record accumulates it a week at a time.",
-  "value": null
+  "cme_week_ending": "2026-10-09",
+  "cme_weekly_average": 1.348,
+  "derived": "Mandatory-reported 40-pound block weighted average less the CME 40-pound block weekly average. Two different measures of the block market, subtracted; not a margin. The two series do not share a week-ending day: the mandatory report's week ends Saturday and the CME reprint's week ends the Friday before, so the nearest week within four days is paired, as the data dictionary states, and the offset in days is recorded with the figure.",
+  "mandatory_reported": 1.4309,
+  "value": 0.0829,
+  "week_ending": "2026-10-10",
+  "week_offset_days": -1
  },
  "cme_barrels_weekly_avg": {
   "label": "CME barrels, weekly average",
   "period": "2026-10-16",
+  "prior_year_4wk_avg": null,
+  "prior_year_period": null,
+  "prior_year_value": null,
+  "trailing_4wk_avg": 1.4667,
+  "trailing_4wk_weeks": [
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09",
+   "2026-10-16"
+  ],
+  "trailing_4wk_yoy_pct": null,
   "unit": "USD per lb",
   "value": 1.5095,
-  "weeks_in_record": 1
+  "weeks_in_record": 5,
+  "yoy_pct": null
  },
  "cme_blocks_friday_close": {
   "label": "CME 40-pound blocks, Friday close",
   "period": "2026-10-16",
+  "prior_year_4wk_avg": null,
+  "prior_year_period": null,
+  "prior_year_value": null,
+  "trailing_4wk_avg": 1.4225,
+  "trailing_4wk_weeks": [
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09",
+   "2026-10-16"
+  ],
+  "trailing_4wk_yoy_pct": null,
   "unit": "USD per lb",
   "value": 1.6825,
-  "weeks_in_record": 1
+  "weeks_in_record": 5,
+  "yoy_pct": null
  },
  "cme_blocks_weekly_avg": {
   "label": "CME 40-pound blocks, weekly average",
   "period": "2026-10-16",
+  "prior_year_4wk_avg": null,
+  "prior_year_period": null,
+  "prior_year_value": null,
+  "trailing_4wk_avg": 1.3815,
+  "trailing_4wk_weeks": [
+   "2026-09-25",
+   "2026-10-02",
+   "2026-10-09",
+   "2026-10-16"
+  ],
+  "trailing_4wk_yoy_pct": null,
   "unit": "USD per lb",
   "value": 1.5395,
-  "weeks_in_record": 1
+  "weeks_in_record": 5,
+  "yoy_pct": null
  },
- "computed_at": "2026-10-18T14:55:14+00:00",
+ "computed_at": "2026-10-18T16:05:06+00:00",
  "cpi_cheese": {
   "period": "2026-09",
   "prior_year_period": "2025-09",

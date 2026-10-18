@@ -1,5 +1,6 @@
 {
- "computed_at": "2026-10-18T14:53:41+00:00",
+ "accumulated_sources": [],
+ "computed_at": "2026-10-18T16:03:00+00:00",
  "cpi_food_at_home": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
@@ -188,7 +189,7 @@
   ],
   "record": {
    "file": "lobster/observations/data/observations.jsonl",
-   "git_commit": "8eb496eb1096cb670a5d42cf9a5cc87674c810d9",
+   "git_commit": "8da06559462d7e80b8468c2c5d0c41c59d84fa50",
    "kind": "local",
    "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
    "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/.",
@@ -199,7 +200,7 @@
   "records": [
    {
     "file": "lobster/observations/data/observations.jsonl",
-    "git_commit": "8eb496eb1096cb670a5d42cf9a5cc87674c810d9",
+    "git_commit": "8da06559462d7e80b8468c2c5d0c41c59d84fa50",
     "kind": "local",
     "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
     "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/.",

@@ -3,8 +3,11 @@
 | Cheddar, 40-pound block, mandatory reported ($/lb, week ending) | 1.4309 (2026-10-10) | 1.7183 (2025-10-11) | -16.7% | USDA AMS NDPSR |
 | Cheddar, 40-pound block, trailing 4-week average ($/lb) | 1.4824 | 1.7418 | -14.9% | USDA AMS NDPSR |
 | Cheddar, 40-pound block, pounds sold (week ending) | 10,443,477 (2026-10-10) | 11,010,050 (2025-10-11) | -5.1% | USDA AMS NDPSR |
-| CME cheese, 40-pound blocks, weekly average ($/lb) | 1.5395 (2026-10-16) | — (this record holds 1 week of this series) | — | CME via USDA AMS Dairy Market News |
-| CME cheese, barrels, weekly average ($/lb) | 1.5095 (2026-10-16) | — (this record holds 1 week of this series) | — | CME via USDA AMS Dairy Market News |
+| CME cheese, 40-pound blocks, weekly average ($/lb) | 1.5395 (2026-10-16) | — (this record holds 5 weeks of this series) | — | CME via USDA AMS Dairy Market News |
+| CME cheese, 40-pound blocks, weekly average, trailing 4-week average ($/lb) | 1.3815 | — | — | CME via USDA AMS Dairy Market News |
+| CME cheese, barrels, weekly average ($/lb) | 1.5095 (2026-10-16) | — (this record holds 5 weeks of this series) | — | CME via USDA AMS Dairy Market News |
+| CME cheese, barrels, weekly average, trailing 4-week average ($/lb) | 1.4667 | — | — | CME via USDA AMS Dairy Market News |
+| Mandatory-reported block less CME block weekly average (derived, $/lb) | 0.0829 (mandatory week ending 2026-10-10, CME week ending 2026-10-09) | — | — | Derived from USDA AMS NDPSR and Dairy Market News |
 | Cheddar, 500-pound barrel, mandatory reported ($/lb) | last published 1.9495 (2025-05-31) | — | — | USDA AMS NDPSR, series no longer carries a price |
 | Retail cheddar, natural ($/lb) | 6.133 (2026-09) | 6.049 (2025-09) | +1.4% | BLS APU0000710212 |
 | Retail American processed cheese ($/lb) | 4.737 (2026-09) | 4.925 (2025-09) | -3.8% | BLS APU0000710211 |

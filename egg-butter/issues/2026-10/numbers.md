@@ -11,4 +11,6 @@
 | Butter, wholesale weighted average, trailing 4-week ($/lb) | 1.3860 | 1.8556 | -25.3% | USDA AMS NDPSR |
 | CME Grade AA butter, weekly average ($/lb, week ending) | 1.3110 (2026-10-16) | — | — | CME via USDA AMS Dairy Market News |
 | Shell eggs, Large, national delivered warehouse (cents/dozen, week ending) | 66.19 (2026-10-17; prior week 74.19) | — (—) | — | USDA AMS report 2848 |
+| Shell eggs, Large, national delivered warehouse, trailing 4-week average (cents/dozen) | 71.81 | — | — | USDA AMS report 2848 |
 | Shell eggs, Large, Midwest paid to producers (cents/dozen, week ending) | 38.00 (2026-10-17; prior week 46.00) | — (—) | — | USDA AMS report 2848 |
+| Shell eggs, Large, Midwest paid to producers, trailing 4-week average (cents/dozen) | 44.50 | — | — | USDA AMS report 2848 |

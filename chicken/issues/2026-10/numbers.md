@@ -1,11 +1,17 @@
 | Measure | Latest | Same period, prior year | Change | Source |
 |---|---|---|---|---|
-| Wholesale boneless skinless breast (cents/lb, monthly weighted average) | 121.18 (2026-10; 9,845 thousand lb traded) | — (2025-10) | — | USDA AMS report 3649 |
-| Wholesale tenderloins (cents/lb, monthly weighted average) | 113.14 (2026-10; 5,067 thousand lb traded) | — (2025-10) | — | USDA AMS report 3649 |
-| Wholesale whole wings (cents/lb, monthly weighted average) | 110.38 (2026-10; 2,569 thousand lb traded) | — (2025-10) | — | USDA AMS report 3649 |
-| Wholesale leg quarters, bulk (cents/lb, monthly weighted average) | 53.50 (2026-10; 8,724 thousand lb traded) | — (2025-10) | — | USDA AMS report 3649 |
-| Wholesale drumsticks (cents/lb, monthly weighted average) | 55.49 (2026-10; 8,421 thousand lb traded) | — (2025-10) | — | USDA AMS report 3649 |
-| Wholesale national composite whole bird (cents/lb, monthly weighted average) | 116.64 (2026-10; 38,009 thousand lb traded) | — (2025-10) | — | USDA AMS report 3649 |
+| Wholesale boneless skinless breast (cents/lb, monthly weighted average) | 121.18 (2026-09; 9,845 thousand lb traded) | — (2025-09) | — | USDA AMS report 3649 |
+| Wholesale boneless skinless breast, against the prior reporting month (cents/lb) | 121.18 (2026-09) | 121.08 (2026-08) | +0.1% | USDA AMS report 3649 |
+| Wholesale tenderloins (cents/lb, monthly weighted average) | 113.14 (2026-09; 5,067 thousand lb traded) | — (2025-09) | — | USDA AMS report 3649 |
+| Wholesale tenderloins, against the prior reporting month (cents/lb) | 113.14 (2026-09) | 118.85 (2026-08) | -4.8% | USDA AMS report 3649 |
+| Wholesale whole wings (cents/lb, monthly weighted average) | 110.38 (2026-09; 2,569 thousand lb traded) | — (2025-09) | — | USDA AMS report 3649 |
+| Wholesale whole wings, against the prior reporting month (cents/lb) | 110.38 (2026-09) | 122.36 (2026-08) | -9.8% | USDA AMS report 3649 |
+| Wholesale leg quarters, bulk (cents/lb, monthly weighted average) | 53.50 (2026-09; 8,724 thousand lb traded) | — (2025-09) | — | USDA AMS report 3649 |
+| Wholesale leg quarters, bulk, against the prior reporting month (cents/lb) | 53.50 (2026-09) | 53.79 (2026-08) | -0.5% | USDA AMS report 3649 |
+| Wholesale drumsticks (cents/lb, monthly weighted average) | 55.49 (2026-09; 8,421 thousand lb traded) | — (2025-09) | — | USDA AMS report 3649 |
+| Wholesale drumsticks, against the prior reporting month (cents/lb) | 55.49 (2026-09) | 56.98 (2026-08) | -2.6% | USDA AMS report 3649 |
+| Wholesale national composite whole bird (cents/lb, monthly weighted average) | 116.64 (2026-09; 38,009 thousand lb traded) | — (2025-09) | — | USDA AMS report 3649 |
+| Wholesale national composite whole bird, against the prior reporting month (cents/lb) | 116.64 (2026-09) | 116.98 (2026-08) | -0.3% | USDA AMS report 3649 |
 | Retail boneless chicken breast ($/lb) | 4.203 (2026-09) | 4.172 (2025-09) | +0.7% | BLS APU0000FF1101 |
 | Retail whole chicken, fresh ($/lb) | 2.064 (2026-09) | 2.061 (2025-09) | +0.1% | BLS APU0000706111 |
 | Retail chicken legs, bone-in ($/lb) | 1.739 (2026-09) | 1.796 (2025-09) | -3.2% | BLS APU0000706212 |

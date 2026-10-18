@@ -1,4 +1,5 @@
 {
+ "accumulated_sources": [],
  "cattle_marketings": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -37,7 +38,7 @@
   "value": 20.31,
   "yoy_pct": 28.5
  },
- "computed_at": "2026-10-18T15:51:37+00:00",
+ "computed_at": "2026-10-18T16:03:00+00:00",
  "cpi_beef_and_veal": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
