@@ -1,6 +1,6 @@
 {
  "accumulated_sources": [],
- "computed_at": "2026-10-18T16:03:00+00:00",
+ "computed_at": "2026-10-18T17:12:15+00:00",
  "cpi_food_at_home": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
@@ -172,16 +172,17 @@
  },
  "retail_reference": {
   "capture_dates": [
+   "2026-10-01",
    "2026-10-15"
   ],
   "changed": 0,
   "changes": [],
-  "flat": 0,
+  "flat": 39,
   "implied_usd_per_lb_at_min_weight": [
    15.12,
    15.6
   ],
-  "live_series_with_2_or_more_observations": 0,
+  "live_series_with_2_or_more_observations": 39,
   "median_last": 19.2,
   "range_last": [
    18.9,
@@ -189,23 +190,23 @@
   ],
   "record": {
    "file": "lobster/observations/data/observations.jsonl",
-   "git_commit": "8da06559462d7e80b8468c2c5d0c41c59d84fa50",
+   "git_commit": "ebe2e356088c1df7693dbf18ec1f596a727bb6c8",
    "kind": "local",
    "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
    "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/.",
-   "observations_used": 162,
-   "sha256": "48d762c14d940ea7602904f9068eb9106af618d8fb5299f11f06d5f0d9040e67"
+   "observations_used": 314,
+   "sha256": "b3dd9c0b61daf0c39535d769c4b0f0a85eb5393f4c405569a9d496c0cf2887a9"
   },
   "record_start": "2026-09-26",
   "records": [
    {
     "file": "lobster/observations/data/observations.jsonl",
-    "git_commit": "8da06559462d7e80b8468c2c5d0c41c59d84fa50",
+    "git_commit": "ebe2e356088c1df7693dbf18ec1f596a727bb6c8",
     "kind": "local",
     "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
     "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/.",
-    "observations_used": 162,
-    "sha256": "48d762c14d940ea7602904f9068eb9106af618d8fb5299f11f06d5f0d9040e67"
+    "observations_used": 314,
+    "sha256": "b3dd9c0b61daf0c39535d769c4b0f0a85eb5393f4c405569a9d496c0cf2887a9"
    }
   ],
   "reference_series": {
@@ -234,6 +235,11 @@
     "first": 19.5,
     "last": 19.5,
     "observations": [
+     {
+      "availability": "IN_STOCK",
+      "date": "2026-10-01",
+      "usd_per_lobster": 19.5
+     },
      {
       "availability": "IN_STOCK",
       "date": "2026-10-15",
