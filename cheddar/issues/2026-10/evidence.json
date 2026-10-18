@@ -3,7 +3,75 @@
  "run_id": "2026-10-18T145249Z",
  "captures": [
   {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-09-23T152701Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-09-23T15:27:13+00:00",
+   "path": "cheddar/captures/2026-09-23T152701Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "51b508a2729da498b41fd6a530bf86d1bcdb0d7534a7c6fed5b703e1d8b13083",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-09-25T220525Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-09-25T22:05:39+00:00",
+   "path": "cheddar/captures/2026-09-25T220525Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "e23d637507ddc9b16f403829b2918ddb339a68ffd794c082044906238e85f44c",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-02T224106Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-02T22:41:19+00:00",
+   "path": "cheddar/captures/2026-10-02T224106Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "5b73c9d17774a8caac8a29d7f81ef8df7f8b39084a2dd7552071452e69f09a53",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-09T221755Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-09T22:18:05+00:00",
+   "path": "cheddar/captures/2026-10-09T221755Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "a49c39c2995f274c129b2ca290c3551e282758301b0e970a109135422b6fecb1",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-16T221734Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-16T22:17:46+00:00",
+   "path": "cheddar/captures/2026-10-16T221734Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-18T14:53:00+00:00",
+   "path": "cheddar/captures/2026-10-18T145249Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  },
+  {
    "source_id": "bls",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
    "fetch": "series",
    "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
    "fetched_at": "2026-10-18T14:52:49+00:00",
@@ -12,7 +80,20 @@
    "status": "OK"
   },
   {
+   "source_id": "ndpsr_barrel",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content",
+   "fetched_at": "2026-10-18T14:52:57+00:00",
+   "path": "cheddar/captures/2026-10-18T145249Z/ndpsr_barrel/json.json",
+   "sha256": "3edbd7f247a4b3ad38b06123c580aa3d21ff9fa49ca784e3019f5b2d63d2376a",
+   "status": "OK"
+  },
+  {
    "source_id": "ndpsr_block",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
    "fetch": "json",
    "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/40%20Pound%20Block%20Cheddar%20Cheese%20Prices%20and%20Sales",
    "fetched_at": "2026-10-18T14:52:51+00:00",
@@ -22,6 +103,8 @@
   },
   {
    "source_id": "ndpsr_block",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
    "fetch": "pdf",
    "url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
    "fetched_at": "2026-10-18T14:52:55+00:00",
@@ -30,25 +113,9 @@
    "status": "OK"
   },
   {
-   "source_id": "ndpsr_barrel",
-   "fetch": "json",
-   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content",
-   "fetched_at": "2026-10-18T14:52:57+00:00",
-   "path": "cheddar/captures/2026-10-18T145249Z/ndpsr_barrel/json.json",
-   "sha256": "3edbd7f247a4b3ad38b06123c580aa3d21ff9fa49ca784e3019f5b2d63d2376a",
-   "status": "OK"
-  },
-  {
-   "source_id": "ams_dmn_cheese",
-   "fetch": "pdf",
-   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
-   "fetched_at": "2026-10-18T14:53:00+00:00",
-   "path": "cheddar/captures/2026-10-18T145249Z/ams_dmn_cheese/pdf.pdf",
-   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
-   "status": "OK"
-  },
-  {
    "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
    "fetch": "landing",
    "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
    "fetched_at": "2026-10-18T14:53:04+00:00",
@@ -58,6 +125,8 @@
   },
   {
    "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T145249Z",
+   "role": "issue run",
    "fetch": "cpi_csv",
    "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=21200",
    "fetched_at": "2026-10-18T14:53:06+00:00",
