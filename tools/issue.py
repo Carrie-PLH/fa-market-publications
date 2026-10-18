@@ -575,11 +575,14 @@ def compute_beef(n, sm, t, cfg_t, a):
     # and marked derived. Neither is presented as anyone's margin.
     c, s = n.get("cutout_choice"), n.get("cutout_select")
     if c and s and c["period"] == s["period"] and None not in (c["value"], s["value"]):
+        sp_value = round(c["value"] - s["value"], 2)
+        sp_prior = (round(c["prior_year_value"] - s["prior_year_value"], 2)
+                    if None not in (c["prior_year_value"], s["prior_year_value"]) else None)
         n["choice_select_spread_usd_per_cwt"] = {
-            "period": c["period"], "value": round(c["value"] - s["value"], 2),
+            "period": c["period"], "value": sp_value,
             "prior_year_period": c["prior_year_period"],
-            "prior_year_value": (round(c["prior_year_value"] - s["prior_year_value"], 2)
-                                 if None not in (c["prior_year_value"], s["prior_year_value"]) else None),
+            "prior_year_value": sp_prior,
+            "yoy_pct": pct(sp_prior, sp_value),
             "derived": "Choice 600-900 lb cutout less Select 600-900 lb cutout, same week"}
     else:
         n["choice_select_spread_usd_per_cwt"] = None
@@ -643,7 +646,7 @@ def numbers_md_beef(n):
     if sp:
         L.append(f"| Choice less Select cutout (derived, $/cwt) | {fm(sp['value'])} ({sp['period']}) | "
                  f"{fm(sp['prior_year_value'])} ({sp['prior_year_period'] or '—'}) | "
-                 f"{fp(pct(sp['prior_year_value'], sp['value']))} | Derived from USDA AMS report 2461 |")
+                 f"{fp(sp['yoy_pct'])} | Derived from USDA AMS report 2461 |")
     _weekly_rows(L, n, [("fed_cattle_dressed", "Fed cattle, steer and heifer, dressed"),
                         ("fed_cattle_live", "Fed cattle, steer and heifer, live")],
                  "$/cwt", "USDA AMS report 2700")

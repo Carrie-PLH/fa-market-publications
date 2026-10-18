@@ -34,9 +34,10 @@
   "period": "2026-10-16",
   "prior_year_period": "2025-10-17",
   "prior_year_value": 15.81,
-  "value": 20.31
+  "value": 20.31,
+  "yoy_pct": 28.5
  },
- "computed_at": "2026-10-18T14:55:03+00:00",
+ "computed_at": "2026-10-18T15:51:37+00:00",
  "cpi_beef_and_veal": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
