@@ -68,10 +68,31 @@
     "_comment": "tools/run.py. Titles listed here run on the daily launchd job; a title is due when the record's newest month of its ppi_series is older than last month, today's day of month is at or past earliest_day, and no issues/<YYYY-MM>/ exists. Lobster waits for the 16th so both seller observation passes (1st, 15th) are in the record. Other titles join this list when their publication is decided (FA-D-20260923-01).",
     "titles": [
       "lobster",
-      "egg-butter"
+      "egg-butter",
+      "chicken",
+      "beef",
+      "pork",
+      "cheddar"
     ],
     "lobster": {
       "ppi_series": "WPU02230503",
+      "earliest_day": 16
+    },
+    "_titles_comment": "Every title computes its numbers on the mid-month cadence. Listing a title here decides nothing about publication: the routine never writes issue.md and never sets an edition published. ppi_series is the title's lead BLS commodity index, used only to detect that the month's release has landed; earliest_day is 16 for every title, which is after the mid-month PPI release and, for lobster, after both seller observation passes.",
+    "chicken": {
+      "ppi_series": "WPU0141",
+      "earliest_day": 16
+    },
+    "beef": {
+      "ppi_series": "WPU0131",
+      "earliest_day": 16
+    },
+    "pork": {
+      "ppi_series": "WPU0132",
+      "earliest_day": 16
+    },
+    "cheddar": {
+      "ppi_series": "WPU023302",
       "earliest_day": 16
     },
     "egg-butter": {
