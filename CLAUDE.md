@@ -24,7 +24,7 @@ A fetch failure is a fact about the transport. Record it and let the next run re
 
 ## Issues
 
-An issue is written by a person from `numbers.md`; the prose never carries a figure absent from `numbers.json`. Sellers in the retail reference are letters in issue text and named only in `methodology.md`. The audience is the buyer facing a supplier's price claim. The issue states market evidence and draws no conclusion about any contract.
+A session may draft an issue from `numbers.md`; the prose never carries a figure absent from `numbers.json`. A drafted issue is still read and signed by the editor before it publishes: the reviewer line in `edition.json` is a public statement that a named person checked the evidence and the interpretation, and `tools/check.py` cannot do that part. It establishes that no figure was invented, not that each figure was attached to the right measure. Do not set an edition published, and do not fill in a reviewer line, on text the editor has not read. The unattended routine still never writes `issue.md`: there is nobody reading it at 09:50. Sellers in the retail reference are letters in issue text and named only in `methodology.md`. The audience is the buyer facing a supplier's price claim. The issue states market evidence and draws no conclusion about any contract.
 
 ## Decision requests
 
