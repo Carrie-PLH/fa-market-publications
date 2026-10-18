@@ -1,0 +1,26 @@
+{
+ "captured_at": "2026-09-23T12:45:49+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 90358,
+   "content_type": "text/plain; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-09-23T12:45:49+00:00",
+   "final_url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg0926.txt",
+   "headers_path": "egg-butter/captures/2026-09-23T124524Z/nass_chickens_eggs/txt.headers.txt",
+   "http_status": 200,
+   "name": "txt",
+   "path": "egg-butter/captures/2026-09-23T124524Z/nass_chickens_eggs/txt.txt",
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg{MMYY_PREV}.txt",
+   "resolved_url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg0926.txt",
+   "sha256": "362fe7868d5e1fcd070bd13c81e1d4011e5508a29b5d2c3048d57c89be6366c4",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: layers and table egg production)",
+ "run_id": "2026-09-23T124524Z",
+ "source_id": "nass_chickens_eggs",
+ "source_name": "USDA NASS: Chickens and Eggs (monthly, text)",
+ "status": "OK"
+}

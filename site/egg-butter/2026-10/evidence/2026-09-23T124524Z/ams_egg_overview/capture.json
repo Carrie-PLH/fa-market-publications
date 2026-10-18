@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-09-23T12:45:37+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 1003943,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-09-23T12:45:37+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_3725.pdf",
+   "headers_path": "egg-butter/captures/2026-09-23T124524Z/ams_egg_overview/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "egg-butter/captures/2026-09-23T124524Z/ams_egg_overview/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/ams_3725.pdf",
+   "sha256": "1befe073969dc361b82c5fc32b4fe3fcb87599944f72fb183d3cd62ba96a3434",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (weekly narrative; retained, not parsed)",
+ "run_id": "2026-09-23T124524Z",
+ "source_id": "ams_egg_overview",
+ "source_name": "USDA AMS: Egg Markets Overview (weekly PDF, report 3725)",
+ "status": "OK"
+}

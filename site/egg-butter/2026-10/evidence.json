@@ -1,0 +1,260 @@
+{
+ "issue": "2026-10",
+ "run_id": "2026-10-18T144956Z",
+ "captures": [
+  {
+   "source_id": "ams_dmn_weekly",
+   "run_id": "2026-09-23T124524Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-09-23T12:45:46+00:00",
+   "path": "egg-butter/captures/2026-09-23T124524Z/ams_dmn_weekly/pdf.pdf",
+   "sha256": "51b508a2729da498b41fd6a530bf86d1bcdb0d7534a7c6fed5b703e1d8b13083",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_shell_egg",
+   "run_id": "2026-09-23T124524Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "fetched_at": "2026-09-23T12:45:35+00:00",
+   "path": "egg-butter/captures/2026-09-23T124524Z/ams_shell_egg/pdf.pdf",
+   "sha256": "d16675464c339f8eb94875eb19960b7301db29a9b6210de52be1016b2ca918bd",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_weekly",
+   "run_id": "2026-09-25T220314Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-09-25T22:03:36+00:00",
+   "path": "egg-butter/captures/2026-09-25T220314Z/ams_dmn_weekly/pdf.pdf",
+   "sha256": "e23d637507ddc9b16f403829b2918ddb339a68ffd794c082044906238e85f44c",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_shell_egg",
+   "run_id": "2026-09-25T220314Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "fetched_at": "2026-09-25T22:03:25+00:00",
+   "path": "egg-butter/captures/2026-09-25T220314Z/ams_shell_egg/pdf.pdf",
+   "sha256": "d0863c939b737d45997176ca99401c55fb7561371c70a1803f1e8840d0f13414",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_weekly",
+   "run_id": "2026-10-02T221724Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-02T22:17:52+00:00",
+   "path": "egg-butter/captures/2026-10-02T221724Z/ams_dmn_weekly/pdf.pdf",
+   "sha256": "5b73c9d17774a8caac8a29d7f81ef8df7f8b39084a2dd7552071452e69f09a53",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_shell_egg",
+   "run_id": "2026-10-02T221724Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "fetched_at": "2026-10-02T22:17:40+00:00",
+   "path": "egg-butter/captures/2026-10-02T221724Z/ams_shell_egg/pdf.pdf",
+   "sha256": "33ee65dea853ad0e3b43a8f239fe36c93438d58161b42a7433c99b7002a62a71",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_weekly",
+   "run_id": "2026-10-09T221533Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-09T22:15:58+00:00",
+   "path": "egg-butter/captures/2026-10-09T221533Z/ams_dmn_weekly/pdf.pdf",
+   "sha256": "a49c39c2995f274c129b2ca290c3551e282758301b0e970a109135422b6fecb1",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_shell_egg",
+   "run_id": "2026-10-09T221533Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "fetched_at": "2026-10-09T22:15:45+00:00",
+   "path": "egg-butter/captures/2026-10-09T221533Z/ams_shell_egg/pdf.pdf",
+   "sha256": "3a8655f7d8baab0ea4f4f0c5cd98b21b00899f820352402019e2ad877c811448",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_weekly",
+   "run_id": "2026-10-16T221531Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-16T22:15:54+00:00",
+   "path": "egg-butter/captures/2026-10-16T221531Z/ams_dmn_weekly/pdf.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_shell_egg",
+   "run_id": "2026-10-16T221531Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "fetched_at": "2026-10-16T22:15:42+00:00",
+   "path": "egg-butter/captures/2026-10-16T221531Z/ams_shell_egg/pdf.pdf",
+   "sha256": "1b410ebcf152d09a4402e9efd6ae84e8cac98e7c9fd4b93757a79a136194487a",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_weekly",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-18T14:50:19+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/ams_dmn_weekly/pdf.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_egg_overview",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_3725.pdf",
+   "fetched_at": "2026-10-18T14:50:10+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/ams_egg_overview/pdf.pdf",
+   "sha256": "56f2d12a5999d1351cd2cf3ba3c80757e80f47a3cf30918fc4ce62144da7e56c",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_ndpsr",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "butter",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/Butter%20Prices%20and%20Sales",
+   "fetched_at": "2026-10-18T14:50:13+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/ams_ndpsr/butter.json",
+   "sha256": "582b2a66ad920b7e3673965b8f61211d0c372f1a64f75d485e37f6998ed2ce68",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_ndpsr",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+   "fetched_at": "2026-10-18T14:50:16+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/ams_ndpsr/pdf.pdf",
+   "sha256": "e596586eb5fd42dc4fc9e6cca0e2f9fbe700448f537bd263b2167be97bd640f4",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_shell_egg",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "fetched_at": "2026-10-18T14:50:08+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/ams_shell_egg/pdf.pdf",
+   "sha256": "1b410ebcf152d09a4402e9efd6ae84e8cac98e7c9fd4b93757a79a136194487a",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "WPU0171",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0171",
+   "fetched_at": "2026-10-18T14:49:56+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/bls/WPU0171.json",
+   "sha256": "3a52148c89f2970f13d08913263066887673431adcfea2a3968bd63a1aa38fd9",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "WPU0232",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0232",
+   "fetched_at": "2026-10-18T14:49:58+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/bls/WPU0232.json",
+   "sha256": "e439ef0db94cd19206600152a99d398468d7352d3c5ca6f2a578552d04b0265a",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "CUUR0000SEFH",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFH",
+   "fetched_at": "2026-10-18T14:50:01+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/bls/CUUR0000SEFH.json",
+   "sha256": "599ae8eb4df5ecb627a97d0f5b8572fc521f00f137753b15527ec14a43fe100d",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "CUUR0000SS10011",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SS10011",
+   "fetched_at": "2026-10-18T14:50:03+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/bls/CUUR0000SS10011.json",
+   "sha256": "38425132b8a14ffd395723d532fc29209d4681443810bf112fca7f00ca73d973",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "CUUR0000SEFV",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+   "fetched_at": "2026-10-18T14:50:05+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/bls/CUUR0000SEFV.json",
+   "sha256": "85d9e68b73bd97e5fa2f8c2befa7a234fb76e3f6936c8bc049968dc62170f267",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_chickens_eggs",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "txt",
+   "url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg0926.txt",
+   "fetched_at": "2026-10-18T14:50:22+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/nass_chickens_eggs/txt.txt",
+   "sha256": "362fe7868d5e1fcd070bd13c81e1d4011e5508a29b5d2c3048d57c89be6366c4",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-10-18T14:50:25+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/usda_ers_fpo/landing.html",
+   "sha256": "88996e56e3516363f4a0e8dad4c40b45ae229e9d879824326673a74615b2db29",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T144956Z",
+   "role": "issue run",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=21200",
+   "fetched_at": "2026-10-18T14:50:27+00:00",
+   "path": "egg-butter/captures/2026-10-18T144956Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "b5f4087f6fac7a31e24e772ed9ceafa17a68b80ac6a488155f0cf23799d7eb9c",
+   "status": "OK"
+  }
+ ],
+ "retail_record": null
+}

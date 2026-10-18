@@ -1,0 +1,233 @@
+{
+ "accumulated_sources": [
+  "ams_dmn_weekly",
+  "ams_shell_egg"
+ ],
+ "cme_butter_aa_friday_close": {
+  "period": "2026-10-16",
+  "value": 1.365
+ },
+ "cme_butter_aa_weekly_avg": {
+  "period": "2026-10-16",
+  "prior_week_period": "2026-10-09",
+  "prior_week_value": 1.288,
+  "value": 1.311,
+  "vs_prior_week_pct": 1.8,
+  "weeks_in_record": 5
+ },
+ "computed_at": "2026-10-18T18:08:06+00:00",
+ "cpi_butter": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 319.008,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 324.801,
+  "value": 286.245,
+  "vs_two_years_pct": -11.9,
+  "yoy_pct": -10.3
+ },
+ "cpi_eggs": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 351.693,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 356.19,
+  "value": 279.288,
+  "vs_two_years_pct": -21.6,
+  "yoy_pct": -20.6
+ },
+ "cpi_food_away_from_home": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 385.451,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 371.604,
+  "value": 398.783,
+  "vs_two_years_pct": 7.3,
+  "yoy_pct": 3.5
+ },
+ "ers_food_price_outlook": {
+  "Dairy products \u2014 Lower bound of forecast interval 2027": -5.0,
+  "Dairy products \u2014 Upper bound of forecast interval 2027": 8.4,
+  "Dairy products \u2014 Year-over-year August 2025 to August 2026": -0.3,
+  "Eggs \u2014 Lower bound of forecast interval 2027": -30.3,
+  "Eggs \u2014 Upper bound of forecast interval 2027": 47.8,
+  "Eggs \u2014 Year-over-year August 2025 to August 2026": -23.0,
+  "Fats and oils \u2014 Lower bound of forecast interval 2027": -9.8,
+  "Fats and oils \u2014 Upper bound of forecast interval 2027": 19.0,
+  "Fats and oils \u2014 Year-over-year August 2025 to August 2026": -0.3,
+  "Food away from home \u2014 Lower bound of forecast interval 2027": 0.2,
+  "Food away from home \u2014 Upper bound of forecast interval 2027": 5.1,
+  "Food away from home \u2014 Year-over-year August 2025 to August 2026": 3.4
+ },
+ "issue": "2026-10",
+ "nass_layers_avg": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 366028.0,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": null,
+  "value": 382801.0,
+  "vs_two_years_pct": null,
+  "yoy_pct": 4.6
+ },
+ "nass_table_egg_production": {
+  "period": "2026-08",
+  "prior_year_period": "2025-08",
+  "prior_year_value": 7662.8,
+  "two_years_back_period": "2024-08",
+  "two_years_back_value": null,
+  "value": 8121.6,
+  "vs_two_years_pct": null,
+  "yoy_pct": 6.0
+ },
+ "ndpsr_butter_sales_weekly": {
+  "period": "2026-10-10",
+  "prior_year_4wk_avg": 4080372.75,
+  "prior_year_period": "2025-10-11",
+  "prior_year_value": 3135144.0,
+  "trailing_4wk_avg": 3524941.75,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   2421428.0,
+   3502674.0,
+   5395605.0,
+   2780060.0
+  ],
+  "trailing_4wk_weeks": [
+   "2026-09-19",
+   "2026-09-26",
+   "2026-10-03",
+   "2026-10-10"
+  ],
+  "trailing_4wk_yoy_pct": -13.6,
+  "value": 2780060.0,
+  "yoy_pct": -11.3
+ },
+ "ndpsr_butter_weekly": {
+  "period": "2026-10-10",
+  "prior_year_4wk_avg": 1.8556,
+  "prior_year_period": "2025-10-11",
+  "prior_year_value": 1.7959,
+  "trailing_4wk_avg": 1.386,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   1.4338,
+   1.3805,
+   1.3696,
+   1.36
+  ],
+  "trailing_4wk_weeks": [
+   "2026-09-19",
+   "2026-09-26",
+   "2026-10-03",
+   "2026-10-10"
+  ],
+  "trailing_4wk_yoy_pct": -25.3,
+  "value": 1.36,
+  "yoy_pct": -24.3
+ },
+ "ppi_butter": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 147.657,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 226.959,
+  "value": 100.431,
+  "vs_two_years_pct": -55.7,
+  "yoy_pct": -32.0
+ },
+ "ppi_chicken_eggs": {
+  "period": "2026-09",
+  "prior_year_period": "2025-09",
+  "prior_year_value": 363.336,
+  "two_years_back_period": "2024-09",
+  "two_years_back_value": 509.253,
+  "value": 89.914,
+  "vs_two_years_pct": -82.3,
+  "yoy_pct": -75.3
+ },
+ "ppi_chicken_eggs_24m_peak": {
+  "latest_vs_peak_pct": -93.1,
+  "period": "2025-02",
+  "value": 1302.339
+ },
+ "retail_reference": {
+  "record": null,
+  "sellers": []
+ },
+ "run_id": "2026-10-18T144956Z",
+ "shell_egg_midwest_producer_large": {
+  "period": "2026-10-17",
+  "prior_week_value_as_reported": 46.0,
+  "prior_year_4wk_avg": null,
+  "prior_year_period": null,
+  "prior_year_value": null,
+  "trailing_4wk_avg": 44.5,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   47.0,
+   47.0,
+   46.0,
+   38.0
+  ],
+  "trailing_4wk_weeks": [
+   "2026-09-26",
+   "2026-10-03",
+   "2026-10-10",
+   "2026-10-17"
+  ],
+  "trailing_4wk_yoy_pct": null,
+  "value": 38.0,
+  "yoy_pct": null
+ },
+ "shell_egg_national_warehouse_large": {
+  "period": "2026-10-17",
+  "prior_week_value_as_reported": 74.19,
+  "prior_year_4wk_avg": null,
+  "prior_year_period": null,
+  "prior_year_value": null,
+  "trailing_4wk_avg": 71.815,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   72.94,
+   73.94,
+   74.19,
+   66.19
+  ],
+  "trailing_4wk_weeks": [
+   "2026-09-26",
+   "2026-10-03",
+   "2026-10-10",
+   "2026-10-17"
+  ],
+  "trailing_4wk_yoy_pct": null,
+  "value": 66.19,
+  "yoy_pct": null
+ },
+ "shell_egg_northeast_warehouse_large": {
+  "period": "2026-10-17",
+  "prior_week_value_as_reported": 75.0,
+  "prior_year_4wk_avg": null,
+  "prior_year_period": null,
+  "prior_year_value": null,
+  "trailing_4wk_avg": 73.0,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   75.0,
+   75.0,
+   75.0,
+   67.0
+  ],
+  "trailing_4wk_weeks": [
+   "2026-09-26",
+   "2026-10-03",
+   "2026-10-10",
+   "2026-10-17"
+  ],
+  "trailing_4wk_yoy_pct": null,
+  "value": 67.0,
+  "yoy_pct": null
+ },
+ "title": "Egg & Butter Brief"
+}
