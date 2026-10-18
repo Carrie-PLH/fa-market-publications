@@ -529,6 +529,28 @@ def _us_date_loose(s):
     return f"{m.group(3)}-{int(m.group(1)):02d}-{int(m.group(2)):02d}"
 
 
+def _month_of_span(start, end):
+    """The month a reporting block belongs to, for a block of whole weeks that
+    can start in one month and end in the next. AMS report 3649's block ending
+    10/2/2026 began 8/31/2026 and is the September block, so the end date's
+    month is the wrong label; its predecessor, 8/3/2026 to 8/28/2026, is August,
+    so the start date's month would collide with it. Take the month holding most
+    of the block's days, which resolves a block straddling a year end as well.
+    A tie goes to the earlier month, which cannot collide with the next block."""
+    from datetime import date, timedelta
+    s, e = date.fromisoformat(start), date.fromisoformat(end)
+    if e < s:
+        raise ParseFailure(f"report period ends before it starts: {start} to {end}")
+    days = {}
+    d = s
+    while d <= e:
+        k = f"{d.year}-{d.month:02d}"
+        days[k] = days.get(k, 0) + 1
+        d += timedelta(days=1)
+    most = max(days.values())
+    return min(k for k, v in days.items() if v == most)
+
+
 def p_ams_chicken_pdf(rec, src, args):
     """National Chicken Report price tables. Two product groups (Whole, Parts),
     each with one or more market blocks (Domestic/Export, Fresh/Frozen,
@@ -549,7 +571,7 @@ def p_ams_chicken_pdf(rec, src, args):
     start, end = _us_date_loose(m.group(1)), _us_date_loose(m.group(2))
     mode = args.get("period", "month")
     if mode == "month":
-        period = end[:7]
+        period = _month_of_span(start, end)
     elif mode == "week":
         period = end
     else:
@@ -595,11 +617,13 @@ def p_ams_chicken_pdf(rec, src, args):
                 f"on {r.group('prev_vol')} thousand lb")
         out.append(dict(series_id=f"ams_chicken_{slug}_cents_per_lb",
                         series_title=f"USDA AMS National Chicken Report: {key}, weighted average cents/lb",
-                        period=period, value=float(r.group("avg")), unit="cents per lb",
+                        period=period, period_start=start, period_end=end,
+                        value=float(r.group("avg")), unit="cents per lb",
                         evidence_fetch="pdf", notes=note))
         out.append(dict(series_id=f"ams_chicken_{slug}_volume_thousand_lb",
                         series_title=f"USDA AMS National Chicken Report: {key}, volume traded (1,000 lb)",
-                        period=period, value=float(r.group("vol").replace(",", "")),
+                        period=period, period_start=start, period_end=end,
+                        value=float(r.group("vol").replace(",", "")),
                         unit="1,000 lb", evidence_fetch="pdf", notes=note))
     if len(seen) < 10:
         raise ParseFailure(f"chicken report: only {len(seen)} item rows matched")
@@ -1149,6 +1173,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--title", required=True)
     ap.add_argument("--run-id", required=True)
+    ap.add_argument("--source", default=None,
+                    help="re-parse one source of the run instead of all of them")
     a = ap.parse_args()
     t = Title(a.title)
     run_dir = t.captures / a.run_id
@@ -1159,6 +1185,8 @@ def main():
                 for r in read_jsonl(t.indicators)}
     summary = {"run_id": a.run_id, "sources": {}}
     for src in t.sources():
+        if a.source and src["id"] != a.source:
+            continue
         cap = run_dir / src["id"] / "capture.json"
         if not cap.exists():
             continue
