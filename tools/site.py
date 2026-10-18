@@ -496,6 +496,17 @@ def numbers_table_html(ed):
     return md_to_html(md)
 
 
+def _evidence_rel(c, ed):
+    """Where a capture is published under an edition's evidence/ directory.
+
+    The issue's own run keeps its place directly under evidence/, so an
+    edition's existing addresses do not move. A capture from an earlier run,
+    reached because its source accumulates, is published under that run's id."""
+    run = c.get("run_id") or ed.run_id
+    rel = Path(c["path"]).relative_to(f"{ed.slug}/captures/{run}")
+    return rel if run == ed.run_id else Path(run) / rel
+
+
 def edition_page(ed, cfg_t, out, draft_mode):
     name = cfg_t["name"]
     body_md = ed.issue_md
@@ -514,16 +525,18 @@ def edition_page(ed, cfg_t, out, draft_mode):
     for c in ed.evidence["captures"]:
         if c.get("path"):
             src = ROOT / c["path"]
-            dst = ev_out / Path(c["path"]).relative_to(f"{ed.slug}/captures/{ed.run_id}")
+            dst = ev_out / _evidence_rel(c, ed)
             dst.parent.mkdir(parents=True, exist_ok=True)
             copy(src, dst)
             hp = src.with_name(src.name.rsplit(".", 1)[0] + ".headers.txt")
             if hp.exists():
                 copy(hp, dst.with_name(hp.name))
-    for cj in (ROOT / ed.slug / "captures" / ed.run_id).glob("*/capture.json"):
-        d = ev_out / cj.parent.name
-        d.mkdir(parents=True, exist_ok=True)
-        copy(cj, d / "capture.json")
+    runs = {c.get("run_id") or ed.run_id for c in ed.evidence["captures"]}
+    for run in sorted(runs):
+        for cj in (ROOT / ed.slug / "captures" / run).glob("*/capture.json"):
+            d = ev_out / cj.parent.name if run == ed.run_id else ev_out / run / cj.parent.name
+            d.mkdir(parents=True, exist_ok=True)
+            copy(cj, d / "capture.json")
     anc = ed.anchor()
     anchor_html = ""
     if anc:
@@ -556,7 +569,7 @@ def edition_page(ed, cfg_t, out, draft_mode):
     rec_links = []
     for c in ed.evidence["captures"]:
         if c.get("path"):
-            rel = Path(c["path"]).relative_to(f"{ed.slug}/captures/{ed.run_id}")
+            rel = _evidence_rel(c, ed)
             rec_links.append(f'<li><a href="evidence/{rel}">{esc(rel)}</a><span>{esc(c["url"])} · retrieved {esc(c["fetched_at"][:19])}Z · SHA-256 {esc(c["sha256"][:16])}…</span></li>')
     rr_all = (ed.numbers or {}).get("retail_reference", {}) or {}
     records = rr_all.get("records") or ([rr_all["record"] | {"kind": "wedding"}] if (rr_all.get("record") or {}).get("sha256") else [])
