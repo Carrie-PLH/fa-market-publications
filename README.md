@@ -8,14 +8,14 @@ Promise across all titles: a clear account of what's happening to food costs, an
 
 | Directory | Title | Status |
 |---|---|---|
-| `lobster/` | Lobster Monitor | Issue 0 (September 2026 baseline) drafted |
+| `lobster/` | Lobster Monitor | Issue 0 and Issue 1 published |
 | `beef/` | Beef Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
 | `pork/` | Pork Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
 | `chicken/` | Chicken Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
-| `egg-butter/` | Egg & Butter Brief | Sources verified, baseline captured, Issue 0 scaffolded |
+| `egg-butter/` | Egg & Butter Brief | Issue 1 (October 2026) published |
 | `cheddar/` | Cheddar Check | Sources verified, baseline captured, Issue 0 scaffolded |
 
-Publication of every title but Lobster Monitor is gated by FA-D-20260923-01 as amended by -02 and -04: no second title publishes a first edition until Lobster Monitor ships a post-baseline issue, and a further title enters only after the existing titles have shipped on cadence for one measured quarter.
+The title gate in FA-D-20260923-01, as amended by -02 and -04, held a second title until Lobster Monitor shipped a post-baseline issue and every further title until the existing titles had shipped on cadence for one measured quarter. Issue 1 of Lobster Monitor published 2026-10-18 and the Egg & Butter Brief published its first issue the same day, which spent the first limb. FA-D-20261018-01 superseded the measured-quarter limb: the four remaining titles publish their October issues one at a time, each through the review step in `CLAUDE.md`, and none publishes before its methodology page carries the specifications for what its series actually price. Whether the four September baselines publish is open.
 
 Assessed and not scheduled: Coffee Current. Its sources verify, but only one institution publishes a coffee price, so no independent reading of it exists. See `config.json` for the registry and `tools/site.py` for the public register.
 
@@ -62,7 +62,7 @@ The routine never writes `issue.md`, never sets an issue published, never builds
     tools/publish.sh lobster <YYYY-MM>     # check, anchor, build site/, commit, deploy
     git push origin master
 
-Cadence decision, 2026-09-24: Lobster Monitor publishes monthly, mid-month, after the BLS PPI release. Issue 0 (September 2026 baseline) stands alone; Issue 1: October 2026 is the first month-over-month read. Other titles join `RUN.titles` when FA-D-20260923-01's gate is met (one measured quarter: October, November, December).
+Cadence decision, 2026-09-24: Lobster Monitor publishes monthly, mid-month, after the BLS PPI release. Issue 0 (September 2026 baseline) stands alone; Issue 1: October 2026 is the first month-over-month read. Every title is in `RUN.titles` from 2026-10-18, so all six compute their numbers on that cadence; listing a title there decides nothing about publication.
 
 ## Origin
 
