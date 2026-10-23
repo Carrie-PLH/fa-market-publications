@@ -1,0 +1,19 @@
+# https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd1026.txt
+HTTP 200
+Date: Fri, 23 Oct 2026 22:07:58 GMT
+Content-Type: text/plain; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+ETag: W/"8961-65e8696579585"
+Last-Modified: Fri, 23 Oct 2026 19:00:01 GMT
+Strict-Transport-Security: max-age=31536000; includeSubDomains;preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Security-Policy: frame-ancestors 'none';
+x-handler-apgw-05-12: APPGW-Public
+x-azure-ref: 20261023T220758Z-15df8c46995ngk4shS1SNRh0v400000015q0000000002r0s
+x-handler-fd: FD-ORIGIN-CORE.05122025-1
+cache-control: max-age=86400
+X-Cache: CONFIG_NOCACHE
+Content-Encoding: gzip

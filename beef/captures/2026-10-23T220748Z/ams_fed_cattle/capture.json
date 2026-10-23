@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-10-23T22:07:55+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 4830882,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-10-23T22:07:55+00:00",
+   "final_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+   "headers_path": "beef/captures/2026-10-23T220748Z/ams_fed_cattle/json.headers.txt",
+   "http_status": 200,
+   "name": "json",
+   "path": "beef/captures/2026-10-23T220748Z/ams_fed_cattle/json.json",
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+   "sha256": "8fc64334cf6ac01f7d0efac1f1bb25653a96eae108208c6d868c22e162756ad0",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly weighted-average fed cattle price under mandatory price reporting)",
+ "run_id": "2026-10-23T220748Z",
+ "source_id": "ams_fed_cattle",
+ "source_name": "USDA AMS: National Weekly Fed Cattle Comprehensive (Datamart report 2700)",
+ "status": "OK"
+}
