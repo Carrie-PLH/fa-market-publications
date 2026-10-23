@@ -1,0 +1,20 @@
+# https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg1026.txt
+HTTP 200
+Date: Fri, 23 Oct 2026 22:07:06 GMT
+Content-Type: text/plain; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+Vary: Accept-Encoding
+ETag: W/"16000-65e4a3cd45d74"
+Last-Modified: Tue, 20 Oct 2026 19:00:01 GMT
+Strict-Transport-Security: max-age=31536000; includeSubDomains;preload
+X-Content-Type-Options: nosniff
+X-Frame-Options: DENY
+Content-Security-Policy: frame-ancestors 'none';
+x-handler-apgw-05-12: APPGW-Public
+x-azure-ref: 20261023T220706Z-15df8c46995klc5vhS1SNRt77w00000015vg000000003k9e
+x-fd-int-roxy-purgeid: 1490712
+X-Cache: TCP_MISS
+Content-Encoding: gzip
+x-handler-fd: FD-ORIGIN-CORE.05122025-1
+cache-control: max-age=86400

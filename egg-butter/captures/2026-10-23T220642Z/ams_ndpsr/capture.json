@@ -1,0 +1,39 @@
+{
+ "captured_at": "2026-10-23T22:06:58+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 2793530,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-10-23T22:06:58+00:00",
+   "final_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/Butter%20Prices%20and%20Sales",
+   "headers_path": "egg-butter/captures/2026-10-23T220642Z/ams_ndpsr/butter.headers.txt",
+   "http_status": 200,
+   "name": "butter",
+   "path": "egg-butter/captures/2026-10-23T220642Z/ams_ndpsr/butter.json",
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/Butter%20Prices%20and%20Sales",
+   "sha256": "b7385cf02183e253c5662723175cb2e5c1c06906b789b240ce6830c8f10d18c2",
+   "status": "OK"
+  },
+  {
+   "bytes": 407426,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-10-23T22:07:01+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+   "headers_path": "egg-butter/captures/2026-10-23T220642Z/ams_ndpsr/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "egg-butter/captures/2026-10-23T220642Z/ams_ndpsr/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+   "sha256": "3803ed64cd927e187c1a04e342a806ca223a83726520eb5ce6aa360ae5cf5eee",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly weighted-average wholesale price, USD per lb)",
+ "run_id": "2026-10-23T220642Z",
+ "source_id": "ams_ndpsr",
+ "source_name": "USDA AMS: National Dairy Products Sales Report, butter (Datamart JSON, report 2993)",
+ "status": "OK"
+}
