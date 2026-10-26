@@ -22,6 +22,7 @@ import json
 import statistics
 import subprocess
 import sys
+from decimal import Decimal
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -29,8 +30,17 @@ from common import (ROOT, Title, config, iso, load_json, read_jsonl, round_half_
                     sha256_file)
 
 
+def D(v):
+    """A recorded value as the decimal it was recorded as. Computed figures are
+    worked in decimal and rounded once, through round_half_up, so a value whose
+    exact decimal ends in a half rounds up here exactly as the formatter and the
+    figure check round it: four weeks averaging 2.31105 is 2.3111, where
+    Python's round on the float gives 2.311."""
+    return Decimal(str(v))
+
+
 def pct(a, b):
-    return None if not a or b is None else round((b - a) / a * 100, 1)
+    return None if not a or b is None else round_half_up((D(b) - D(a)) / D(a) * 100, 1)
 
 
 def superseded_keys(flag_rows):
@@ -267,7 +277,7 @@ def compute_lobster(n, sm, t, cfg_t, a):
         L = sum(v for p, v in sm[lb].items() if p[:4] == str(yy))
         V = sum(v for p, v in sm[val].items() if p[:4] == str(yy))
         if L:
-            annual[str(yy)] = {"pounds": L, "value_usd": V, "usd_per_lb": round(V / L, 2)}
+            annual[str(yy)] = {"pounds": L, "value_usd": V, "usd_per_lb": round_half_up(D(V) / D(L), 2)}
     n["dmr_annual"] = annual
     peak = max(annual, key=lambda k: annual[k]["pounds"])
     n["dmr_landings_decline"] = {"peak_year": peak, "peak_pounds": annual[peak]["pounds"],
@@ -296,7 +306,7 @@ def compute_lobster(n, sm, t, cfg_t, a):
         n["retail_reference"]["range_last"] = [min(lasts), max(lasts)]
         n["retail_reference"]["median_last"] = statistics.median(lasts)
         spec = cfg_t["retail_reference"]["reference_series"]
-        n["retail_reference"]["implied_usd_per_lb_at_min_weight"] = [round(x / float(spec["size_class"]), 2) for x in n["retail_reference"]["range_last"]]
+        n["retail_reference"]["implied_usd_per_lb_at_min_weight"] = [round_half_up(D(x) / D(spec["size_class"]), 2) for x in n["retail_reference"]["range_last"]]
 
 
 
@@ -345,8 +355,8 @@ def weekly_yoy(sm, sid, period, window=4):
     weeks = sorted(p for p in d if p <= period)[-window:]
     prior_weeks = [nearest(date.fromisoformat(w) - timedelta(days=364)) for w in weeks]
     prior_weeks = [w for w in prior_weeks if w]
-    avg = round(sum(d[w] for w in weeks) / len(weeks), 4) if weeks else None
-    pavg = round(sum(d[w] for w in prior_weeks) / len(prior_weeks), 4) if len(prior_weeks) == window else None
+    avg = round_half_up(sum(D(d[w]) for w in weeks) / len(weeks), 4) if weeks else None
+    pavg = round_half_up(sum(D(d[w]) for w in prior_weeks) / len(prior_weeks), 4) if len(prior_weeks) == window else None
     return {"period": period, "value": d.get(period), "prior_year_period": prior,
             "prior_year_value": d.get(prior) if prior else None,
             "yoy_pct": pct(d.get(prior), d.get(period)) if prior else None,
@@ -640,8 +650,8 @@ def compute_beef(n, sm, t, cfg_t, a):
     # and marked derived. Neither is presented as anyone's margin.
     c, s = n.get("cutout_choice"), n.get("cutout_select")
     if c and s and c["period"] == s["period"] and None not in (c["value"], s["value"]):
-        sp_value = round(c["value"] - s["value"], 2)
-        sp_prior = (round(c["prior_year_value"] - s["prior_year_value"], 2)
+        sp_value = round_half_up(D(c["value"]) - D(s["value"]), 2)
+        sp_prior = (round_half_up(D(c["prior_year_value"]) - D(s["prior_year_value"]), 2)
                     if None not in (c["prior_year_value"], s["prior_year_value"]) else None)
         n["choice_select_spread_usd_per_cwt"] = {
             "period": c["period"], "value": sp_value,
@@ -656,7 +666,7 @@ def compute_beef(n, sm, t, cfg_t, a):
         n["cutout_less_dressed_cattle_usd_per_cwt"] = {
             "cutout_period": c["period"], "cutout_value": c["value"],
             "cattle_period": d["period"], "cattle_value": d["value"],
-            "value": round(c["value"] - d["value"], 2),
+            "value": round_half_up(D(c["value"]) - D(d["value"]), 2),
             "derived": "Choice cutout less the fed cattle dressed price, both USD per cwt of "
                        "carcass. An arithmetic difference between two reported series, not a "
                        "statement of any packer's cost or margin.",
@@ -860,7 +870,7 @@ def compute_cheddar(n, sm, t, cfg_t, a):
         n["block_less_cme_usd_per_lb"] = {
             "week_ending": bw, "cme_week_ending": cw, "week_offset_days": offset,
             "mandatory_reported": sm[blk][bw], "cme_weekly_average": sm[cme][cw],
-            "value": round(sm[blk][bw] - sm[cme][cw], 4),
+            "value": round_half_up(D(sm[blk][bw]) - D(sm[cme][cw]), 4),
             "derived": "Mandatory-reported 40-pound block weighted average less the CME "
                        "40-pound block weekly average. Two different measures of the block "
                        "market, subtracted; not a margin. The two series do not share a "

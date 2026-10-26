@@ -17,7 +17,7 @@
   "prior_year_4wk_avg": null,
   "prior_year_period": null,
   "prior_year_value": null,
-  "trailing_4wk_avg": 1.4667,
+  "trailing_4wk_avg": 1.4668,
   "trailing_4wk_basis": "simple average of 4 weekly values",
   "trailing_4wk_values": [
    1.4525,
@@ -89,7 +89,7 @@
   "weeks_in_record": 5,
   "yoy_pct": null
  },
- "computed_at": "2026-10-18T18:33:15+00:00",
+ "computed_at": "2026-10-26T02:42:33+00:00",
  "cpi_cheese": {
   "period": "2026-09",
   "prior_year_period": "2025-09",
