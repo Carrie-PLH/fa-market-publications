@@ -1,0 +1,106 @@
+{
+ "issue": "2026-10",
+ "run_id": "2026-10-18T145155Z",
+ "captures": [
+  {
+   "source_id": "ams_pork_cutout",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2680/Weekly%20Average%20Cutout%20and%20Primal%20Values",
+   "fetched_at": "2026-10-18T14:51:58+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/ams_pork_cutout/json.json",
+   "sha256": "7cafde875c25d16594ade8110bf86015e0ffc5f0e31b23b6de38ef6cd13e17a4",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_pork_cutout",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2680.pdf",
+   "fetched_at": "2026-10-18T14:52:01+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/ams_pork_cutout/pdf.pdf",
+   "sha256": "db4db82b3c5044982272be66af7fa6bf266c84c9247499093a2ce08aea344186",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_pork_variety",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2838.pdf",
+   "fetched_at": "2026-10-18T14:52:22+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/ams_pork_variety/pdf.pdf",
+   "sha256": "131975ce51867b1b42c0106b1fb2d5889e6c3317d60acfffb1bfe18cb107f002",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "series",
+   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "fetched_at": "2026-10-18T14:51:55+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/bls/series.json",
+   "sha256": "48b76cd7088b458a088e497fa7104f536c665ac4f8e8ed54e9e700465c1007ad",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_hogs_pigs",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "txt",
+   "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+   "fetched_at": "2026-10-18T14:52:04+00:00",
+   "path": null,
+   "sha256": null,
+   "status": "FAILED"
+  },
+  {
+   "source_id": "nass_hogs_pigs",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://esmis.nal.usda.gov/publication/hogs-and-pigs",
+   "fetched_at": "2026-10-18T14:52:08+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/nass_hogs_pigs/landing.html",
+   "sha256": "2c77dd94e9868f527034037b01d978a9727ab280258236f073fe0c116e5fd61d",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_hogs_pigs",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "archive_txt",
+   "url": "https://esmis.nal.usda.gov/sites/default/release-files/796073/hgpg0926.txt",
+   "fetched_at": "2026-10-18T14:52:13+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/nass_hogs_pigs/archive_txt.txt",
+   "sha256": "287955aa629e8a91d395b74b34887abe58aba2827b262e7755d177eaf8e60993",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-10-18T14:52:15+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/usda_ers_fpo/landing.html",
+   "sha256": "88996e56e3516363f4a0e8dad4c40b45ae229e9d879824326673a74615b2db29",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-10-18T145155Z",
+   "role": "issue run",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=21200",
+   "fetched_at": "2026-10-18T14:52:19+00:00",
+   "path": "pork/captures/2026-10-18T145155Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "b5f4087f6fac7a31e24e772ed9ceafa17a68b80ac6a488155f0cf23799d7eb9c",
+   "status": "OK"
+  }
+ ],
+ "retail_record": null
+}
