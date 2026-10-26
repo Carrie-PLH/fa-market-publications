@@ -68,7 +68,10 @@ def series_map(rows, run_id, accumulating=(), superseded=frozenset()):
             continue
         if r["run_id"] == run_id:
             out[r["series_id"]][r["period"]] = r["value"]
-        elif r.get("source_id") in accumulating:
+        elif r.get("source_id") in accumulating and r["run_id"] < run_id:
+            # Earlier runs only: run ids are UTC timestamps and sort in time
+            # order. A later run would put weeks the issue's run had not seen
+            # into an issue recomputed after the fact.
             acc[r["series_id"]][r["period"]] = r["value"]
     for sid, earlier in acc.items():
         out[sid] = earlier | out.get(sid, {})
@@ -981,7 +984,7 @@ def main():
     acc_set = set(accumulating)
     if acc_set:
         for r in read_jsonl(t.indicators):
-            if r.get("source_id") in acc_set and r.get("run_id") != a.run_id:
+            if r.get("source_id") in acc_set and r.get("run_id", "") < a.run_id:
                 runs.add((r["run_id"], r["source_id"]))
     caps = []
     for run_id, source_id in sorted(runs):
