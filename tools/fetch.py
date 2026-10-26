@@ -176,6 +176,17 @@ def capture_source(t, src, run_id, cfg):
                  "status": None, "http_status": None, "content_type": None,
                  "path": None, "headers_path": None, "sha256": None,
                  "bytes": None, "fetched_at": None, "error": None}
+        # "fallback_for": <fetch-name> makes this a second copy, tried only when
+        # the named fetch failed. When that fetch succeeded it is recorded as
+        # SKIPPED and does not count against the source, so PARTIAL keeps
+        # meaning that something the record needed did not arrive.
+        primary = done.get(fspec.get("fallback_for"))
+        if primary and primary["status"] == "OK":
+            entry["status"] = "SKIPPED"
+            entry["error"] = f"not tried: '{primary['name']}' fetched OK"
+            record["fetches"].append(entry)
+            done[fspec["name"]] = entry
+            continue
         try:
             if url.startswith("FOLLOW:"):
                 # The needle takes the same {MMYY} placeholders as a TRY
@@ -229,8 +240,9 @@ def capture_source(t, src, run_id, cfg):
         record["fetches"].append(entry)
         done[fspec["name"]] = entry
         time.sleep(fc["request_delay_seconds"])
-    n_fail = sum(1 for f in record["fetches"] if f["status"] != "OK")
-    if n_fail == len(record["fetches"]):
+    tried = [f for f in record["fetches"] if f["status"] != "SKIPPED"]
+    n_fail = sum(1 for f in tried if f["status"] != "OK")
+    if n_fail == len(tried):
         record["status"] = "FAILED"
     elif n_fail:
         record["status"] = "PARTIAL"
