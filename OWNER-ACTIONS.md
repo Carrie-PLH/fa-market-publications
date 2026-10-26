@@ -43,6 +43,8 @@ Monitor, then Beef Monitor once item 2 is done. Each: draft from
 `CLAUDE.md`, apply findings, then `tools/publish.sh <title> 2026-10` and push.
 One per sitting. Four drafts reviewed in one evening is how the review becomes
 a rubber stamp. Done when all four have a published edition.
+Pork Monitor Issue 1 published 2026-10-25 (commit 1cac779, on the
+2026-10-18 run). Next: Cheddar Check.
 Gate: open. FA-D-20261018-01 superseded the measured-quarter limb of
 FA-D-20260923-04 on 2026-10-18.
 
@@ -65,8 +67,9 @@ repository and say which have gone stale rather than trusting them.
 
 - Published: Lobster Monitor Issue 0 (2026-09-25) and Issue 1 (2026-10-18,
   version 1.1 after a same-day correction); Egg & Butter Brief Issue 1
-  (2026-10-18, version 1.0). Three published editions across two titles.
-- Computed but unpublished: a 2026-10 issue for each of chicken, beef, pork and
+  (2026-10-18, version 1.0); Pork Monitor Issue 1 (2026-10-25, version 1.0).
+  Four published editions across three titles.
+- Computed but unpublished: a 2026-10 issue for each of chicken, beef and
   cheddar. The 2026-09-baseline scaffolds of those four and of egg-butter do
   not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
@@ -105,6 +108,10 @@ Not actions. Carry these into the prose when each title is written.
   days. Not the same kind of measure across the two titles.
 - **Pork.** The cutout runs a week behind beef and cheddar because the AMS
   dataset publishes later.
+- **Pork, from the November issue.** BLS marks October 2025 "Data unavailable
+  due to the 2025 lapse in appropriations" for CPI-U and both average prices in
+  pork's retained series.json, so the October 2026 CPI and retail price rows
+  will have no year-earlier value. Check other titles' CPI series the same way.
 - **All titles.** `tools/check.py` reads only figures carrying a unit in prose.
   Bare counts and quantities written in words pass unexamined; check those by
   hand against the computed set.
