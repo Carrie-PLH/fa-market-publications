@@ -46,7 +46,7 @@ An issue states the specification in its own text where a reader could otherwise
 
 ## What this record cannot show
 
-The hog inventory is quarterly, so for most of any quarter the most recent supply figure is already weeks old. Mandatory price reporting covers trade at reporting plants; it is not every transaction in the country. A cutout value is an estimated value of a whole carcass built from the prices of its cuts, not the price of any cut a buyer orders. Whole carcasses do trade, but thinly: report 2680 for the week ending 2026-10-16 lists 6.21 carcass loads against 5,793 loads of cuts, trimmings and processed product. Nothing here establishes why a particular supplier quoted a particular price.
+The hog inventory is quarterly, so for most of any quarter the most recent supply figure is already weeks old. Mandatory price reporting covers trade at reporting plants; it is not every transaction in the country. A cutout value is an estimated value of a whole carcass built from the prices of its cuts, not the price of any cut a buyer orders. Whole carcasses do trade, but thinly: report 2680 for the week ending 2026-10-09 lists 6.21 carcass loads against 5,793 loads of cuts, trimmings and processed product. Nothing here establishes why a particular supplier quoted a particular price.
 
 ## Evidence and timestamps
 
