@@ -30,6 +30,21 @@ Official series, fetched by script with no browser and retained byte for byte:
 
 This title fetches and retains its own copies of the National Dairy Products Sales Report and the Dairy Market News report, which the Egg & Butter Brief also fetches, so that each edition's evidence package stands alone and can be verified without reference to another title.
 
+### What the weekly series actually price
+
+The block and barrel series above are narrower than the word "cheddar", and a buyer whose product differs should read them with that in mind. These specifications come from the reports themselves and are quoted here so a figure in an issue can be matched to a product. Where a report does not state an attribute, the table says so.
+
+| Series | Specification as the report states it |
+|---|---|
+| 40-pound block price, National Dairy Products Sales Report | Cheddar cheese in 40-pound blocks, colored between 6 and 8 on the National Cheese Institute color chart, meeting Wisconsin State Brand, USDA Grade A, or better standards. The figure is a weighted average of the prices reporting manufacturers received, in dollars per pound, for the week ending Saturday. The report states no age, moisture content or pricing point for the cheese; it refers its definitions to the program regulations (7 CFR 1170) and to the questionnaire manufacturers complete, and this record retains neither. Not barrels, not cut, shredded or sliced cheese, and not any variety other than cheddar. |
+| 40-pound block volume, same report | The pounds sold in the week by the manufacturers required to report, which the report of October 21, 2026 numbers at 17 for 40-pound blocks, among 63 entities each selling one million pounds or more of dairy products. It is not total cheddar sold or produced in the United States. |
+| 500-pound barrel price, same report | Cheddar cheese in 500-pound barrels. The source section is titled "500 Pound Barrel Cheddar Cheese Prices, Sales, and Moisture Content" and carries two price columns and a weighted moisture column. The retained file names them only by column and does not say which price, if either, is adjusted to a moisture basis, or to what basis. This record reads the column named `cheese_500_Price`. The last published price is for the week ending 2025-05-31, and the current report's list of the products it collects does not include barrels. |
+| CME 40-pound blocks, Dairy Market News | The CME Group cash market price for cheese in 40-pound blocks, in dollars per pound in carlot quantities, a carlot of cheese being 40,000 to 44,000 pounds. The reprint states no grade, color, age, moisture content or delivery point for the cheese, and this record does not retain CME's own terms. |
+| CME barrels, same report | The same market's barrel price, in the same unit and carlot quantities. The reprint labels the row "Barrels" and states no barrel weight, grade or moisture basis. It is a current quote, and a different measure from the 500-pound barrel series above, which stopped. |
+| Friday close and weekly average, both CME series | The reprint's week runs Monday to Friday. The Friday close is the closing price in the reprint's Friday column. The weekly average is, in the reprint's words, the simple average of the daily close prices for the calendar week, computed by Dairy Market News: an average of closing prices, not weighted by the number or size of trades. |
+
+An issue states the specification in its own text where a reader could otherwise take a figure for a product it does not price.
+
 ## Rules
 
 - Compare like with like: cheese by form (40-pound block, 500-pound barrel), by market (mandatory-reported sales, CME cash), and by grade. A spot quote and a mandatory-reported weighted average are never averaged together. Wholesale and retail are never averaged. An index is never converted to a price.
