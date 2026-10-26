@@ -1,13 +1,21 @@
 {
+ "accumulated_sources": [
+  "ams_dmn_weekly",
+  "ams_shell_egg"
+ ],
  "cme_butter_aa_friday_close": {
   "period": "2026-09-18",
   "value": 1.37
  },
  "cme_butter_aa_weekly_avg": {
   "period": "2026-09-18",
-  "value": 1.359
+  "prior_week_period": null,
+  "prior_week_value": null,
+  "value": 1.359,
+  "vs_prior_week_pct": null,
+  "weeks_in_record": 1
  },
- "computed_at": "2026-09-23T12:47:43+00:00",
+ "computed_at": "2026-10-26T02:42:32+00:00",
  "cpi_butter": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -87,6 +95,13 @@
   "prior_year_period": "2025-09-13",
   "prior_year_value": 2111330.0,
   "trailing_4wk_avg": 3721363.25,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   6217424.0,
+   2533925.0,
+   3526541.0,
+   2607563.0
+  ],
   "trailing_4wk_weeks": [
    "2026-08-22",
    "2026-08-29",
@@ -103,6 +118,13 @@
   "prior_year_period": "2025-09-13",
   "prior_year_value": 2.14,
   "trailing_4wk_avg": 1.4829,
+  "trailing_4wk_basis": "simple average of 4 weekly values",
+  "trailing_4wk_values": [
+   1.4531,
+   1.5125,
+   1.4738,
+   1.492
+  ],
   "trailing_4wk_weeks": [
    "2026-08-22",
    "2026-08-29",

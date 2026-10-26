@@ -1,4 +1,8 @@
 {
+ "accumulated_sources": [
+  "ams_broiler_slaughter",
+  "ams_chicken_monthly"
+ ],
  "ams_report_period": "2026-08",
  "broiler_slaughter": {
   "avg_live_weight_lb": 6.57,
@@ -20,7 +24,7 @@
   "year_to_date_pct_derived": 2.2,
   "yoy_pct_derived": -8.9
  },
- "computed_at": "2026-09-23T15:10:52+00:00",
+ "computed_at": "2026-10-26T02:42:32+00:00",
  "cpi_chicken": {
   "period": "2026-08",
   "prior_year_period": "2025-08",

@@ -3,25 +3,42 @@
  "run_id": "2026-09-23T150941Z",
  "captures": [
   {
-   "source_id": "bls",
-   "fetch": "series",
-   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
-   "fetched_at": "2026-09-23T15:09:41+00:00",
-   "path": "chicken/captures/2026-09-23T150941Z/bls/series.json",
-   "sha256": "e25b1539b77b66b1eff7ab480daf1cf2666d6b7d0812ba0d352892d728cd9238",
+   "source_id": "ams_broiler_slaughter",
+   "run_id": "2026-09-23T145458Z",
+   "role": "accumulated history",
+   "fetch": "txt",
+   "url": "https://www.ams.usda.gov/mnreports/nw_py002.txt",
+   "fetched_at": "2026-09-23T14:55:02+00:00",
+   "path": "chicken/captures/2026-09-23T145458Z/ams_broiler_slaughter/txt.txt",
+   "sha256": "d184a67cc6753eb1aab8c351231bca32b929e9fecfbafc617d0600636df46552",
    "status": "OK"
   },
   {
    "source_id": "ams_chicken_monthly",
+   "run_id": "2026-09-23T145458Z",
+   "role": "accumulated history",
    "fetch": "pdf",
    "url": "https://www.ams.usda.gov/mnreports/ams_3649.pdf",
-   "fetched_at": "2026-09-23T15:09:44+00:00",
-   "path": "chicken/captures/2026-09-23T150941Z/ams_chicken_monthly/pdf.pdf",
+   "fetched_at": "2026-09-23T14:55:00+00:00",
+   "path": "chicken/captures/2026-09-23T145458Z/ams_chicken_monthly/pdf.pdf",
    "sha256": "12d9e620369b69b61811f621d25d01239b8cc81221acc411ba743b1e8c0217c3",
    "status": "OK"
   },
   {
+   "source_id": "ams_broiler_glance",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2740.pdf",
+   "fetched_at": "2026-09-23T15:09:55+00:00",
+   "path": "chicken/captures/2026-09-23T150941Z/ams_broiler_glance/pdf.pdf",
+   "sha256": "994c0b62bbbad2b6b116d0a6fb2e4433fb96b736cc08f87a57b01889d2cbf168",
+   "status": "OK"
+  },
+  {
    "source_id": "ams_broiler_slaughter",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
    "fetch": "txt",
    "url": "https://www.ams.usda.gov/mnreports/nw_py002.txt",
    "fetched_at": "2026-09-23T15:09:46+00:00",
@@ -30,7 +47,31 @@
    "status": "OK"
   },
   {
+   "source_id": "ams_chicken_monthly",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_3649.pdf",
+   "fetched_at": "2026-09-23T15:09:44+00:00",
+   "path": "chicken/captures/2026-09-23T150941Z/ams_chicken_monthly/pdf.pdf",
+   "sha256": "12d9e620369b69b61811f621d25d01239b8cc81221acc411ba743b1e8c0217c3",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
+   "fetch": "series",
+   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "fetched_at": "2026-09-23T15:09:41+00:00",
+   "path": "chicken/captures/2026-09-23T150941Z/bls/series.json",
+   "sha256": "e25b1539b77b66b1eff7ab480daf1cf2666d6b7d0812ba0d352892d728cd9238",
+   "status": "OK"
+  },
+  {
    "source_id": "ers_retail_broiler",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
    "fetch": "csv",
    "url": "https://www.ers.usda.gov/media/5024/retail-prices-for-beef-pork-poultry-cuts-eggs-and-dairy-products.csv",
    "fetched_at": "2026-09-23T15:09:48+00:00",
@@ -40,6 +81,8 @@
   },
   {
    "source_id": "usda_ers_fpo",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
    "fetch": "landing",
    "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
    "fetched_at": "2026-09-23T15:09:51+00:00",
@@ -49,20 +92,13 @@
   },
   {
    "source_id": "usda_ers_fpo",
+   "run_id": "2026-09-23T150941Z",
+   "role": "issue run",
    "fetch": "cpi_csv",
    "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=17526",
    "fetched_at": "2026-09-23T15:09:53+00:00",
    "path": "chicken/captures/2026-09-23T150941Z/usda_ers_fpo/cpi_csv.csv",
    "sha256": "d3454be871109792d9f6ffe7d766e338a4f264c6febe8ab725b1c554e3a77985",
-   "status": "OK"
-  },
-  {
-   "source_id": "ams_broiler_glance",
-   "fetch": "pdf",
-   "url": "https://www.ams.usda.gov/mnreports/ams_2740.pdf",
-   "fetched_at": "2026-09-23T15:09:55+00:00",
-   "path": "chicken/captures/2026-09-23T150941Z/ams_broiler_glance/pdf.pdf",
-   "sha256": "994c0b62bbbad2b6b116d0a6fb2e4433fb96b736cc08f87a57b01889d2cbf168",
    "status": "OK"
   }
  ],
