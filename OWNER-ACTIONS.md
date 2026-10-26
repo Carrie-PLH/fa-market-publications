@@ -17,37 +17,34 @@ rolling NASS path only when the archive fails, so the archive reading is OK
 and PARTIAL means the archive itself failed. Tested on a scratch copy. Done
 when the weekly run of 2026-10-30 reports pork `nass_hogs_pigs` OK.
 
-**2. Decide the beef cutout-less-fed-cattle spread before Beef Monitor publishes.**
-The retained report 2700 file is the Datamart "Weighted Average" section only.
-It states no unit, purchase type, weight range or covered week, and its date
-is the day the report was published. The cutout is Choice only, negotiated
-sales, dated the Friday; the cattle price is all grades. The October issue
-pairs cutout week 2026-10-16 with cattle 2026-10-13. `issue.py`'s note "both
-USD per cwt of carcass" and the Rules line "week ending the following Tuesday"
-are not supported by any capture. Recommendation: add the report 2700 PDF as a
-second fetch on `ams_fed_cattle`, as 2461 already has, then fix the wording
-from what it says. Second choice: drop the spread until then. Done when decided
-and the beef Rules, sources table and `issue.py` label agree with the captures.
+**2. Fix the beef spread and fed cattle wording from the report 2700 PDF.**
+Decided 2026-10-25: retain the report 2700 PDF, then fix the wording from what
+it says. The fetch is in `beef/sources.json` from 2026-10-25 and the weekly
+run of 2026-10-30 is the first to retain it. Read from a scratch fetch, the
+PDF states the week ending Sunday, purchases from 2pm the previous Monday to
+10am the current Monday, negotiated, formula, contract and grid purchases
+included, live transactions also shown converted to a dressed price; it states
+no unit beyond dollars. The Datamart row is dated the Tuesday it published.
+So the October issue paired cutout week 2026-10-16 with cattle purchases of
+the week before; the like-for-like pairing is the cattle row published the
+Tuesday after the cutout's Friday. October's run (2026-10-18) predates the
+2026-10-20 row, so its latest matched pair is cutout 2026-10-09 with cattle
+2026-10-13. After the 2026-10-30 capture: re-pair the
+spread in `issue.py`, drop "of carcass" from its note, fix the fed cattle
+"week ending" label, the beef Rules line ("week ending the following
+Tuesday") and the sources table ("price packers paid", "of carcass"), all
+quoted from the retained PDF, and recompute beef 2026-10. Done when those
+agree with the retained capture. Blocks: Beef Monitor publication.
 
 **3. Publish the four October issues, one title at a time.**
-Chicken Monitor, Beef Monitor, Pork Monitor, Cheddar Check. Each: draft from
+In this order (decided 2026-10-25): Pork Monitor, Cheddar Check, Chicken
+Monitor, then Beef Monitor once item 2 is done. Each: draft from
 `numbers.md`, independent review against the five failure classes in
 `CLAUDE.md`, apply findings, then `tools/publish.sh <title> 2026-10` and push.
 One per sitting. Four drafts reviewed in one evening is how the review becomes
 a rubber stamp. Done when all four have a published edition.
 Gate: open. FA-D-20261018-01 superseded the measured-quarter limb of
 FA-D-20260923-04 on 2026-10-18.
-
-**4. Decide whether the September baselines publish.**
-Chicken, beef, pork and cheddar each have an unpublished 2026-09-baseline
-scaffold, and so does egg-butter. Egg & Butter already published Issue 1 with
-its Issue 0 unpublished, so skipping a baseline has precedent in this record as
-well as against it. Recommendation: do not publish them, and regenerate them so
-they are not stale. Regenerating became safe on 2026-10-25 (commit 7331a91):
-before that, recomputing an issue merged accumulated history from later runs
-too. Recomputed on a scratch copy, beef and pork baselines are unchanged and
-chicken, cheddar and egg-butter change only by the October tooling fixes.
-Done when decided, either way. Not blocking anything.
 
 ## Standing checks
 
@@ -70,8 +67,9 @@ repository and say which have gone stale rather than trusting them.
   version 1.1 after a same-day correction); Egg & Butter Brief Issue 1
   (2026-10-18, version 1.0). Three published editions across two titles.
 - Computed but unpublished: a 2026-10 issue for each of chicken, beef, pork and
-  cheddar, and a 2026-09-baseline scaffold for each of those four plus
-  egg-butter.
+  cheddar. The 2026-09-baseline scaffolds of those four and of egg-butter do
+  not publish (owner decision 2026-10-25) and were regenerated under current
+  tooling the same day.
 - All six titles are in `RUN.titles`, so the monthly job computes numbers for
   every title on the 18th. The weekly capture runs Fridays and covers all six.
 - Reviewer line in use: "reviewed <date> Carrie Schluter".
@@ -100,7 +98,8 @@ Not actions. Carry these into the prose when each title is written.
   ceased 500-pound barrel series. The 2026-10-16 DMN report prints two weekly
   averages for the same week (page 2 table against page 1); the record reads
   page 1, which matches the stated definition.
-- **Beef.** See item 2. The spread has no prior-year figure either.
+- **Beef.** See item 2. The spread has no prior-year figure either, and the
+  cutout is Choice only where the cattle price is all grades.
 - **Pork and beef.** The pork cutout is comprehensive (all sales types, all
   delivery periods); the beef cutout is negotiated sales delivered within 0-21
   days. Not the same kind of measure across the two titles.
