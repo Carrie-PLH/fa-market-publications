@@ -930,9 +930,10 @@ HOGS_ITEMS = {
 
 def p_nass_hogs_pigs_txt(rec, src, args):
     """The United States quarterly inventory table. Sections name the quarter
-    date; the two columns are the two years in the table caption. NASS reports
-    this table on a December-through-November year, so a December 1 inventory
-    belongs to the calendar year before the column's year. Cells left blank
+    date; the two columns are the two years in the table caption, and every
+    section, December 1 included, belongs to its column's year: the release of
+    September 24, 2026 prints 75,205 under 2025 for December 1, and its state
+    table titles the same figure December 1, 2025. Cells left blank
     because the estimation period has not begun are skipped, not read as zero."""
     # NASS serves this report from Todays_Reports only for a window after each
     # quarterly release, then it ages out; the Cornell ESMIS archive keeps every
@@ -971,8 +972,7 @@ def p_nass_hogs_pigs_txt(rec, src, args):
             continue
         sid, title = spec
         for col, y in zip(("a", "b"), years):
-            yy = y - 1 if month == 12 else y
-            out.append(dict(series_id=sid, series_title=title, period=f"{yy}-{month:02d}",
+            out.append(dict(series_id=sid, series_title=title, period=f"{y}-{month:02d}",
                             value=float(r.group(col).replace(",", "")), unit="1,000 head",
                             evidence_fetch=used,
                             notes=f"{note}; quarterly inventory on {MONTH_NAMES[month - 1]} 1; "
