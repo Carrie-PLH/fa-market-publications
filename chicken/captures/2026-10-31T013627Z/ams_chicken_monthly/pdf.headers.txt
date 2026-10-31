@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/ams_3649.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 259438
+X-Content-Type-Options: nosniff
+Last-Modified: Fri, 02 Oct 2026 18:56:07 GMT
+ETag: "3f56e-65ce015bcccd7"
+X-Varnish: 12722153
+Accept-Ranges: bytes
+Expires: Sat, 31 Oct 2026 01:36:30 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sat, 31 Oct 2026 01:36:30 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.ca680117.1793410590.11419a68
