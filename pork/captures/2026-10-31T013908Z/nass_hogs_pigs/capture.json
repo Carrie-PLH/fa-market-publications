@@ -1,0 +1,54 @@
+{
+ "captured_at": "2026-10-31T01:39:16+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 63652,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-10-31T01:39:16+00:00",
+   "final_url": "https://esmis.nal.usda.gov/publication/hogs-and-pigs",
+   "headers_path": "pork/captures/2026-10-31T013908Z/nass_hogs_pigs/landing.headers.txt",
+   "http_status": 200,
+   "name": "landing",
+   "path": "pork/captures/2026-10-31T013908Z/nass_hogs_pigs/landing.html",
+   "requested_url": "https://usda.library.cornell.edu/concern/publications/rj430453j?locale=en",
+   "sha256": "52caa21153cd4a6e2aeacaa4837515925fba8ef535e192b8cb79689685acd6a4",
+   "status": "OK"
+  },
+  {
+   "bytes": 70710,
+   "content_type": "text/plain",
+   "error": null,
+   "fetched_at": "2026-10-31T01:39:19+00:00",
+   "final_url": "https://esmis.nal.usda.gov/sites/default/release-files/796073/hgpg0926.txt",
+   "headers_path": "pork/captures/2026-10-31T013908Z/nass_hogs_pigs/archive_txt.headers.txt",
+   "http_status": 200,
+   "name": "archive_txt",
+   "path": "pork/captures/2026-10-31T013908Z/nass_hogs_pigs/archive_txt.txt",
+   "requested_url": "FOLLOW:landing:re:release-files/.*hgpg({MMYY}|{MMYY_PREV}|{MMYY_PREV2}|{MMYY_PREV3})\\.txt",
+   "resolved_url": "https://esmis.nal.usda.gov/sites/default/release-files/796073/hgpg0926.txt",
+   "sha256": "287955aa629e8a91d395b74b34887abe58aba2827b262e7755d177eaf8e60993",
+   "status": "OK"
+  },
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "not tried: 'archive_txt' fetched OK",
+   "fetched_at": null,
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "txt",
+   "path": null,
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV2}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/hgpg{MMYY_PREV3}.txt",
+   "sha256": null,
+   "status": "SKIPPED"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: hog inventory by class and weight group)",
+ "run_id": "2026-10-31T013908Z",
+ "source_id": "nass_hogs_pigs",
+ "source_name": "USDA NASS: Quarterly Hogs and Pigs (text)",
+ "status": "OK"
+}

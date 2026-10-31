@@ -1,0 +1,39 @@
+{
+ "captured_at": "2026-10-31T01:39:10+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 365507,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-10-31T01:39:10+00:00",
+   "final_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2680/Weekly%20Average%20Cutout%20and%20Primal%20Values",
+   "headers_path": "pork/captures/2026-10-31T013908Z/ams_pork_cutout/json.headers.txt",
+   "http_status": 200,
+   "name": "json",
+   "path": "pork/captures/2026-10-31T013908Z/ams_pork_cutout/json.json",
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2680/Weekly%20Average%20Cutout%20and%20Primal%20Values",
+   "sha256": "5f969d94221e78ef8487154f476952c2de13b04f80e3b7777674a65903520723",
+   "status": "OK"
+  },
+  {
+   "bytes": 274320,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-10-31T01:39:13+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_2680.pdf",
+   "headers_path": "pork/captures/2026-10-31T013908Z/ams_pork_cutout/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "pork/captures/2026-10-31T013908Z/ams_pork_cutout/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/AMS_2680.pdf",
+   "sha256": "02da6f676f9a49db2e236c64e9abc88e780c5975f389f8c946cacbf614081659",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly cutout and primal values under mandatory price reporting, USD per cwt)",
+ "run_id": "2026-10-31T013908Z",
+ "source_id": "ams_pork_cutout",
+ "source_name": "USDA AMS: National Weekly Pork Report FOB Plant, comprehensive (Datamart report 2680)",
+ "status": "OK"
+}
