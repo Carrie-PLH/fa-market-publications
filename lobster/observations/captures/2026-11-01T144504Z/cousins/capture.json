@@ -1,0 +1,48 @@
+{
+ "captured_at": "2026-11-01T14:47:20+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 245734,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-01T14:47:20+00:00",
+   "final_url": "https://shop.cousinsmainelobster.com/collections/live-lobster",
+   "headers_path": "captures/2026-11-01T144504Z/cousins/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-11-01T144504Z/cousins/page.html",
+   "requested_url": "https://shop.cousinsmainelobster.com/collections/live-lobster",
+   "sha256": "3f1c9cd16297b75de4fef27229df580f88fc4fcbc8e4821fb712f95bf116a5c6",
+   "status": "OK"
+  },
+  {
+   "bytes": 37094,
+   "content_type": "application/json; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-01T14:47:23+00:00",
+   "final_url": "https://shop.cousinsmainelobster.com/collections/live-lobster/products.json?limit=250",
+   "headers_path": "captures/2026-11-01T144504Z/cousins/products.headers.txt",
+   "http_status": 200,
+   "name": "products",
+   "path": "captures/2026-11-01T144504Z/cousins/products.json",
+   "requested_url": "https://shop.cousinsmainelobster.com/collections/live-lobster/products.json?limit=250",
+   "sha256": "47776c8d725eb10a5646ab45f3c63e1f4d1910100978795ea5a8937967cc920f",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 1766975,
+   "note": "",
+   "path": "captures/2026-11-01T144504Z/cousins/page.png",
+   "sha256": "2cc3defe9a8fc8486c87538f554ed336ddf20041282bcc444e328ddcd7a15226",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-11-01T144504Z",
+ "source_id": "cousins",
+ "source_name": "Cousins Maine Lobster (online shop)",
+ "status": "OK"
+}

@@ -1,0 +1,30 @@
+# https://greenheadlobster.com/product/live-lobsters/
+HTTP 200
+Date: Sun, 01 Nov 2026 14:47:34 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: close
+link: <https://greenheadlobster.com/wp-json/>; rel="https://api.w.org/"
+link: <https://greenheadlobster.com/wp-json/wp/v2/product/2034>; rel="alternate"; title="JSON"; type="application/json"
+link: <https://greenheadlobster.com/?p=2034>; rel=shortlink
+Cache-Control: public, max-age=172800
+expires: Tue, 03 Nov 2026 14:47:34 GMT
+vary: User-Agent
+strict-transport-security: max-age=300;includeSubDomains; preload
+edit: Set-Cookie (.*) "$1;HttpOnly;Secure"
+x-frame-options: sameorigin
+setifempty: Referrer-Policy: same-origin
+x-xss-protection: 1; mode=block
+x-permitted-cross-domain-policies: none
+referrer-policy: no-referrer
+x-content-type-options: nosniff
+alt-svc: h3=":443"; ma=86400
+x-turbo-charged-by: LiteSpeed
+cf-cache-status: DYNAMIC
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Server-Timing: cfCacheStatus;desc="DYNAMIC"
+Server-Timing: cfEdge;dur=16,cfOrigin;dur=906
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=SW%2BzCN%2FA3Pcar7lqMAr3ztze54talg5XnCzfgBj5gvvuYK6TogiAySM2jssoZLx09T87Lr94wpXsuZrWjobbmD9hnzZXWZ7AVsPVnUBxij8XinTs1C%2BN3eCBmeuiJ%2Fl8uK8obDqQEe8YOHnmhq9sfHeQkw%3D%3D"}]}
+Content-Encoding: gzip
+Server: cloudflare
+CF-RAY: a53bb205d83060c7-JAX
