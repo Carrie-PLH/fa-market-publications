@@ -1,0 +1,194 @@
+measure,value,kind
+ams_report_period,2026-09,source-reported or period label
+broiler_slaughter.avg_live_weight_lb,6.63,source-reported or period label
+broiler_slaughter.avg_live_weight_lb_year_ago_as_reported,6.77,source-reported or period label
+broiler_slaughter.avg_live_weight_yoy_pct_derived,-2.1,calculated
+broiler_slaughter.by_weight_class_thousand_head.4_25_lb_and_down,23891.0,source-reported or period label
+broiler_slaughter.by_weight_class_thousand_head.4_26_6_25_lb,50474.0,source-reported or period label
+broiler_slaughter.by_weight_class_thousand_head.6_26_7_75_lb,50123.0,source-reported or period label
+broiler_slaughter.by_weight_class_thousand_head.7_76_lb_and_up,47840.0,source-reported or period label
+broiler_slaughter.head_thousand,172328.0,source-reported or period label
+broiler_slaughter.head_thousand_year_ago_as_reported,172652.0,source-reported or period label
+broiler_slaughter.record_based_yoy_available,False,source-reported or period label
+broiler_slaughter.week_ending,2026-10-10,source-reported or period label
+broiler_slaughter.weeks_in_record,5,source-reported or period label
+broiler_slaughter.year_to_date_head_thousand,6984969.0,source-reported or period label
+broiler_slaughter.year_to_date_head_thousand_prior_year,6862848.0,source-reported or period label
+broiler_slaughter.year_to_date_pct_derived,1.8,calculated
+broiler_slaughter.yoy_pct_derived,-0.2,calculated
+cpi_chicken.period,2026-09,source-reported or period label
+cpi_chicken.prior_year_period,2025-09,source-reported or period label
+cpi_chicken.prior_year_value,200.24,source-reported or period label
+cpi_chicken.two_years_back_period,2024-09,source-reported or period label
+cpi_chicken.two_years_back_value,197.305,source-reported or period label
+cpi_chicken.value,199.062,source-reported or period label
+cpi_chicken.vs_two_years_pct,0.9,calculated
+cpi_chicken.yoy_pct,-0.6,calculated
+cpi_food_away_from_home.period,2026-09,source-reported or period label
+cpi_food_away_from_home.prior_year_period,2025-09,source-reported or period label
+cpi_food_away_from_home.prior_year_value,385.451,source-reported or period label
+cpi_food_away_from_home.two_years_back_period,2024-09,source-reported or period label
+cpi_food_away_from_home.two_years_back_value,371.604,source-reported or period label
+cpi_food_away_from_home.value,398.783,source-reported or period label
+cpi_food_away_from_home.vs_two_years_pct,7.3,calculated
+cpi_food_away_from_home.yoy_pct,3.5,calculated
+ers_food_price_outlook.All food — Lower bound of forecast interval 2027,-2.7,source-reported or period label
+ers_food_price_outlook.All food — Upper bound of forecast interval 2027,7.0,source-reported or period label
+ers_food_price_outlook.All food — Year-over-year August 2025 to August 2026,2.7,source-reported or period label
+ers_food_price_outlook.Food away from home — Lower bound of forecast interval 2027,0.2,source-reported or period label
+ers_food_price_outlook.Food away from home — Upper bound of forecast interval 2027,5.1,source-reported or period label
+ers_food_price_outlook.Food away from home — Year-over-year August 2025 to August 2026,3.4,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Lower bound of forecast interval 2027",-4.8,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Upper bound of forecast interval 2027",10.8,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Year-over-year August 2025 to August 2026",3.5,source-reported or period label
+ers_food_price_outlook.Poultry — Lower bound of forecast interval 2027,-5.4,source-reported or period label
+ers_food_price_outlook.Poultry — Upper bound of forecast interval 2027,8.8,source-reported or period label
+ers_food_price_outlook.Poultry — Year-over-year August 2025 to August 2026,0.5,source-reported or period label
+ers_retail_broiler_composite.period,2026-09,source-reported or period label
+ers_retail_broiler_composite.prior_year_period,2025-09,source-reported or period label
+ers_retail_broiler_composite.prior_year_value,246.9,source-reported or period label
+ers_retail_broiler_composite.two_years_back_period,2024-09,source-reported or period label
+ers_retail_broiler_composite.two_years_back_value,246.8,source-reported or period label
+ers_retail_broiler_composite.value,241.3,source-reported or period label
+ers_retail_broiler_composite.vs_two_years_pct,-2.2,calculated
+ers_retail_broiler_composite.yoy_pct,-2.3,calculated
+ers_wholesale_broiler_composite.period,2026-09,source-reported or period label
+ers_wholesale_broiler_composite.prior_year_period,2025-09,source-reported or period label
+ers_wholesale_broiler_composite.prior_year_value,105.7,source-reported or period label
+ers_wholesale_broiler_composite.two_years_back_period,2024-09,source-reported or period label
+ers_wholesale_broiler_composite.two_years_back_value,114.0,source-reported or period label
+ers_wholesale_broiler_composite.value,91.2,source-reported or period label
+ers_wholesale_broiler_composite.vs_two_years_pct,-20.0,calculated
+ers_wholesale_broiler_composite.yoy_pct,-13.7,calculated
+ers_wholesale_retail_broiler_spread.period,2026-09,source-reported or period label
+ers_wholesale_retail_broiler_spread.prior_year_period,2025-09,source-reported or period label
+ers_wholesale_retail_broiler_spread.prior_year_value,141.2,source-reported or period label
+ers_wholesale_retail_broiler_spread.two_years_back_period,2024-09,source-reported or period label
+ers_wholesale_retail_broiler_spread.two_years_back_value,132.8,source-reported or period label
+ers_wholesale_retail_broiler_spread.value,150.1,source-reported or period label
+ers_wholesale_retail_broiler_spread.vs_two_years_pct,13.0,calculated
+ers_wholesale_retail_broiler_spread.yoy_pct,6.3,calculated
+ppi_slaughter_chickens.period,2026-09,source-reported or period label
+ppi_slaughter_chickens.prior_year_period,2025-09,source-reported or period label
+ppi_slaughter_chickens.prior_year_value,327.465,source-reported or period label
+ppi_slaughter_chickens.two_years_back_period,2024-09,source-reported or period label
+ppi_slaughter_chickens.two_years_back_value,360.333,source-reported or period label
+ppi_slaughter_chickens.value,311.036,source-reported or period label
+ppi_slaughter_chickens.vs_two_years_pct,-13.7,calculated
+ppi_slaughter_chickens.yoy_pct,-5.0,calculated
+ppi_young_chickens_processed.period,2026-09,source-reported or period label
+ppi_young_chickens_processed.prior_year_period,2025-09,source-reported or period label
+ppi_young_chickens_processed.prior_year_value,211.912,source-reported or period label
+ppi_young_chickens_processed.two_years_back_period,2024-09,source-reported or period label
+ppi_young_chickens_processed.two_years_back_value,223.252,source-reported or period label
+ppi_young_chickens_processed.value,185.461,source-reported or period label
+ppi_young_chickens_processed.vs_two_years_pct,-16.9,calculated
+ppi_young_chickens_processed.yoy_pct,-12.5,calculated
+retail_boneless_breast_usd_per_lb.period,2026-09,source-reported or period label
+retail_boneless_breast_usd_per_lb.prior_year_period,2025-09,source-reported or period label
+retail_boneless_breast_usd_per_lb.prior_year_value,4.172,source-reported or period label
+retail_boneless_breast_usd_per_lb.two_years_back_period,2024-09,source-reported or period label
+retail_boneless_breast_usd_per_lb.two_years_back_value,3.974,source-reported or period label
+retail_boneless_breast_usd_per_lb.value,4.203,source-reported or period label
+retail_boneless_breast_usd_per_lb.vs_two_years_pct,5.8,calculated
+retail_boneless_breast_usd_per_lb.yoy_pct,0.7,calculated
+retail_legs_bone_in_usd_per_lb.period,2026-09,source-reported or period label
+retail_legs_bone_in_usd_per_lb.prior_year_period,2025-09,source-reported or period label
+retail_legs_bone_in_usd_per_lb.prior_year_value,1.796,source-reported or period label
+retail_legs_bone_in_usd_per_lb.two_years_back_period,2024-09,source-reported or period label
+retail_legs_bone_in_usd_per_lb.two_years_back_value,1.873,source-reported or period label
+retail_legs_bone_in_usd_per_lb.value,1.739,source-reported or period label
+retail_legs_bone_in_usd_per_lb.vs_two_years_pct,-7.2,calculated
+retail_legs_bone_in_usd_per_lb.yoy_pct,-3.2,calculated
+retail_whole_chicken_usd_per_lb.period,2026-09,source-reported or period label
+retail_whole_chicken_usd_per_lb.prior_year_period,2025-09,source-reported or period label
+retail_whole_chicken_usd_per_lb.prior_year_value,2.061,source-reported or period label
+retail_whole_chicken_usd_per_lb.two_years_back_period,2024-09,source-reported or period label
+retail_whole_chicken_usd_per_lb.two_years_back_value,1.979,source-reported or period label
+retail_whole_chicken_usd_per_lb.value,2.064,source-reported or period label
+retail_whole_chicken_usd_per_lb.vs_two_years_pct,4.3,calculated
+retail_whole_chicken_usd_per_lb.yoy_pct,0.1,calculated
+wholesale_breast_bs.label,Wholesale boneless skinless breast,source-reported or period label
+wholesale_breast_bs.period,2026-09,source-reported or period label
+wholesale_breast_bs.prior_period,2026-08,source-reported or period label
+wholesale_breast_bs.prior_period_value,121.08,source-reported or period label
+wholesale_breast_bs.prior_year_period,2025-09,source-reported or period label
+wholesale_breast_bs.prior_year_value,,source-reported or period label
+wholesale_breast_bs.two_years_back_period,2024-09,source-reported or period label
+wholesale_breast_bs.two_years_back_value,,source-reported or period label
+wholesale_breast_bs.unit,cents per lb,source-reported or period label
+wholesale_breast_bs.value,121.18,source-reported or period label
+wholesale_breast_bs.volume_thousand_lb,9845.0,source-reported or period label
+wholesale_breast_bs.vs_prior_period_pct,0.1,calculated
+wholesale_breast_bs.vs_two_years_pct,,calculated
+wholesale_breast_bs.yoy_pct,,calculated
+wholesale_drumsticks.label,Wholesale drumsticks,source-reported or period label
+wholesale_drumsticks.period,2026-09,source-reported or period label
+wholesale_drumsticks.prior_period,2026-08,source-reported or period label
+wholesale_drumsticks.prior_period_value,56.98,source-reported or period label
+wholesale_drumsticks.prior_year_period,2025-09,source-reported or period label
+wholesale_drumsticks.prior_year_value,,source-reported or period label
+wholesale_drumsticks.two_years_back_period,2024-09,source-reported or period label
+wholesale_drumsticks.two_years_back_value,,source-reported or period label
+wholesale_drumsticks.unit,cents per lb,source-reported or period label
+wholesale_drumsticks.value,55.49,source-reported or period label
+wholesale_drumsticks.volume_thousand_lb,8421.0,source-reported or period label
+wholesale_drumsticks.vs_prior_period_pct,-2.6,calculated
+wholesale_drumsticks.vs_two_years_pct,,calculated
+wholesale_drumsticks.yoy_pct,,calculated
+wholesale_leg_quarters.label,"Wholesale leg quarters, bulk",source-reported or period label
+wholesale_leg_quarters.period,2026-09,source-reported or period label
+wholesale_leg_quarters.prior_period,2026-08,source-reported or period label
+wholesale_leg_quarters.prior_period_value,53.79,source-reported or period label
+wholesale_leg_quarters.prior_year_period,2025-09,source-reported or period label
+wholesale_leg_quarters.prior_year_value,,source-reported or period label
+wholesale_leg_quarters.two_years_back_period,2024-09,source-reported or period label
+wholesale_leg_quarters.two_years_back_value,,source-reported or period label
+wholesale_leg_quarters.unit,cents per lb,source-reported or period label
+wholesale_leg_quarters.value,53.5,source-reported or period label
+wholesale_leg_quarters.volume_thousand_lb,8724.0,source-reported or period label
+wholesale_leg_quarters.vs_prior_period_pct,-0.5,calculated
+wholesale_leg_quarters.vs_two_years_pct,,calculated
+wholesale_leg_quarters.yoy_pct,,calculated
+wholesale_tenderloins.label,Wholesale tenderloins,source-reported or period label
+wholesale_tenderloins.period,2026-09,source-reported or period label
+wholesale_tenderloins.prior_period,2026-08,source-reported or period label
+wholesale_tenderloins.prior_period_value,118.85,source-reported or period label
+wholesale_tenderloins.prior_year_period,2025-09,source-reported or period label
+wholesale_tenderloins.prior_year_value,,source-reported or period label
+wholesale_tenderloins.two_years_back_period,2024-09,source-reported or period label
+wholesale_tenderloins.two_years_back_value,,source-reported or period label
+wholesale_tenderloins.unit,cents per lb,source-reported or period label
+wholesale_tenderloins.value,113.14,source-reported or period label
+wholesale_tenderloins.volume_thousand_lb,5067.0,source-reported or period label
+wholesale_tenderloins.vs_prior_period_pct,-4.8,calculated
+wholesale_tenderloins.vs_two_years_pct,,calculated
+wholesale_tenderloins.yoy_pct,,calculated
+wholesale_whole_bird_composite.label,Wholesale national composite whole bird,source-reported or period label
+wholesale_whole_bird_composite.period,2026-09,source-reported or period label
+wholesale_whole_bird_composite.prior_period,2026-08,source-reported or period label
+wholesale_whole_bird_composite.prior_period_value,116.98,source-reported or period label
+wholesale_whole_bird_composite.prior_year_period,2025-09,source-reported or period label
+wholesale_whole_bird_composite.prior_year_value,,source-reported or period label
+wholesale_whole_bird_composite.two_years_back_period,2024-09,source-reported or period label
+wholesale_whole_bird_composite.two_years_back_value,,source-reported or period label
+wholesale_whole_bird_composite.unit,cents per lb,source-reported or period label
+wholesale_whole_bird_composite.value,116.64,source-reported or period label
+wholesale_whole_bird_composite.volume_thousand_lb,38009.0,source-reported or period label
+wholesale_whole_bird_composite.vs_prior_period_pct,-0.3,calculated
+wholesale_whole_bird_composite.vs_two_years_pct,,calculated
+wholesale_whole_bird_composite.yoy_pct,,calculated
+wholesale_wings_whole.label,Wholesale whole wings,source-reported or period label
+wholesale_wings_whole.period,2026-09,source-reported or period label
+wholesale_wings_whole.prior_period,2026-08,source-reported or period label
+wholesale_wings_whole.prior_period_value,122.36,source-reported or period label
+wholesale_wings_whole.prior_year_period,2025-09,source-reported or period label
+wholesale_wings_whole.prior_year_value,,source-reported or period label
+wholesale_wings_whole.two_years_back_period,2024-09,source-reported or period label
+wholesale_wings_whole.two_years_back_value,,source-reported or period label
+wholesale_wings_whole.unit,cents per lb,source-reported or period label
+wholesale_wings_whole.value,110.38,source-reported or period label
+wholesale_wings_whole.volume_thousand_lb,2569.0,source-reported or period label
+wholesale_wings_whole.vs_prior_period_pct,-9.8,calculated
+wholesale_wings_whole.vs_two_years_pct,,calculated
+wholesale_wings_whole.yoy_pct,,calculated

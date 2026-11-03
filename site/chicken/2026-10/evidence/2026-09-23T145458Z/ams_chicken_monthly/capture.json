@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-09-23T14:55:00+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 259498,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-09-23T14:55:00+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_3649.pdf",
+   "headers_path": "chicken/captures/2026-09-23T145458Z/ams_chicken_monthly/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "chicken/captures/2026-09-23T145458Z/ams_chicken_monthly/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/ams_3649.pdf",
+   "sha256": "12d9e620369b69b61811f621d25d01239b8cc81221acc411ba743b1e8c0217c3",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (monthly weighted-average wholesale price, cents per lb)",
+ "run_id": "2026-09-23T145458Z",
+ "source_id": "ams_chicken_monthly",
+ "source_name": "USDA AMS: Monthly National Chicken Report (PDF, report 3649)",
+ "status": "OK"
+}
