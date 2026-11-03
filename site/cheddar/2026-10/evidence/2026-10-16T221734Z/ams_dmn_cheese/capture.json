@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-10-16T22:17:46+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 1721064,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-10-16T22:17:46+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "headers_path": "cheddar/captures/2026-10-16T221734Z/ams_dmn_cheese/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "cheddar/captures/2026-10-16T221734Z/ams_dmn_cheese/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (CME cheese cash market as reprinted by USDA)",
+ "run_id": "2026-10-16T221734Z",
+ "source_id": "ams_dmn_cheese",
+ "source_name": "USDA AMS: Dairy Market News weekly report, CME cheese (PDF)",
+ "status": "OK"
+}

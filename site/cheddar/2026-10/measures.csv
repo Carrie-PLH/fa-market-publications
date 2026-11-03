@@ -1,0 +1,129 @@
+measure,value,kind
+block_less_cme_usd_per_lb.cme_week_ending,2026-10-09,source-reported or period label
+block_less_cme_usd_per_lb.cme_weekly_average,1.348,source-reported or period label
+block_less_cme_usd_per_lb.derived,"Mandatory-reported 40-pound block weighted average less the CME 40-pound block weekly average. Two different measures of the block market, subtracted; not a margin. The two series do not share a week-ending day: the mandatory report's week ends Saturday and the CME reprint's week ends the Friday before, so the nearest week within four days is paired, as the data dictionary states, and the offset in days is recorded with the figure.",calculated
+block_less_cme_usd_per_lb.mandatory_reported,1.4309,source-reported or period label
+block_less_cme_usd_per_lb.value,0.0829,source-reported or period label
+block_less_cme_usd_per_lb.week_ending,2026-10-10,source-reported or period label
+block_less_cme_usd_per_lb.week_offset_days,-1,source-reported or period label
+cme_barrels_weekly_avg.label,"CME barrels, weekly average",calculated
+cme_barrels_weekly_avg.period,2026-10-16,calculated
+cme_barrels_weekly_avg.prior_year_4wk_avg,,calculated
+cme_barrels_weekly_avg.prior_year_period,,calculated
+cme_barrels_weekly_avg.prior_year_value,,calculated
+cme_barrels_weekly_avg.trailing_4wk_avg,1.4668,calculated
+cme_barrels_weekly_avg.trailing_4wk_basis,simple average of 4 weekly values,calculated
+cme_barrels_weekly_avg.trailing_4wk_values,"[1.4525, 1.4525, 1.4525, 1.5095]",calculated
+cme_barrels_weekly_avg.trailing_4wk_weeks,"[""2026-09-25"", ""2026-10-02"", ""2026-10-09"", ""2026-10-16""]",calculated
+cme_barrels_weekly_avg.trailing_4wk_yoy_pct,,calculated
+cme_barrels_weekly_avg.unit,USD per lb,calculated
+cme_barrels_weekly_avg.value,1.5095,calculated
+cme_barrels_weekly_avg.weeks_in_record,5,calculated
+cme_barrels_weekly_avg.yoy_pct,,calculated
+cme_blocks_friday_close.label,"CME 40-pound blocks, Friday close",source-reported or period label
+cme_blocks_friday_close.period,2026-10-16,source-reported or period label
+cme_blocks_friday_close.prior_year_4wk_avg,,calculated
+cme_blocks_friday_close.prior_year_period,,source-reported or period label
+cme_blocks_friday_close.prior_year_value,,source-reported or period label
+cme_blocks_friday_close.trailing_4wk_avg,1.4225,calculated
+cme_blocks_friday_close.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+cme_blocks_friday_close.trailing_4wk_values,"[1.3075, 1.315, 1.385, 1.6825]",source-reported or period label
+cme_blocks_friday_close.trailing_4wk_weeks,"[""2026-09-25"", ""2026-10-02"", ""2026-10-09"", ""2026-10-16""]",source-reported or period label
+cme_blocks_friday_close.trailing_4wk_yoy_pct,,calculated
+cme_blocks_friday_close.unit,USD per lb,source-reported or period label
+cme_blocks_friday_close.value,1.6825,source-reported or period label
+cme_blocks_friday_close.weeks_in_record,5,source-reported or period label
+cme_blocks_friday_close.yoy_pct,,calculated
+cme_blocks_weekly_avg.label,"CME 40-pound blocks, weekly average",calculated
+cme_blocks_weekly_avg.period,2026-10-16,calculated
+cme_blocks_weekly_avg.prior_year_4wk_avg,,calculated
+cme_blocks_weekly_avg.prior_year_period,,calculated
+cme_blocks_weekly_avg.prior_year_value,,calculated
+cme_blocks_weekly_avg.trailing_4wk_avg,1.3815,calculated
+cme_blocks_weekly_avg.trailing_4wk_basis,simple average of 4 weekly values,calculated
+cme_blocks_weekly_avg.trailing_4wk_values,"[1.3445, 1.294, 1.348, 1.5395]",calculated
+cme_blocks_weekly_avg.trailing_4wk_weeks,"[""2026-09-25"", ""2026-10-02"", ""2026-10-09"", ""2026-10-16""]",calculated
+cme_blocks_weekly_avg.trailing_4wk_yoy_pct,,calculated
+cme_blocks_weekly_avg.unit,USD per lb,calculated
+cme_blocks_weekly_avg.value,1.5395,calculated
+cme_blocks_weekly_avg.weeks_in_record,5,calculated
+cme_blocks_weekly_avg.yoy_pct,,calculated
+cpi_cheese.period,2026-09,source-reported or period label
+cpi_cheese.prior_year_period,2025-09,source-reported or period label
+cpi_cheese.prior_year_value,266.689,source-reported or period label
+cpi_cheese.two_years_back_period,2024-09,source-reported or period label
+cpi_cheese.two_years_back_value,263.727,source-reported or period label
+cpi_cheese.value,258.778,source-reported or period label
+cpi_cheese.vs_two_years_pct,-1.9,calculated
+cpi_cheese.yoy_pct,-3.0,calculated
+cpi_food_away_from_home.period,2026-09,source-reported or period label
+cpi_food_away_from_home.prior_year_period,2025-09,source-reported or period label
+cpi_food_away_from_home.prior_year_value,385.451,source-reported or period label
+cpi_food_away_from_home.two_years_back_period,2024-09,source-reported or period label
+cpi_food_away_from_home.two_years_back_value,371.604,source-reported or period label
+cpi_food_away_from_home.value,398.783,source-reported or period label
+cpi_food_away_from_home.vs_two_years_pct,7.3,calculated
+cpi_food_away_from_home.yoy_pct,3.5,calculated
+ers_food_price_outlook.All food — Lower bound of forecast interval 2027,-2.7,source-reported or period label
+ers_food_price_outlook.All food — Upper bound of forecast interval 2027,7.0,source-reported or period label
+ers_food_price_outlook.All food — Year-over-year August 2025 to August 2026,2.7,source-reported or period label
+ers_food_price_outlook.Dairy products — Lower bound of forecast interval 2027,-5.0,source-reported or period label
+ers_food_price_outlook.Dairy products — Upper bound of forecast interval 2027,8.4,source-reported or period label
+ers_food_price_outlook.Dairy products — Year-over-year August 2025 to August 2026,-0.3,source-reported or period label
+ers_food_price_outlook.Food away from home — Lower bound of forecast interval 2027,0.2,source-reported or period label
+ers_food_price_outlook.Food away from home — Upper bound of forecast interval 2027,5.1,source-reported or period label
+ers_food_price_outlook.Food away from home — Year-over-year August 2025 to August 2026,3.4,source-reported or period label
+ndpsr_barrel_500lb_last_published.period,2025-05-31,source-reported or period label
+ndpsr_barrel_500lb_last_published.status,"No price published in this report after this week; every later row is null. Reported as a historical series, not a current price.",source-reported or period label
+ndpsr_barrel_500lb_last_published.unit,USD per lb,source-reported or period label
+ndpsr_barrel_500lb_last_published.value,1.9495,source-reported or period label
+ndpsr_block_40lb.label,"Cheddar, 40-pound block, mandatory reported",source-reported or period label
+ndpsr_block_40lb.period,2026-10-10,source-reported or period label
+ndpsr_block_40lb.prior_year_4wk_avg,1.7418,calculated
+ndpsr_block_40lb.prior_year_period,2025-10-11,source-reported or period label
+ndpsr_block_40lb.prior_year_value,1.7183,source-reported or period label
+ndpsr_block_40lb.trailing_4wk_avg,1.4824,calculated
+ndpsr_block_40lb.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+ndpsr_block_40lb.trailing_4wk_values,"[1.5435, 1.4974, 1.4579, 1.4309]",source-reported or period label
+ndpsr_block_40lb.trailing_4wk_weeks,"[""2026-09-19"", ""2026-09-26"", ""2026-10-03"", ""2026-10-10""]",source-reported or period label
+ndpsr_block_40lb.trailing_4wk_yoy_pct,-14.9,calculated
+ndpsr_block_40lb.unit,USD per lb,source-reported or period label
+ndpsr_block_40lb.value,1.4309,source-reported or period label
+ndpsr_block_40lb.yoy_pct,-16.7,calculated
+ndpsr_block_40lb_sales.label,"Cheddar, 40-pound block, pounds sold",source-reported or period label
+ndpsr_block_40lb_sales.period,2026-10-10,source-reported or period label
+ndpsr_block_40lb_sales.prior_year_4wk_avg,11515585.75,calculated
+ndpsr_block_40lb_sales.prior_year_period,2025-10-11,source-reported or period label
+ndpsr_block_40lb_sales.prior_year_value,11010050.0,source-reported or period label
+ndpsr_block_40lb_sales.trailing_4wk_avg,10079515.0,calculated
+ndpsr_block_40lb_sales.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+ndpsr_block_40lb_sales.trailing_4wk_values,"[10467118.0, 9348405.0, 10059060.0, 10443477.0]",source-reported or period label
+ndpsr_block_40lb_sales.trailing_4wk_weeks,"[""2026-09-19"", ""2026-09-26"", ""2026-10-03"", ""2026-10-10""]",source-reported or period label
+ndpsr_block_40lb_sales.trailing_4wk_yoy_pct,-12.5,calculated
+ndpsr_block_40lb_sales.unit,lb,source-reported or period label
+ndpsr_block_40lb_sales.value,10443477.0,source-reported or period label
+ndpsr_block_40lb_sales.yoy_pct,-5.1,calculated
+ppi_natural_cheese.period,2026-09,source-reported or period label
+ppi_natural_cheese.prior_year_period,2025-09,source-reported or period label
+ppi_natural_cheese.prior_year_value,177.941,source-reported or period label
+ppi_natural_cheese.two_years_back_period,2024-09,source-reported or period label
+ppi_natural_cheese.two_years_back_value,189.053,source-reported or period label
+ppi_natural_cheese.value,169.311,source-reported or period label
+ppi_natural_cheese.vs_two_years_pct,-10.4,calculated
+ppi_natural_cheese.yoy_pct,-4.8,calculated
+retail_american_processed_usd_per_lb.period,2026-09,source-reported or period label
+retail_american_processed_usd_per_lb.prior_year_period,2025-09,source-reported or period label
+retail_american_processed_usd_per_lb.prior_year_value,4.925,source-reported or period label
+retail_american_processed_usd_per_lb.two_years_back_period,2024-09,source-reported or period label
+retail_american_processed_usd_per_lb.two_years_back_value,4.951,source-reported or period label
+retail_american_processed_usd_per_lb.value,4.737,source-reported or period label
+retail_american_processed_usd_per_lb.vs_two_years_pct,-4.3,calculated
+retail_american_processed_usd_per_lb.yoy_pct,-3.8,calculated
+retail_cheddar_usd_per_lb.period,2026-09,source-reported or period label
+retail_cheddar_usd_per_lb.prior_year_period,2025-09,source-reported or period label
+retail_cheddar_usd_per_lb.prior_year_value,6.049,source-reported or period label
+retail_cheddar_usd_per_lb.two_years_back_period,2024-09,source-reported or period label
+retail_cheddar_usd_per_lb.two_years_back_value,5.731,source-reported or period label
+retail_cheddar_usd_per_lb.value,6.133,source-reported or period label
+retail_cheddar_usd_per_lb.vs_two_years_pct,7.0,calculated
+retail_cheddar_usd_per_lb.yoy_pct,1.4,calculated

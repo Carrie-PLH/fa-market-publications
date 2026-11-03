@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url><loc>https://provisionrecord.com/about/</loc></url>
-<url><loc>https://provisionrecord.com/archive/</loc><lastmod>2026-10-25</lastmod></url>
+<url><loc>https://provisionrecord.com/archive/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://provisionrecord.com/beef/</loc></url>
 <url><loc>https://provisionrecord.com/beef/methodology/</loc></url>
-<url><loc>https://provisionrecord.com/cheddar/</loc></url>
+<url><loc>https://provisionrecord.com/cheddar/2026-10/</loc><lastmod>2026-11-02</lastmod></url>
+<url><loc>https://provisionrecord.com/cheddar/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://provisionrecord.com/cheddar/methodology/</loc></url>
 <url><loc>https://provisionrecord.com/chicken/</loc></url>
 <url><loc>https://provisionrecord.com/chicken/methodology/</loc></url>
 <url><loc>https://provisionrecord.com/egg-butter/2026-10/</loc><lastmod>2026-10-18</lastmod></url>
 <url><loc>https://provisionrecord.com/egg-butter/</loc><lastmod>2026-10-18</lastmod></url>
 <url><loc>https://provisionrecord.com/egg-butter/methodology/</loc></url>
-<url><loc>https://provisionrecord.com/</loc><lastmod>2026-10-25</lastmod></url>
+<url><loc>https://provisionrecord.com/</loc><lastmod>2026-11-02</lastmod></url>
 <url><loc>https://provisionrecord.com/lobster/2026-09-baseline/</loc><lastmod>2026-09-25</lastmod></url>
 <url><loc>https://provisionrecord.com/lobster/2026-10/</loc><lastmod>2026-10-18</lastmod></url>
 <url><loc>https://provisionrecord.com/lobster/</loc><lastmod>2026-10-18</lastmod></url>
