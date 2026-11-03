@@ -20,7 +20,11 @@ the retained report 2700 PDF on 2026-11-02). Each: draft from
 One per sitting. Four drafts reviewed in one evening is how the review becomes
 a rubber stamp. Done when all four have a published edition.
 Pork Monitor Issue 1 published 2026-10-25 (commit 1cac779, on the
-2026-10-18 run). Next: Cheddar Check.
+2026-10-18 run). Cheddar Check Issue 1 drafted and independently reviewed
+2026-11-02 (`cheddar/issues/2026-10/issue.md`, status draft; findings applied,
+see its edition.json notes). Next: the editor reads and signs it, then
+`tools/publish.sh cheddar 2026-10` and push. Then Chicken Monitor, in a later
+sitting.
 Gate: open. FA-D-20261018-01 superseded the measured-quarter limb of
 FA-D-20260923-04 on 2026-10-18.
 
@@ -38,7 +42,7 @@ nothing above is due.
 
 ## Where things stand
 
-Last updated 2026-10-25. The scheduled task should check these against the
+Last updated 2026-11-02. The scheduled task should check these against the
 repository and say which have gone stale rather than trusting them.
 
 - Published: Lobster Monitor Issue 0 (2026-09-25) and Issue 1 (2026-10-18,
@@ -46,7 +50,7 @@ repository and say which have gone stale rather than trusting them.
   (2026-10-18, version 1.0); Pork Monitor Issue 1 (2026-10-25, version 1.0).
   Four published editions across three titles.
 - Computed but unpublished: a 2026-10 issue for each of chicken, beef and
-  cheddar. The 2026-09-baseline scaffolds of those four and of egg-butter do
+  cheddar. Cheddar's has drafted, reviewed prose awaiting the editor's read. The 2026-09-baseline scaffolds of those four and of egg-butter do
   not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
 - All six titles are in `RUN.titles`, so the monthly job computes numbers for
@@ -74,7 +78,10 @@ Not actions. Carry these into the prose when each title is written.
 - **Cheddar.** The record reads `cheese_500_Price` for barrels; the retained
   file does not say whether that column or `cheese_500_Wtd_Price` is
   moisture-adjusted. The CME "Barrels" quote is a different measure from the
-  ceased 500-pound barrel series. The 2026-10-16 DMN report prints two weekly
+  ceased 500-pound barrel series. The barrel's 1.9495 (week ending
+  2025-05-31) is a first print: the 2025-06-11 report restated that week and
+  the three before it null, and `issue.py`'s series map skips null rows, so it
+  keeps the first print. The 2026-10-16 DMN report prints two weekly
   averages for the same week (page 2 table against page 1); the record reads
   page 1, which matches the stated definition.
 - **Beef.** The cutout-less-cattle spread pairs a cutout week with the report
