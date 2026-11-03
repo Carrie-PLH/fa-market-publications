@@ -38,7 +38,7 @@
   "value": 20.13,
   "yoy_pct": -6.5
  },
- "computed_at": "2026-10-26T02:42:32+00:00",
+ "computed_at": "2026-11-03T02:42:45+00:00",
  "cpi_beef_and_veal": {
   "period": "2026-08",
   "prior_year_period": "2025-08",
@@ -87,10 +87,11 @@
  "cutout_less_dressed_cattle_usd_per_cwt": {
   "cattle_period": "2026-09-22",
   "cattle_value": 357.14,
+  "cattle_week_ending_sunday": "2026-09-20",
   "cutout_period": "2026-09-18",
   "cutout_value": 374.26,
-  "derived": "Choice cutout less the fed cattle dressed price, both USD per cwt of carcass. An arithmetic difference between two reported series, not a statement of any packer's cost or margin.",
-  "same_week": false,
+  "derived": "Choice 600-900 cutout weekly average (report 2461, \"U.S. dollars per 100 pounds\") less the steer and heifer dressed weighted average price, total all grades (report 2700, which prints the price in dollars and states no weight basis). Each cutout week is paired with the report 2700 row dated the Tuesday after the cutout's Friday, which covers the week ending the Sunday between them (\"from 2pm Previous Monday to 10am Current Monday\"). An arithmetic difference between two reported series, not a statement of any packer's cost or margin.",
+  "pairing": "cattle report dated 1 to 4 days after the cutout week's last day",
   "value": 17.12
  },
  "cutout_select": {
@@ -148,9 +149,11 @@
  "fed_cattle_dressed": {
   "label": "Fed cattle, steer and heifer, dressed",
   "period": "2026-09-22",
+  "period_is": "report date",
   "prior_year_4wk_avg": 381.455,
   "prior_year_period": "2025-09-22",
   "prior_year_value": 382.07,
+  "prior_year_week_ending_sunday": "2025-09-21",
   "trailing_4wk_avg": 358.3675,
   "trailing_4wk_basis": "simple average of 4 weekly values",
   "trailing_4wk_values": [
@@ -168,6 +171,7 @@
   "trailing_4wk_yoy_pct": -6.1,
   "unit": "USD per cwt",
   "value": 357.14,
+  "week_ending_sunday": "2026-09-20",
   "yoy_pct": -6.5
  },
  "fed_cattle_head_dressed": {
@@ -177,9 +181,11 @@
  "fed_cattle_live": {
   "label": "Fed cattle, steer and heifer, live",
   "period": "2026-09-22",
+  "period_is": "report date",
   "prior_year_4wk_avg": 241.7725,
   "prior_year_period": "2025-09-22",
   "prior_year_value": 240.22,
+  "prior_year_week_ending_sunday": "2025-09-21",
   "trailing_4wk_avg": 226.1825,
   "trailing_4wk_basis": "simple average of 4 weekly values",
   "trailing_4wk_values": [
@@ -197,6 +203,7 @@
   "trailing_4wk_yoy_pct": -6.4,
   "unit": "USD per cwt",
   "value": 226.59,
+  "week_ending_sunday": "2026-09-20",
   "yoy_pct": -5.7
  },
  "fed_cattle_year_change_as_reported": {
@@ -251,5 +258,12 @@
   "sellers": []
  },
  "run_id": "2026-09-23T150958Z",
+ "specification_captures": [
+  {
+   "fetch": "pdf",
+   "run_id": "2026-10-31T013744Z",
+   "source_id": "ams_fed_cattle"
+  }
+ ],
  "title": "Beef Monitor"
 }

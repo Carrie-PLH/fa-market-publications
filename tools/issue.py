@@ -641,6 +641,38 @@ BEEF_WEEKLY = [
 ]
 
 
+def _sunday_before(day):
+    from datetime import date, timedelta
+    d = date.fromisoformat(day)
+    return (d - timedelta(days=(d.weekday() + 1) % 7 or 7)).isoformat()
+
+
+def _cutout_cattle_pair(cutout, cattle):
+    """(cutout_week, cattle_report_date) for the latest cutout week with a
+    report 2700 row dated 1 to 4 days after it. Report 2700 is dated the day it
+    publishes (Tuesday; Monday before 31 March 2026) and covers the week ending
+    the Sunday before, so the row after a Friday cutout is the like-for-like
+    one; the row before it covers purchases of the prior week."""
+    from datetime import date
+    for cw in sorted(cutout, reverse=True):
+        cd = date.fromisoformat(cw)
+        after = sorted(k for k in cattle if 1 <= (date.fromisoformat(k) - cd).days <= 4)
+        if after:
+            return cw, after[0]
+    return None
+
+
+def _first_retained(t, source_id, fetch):
+    """The earliest capture of `source_id` holding an OK `fetch`, as
+    [{run_id, source_id, fetch}], for wording an issue quotes from a file its
+    own run predates."""
+    for cj in sorted(t.captures.glob(f"*/{source_id}/capture.json")):
+        rec = load_json(cj)
+        if any(f["name"] == fetch and f["status"] == "OK" for f in rec["fetches"]):
+            return [{"run_id": rec["run_id"], "source_id": source_id, "fetch": fetch}]
+    return []
+
+
 def compute_beef(n, sm, t, cfg_t, a):
     for key, sid, label in BEEF_WEEKLY:
         n[key] = _weekly(sm, sid, label, "USD per cwt")
@@ -661,18 +693,35 @@ def compute_beef(n, sm, t, cfg_t, a):
             "derived": "Choice 600-900 lb cutout less Select 600-900 lb cutout, same week"}
     else:
         n["choice_select_spread_usd_per_cwt"] = None
-    d = n.get("fed_cattle_dressed")
-    if c and d and None not in (c["value"], d["value"]):
+    pair = _cutout_cattle_pair(sm.get("ams_boxed_beef_choice_600_900_usd_per_cwt", {}),
+                               sm.get("ams_fed_cattle_usd_per_cwt_dressed", {}))
+    if pair:
+        cw, kw = pair
+        cv = sm["ams_boxed_beef_choice_600_900_usd_per_cwt"][cw]
+        kv = sm["ams_fed_cattle_usd_per_cwt_dressed"][kw]
         n["cutout_less_dressed_cattle_usd_per_cwt"] = {
-            "cutout_period": c["period"], "cutout_value": c["value"],
-            "cattle_period": d["period"], "cattle_value": d["value"],
-            "value": round_half_up(D(c["value"]) - D(d["value"]), 2),
-            "derived": "Choice cutout less the fed cattle dressed price, both USD per cwt of "
-                       "carcass. An arithmetic difference between two reported series, not a "
-                       "statement of any packer's cost or margin.",
-            "same_week": c["period"] == d["period"]}
+            "cutout_period": cw, "cutout_value": cv,
+            "cattle_period": kw, "cattle_value": kv,
+            "cattle_week_ending_sunday": _sunday_before(kw),
+            "value": round_half_up(D(cv) - D(kv), 2),
+            "derived": "Choice 600-900 cutout weekly average (report 2461, \"U.S. dollars per "
+                       "100 pounds\") less the steer and heifer dressed weighted average price, "
+                       "total all grades (report 2700, which prints the price in dollars and "
+                       "states no weight basis). Each cutout week is paired with the report 2700 "
+                       "row dated the Tuesday after the cutout's Friday, which covers the week "
+                       "ending the Sunday between them (\"from 2pm Previous Monday to 10am "
+                       "Current Monday\"). An arithmetic difference between two reported "
+                       "series, not a statement of any packer's cost or margin.",
+            "pairing": "cattle report dated 1 to 4 days after the cutout week's last day"}
     else:
         n["cutout_less_dressed_cattle_usd_per_cwt"] = None
+    for key in ("fed_cattle_dressed", "fed_cattle_live"):
+        if n.get(key):
+            n[key]["period_is"] = "report date"
+            n[key]["week_ending_sunday"] = _sunday_before(n[key]["period"])
+            if n[key].get("prior_year_period"):
+                n[key]["prior_year_week_ending_sunday"] = _sunday_before(n[key]["prior_year_period"])
+    n["specification_captures"] = _first_retained(t, "ams_fed_cattle", "pdf")
 
     # what the fed cattle report itself states about the year
     yc = "ams_fed_cattle_year_change_as_reported_usd_per_cwt_dressed"
@@ -722,13 +771,23 @@ def numbers_md_beef(n):
         L.append(f"| Choice less Select cutout (derived, $/cwt) | {fm(sp['value'])} ({sp['period']}) | "
                  f"{fm(sp['prior_year_value'])} ({sp['prior_year_period'] or '—'}) | "
                  f"{fp(sp['yoy_pct'])} | Derived from USDA AMS report 2461 |")
-    _weekly_rows(L, n, [("fed_cattle_dressed", "Fed cattle, steer and heifer, dressed"),
-                        ("fed_cattle_live", "Fed cattle, steer and heifer, live")],
-                 "$/cwt", "USDA AMS report 2700")
+    for key, label in [("fed_cattle_dressed", "Fed cattle, steers and heifers, dressed, all grades"),
+                       ("fed_cattle_live", "Fed cattle, steers and heifers, live, all grades")]:
+        x = n.get(key)
+        if not x:
+            continue
+        py = (f"{fm(x['prior_year_value'])} (report {x['prior_year_period']}, week ending Sunday "
+              f"{x['prior_year_week_ending_sunday']})" if x.get("prior_year_period") else "—")
+        L.append(f"| {label} ($/cwt, weighted average; dated the day the report published, for "
+                 f"the week ending the Sunday before) | {fm(x['value'])} (report {x['period']}, week ending "
+                 f"Sunday {x['week_ending_sunday']}) | {py} | {fp(x['yoy_pct'])} | USDA AMS report 2700 |")
+        L.append(f"| {label}, trailing 4-report average ($/cwt) | {fm(x['trailing_4wk_avg'])} | "
+                 f"{fm(x['prior_year_4wk_avg'])} | {fp(x['trailing_4wk_yoy_pct'])} | USDA AMS report 2700 |")
     cl = n.get("cutout_less_dressed_cattle_usd_per_cwt")
     if cl:
         L.append(f"| Choice cutout less fed cattle dressed price (derived, $/cwt) | "
-                 f"{fm(cl['value'])} (cutout {cl['cutout_period']}, cattle {cl['cattle_period']}) "
+                 f"{fm(cl['value'])} (cutout week ending {cl['cutout_period']}; cattle report "
+                 f"{cl['cattle_period']}, week ending Sunday {cl['cattle_week_ending_sunday']}) "
                  f"| — | — | Derived from USDA AMS reports 2461 and 2700 |")
     for key, label, src, d in [
             ("retail_ground_beef_usd_per_lb", "Retail ground beef, all uncooked ($/lb)", "BLS APU0000FC1101", 3),
@@ -1008,6 +1067,15 @@ def main():
                          "fetch": f["name"], "url": f.get("final_url") or f["requested_url"],
                          "fetched_at": f.get("fetched_at"), "path": f.get("path"),
                          "sha256": f.get("sha256"), "status": f["status"]})
+    for spec in n.get("specification_captures", []):
+        rec = load_json(t.captures / spec["run_id"] / spec["source_id"] / "capture.json")
+        for f in rec["fetches"]:
+            if f["name"] == spec["fetch"]:
+                caps.append({"source_id": spec["source_id"], "run_id": spec["run_id"],
+                             "role": "specification", "fetch": f["name"],
+                             "url": f.get("final_url") or f["requested_url"],
+                             "fetched_at": f.get("fetched_at"), "path": f.get("path"),
+                             "sha256": f.get("sha256"), "status": f["status"]})
     (out / "evidence.json").write_text(json.dumps({"issue": a.issue, "run_id": a.run_id, "captures": caps,
                                                    "retail_record": n["retail_reference"]["record"]}, indent=1) + "\n")
 

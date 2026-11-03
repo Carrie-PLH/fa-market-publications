@@ -11,28 +11,10 @@ being readable.
 
 ## Outstanding
 
-**1. Fix the beef spread and fed cattle wording from the report 2700 PDF.**
-Decided 2026-10-25: retain the report 2700 PDF, then fix the wording from what
-it says. The fetch is in `beef/sources.json` from 2026-10-25 and the weekly
-run of 2026-10-30 is the first to retain it. Read from a scratch fetch, the
-PDF states the week ending Sunday, purchases from 2pm the previous Monday to
-10am the current Monday, negotiated, formula, contract and grid purchases
-included, live transactions also shown converted to a dressed price; it states
-no unit beyond dollars. The Datamart row is dated the Tuesday it published.
-So the October issue paired cutout week 2026-10-16 with cattle purchases of
-the week before; the like-for-like pairing is the cattle row published the
-Tuesday after the cutout's Friday. October's run (2026-10-18) predates the
-2026-10-20 row, so its latest matched pair is cutout 2026-10-09 with cattle
-2026-10-13. After the 2026-10-30 capture: re-pair the
-spread in `issue.py`, drop "of carcass" from its note, fix the fed cattle
-"week ending" label, the beef Rules line ("week ending the following
-Tuesday") and the sources table ("price packers paid", "of carcass"), all
-quoted from the retained PDF, and recompute beef 2026-10. Done when those
-agree with the retained capture. Blocks: Beef Monitor publication.
-
-**2. Publish the four October issues, one title at a time.**
+**1. Publish the four October issues, one title at a time.**
 In this order (decided 2026-10-25): Pork Monitor, Cheddar Check, Chicken
-Monitor, then Beef Monitor once item 1 is done. Each: draft from
+Monitor, then Beef Monitor (its spread and fed cattle wording were fixed from
+the retained report 2700 PDF on 2026-11-02). Each: draft from
 `numbers.md`, independent review against the five failure classes in
 `CLAUDE.md`, apply findings, then `tools/publish.sh <title> 2026-10` and push.
 One per sitting. Four drafts reviewed in one evening is how the review becomes
@@ -95,8 +77,14 @@ Not actions. Carry these into the prose when each title is written.
   ceased 500-pound barrel series. The 2026-10-16 DMN report prints two weekly
   averages for the same week (page 2 table against page 1); the record reads
   page 1, which matches the stated definition.
-- **Beef.** See item 2. The spread has no prior-year figure either, and the
-  cutout is Choice only where the cattle price is all grades.
+- **Beef.** The cutout-less-cattle spread pairs a cutout week with the report
+  2700 row dated the Tuesday after it, so on the October run it is cutout
+  2026-10-09 against cattle 2026-10-13 (week ending Sunday 2026-10-11), a week
+  older than the cutout headline (2026-10-16); say so. The spread has no
+  prior-year figure, the cutout is Choice only where the cattle price is all
+  grades, and report 2700 prints prices in dollars with no weight basis (the
+  per-cwt label comes from the source list). The fed cattle date is the report's
+  publication date, not a week ending.
 - **Pork and beef.** The pork cutout is comprehensive (all sales types, all
   delivery periods); the beef cutout is negotiated sales delivered within 0-21
   days. Not the same kind of measure across the two titles.

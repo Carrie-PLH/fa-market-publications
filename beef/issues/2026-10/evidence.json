@@ -89,6 +89,17 @@
    "path": "beef/captures/2026-10-18T145119Z/usda_ers_fpo/cpi_csv.csv",
    "sha256": "b5f4087f6fac7a31e24e772ed9ceafa17a68b80ac6a488155f0cf23799d7eb9c",
    "status": "OK"
+  },
+  {
+   "source_id": "ams_fed_cattle",
+   "run_id": "2026-10-31T013744Z",
+   "role": "specification",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2700.pdf",
+   "fetched_at": "2026-10-31T01:37:55+00:00",
+   "path": "beef/captures/2026-10-31T013744Z/ams_fed_cattle/pdf.pdf",
+   "sha256": "297f39b9a4f0d2f850ab861a8098687b718a5a7793f01b8252ff59ee58ecc294",
+   "status": "OK"
   }
  ],
  "retail_record": null

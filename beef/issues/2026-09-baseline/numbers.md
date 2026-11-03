@@ -5,11 +5,11 @@
 | Boxed beef cutout, Select 600-900 lb ($/cwt, week ending) | 354.13 (2026-09-18) | 367.91 (2025-09-19) | -3.7% | USDA AMS report 2461 |
 | Boxed beef cutout, Select 600-900 lb, trailing 4-week average ($/cwt) | 356.64 | 381.36 | -6.5% | USDA AMS report 2461 |
 | Choice less Select cutout (derived, $/cwt) | 20.13 (2026-09-18) | 21.53 (2025-09-19) | -6.5% | Derived from USDA AMS report 2461 |
-| Fed cattle, steer and heifer, dressed ($/cwt, week ending) | 357.14 (2026-09-22) | 382.07 (2025-09-22) | -6.5% | USDA AMS report 2700 |
-| Fed cattle, steer and heifer, dressed, trailing 4-week average ($/cwt) | 358.37 | 381.46 | -6.1% | USDA AMS report 2700 |
-| Fed cattle, steer and heifer, live ($/cwt, week ending) | 226.59 (2026-09-22) | 240.22 (2025-09-22) | -5.7% | USDA AMS report 2700 |
-| Fed cattle, steer and heifer, live, trailing 4-week average ($/cwt) | 226.18 | 241.77 | -6.4% | USDA AMS report 2700 |
-| Choice cutout less fed cattle dressed price (derived, $/cwt) | 17.12 (cutout 2026-09-18, cattle 2026-09-22) | — | — | Derived from USDA AMS reports 2461 and 2700 |
+| Fed cattle, steers and heifers, dressed, all grades ($/cwt, weighted average; dated the day the report published, for the week ending the Sunday before) | 357.14 (report 2026-09-22, week ending Sunday 2026-09-20) | 382.07 (report 2025-09-22, week ending Sunday 2025-09-21) | -6.5% | USDA AMS report 2700 |
+| Fed cattle, steers and heifers, dressed, all grades, trailing 4-report average ($/cwt) | 358.37 | 381.46 | -6.1% | USDA AMS report 2700 |
+| Fed cattle, steers and heifers, live, all grades ($/cwt, weighted average; dated the day the report published, for the week ending the Sunday before) | 226.59 (report 2026-09-22, week ending Sunday 2026-09-20) | 240.22 (report 2025-09-22, week ending Sunday 2025-09-21) | -5.7% | USDA AMS report 2700 |
+| Fed cattle, steers and heifers, live, all grades, trailing 4-report average ($/cwt) | 226.18 | 241.77 | -6.4% | USDA AMS report 2700 |
+| Choice cutout less fed cattle dressed price (derived, $/cwt) | 17.12 (cutout week ending 2026-09-18; cattle report 2026-09-22, week ending Sunday 2026-09-20) | — | — | Derived from USDA AMS reports 2461 and 2700 |
 | Retail ground beef, all uncooked ($/lb) | 7.158 (2026-08) | 6.631 (2025-08) | +7.9% | BLS APU0000FC1101 |
 | Retail beef steaks, all uncooked ($/lb) | 12.813 (2026-08) | 12.222 (2025-08) | +4.8% | BLS APU0000FC3101 |
 | PPI, slaughter cattle (index) | 362.8 (2026-08) | 377.6 (2025-08) | -3.9% | BLS WPU0131 |
