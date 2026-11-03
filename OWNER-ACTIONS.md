@@ -11,20 +11,8 @@ being readable.
 
 ## Outstanding
 
-**1. Publish the four October issues, one title at a time.**
-In this order (decided 2026-10-25): Pork Monitor, Cheddar Check, Chicken
-Monitor, then Beef Monitor (its spread and fed cattle wording were fixed from
-the retained report 2700 PDF on 2026-11-02). Each: draft from
-`numbers.md`, independent review against the five failure classes in
-`CLAUDE.md`, apply findings, then `tools/publish.sh <title> 2026-10` and push.
-One per sitting. Four drafts reviewed in one evening is how the review becomes
-a rubber stamp. Done when all four have a published edition.
-Pork Monitor Issue 1 published 2026-10-25 (commit 1cac779, on the
-2026-10-18 run). Cheddar Check Issue 1 published 2026-11-02 (commit bd2141d,
-on the 2026-10-18 run). Chicken Monitor Issue 1 published 2026-11-02 (commit
-051db89, on the 2026-10-18 run). Next: Beef Monitor, in a later sitting.
-Gate: open. FA-D-20261018-01 superseded the measured-quarter limb of
-FA-D-20260923-04 on 2026-10-18.
+Nothing outstanding as of 2026-11-02. All four October issues are published
+(Pork 2026-10-25; Cheddar, Chicken and Beef 2026-11-02).
 
 ## Standing checks
 
@@ -47,16 +35,20 @@ repository and say which have gone stale rather than trusting them.
   version 1.1 after a same-day correction); Egg & Butter Brief Issue 1
   (2026-10-18, version 1.0); Pork Monitor Issue 1 (2026-10-25, version 1.0);
   Cheddar Check Issue 1 (2026-11-02, version 1.0); Chicken Monitor Issue 1
-  (2026-11-02, version 1.0). Six published editions across five titles.
-- Computed but unpublished: a 2026-10 issue for beef. The 2026-09-baseline scaffolds of those four and of egg-butter do
-  not publish (owner decision 2026-10-25) and were regenerated under current
+  (2026-11-02, version 1.0); Beef Monitor Issue 1 (2026-11-02, version 1.0,
+  commit ae4f576, on the 2026-10-18 run). Seven published editions across six
+  titles.
+- Computed but unpublished: no 2026-10 issue. The 2026-09-baseline scaffolds of
+  pork, cheddar, chicken, beef and egg-butter do not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
 - All six titles are in `RUN.titles`, so the monthly job computes numbers for
   every title on the 18th. The weekly capture runs Fridays and covers all six.
 - Reviewer line in use: "reviewed <date> Carrie Schluter".
-- Each of the four remaining titles' `methodology.md` carries its "What the
-  series actually price" section (2026-10-25), read off the retained captures.
-  They are not yet read by the editor; that read belongs to each title's review.
+- Pork, cheddar, chicken and beef `methodology.md` each carry a "What the
+  series actually price" section (2026-10-25), read off the retained captures
+  and checked in each title's October review. Beef's review corrected its
+  series-break date (the single 600-900 column starts 2004, not roughly 2015);
+  `beef/sources.json` still carries the old date and the words "packer margins".
 
 ## Known limits a first issue must state
 
@@ -96,9 +88,10 @@ Not actions. Carry these into the prose when each title is written.
   days. Not the same kind of measure across the two titles.
 - **Pork.** The cutout runs a week behind beef and cheddar because the AMS
   dataset publishes later.
-- **Pork, from the November issue.** BLS marks October 2025 "Data unavailable
-  due to the 2025 lapse in appropriations" for CPI-U and both average prices in
-  pork's retained series.json, so the October 2026 CPI and retail price rows
+- **Pork and beef, from the November issue.** BLS marks October 2025 "Data
+  unavailable due to the 2025 lapse in appropriations" for CPI-U and both
+  average prices in pork's retained series.json, and for both CPI-U series and
+  both average prices in beef's, so the October 2026 CPI and retail price rows
   will have no year-earlier value. Check other titles' CPI series the same way.
 - **All titles.** `tools/check.py` reads only figures carrying a unit in prose.
   Bare counts and quantities written in words pass unexamined; check those by
