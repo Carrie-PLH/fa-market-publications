@@ -11,13 +11,7 @@ being readable.
 
 ## Outstanding
 
-**1. Confirm the pork fetch fix on Friday's run.**
-Fixed 2026-10-25 (commit 8bf3cbc): the ESMIS archive is fetched first and the
-rolling NASS path only when the archive fails, so the archive reading is OK
-and PARTIAL means the archive itself failed. Tested on a scratch copy. Done
-when the weekly run of 2026-10-30 reports pork `nass_hogs_pigs` OK.
-
-**2. Fix the beef spread and fed cattle wording from the report 2700 PDF.**
+**1. Fix the beef spread and fed cattle wording from the report 2700 PDF.**
 Decided 2026-10-25: retain the report 2700 PDF, then fix the wording from what
 it says. The fetch is in `beef/sources.json` from 2026-10-25 and the weekly
 run of 2026-10-30 is the first to retain it. Read from a scratch fetch, the
@@ -36,9 +30,9 @@ Tuesday") and the sources table ("price packers paid", "of carcass"), all
 quoted from the retained PDF, and recompute beef 2026-10. Done when those
 agree with the retained capture. Blocks: Beef Monitor publication.
 
-**3. Publish the four October issues, one title at a time.**
+**2. Publish the four October issues, one title at a time.**
 In this order (decided 2026-10-25): Pork Monitor, Cheddar Check, Chicken
-Monitor, then Beef Monitor once item 2 is done. Each: draft from
+Monitor, then Beef Monitor once item 1 is done. Each: draft from
 `numbers.md`, independent review against the five failure classes in
 `CLAUDE.md`, apply findings, then `tools/publish.sh <title> 2026-10` and push.
 One per sitting. Four drafts reviewed in one evening is how the review becomes
