@@ -1,0 +1,394 @@
+
+Cattle on Feed
+
+ISSN: 1948-9080
+
+Released September 18, 2026, by the National Agricultural Statistics Service 
+(NASS), Agricultural Statistics Board, United States Department of 
+Agriculture (USDA).
+
+United States Cattle on Feed Up 1 Percent
+
+Cattle and calves on feed for the slaughter market in the United States for 
+feedlots with capacity of 1,000 or more head totaled 11.2 million head on 
+September 1, 2026. The inventory was 1 percent above September 1, 2025.
+
+Placements in feedlots during August totaled 1.62 million head, 9 percent 
+below 2025. Net placements were 1.57 million head. Placements were the lowest 
+for August since the series began in 1996. During August, placements of 
+cattle and calves weighing less than 600 pounds were 320,000 head, 
+600-699 pounds were 240,000 head, 700-799 pounds were 355,000 head, 
+800-899 pounds were 387,000 head, 900-999 pounds were 230,000 head, and 
+1,000 pounds and greater were 85,000 head.
+
+Marketings of fed cattle during August totaled 1.52 million head, 3 percent 
+below 2025. Marketings were the lowest for August since the series began in 
+1996.
+
+Other disappearance totaled 52,000 head during August, 2 percent above 2025.
+
+Cattle on Feed Inventory, Placements, Marketings, and Other Disappearance on
+1,000+ Capacity Feedlots - United States: September 1, 2025 and 2026
+-----------------------------------------------------------------------------------
+                                        :             :             :  Percent of  
+                  Item                  :    2025     :    2026     :previous year 
+-----------------------------------------------------------------------------------
+                                        :   ---- 1,000 head ----        percent    
+                                        :                                          
+On feed August 1 .......................:   10,922        11,117          102      
+Placed on feed during August ...........:    1,780         1,617           91      
+Fed cattle marketed during August ......:    1,571         1,519           97      
+Other disappearance during August ......:       51            52          102      
+On feed September 1 ....................:   11,080        11,163          101      
+-----------------------------------------------------------------------------------
+
+Cattle on Feed Inventory, Placements, Marketings, and Other Disappearance on
+1,000+ Capacity Feedlots - United States: August 1, 2025 and 2026
+-----------------------------------------------------------------------------------
+                                        :             :             :  Percent of  
+                  Item                  :    2025     :    2026     :previous year 
+-----------------------------------------------------------------------------------
+                                        :   ---- 1,000 head ----        percent    
+                                        :                                          
+On feed July 1 .........................:   11,124        11,370          102      
+Placed on feed during July .............:    1,598         1,422           89      
+Fed cattle marketed during July ........:    1,749         1,620           93      
+Other disappearance during July ........:       51            55          108      
+On feed August 1 .......................:   10,922        11,117          102      
+-----------------------------------------------------------------------------------
+
+Cattle on Feed Inventory on 1,000+ Capacity Feedlots by Month - States and United States:
+2025 and 2026
+---------------------------------------------------------------------------------------------------
+                  :                 :                 :             September 1, 2026              
+                  :                 :                 :--------------------------------------------
+       State      :September 1, 2025: August 1, 2026  :              :  Percent of  :  Percent of  
+                  :                 :                 :  Inventory   :previous year :previous month
+---------------------------------------------------------------------------------------------------
+                  :     --------------- 1,000 head --------------          ----- percent ----      
+                  :                                                                                
+Arizona ..........:        220               217              218           99            100      
+California .......:        475               485              480          101             99      
+Colorado .........:        890               905              905          102            100      
+Idaho ............:        330               325              320           97             98      
+Iowa .............:        690               670              670           97            100      
+Kansas ...........:      2,350             2,260            2,320           99            103      
+Nebraska .........:      2,430             2,470            2,470          102            100      
+Oklahoma .........:        315               335              350          111            104      
+South Dakota .....:        195               210              205          105             98      
+Texas ............:      2,500             2,510            2,500          100            100      
+Washington .......:        265               265              270          102            102      
+                  :                                                                                
+Other States .....:        420               465              455          108             98      
+                  :                                                                                
+United States ....:     11,080            11,117           11,163          101            100      
+---------------------------------------------------------------------------------------------------
+
+Cattle Placed on Feed on 1,000+ Capacity Feedlots by Month - States and United States:
+2025 and 2026
+---------------------------------------------------------------------------------------------
+                  :              :              :             During August 2026             
+                  :    During    :    During    :--------------------------------------------
+       State      : August 2025  :  July 2026   :              :  Percent of  :  Percent of  
+                  :              :              :  Placements  :previous year :previous month
+---------------------------------------------------------------------------------------------
+                  :    ------------ 1,000 head -----------           ----- percent ----      
+                  :                                                                          
+Arizona ..........:       18             19             18           100             95      
+California .......:       51             48             49            96            102      
+Colorado .........:      140             85            115            82            135      
+Idaho ............:       45             28             40            89            143      
+Iowa .............:       65             55             61            94            111      
+Kansas ...........:      475            375            440            93            117      
+Nebraska .........:      475            380            410            86            108      
+Oklahoma .........:       49             39             53           108            136      
+South Dakota .....:       28             16             20            71            125      
+Texas ............:      340            290            320            94            110      
+Washington .......:       41             32             38            93            119      
+                  :                                                                          
+Other States .....:       53             55             53           100             96      
+                  :                                                                          
+United States ....:    1,780          1,422          1,617            91            114      
+---------------------------------------------------------------------------------------------
+
+Cattle Placed on Feed by Weight Group on 1,000+ Capacity Feedlots and Month - States and United States: 2025 and 2026
+---------------------------------------------------------------------------------------------------------------------------------------
+               :                                                  During August 2025                                                   
+               :-----------------------------------------------------------------------------------------------------------------------
+     State     :Under 600 lbs : 600-699 lbs  : 700-799 lbs  : 800-899 lbs  : 900+ lbs 1/  : 900-999 lbs  :  1,000+ lbs  :    Total     
+---------------------------------------------------------------------------------------------------------------------------------------
+               :  1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head  
+               :                                                                                                                       
+Colorado ......:      25             25             25             35             30            (D)            (D)             140     
+Kansas ........:      55             80            150            120             70            (D)            (D)             475     
+Nebraska ......:      40             45             90            140            160            (D)            (D)             475     
+Texas .........:     145             75             65             40             15            (D)            (D)             340     
+               :                                                                                                                       
+Other States ..:      90             40             60             85             75            (D)            (D)             350     
+               :                                                                                                                       
+United States .:     355            265            390            420            (X)            260             90           1,780     
+
+---------------------------------------------------------------------------------------------------------------------------------------
+               :                                                   During July 2026                                                    
+               :-----------------------------------------------------------------------------------------------------------------------
+     State     :Under 600 lbs : 600-699 lbs  : 700-799 lbs  : 800-899 lbs  : 900+ lbs 1/  : 900-999 lbs  :  1,000+ lbs  :    Total     
+---------------------------------------------------------------------------------------------------------------------------------------
+               :  1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head  
+               :                                                                                                                       
+Colorado ......:      15             15             20             20             15            (D)            (D)              85     
+Kansas ........:      50             65            110             95             55            (D)            (D)             375     
+Nebraska ......:      35             40             80            110            115            (D)            (D)             380     
+Texas .........:     130             60             55             30             15            (D)            (D)             290     
+               :                                                                                                                       
+Other States ..:      80             35             55             67             55            (D)            (D)             292     
+               :                                                                                                                       
+United States .:     310            215            320            322            (X)            185             70           1,422     
+
+---------------------------------------------------------------------------------------------------------------------------------------
+               :                                                  During August 2026                                                   
+               :-----------------------------------------------------------------------------------------------------------------------
+     State     :Under 600 lbs : 600-699 lbs  : 700-799 lbs  : 800-899 lbs  : 900+ lbs 1/  : 900-999 lbs  :  1,000+ lbs  :    Total     
+---------------------------------------------------------------------------------------------------------------------------------------
+               :  1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head     1,000 head  
+               :                                                                                                                       
+Colorado ......:      20             20             20             30             25            (D)            (D)             115     
+Kansas ........:      55             75            135            110             65            (D)            (D)             440     
+Nebraska ......:      35             35             80            120            140            (D)            (D)             410     
+Texas .........:     130             70             65             40             15            (D)            (D)             320     
+               :                                                                                                                       
+Other States ..:      80             40             55             87             70            (D)            (D)             332     
+               :                                                                                                                       
+United States .:     320            240            355            387            (X)            230             85           1,617     
+---------------------------------------------------------------------------------------------------------------------------------------
+(D) Withheld to avoid disclosing data for individual operations.                                                                       
+(X) Not applicable.                                                                                                                    
+1/  The 900 pounds and greater weight group is the sum of 900-999 pounds and 1,000 pounds and greater weight groups.                   
+
+Cattle Marketed on 1,000+ Capacity Feedlots by Month - States and United States:
+2025 and 2026
+---------------------------------------------------------------------------------------------
+                  :              :              :             During August 2026             
+                  :    During    :    During    :--------------------------------------------
+       State      : August 2025  :  July 2026   :              :  Percent of  :  Percent of  
+                  :              :              :  Marketings  :previous year :previous month
+---------------------------------------------------------------------------------------------
+                  :    ------------ 1,000 head -----------           ----- percent ----      
+                  :                                                                          
+Arizona ..........:       19             16             16            84            100      
+California .......:       45             59             50           111             85      
+Colorado .........:      125            105            110            88            105      
+Idaho ............:       39             42             43           110            102      
+Iowa .............:       63             63             59            94             94      
+Kansas ...........:      385            405            370            96             91      
+Nebraska .........:      425            435            400            94             92      
+Oklahoma .........:       43             42             36            84             86      
+South Dakota .....:       22             30             23           105             77      
+Texas ............:      320            330            320           100             97      
+Washington .......:       30             36             32           107             89      
+                  :                                                                          
+Other States .....:       55             57             60           109            105      
+                  :                                                                          
+United States ....:    1,571          1,620          1,519            97             94      
+---------------------------------------------------------------------------------------------
+
+Cattle Other Disappearance on 1,000+ Capacity Feedlots by Month - States and United States:
+2025 and 2026
+---------------------------------------------------------------------------------------------
+                  :              :              :             During August 2026             
+                  :    During    :    During    :--------------------------------------------
+       State      : August 2025  :  July 2026   :    Other     :  Percent of  :  Percent of  
+                  :              :              :disappearance :previous year :previous month
+---------------------------------------------------------------------------------------------
+                  :      ---------- 1,000 head ----------            ----- percent ----      
+                  :                                                                          
+Arizona ..........:       1              1              1            100            100      
+California .......:       6              4              4             67            100      
+Colorado .........:       5              5              5            100            100      
+Idaho ............:       1              1              2            200            200      
+Iowa .............:       2              2              2            100            100      
+Kansas ...........:      10             10             10            100            100      
+Nebraska .........:      10             15             10            100             67      
+Oklahoma .........:       1              2              2            200            100      
+South Dakota .....:       1              1              2            200            200      
+Texas ............:      10             10             10            100            100      
+Washington .......:       1              1              1            100            100      
+                  :                                                                          
+Other States .....:       3              3              3            100            100      
+                  :                                                                          
+United States ....:      51             55             52            102             95      
+---------------------------------------------------------------------------------------------
+
+Terms and Definitions of Cattle on Feed Estimates
+
+Cattle on feed are steers and heifers being fed a ration of grain, silage, 
+hay and/or protein supplement for slaughter market that are expected to 
+produce a carcass that will grade select or better. It excludes cattle being 
+"backgrounded only" for later sale as feeders or later placement in another 
+feedlot.
+
+Placements are steers and heifers put into a feedlot, fed a ration which will 
+produce a carcass that will grade select or better, and are intended for the 
+slaughter market.
+
+Marketings are steers and heifers shipped out of feedlots to a slaughter 
+market.
+
+Other disappearance includes death loss, movement from feedlots to pasture, 
+and shipments to other feedlots for further feeding.
+
+Statistical Methodology
+
+Survey Procedures: During January and July all known feedlots in the United 
+States with capacity of 1,000 or more head are surveyed to provide data for 
+cattle on feed estimates. During the other months, all known feedlots from 16 
+States are surveyed. The 16 States account for approximately 98 percent of 
+the cattle on feed in feedlots with capacity of 1,000 or more head. 
+Individual State estimates are published monthly for 11 of the 16 States. 
+Data collected from the remaining 5 States are used to establish the "Other 
+States" estimates. These 5 States include Illinois, Minnesota, New Mexico, 
+Oregon, and Wyoming. The "Other States" category represents all cattle on 
+feed with a capacity of 1,000 or more head for the rest of the United States.
+
+Estimating Procedures: These cattle on feed estimates were prepared by the 
+Agricultural Statistics Board after reviewing recommendations and analysis 
+submitted by Regional Field Offices. Regional and State survey data were 
+reviewed for reasonableness with each other and with estimates from the 
+previous month when establishing the current estimates.
+
+Revision Policy: Revisions to previous estimates are made to improve month-
+to-month relationships. Estimates for the previous month are subject to 
+revision in all States each month when current estimates are made. In 
+February, all monthly estimates for the previous year, and the number of 
+feedlots and annual marketings from two years ago are reviewed and subject to 
+revisions. The reviews are primarily based on slaughter data, state check-off 
+or brand data, and any other data that may have been received after the 
+original estimate was made. Estimates will also be reviewed after data from 
+the Census of Agriculture are available. No revisions will be made after that 
+date and estimates become final.
+
+Reliability: Since all 1,000+ capacity cattle on feed operators in every 
+State are not included in the monthly survey, survey estimates are subject to 
+sampling variability. Survey results are also subject to non-sampling errors 
+such as omissions, duplications, and mistakes in reporting, recording, and 
+processing the data. The effects of these errors cannot be measured directly. 
+They are minimized through rigid quality controls in the data collection 
+process and through a careful review of all reported data for consistency and 
+reasonableness.
+ 
+To assist users in evaluating the reliability of estimates in this report, 
+the "Root Mean Square Error" is shown for selected items in the table on the 
+following page. The "Root Mean Square Error" is a statistical measure based 
+on past performance and is computed using the differences between first and 
+latest estimates. The "Root Mean Square Error" for cattle on feed inventory 
+estimates over the past 24 months is 0.0 percent. This means that chances are 
+2 out of 3 that the final estimate will not be above or below the current 
+estimate of 11.2 million head by more than 0.0 percent. Chances are 9 out of 
+10 that the difference will not exceed 0.1 percent.
+
+The table on the following page shows a 24-month record of the range of 
+differences between first and latest estimates for selected items. Using 
+estimates of number on feed as an example, changes between the first estimate 
+and the latest estimate during the past 24 months have averaged 1,000 head, 
+ranging from 0 to 20,000 head. During this period the initial estimate has 
+been above the latest estimate 1 time and has been below the latest estimate 
+2 times. This does not imply that the initial estimate is likely to 
+understate or overstate final inventory.
+
+Reliability of Monthly Cattle on Feed Estimates
+[Based on data for the past 24 months]
+--------------------------------------------------------------------------------------------------------------------------
+                              :  Root mean   :  90 percent  :        Difference between first and latest estimate         
+                              : square error :  confidence  :         :         :         :               :               
+                              :              :    level     :-------------------------------------------------------------
+             Item             :              :              :         :         :         :            Months             
+                              :              :              :         :         :         :-------------------------------
+                              :              :              : Average :Smallest : Largest : Below latest  : Above latest  
+--------------------------------------------------------------------------------------------------------------------------
+                              :   percent        percent         ------- 1,000 -------            ----- number ----       
+                              :                                                                                           
+On feed ......................:     0.0            0.1           1         0        20            2               1       
+                              :                                                                                           
+Placements ...................:     0.2            0.3           1         0        20            7               2       
+                              :                                                                                           
+Marketings ...................:     0.0            0.1           0         0         2            5               1       
+--------------------------------------------------------------------------------------------------------------------------
+
+USDA National Agricultural Statistics Service - Estimation Branch Contacts
+
+For more information about specific data items, please contact the Estimation Branch staff members below. You can also email inquiries to 
+nass@usda.gov.
+
+Anthony Prillaman, Associate Deputy Administrator............................................................................... (202) 720-2127
+
+Darin Jantzi, Section Chief   (701) 412-5953
+
+Broiler Hatchery, Chicken Hatchery, Eggs, Hogs and Pigs, Layers, Sheep and Goats
+
+Jeff Lemmons, Section Chief   (202) 973-3272
+
+Cattle, Cattle on Feed, Capacity of Refrigerated Warehouses, Cold Storage
+
+Fleming Gibson, Section Chief (Acting)   (202) 236-2428
+
+Catfish, Census of Aquaculture, Dairy Products, Livestock Slaughter, Poultry Slaughter, Trout, Turkey Hatchery, Turkey Raised
+
+Julie Weber, Section Chief   (202) 317-0165
+
+Cost of Pollination, Egg Products, Honey, Honey Bee Colonies, Milk Production
+
+Access to NASS Reports
+
+For your convenience, you may access NASS reports and products the following 
+ways:
+
+ 	All reports are available electronically, at no cost, on the NASS web 
+site: www.nass.usda.gov.
+
+ 	The national specific reports are available via a free e-mail 
+subscription. To set-up this free subscription, visit www.nass.usda.gov 
+and click on "National" in upper right corner above "search" box to 
+create an account and select the reports you would like to receive.
+
+ 	Economics, Statistics, and Market Information (ESMIS) - National 
+Agricultural Library (NAL) website houses NASS's and other agency 
+archived reports at https://esmis.nal.usda.gov. All email subscriptions 
+containing reports will be sent from https://esmis.nal.usda.gov. To 
+receive the reports via e-mail, you will have to go to the website, 
+create a new account and subscribe to the reports. You should whitelist 
+notifications@esmis.nal.usda.gov in your email client to avoid the 
+emails going into spam/junk folders. 
+
+For more information on NASS surveys and reports, call the NASS Agricultural 
+Statistics Hotline at (800) 727-9540, 7:30 a.m. to 4:00 p.m. ET, or e-mail: 
+nass@usda.gov. 
+
+If you have specific questions you would like an expert to respond to, please 
+visit our "Ask A Specialist" website at 
+www.nass.usda.gov/Contact_Us/Ask_a_Specialist. 
+In accordance with Federal civil rights law and U.S. Department of 
+Agriculture (USDA) civil rights regulations and policies, the USDA, its 
+Agencies, offices, and employees, and institutions participating in or 
+administering USDA programs are prohibited from discriminating based on race, 
+color, national origin, religion, sex, disability, age, marital status, 
+family/parental status, income derived from a public assistance program, 
+political beliefs, or reprisal or retaliation for prior civil rights 
+activity, in any program or activity conducted or funded by USDA (not all 
+bases apply to all programs). Remedies and complaint filing deadlines vary by 
+program or incident.
+Persons with disabilities who require alternative means of communication for 
+program information (e.g., Braille, large print, audiotape, American Sign 
+Language, etc.) should contact the responsible Agency or USDA's TARGET Center 
+at (202) 720-2600 (voice and TTY) or contact USDA through the Federal Relay 
+Service at (800) 877-8339. Additionally, program information may be made 
+available in languages other than English.
+To file a program discrimination complaint, complete the USDA Program 
+Discrimination Complaint Form, AD-3027, found online at How to File a Program 
+Discrimination Complaint and at any USDA office or write a letter addressed 
+to USDA and provide in the letter all of the information requested in the 
+form. To request a copy of the complaint form, call (866) 632-9992. Submit 
+your completed form or letter to USDA by: (1) mail: U.S. Department of 
+Agriculture, Office of the Assistant Secretary for Civil Rights, 1400 
+Independence Avenue, SW, Washington, D.C. 20250-9410; (2) fax: (202) 690-
+7442; or (3) email: program.intake@usda.gov.
+USDA is an equal opportunity provider, employer, and lender.
+

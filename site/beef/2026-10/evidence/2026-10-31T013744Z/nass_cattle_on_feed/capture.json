@@ -1,0 +1,26 @@
+{
+ "captured_at": "2026-10-31T01:37:59+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 35169,
+   "content_type": "text/plain; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-10-31T01:37:59+00:00",
+   "final_url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd1026.txt",
+   "headers_path": "beef/captures/2026-10-31T013744Z/nass_cattle_on_feed/txt.headers.txt",
+   "http_status": 200,
+   "name": "txt",
+   "path": "beef/captures/2026-10-31T013744Z/nass_cattle_on_feed/txt.txt",
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY_PREV}.txt",
+   "resolved_url": "https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd1026.txt",
+   "sha256": "bf7d6093f38e8c9b88f2089795c13dd04e72f375dba7c15fdc9427cf525594b5",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: cattle on feed, placements, marketings)",
+ "run_id": "2026-10-31T013744Z",
+ "source_id": "nass_cattle_on_feed",
+ "source_name": "USDA NASS: Cattle on Feed (monthly, text)",
+ "status": "OK"
+}
