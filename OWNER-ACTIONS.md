@@ -21,7 +21,8 @@ One per sitting. Four drafts reviewed in one evening is how the review becomes
 a rubber stamp. Done when all four have a published edition.
 Pork Monitor Issue 1 published 2026-10-25 (commit 1cac779, on the
 2026-10-18 run). Cheddar Check Issue 1 published 2026-11-02 (commit bd2141d,
-on the 2026-10-18 run). Next: Chicken Monitor, in a later sitting.
+on the 2026-10-18 run). Chicken Monitor Issue 1 published 2026-11-02 (commit
+051db89, on the 2026-10-18 run). Next: Beef Monitor, in a later sitting.
 Gate: open. FA-D-20261018-01 superseded the measured-quarter limb of
 FA-D-20260923-04 on 2026-10-18.
 
@@ -45,9 +46,9 @@ repository and say which have gone stale rather than trusting them.
 - Published: Lobster Monitor Issue 0 (2026-09-25) and Issue 1 (2026-10-18,
   version 1.1 after a same-day correction); Egg & Butter Brief Issue 1
   (2026-10-18, version 1.0); Pork Monitor Issue 1 (2026-10-25, version 1.0);
-  Cheddar Check Issue 1 (2026-11-02, version 1.0). Five published editions
-  across four titles.
-- Computed but unpublished: a 2026-10 issue for each of chicken and beef. The 2026-09-baseline scaffolds of those four and of egg-butter do
+  Cheddar Check Issue 1 (2026-11-02, version 1.0); Chicken Monitor Issue 1
+  (2026-11-02, version 1.0). Six published editions across five titles.
+- Computed but unpublished: a 2026-10 issue for beef. The 2026-09-baseline scaffolds of those four and of egg-butter do
   not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
 - All six titles are in `RUN.titles`, so the monthly job computes numbers for
@@ -62,8 +63,9 @@ repository and say which have gone stale rather than trusting them.
 Not actions. Carry these into the prose when each title is written.
 
 - **Chicken.** The report 3649 wholesale series carries no year-over-year until
-  the record holds twelve months; earliest reading is 2026-08, so roughly
-  August 2027. Month-over-month works now.
+  the record holds the same reporting month a year apart; earliest reading is
+  2026-08, so the first comparison is the August 2027 block, in the report
+  due about the start of September 2027. Month-over-month works now.
 - **Cheddar.** Same for the CME reprint, roughly September 2027. The NDPSR
   500-pound barrel series has published no price since 2025-05-31 and is held
   as history, not a current price.
