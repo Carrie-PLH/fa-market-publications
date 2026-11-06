@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/lswwcbs.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 344282
+X-Content-Type-Options: nosniff
+Last-Modified: Mon, 02 Nov 2026 20:16:08 GMT
+ETag: "540da-65f50d0ff91ca"
+X-Varnish: 33227411 33227211
+Accept-Ranges: bytes
+Expires: Fri, 06 Nov 2026 23:07:00 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Fri, 06 Nov 2026 23:07:00 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.ed24c317.1794006420.6ebed933
