@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-11-06T23:06:19+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 2368,
+   "content_type": "text/plain",
+   "error": null,
+   "fetched_at": "2026-11-06T23:06:19+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/nw_py002.txt",
+   "headers_path": "chicken/captures/2026-11-06T230615Z/ams_broiler_slaughter/txt.headers.txt",
+   "http_status": 200,
+   "name": "txt",
+   "path": "chicken/captures/2026-11-06T230615Z/ams_broiler_slaughter/txt.txt",
+   "requested_url": "https://www.ams.usda.gov/mnreports/nw_py002.txt",
+   "sha256": "687e86cc7ec1e0e61ea9f64da584f53258d6047ef8bbc955a11492c74eb5e2f7",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: head slaughtered and average live weight)",
+ "run_id": "2026-11-06T230615Z",
+ "source_id": "ams_broiler_slaughter",
+ "source_name": "USDA AMS: Weekly Young Chickens Slaughtered Under Federal Inspection (NW_PY002)",
+ "status": "OK"
+}
