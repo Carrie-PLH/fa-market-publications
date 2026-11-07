@@ -1,0 +1,39 @@
+{
+ "captured_at": "2026-11-07T13:17:02+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 4850931,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-11-07T13:17:02+00:00",
+   "final_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+   "headers_path": "beef/captures/2026-11-07T131655Z/ams_fed_cattle/json.headers.txt",
+   "http_status": 200,
+   "name": "json",
+   "path": "beef/captures/2026-11-07T131655Z/ams_fed_cattle/json.json",
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+   "sha256": "fc3aa488729529cb0c45b6f33c050890985e711db6bb88a1f3d16b76f20cfa25",
+   "status": "OK"
+  },
+  {
+   "bytes": 443352,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-11-07T13:17:05+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_2700.pdf",
+   "headers_path": "beef/captures/2026-11-07T131655Z/ams_fed_cattle/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "beef/captures/2026-11-07T131655Z/ams_fed_cattle/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/AMS_2700.pdf",
+   "sha256": "d9679d313b3160c8fd04c3d5dbca46137075e88230eba52d0b520f5fc3edac39",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly weighted-average fed cattle price under mandatory price reporting)",
+ "run_id": "2026-11-07T131655Z",
+ "source_id": "ams_fed_cattle",
+ "source_name": "USDA AMS: National Weekly Fed Cattle Comprehensive (Datamart report 2700)",
+ "status": "OK"
+}

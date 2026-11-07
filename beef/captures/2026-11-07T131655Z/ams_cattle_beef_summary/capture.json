@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-11-07T13:17:16+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 344282,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-11-07T13:17:16+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/lswwcbs.pdf",
+   "headers_path": "beef/captures/2026-11-07T131655Z/ams_cattle_beef_summary/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "beef/captures/2026-11-07T131655Z/ams_cattle_beef_summary/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/LSWWCBS.pdf",
+   "sha256": "cf5eac7baac4ceb6270cea36bf0425a777a82d5c44d55baad6ab51dd2eab8fee",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (weekly narrative; retained, not parsed)",
+ "run_id": "2026-11-07T131655Z",
+ "source_id": "ams_cattle_beef_summary",
+ "source_name": "USDA AMS: National Weekly Cattle and Beef Summary (PDF)",
+ "status": "OK"
+}

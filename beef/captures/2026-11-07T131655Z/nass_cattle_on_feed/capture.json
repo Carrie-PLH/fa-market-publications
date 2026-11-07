@@ -1,0 +1,54 @@
+{
+ "captured_at": "2026-11-07T13:17:07+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 98449,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-07T13:17:07+00:00",
+   "final_url": "https://esmis.nal.usda.gov/publication/cattle-feed",
+   "headers_path": "beef/captures/2026-11-07T131655Z/nass_cattle_on_feed/landing.headers.txt",
+   "http_status": 200,
+   "name": "landing",
+   "path": "beef/captures/2026-11-07T131655Z/nass_cattle_on_feed/landing.html",
+   "requested_url": "https://esmis.nal.usda.gov/publication/cattle-feed",
+   "sha256": "f6e1c0533e6290fec4b6fdadfd8288e2bfcf082c73bcf35588fd0388c93e3624",
+   "status": "OK"
+  },
+  {
+   "bytes": 35169,
+   "content_type": "text/plain",
+   "error": null,
+   "fetched_at": "2026-11-07T13:17:09+00:00",
+   "final_url": "https://esmis.nal.usda.gov/sites/default/release-files/796119/cofd1026.txt",
+   "headers_path": "beef/captures/2026-11-07T131655Z/nass_cattle_on_feed/archive_txt.headers.txt",
+   "http_status": 200,
+   "name": "archive_txt",
+   "path": "beef/captures/2026-11-07T131655Z/nass_cattle_on_feed/archive_txt.txt",
+   "requested_url": "FOLLOW:landing:re:release-files/.*cofd({MMYY}|{MMYY_PREV}|{MMYY_PREV2})\\.txt",
+   "resolved_url": "https://esmis.nal.usda.gov/sites/default/release-files/796119/cofd1026.txt",
+   "sha256": "bf7d6093f38e8c9b88f2089795c13dd04e72f375dba7c15fdc9427cf525594b5",
+   "status": "OK"
+  },
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "not tried: 'archive_txt' fetched OK",
+   "fetched_at": null,
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "txt",
+   "path": null,
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY_PREV}.txt",
+   "sha256": null,
+   "status": "SKIPPED"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: cattle on feed, placements, marketings)",
+ "run_id": "2026-11-07T131655Z",
+ "source_id": "nass_cattle_on_feed",
+ "source_name": "USDA NASS: Cattle on Feed (monthly, text)",
+ "status": "OK"
+}

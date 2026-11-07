@@ -1,0 +1,39 @@
+{
+ "captured_at": "2026-11-07T13:16:57+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 1219132,
+   "content_type": "application/json",
+   "error": null,
+   "fetched_at": "2026-11-07T13:16:57+00:00",
+   "final_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2461/Weekly%20Average%20Cutout%20Values",
+   "headers_path": "beef/captures/2026-11-07T131655Z/ams_boxed_beef/json.headers.txt",
+   "http_status": 200,
+   "name": "json",
+   "path": "beef/captures/2026-11-07T131655Z/ams_boxed_beef/json.json",
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2461/Weekly%20Average%20Cutout%20Values",
+   "sha256": "cabe00e33bdb29d3457091655e95f22df265f0c264f8e6f68d3dd9c696973fd6",
+   "status": "OK"
+  },
+  {
+   "bytes": 334976,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-11-07T13:17:00+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_2461.pdf",
+   "headers_path": "beef/captures/2026-11-07T131655Z/ams_boxed_beef/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "beef/captures/2026-11-07T131655Z/ams_boxed_beef/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/AMS_2461.pdf",
+   "sha256": "b9442c47354dbbe46419fd21226a8d31ee245c993553463d1701b700c6532023",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly cutout value under mandatory price reporting, USD per cwt)",
+ "run_id": "2026-11-07T131655Z",
+ "source_id": "ams_boxed_beef",
+ "source_name": "USDA AMS: National Weekly Boxed Beef Cutout and Boxed Beef Cuts, negotiated sales (Datamart report 2461)",
+ "status": "OK"
+}
