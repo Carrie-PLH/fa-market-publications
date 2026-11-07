@@ -460,7 +460,10 @@ def _nass_years(block):
 
 
 def p_nass_ckeg_txt(rec, src, args):
-    f, body = read_fetch(rec, "txt")
+    # NASS serves this report from Todays_Reports only for a window after each
+    # monthly release, then it ages out; the ESMIS archive keeps every release.
+    # Whichever copy is present is read, and the row names it.
+    used, f, body = read_fetch_first(rec, ["txt", "archive_txt"])
     text = body.decode("utf-8", "ignore")
     rel = re.search(r"Released ([A-Z][a-z]+ \d{1,2}, \d{4})", text)
     note = f"NASS release {rel.group(1) if rel else 'date not found'}"
@@ -481,7 +484,7 @@ def p_nass_ckeg_txt(rec, src, args):
             out.append(dict(series_id="nass_layers_avg_thousand",
                             series_title="USDA NASS Chickens and Eggs: average layers during the month, U.S. (1,000 layers)",
                             period=f"{y}-{mo:02d}", value=float(val.replace(",", "")), unit="1,000 layers",
-                            evidence_fetch="txt", notes=note)); n += 1
+                            evidence_fetch=used, notes=note)); n += 1
     # table egg production: six columns, table eggs are columns 3 and 4
     blk = _nass_table(text, "Egg Production During the Month by Type - United States")
     years = _nass_years(blk)[:2]
@@ -503,7 +506,7 @@ def p_nass_ckeg_txt(rec, src, args):
             out.append(dict(series_id="nass_table_egg_production_million",
                             series_title="USDA NASS Chickens and Eggs: table egg production during the month, U.S. (million eggs)",
                             period=f"{y}-{mo:02d}", value=float(val.replace(",", "")), unit="million eggs",
-                            evidence_fetch="txt", notes=note)); n += 1
+                            evidence_fetch=used, notes=note)); n += 1
     if n < 20:
         raise ParseFailure(f"NASS: only {n} rows parsed")
     return out
@@ -864,7 +867,10 @@ def p_nass_cattle_on_feed_txt(rec, src, args):
     An item whose month is later in the year than the table's month belongs to
     the year before the column's year, which is how a January table reports the
     previous December."""
-    f, body = read_fetch(rec, "txt")
+    # NASS serves this report from Todays_Reports only for a window after each
+    # monthly release, then it ages out; the ESMIS archive keeps every release.
+    # Whichever copy is present is read, and the row names it.
+    used, f, body = read_fetch_first(rec, ["txt", "archive_txt"])
     text = body.decode("utf-8", "ignore")
     note = _nass_release_note(text)
     lines = text.splitlines()
@@ -895,7 +901,7 @@ def p_nass_cattle_on_feed_txt(rec, src, args):
                     out.append(dict(series_id=sid, series_title=title,
                                     period=f"{yy}-{mo:02d}",
                                     value=float(r.group(col).replace(",", "")),
-                                    unit="1,000 head", evidence_fetch="txt",
+                                    unit="1,000 head", evidence_fetch=used,
                                     notes=f"{note}; table as of {tm.group(1)} 1; "
                                           f"NASS states the later year as "
                                           f"{r.group('pct') or 'not given'} percent of the earlier"))

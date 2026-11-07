@@ -112,13 +112,24 @@
    "label": "OFFICIAL STATISTIC (supply: cattle on feed, placements, marketings)",
    "tier": "official",
    "added": "2026-09-23",
-   "why": "Cattle on feed, placements and marketings for feedlots of 1,000 head or more, both years side by side with NASS's own percent-of-previous-year column. Placements today are the fed cattle supply five or six months from now, which is the supply story behind a beef price claim. File name carries the release month, so the current and prior months are tried in turn.",
+   "why": "Cattle on feed, placements and marketings for feedlots of 1,000 head or more, both years side by side with NASS's own percent-of-previous-year column. Placements today are the fed cattle supply five or six months from now, which is the supply story behind a beef price claim. NASS serves it from Todays_Reports only for a window after each monthly release and then it ages out, so from 2026-11-07 the ESMIS archive on the publication page named in page_url, which keeps every release, is fetched first and the Todays_Reports candidates only when the archive fetch fails (fallback_for). A run that reads the archive is OK; PARTIAL means the archive failed and the Todays_Reports copy was read; FAILED means neither arrived. The file is the same report either way. The archive page lists releases newest first, so the follow takes the most recent release available.",
    "page_url": "https://esmis.nal.usda.gov/publication/cattle-feed",
    "fetches": [
     {
+     "name": "landing",
+     "url": "https://esmis.nal.usda.gov/publication/cattle-feed",
+     "ext": "html"
+    },
+    {
+     "name": "archive_txt",
+     "url": "FOLLOW:landing:re:release-files/.*cofd({MMYY}|{MMYY_PREV}|{MMYY_PREV2})\\.txt",
+     "ext": "txt"
+    },
+    {
      "name": "txt",
      "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY_PREV}.txt",
-     "ext": "txt"
+     "ext": "txt",
+     "fallback_for": "archive_txt"
     }
    ],
    "parser": "nass_cattle_on_feed_txt",
