@@ -1,0 +1,35 @@
+{
+ "entry": {
+  "file_count": 1611,
+  "id": "2026-11-07T131842Z",
+  "manifest_file": "manifests/2026-11-07T131842Z.txt",
+  "manifest_sha256": "79429b778c955f6b1fef6a3e88405e945ee0bb2c8f8ebaeff5634beb3d6c7a09",
+  "note": "NASS archive fallback for cattle-on-feed and chickens-and-eggs; recovery runs 2026-11-07",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "lobster/observations/captures",
+   "lobster/observations/data",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "6a05eadf689f6166181f494f16ae7838c0347687dbda9d7271901ef15682dab2",
+  "repo": "fa-market-publications",
+  "utc": "2026-11-07T13:18:42+00:00"
+ },
+ "entry_sha256": "1a351095b72e16a35bb3f3a8dc82ede8d00899bc42d14ea0954d9934a9bb984e"
+}
