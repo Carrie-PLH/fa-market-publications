@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-11-13T23:06:44+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 65944,
+   "content_type": "text/csv; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-13T23:06:44+00:00",
+   "final_url": "https://www.ers.usda.gov/media/5024/retail-prices-for-beef-pork-poultry-cuts-eggs-and-dairy-products.csv",
+   "headers_path": "chicken/captures/2026-11-13T230637Z/ers_retail_broiler/csv.headers.txt",
+   "http_status": 200,
+   "name": "csv",
+   "path": "chicken/captures/2026-11-13T230637Z/ers_retail_broiler/csv.csv",
+   "requested_url": "https://www.ers.usda.gov/media/5024/retail-prices-for-beef-pork-poultry-cuts-eggs-and-dairy-products.csv",
+   "sha256": "170b467f14dfedb21ab3820ef6c475d521877ab32c7085322671aad56c8e7336",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (wholesale and retail broiler composite, cents per lb)",
+ "run_id": "2026-11-13T230637Z",
+ "source_id": "ers_retail_broiler",
+ "source_name": "USDA ERS: Retail prices for beef, pork, poultry cuts, eggs and dairy products (CSV)",
+ "status": "OK"
+}
