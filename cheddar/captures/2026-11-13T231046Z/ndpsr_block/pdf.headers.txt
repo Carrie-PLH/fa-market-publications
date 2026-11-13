@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 412112
+X-Content-Type-Options: nosniff
+Last-Modified: Thu, 12 Nov 2026 19:50:29 GMT
+ETag: "649d0-660199fb0a727"
+X-Varnish: 44446220
+Accept-Ranges: bytes
+Expires: Fri, 13 Nov 2026 23:11:37 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Fri, 13 Nov 2026 23:11:37 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.cb3a2217.1794611497.b8c6c33

@@ -1,0 +1,41 @@
+{
+ "captured_at": "2026-11-13T23:10:49+00:00",
+ "errors": [
+  "json: TimeoutError('The read operation timed out')"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "TimeoutError('The read operation timed out')",
+   "fetched_at": "2026-11-13T23:10:49+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "json",
+   "path": null,
+   "requested_url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/40%20Pound%20Block%20Cheddar%20Cheese%20Prices%20and%20Sales",
+   "sha256": null,
+   "status": "FAILED"
+  },
+  {
+   "bytes": 412112,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-11-13T23:11:36+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+   "headers_path": "cheddar/captures/2026-11-13T231046Z/ndpsr_block/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "cheddar/captures/2026-11-13T231046Z/ndpsr_block/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+   "sha256": "4651683f36fe4c98151e5c7990661e4ebf41efe75d2e928b0c240a9bcf0da16b",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (weekly weighted-average wholesale price under mandatory reporting, USD per lb)",
+ "run_id": "2026-11-13T231046Z",
+ "source_id": "ndpsr_block",
+ "source_name": "USDA AMS: National Dairy Products Sales Report, 40-pound block cheddar (Datamart report 2993)",
+ "status": "PARTIAL"
+}
