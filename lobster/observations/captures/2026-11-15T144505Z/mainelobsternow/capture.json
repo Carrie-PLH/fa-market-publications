@@ -1,0 +1,48 @@
+{
+ "captured_at": "2026-11-15T14:46:47+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 699473,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:46:47+00:00",
+   "final_url": "https://www.mainelobsternow.com/collections/live-lobster",
+   "headers_path": "captures/2026-11-15T144505Z/mainelobsternow/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-11-15T144505Z/mainelobsternow/page.html",
+   "requested_url": "https://www.mainelobsternow.com/collections/live-lobster",
+   "sha256": "fcd681efbd59d72b8c118ecad1ba5e557238726dfeee45aca1ccad71835d2720",
+   "status": "OK"
+  },
+  {
+   "bytes": 1317258,
+   "content_type": "application/json; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:46:51+00:00",
+   "final_url": "https://www.mainelobsternow.com/collections/all/products.json?limit=250",
+   "headers_path": "captures/2026-11-15T144505Z/mainelobsternow/products.headers.txt",
+   "http_status": 200,
+   "name": "products",
+   "path": "captures/2026-11-15T144505Z/mainelobsternow/products.json",
+   "requested_url": "https://www.mainelobsternow.com/collections/all/products.json?limit=250",
+   "sha256": "80192d732df1c6b3ea16b615a67459a95d4db522192f0445867f528bb91d47c4",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 6973970,
+   "note": "",
+   "path": "captures/2026-11-15T144505Z/mainelobsternow/page.png",
+   "sha256": "f5d36973ac18a876ae2a22c126ef3a452120fa072324154184ede2c585e3e6b2",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-11-15T144505Z",
+ "source_id": "mainelobsternow",
+ "source_name": "Maine Lobster Now (Saco, ME)",
+ "status": "OK"
+}

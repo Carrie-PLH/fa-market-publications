@@ -1,0 +1,37 @@
+# https://getmainelobster.com/products/live-maine-lobsters-1
+HTTP 200
+Date: Sun, 15 Nov 2026 14:46:33 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+link: </cart/32180533264499:1?ucp/version=2026-08-25>; rel="buy"; payment="com.google.pay dev.shopify.card dev.shopify.shop_pay", <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, <https://ajax.googleapis.com>; rel="preconnect", <https://fonts.googleapis.com>; rel="preconnect", <https://cdn.jsdelivr.net>; rel="preconnect", <//ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js>; as="script"; rel="preload", <https://fonts.googleapis.com/css2?family=Staatliches&display=swap>; as="style"; rel="preload", <//getmainelobster.com/cdn/shop/t/227/assets/section-main-product.css?v=129260852191357472841741776788>; as="style"; rel="preload", <//getmainelobster.com/cdn/shop/t/227/assets/section-main-product-custom.css?v=116672816880375604501792427508>; as="style"; rel="preload", <https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css>; as="style"; rel="preload", <https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js>; as="script"; rel="preload", <https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap>; as="style"; rel="preload", <https://cdn.shopify.com/extensions/01a1a3ca-2489-798b-98b1-3da8c4af9d6d/inveterate-147/assets/inveterate.css>; as="style"; rel="preload", <//getmainelobster.com/cdn/shop/files/GetMaineLobster.com_OnWhite_Logo.webp?v=1722605416&width=600>; as="image"; rel="preload"; imagesrcset="//getmainelobster.com/cdn/shop/files/GetMaineLobster.com_OnWhite_Logo.webp?v=1722605416&width=90 90w, //getmainelobster.com/cdn/shop/files/GetMaineLobster.com_OnWhite_Logo.webp?v=1722605416&width=135 135w, //getmainelobster.com/cdn/shop/files/GetMaineLobster.com_OnWhite_Logo.webp?v=1722605416&width=180 180w"; imagesizes="(max-width: 180px) 50vw, 90px", </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+product-filtering-backend: bitset_roaring
+X-Permitted-Cross-Domain-Policies: none
+etag: W/"sfr:computation:v2:f9a0e1fd0e15b3fc1e0db9bcbf7a4585408dbc7745ae40060ea84b974c66033e:97ca0a26477773353a75fa36b380292c"
+X-XSS-Protection: 1; mode=block
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+access-control-allow-origin: *
+strict-transport-security: max-age=7889238
+shopify-complexity-score: 340
+shopify-complexity-score-v2: 340
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+powered-by: Shopify
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+Cache-Control: private, max-age=0, must-revalidate
+X-Download-Options: noopen
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=F8YwXJqaVyBziJWviQx0njd5UqtGAM3t%2BAzEp3sMVVK%2FpMfdlYdQt1FMbeXgvwm9KypwN9EHln5H3Q5by020BfU3eupUag3A9tR4XyWCON05CVD%2BSRtK569EBgTYxr8eL4m%2Balw%3D"}]}
+cdn-cache-control: no-cache, no-store
+vary: Accept
+vary: accept-encoding
+server-timing: processing;dur=342, db;dur=244, render;dur=81, asn;desc="701", edge;desc="BOS", country;desc="US", theme;desc="175682617707", pageType;desc="product", servedBy;desc="pxqr", requestID;desc="8f857bcc-a6b3-4e27-a472-2a4634c35b8b-1794753993", _y;desc="54056afa-76e1-47a6-8586-a8e1c37af29c", _s;desc="803520dc-3797-4e2a-a731-ef4d4151e782", _cmp;desc="3.AMPS_USMA_f_f_Lv85SLYyRfGfGLlf8A3wpw", _ye;desc="1826311593", _se;desc="1794755793", compressionLevel;desc="5", compressionTime;dur=21.31
+x-request-id: 8f857bcc-a6b3-4e27-a472-2a4634c35b8b-1794753993
+X-Content-Type-Options: nosniff
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+Server: cloudflare
+Content-Encoding: gzip
+CF-RAY: a5af0bc94ff3ada8-BOS
+# 5 Set-Cookie header(s) redacted at capture

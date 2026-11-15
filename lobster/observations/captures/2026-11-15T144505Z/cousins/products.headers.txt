@@ -1,0 +1,35 @@
+# https://shop.cousinsmainelobster.com/collections/live-lobster/products.json?limit=250
+HTTP 200
+Date: Sun, 15 Nov 2026 14:47:08 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Permitted-Cross-Domain-Policies: none
+etag: W/"sfr:computation:v2:9f3b5caf3417efabfd1dd38221b483355ff2d441991e562d9dc62958fec8bacd"
+X-XSS-Protection: 1; mode=block
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+access-control-allow-origin: *
+strict-transport-security: max-age=7889238
+shopify-complexity-score: 40
+shopify-complexity-score-v2: 40
+content-language: en-US
+link: </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+powered-by: Shopify
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+X-Download-Options: noopen
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=r5uEbJcTjgUGoPbjh0bD3tENIiWRdlE06CtT7l7xJ%2BP%2BvuIGA7sja5TacIAZqZCphFXhRryq2PLSRynxEm%2F2fiwRtnWuwGNgFTXby8AiMqSoV%2BVv%2B4cCONUsBoCkriKMDwq3RtDMp8ZOC2ngmrIKUwMJi8eBLd%2BdXHI%3D"}]}
+cdn-cache-control: no-cache, no-store
+vary: Accept
+vary: accept-encoding
+server-timing: processing;dur=41, db;dur=33, asn;desc="701", edge;desc="BOS", country;desc="US", servedBy;desc="lz8h", requestID;desc="556d244c-77d2-4cbd-b53a-7d414983b142-1794754027", _y;desc="00000000-0000-0000-5000-000000000000", _s;desc="00000000-0000-0000-5000-000000000000", _cmp;desc="3.ampS_USMA_t_f_LLnL576OQiafZWorAOuQ-Q", _ye;desc="1826311627", _se;desc="1794755827", compressionLevel;desc="5", compressionTime;dur=0.878
+Server-Timing: ipv6
+x-request-id: 556d244c-77d2-4cbd-b53a-7d414983b142-1794754027
+X-Content-Type-Options: nosniff
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+Server: cloudflare
+Content-Encoding: gzip
+CF-RAY: a5af0ca288a90860-BOS
+# 2 Set-Cookie header(s) redacted at capture

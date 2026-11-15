@@ -1,0 +1,36 @@
+# https://shop.cousinsmainelobster.com/collections/live-lobster
+HTTP 200
+Date: Sun, 15 Nov 2026 14:47:04 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+x-request-id: b918058e-8a46-49e5-8f5a-bc0f5bf7653f-1794754024
+link: <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, <https://cmp.osano.com>; rel="preconnect", <https://cmp.osano.com/wZwvDsjnLI/1b9d26cc-9d75-412d-9ad2-80b9722b9f4b/osano.js>; as="script"; rel="preload", <//shop.cousinsmainelobster.com/cdn/shop/t/8/assets/theme.css?v=183419005554516032091787312081>; as="style"; rel="preload", <//shop.cousinsmainelobster.com/cdn/shop/t/8/assets/custom.css?v=147334128712486481571790833180>; as="style"; rel="preload", <https://cdn.shopify.com/extensions/01a1d0dd-ddad-763c-930a-f15627579d9f/klaviyo-email-marketing-82/assets/app.css>; as="style"; rel="preload", <https://shop.cousinsmainelobster.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css>; as="style"; rel="preload"; crossorigin, </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+product-filtering-backend: bitset_roaring
+X-Permitted-Cross-Domain-Policies: none
+etag: W/"sfr:computation:v2:09d3ab1a99a5838890f5a6da28bb499a6069be2e491b2b66d0dff4b12b841223:62b1a0a3e6f38515e1ba729bee211379"
+X-XSS-Protection: 1; mode=block
+cf-cache-status: DYNAMIC
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+strict-transport-security: max-age=7889238
+shopify-complexity-score: 147
+shopify-complexity-score-v2: 147
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+powered-by: Shopify
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Jw2YExj7TlVIIkLcM9KEutesHoNpk7v7UGEI7dTEqNXyD7MniyP3tFaUv389GDwRYVWGXXIU7JSJqMdpwdJyGegwPg9l5gb%2F7St2MxxlzZMEhQA4e5%2Fn8sRiEitw%2FFISAxLdnKaA4voIq0oDa901KOAMO2rIkgfnXTc%3D"}]}
+cdn-cache-control: no-cache, no-store
+vary: Accept
+vary: accept-encoding
+server-timing: processing;dur=149, db;dur=90, render;dur=37, asn;desc="701", edge;desc="BOS", country;desc="US", theme;desc="126327029808", pageType;desc="collection", servedBy;desc="8gf6", requestID;desc="b918058e-8a46-49e5-8f5a-bc0f5bf7653f-1794754024", _y;desc="00000000-0000-0000-5000-000000000000", _s;desc="00000000-0000-0000-5000-000000000000", _cmp;desc="3.ampS_USMA_t_f_OU-6hZ03R16TPL5IXQ5T-Q", _ye;desc="1826311624", _se;desc="1794755824", compressionLevel;desc="5", compressionTime;dur=9.261
+Server-Timing: ipv6
+Server: cloudflare
+alt-svc: h3=":443"; ma=86400
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+X-Download-Options: noopen
+X-Content-Type-Options: nosniff
+Content-Encoding: gzip
+CF-RAY: a5af0c8d1b8b8f65-BOS
+# 4 Set-Cookie header(s) redacted at capture
