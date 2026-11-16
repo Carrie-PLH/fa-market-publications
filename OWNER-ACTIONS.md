@@ -11,8 +11,26 @@ being readable.
 
 ## Outstanding
 
-Nothing outstanding as of 2026-11-02. All four October issues are published
-(Pork 2026-10-25; Cheddar, Chicken and Beef 2026-11-02).
+As of 2026-11-16.
+
+- **Write and review the five November issues.** `egg-butter`, `chicken`,
+  `beef`, `pork` and `cheddar` each have `issues/2026-11/` computed, checked
+  and anchored; none has `issue.md` or a reviewer line. Done when each carries
+  prose written against its own `numbers.md`, has been through the five-point
+  review in `CLAUDE.md`, and its `edition.json` has a version, a published date
+  and the reviewer line.
+- **Lobster's November issue waits on BLS.** `WPU02230503` newest month is
+  still 2026-09 against an expected 2026-10. Nothing to do: the routine now
+  fires on its own the first day on or after the 16th that the October reading
+  is in the record.
+- **Year-earlier values are missing across the November computed sets.** The
+  2025 lapse in appropriations reaches further than the CPI rows already noted
+  for pork and beef: `yoy_pct` is null in the November sets for pork, cheddar
+  and chicken too. Each issue's prose has to say which comparisons do not
+  exist rather than leave them out silently.
+- **`beef/sources.json` carries a superseded series-break date** and the words
+  "packer margins". The October review corrected the date to 2004 in
+  `methodology.md` and the source list was not updated. Done when it matches.
 
 ## Standing checks
 
@@ -28,7 +46,7 @@ nothing above is due.
 
 ## Where things stand
 
-Last updated 2026-11-02. The scheduled task should check these against the
+Last updated 2026-11-16. The scheduled task should check these against the
 repository and say which have gone stale rather than trusting them.
 
 - Published: Lobster Monitor Issue 0 (2026-09-25) and Issue 1 (2026-10-18,
@@ -38,11 +56,28 @@ repository and say which have gone stale rather than trusting them.
   (2026-11-02, version 1.0); Beef Monitor Issue 1 (2026-11-02, version 1.0,
   commit ae4f576, on the 2026-10-18 run). Seven published editions across six
   titles.
-- Computed but unpublished: no 2026-10 issue. The 2026-09-baseline scaffolds of
+- Computed but unpublished: the 2026-11 issues of egg-butter, chicken, beef,
+  pork and cheddar (computed 2026-11-16, anchored, check.py clean, no prose).
+  No 2026-10 issue. The 2026-09-baseline scaffolds of
   pork, cheddar, chicken, beef and egg-butter do not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
-- All six titles are in `RUN.titles`, so the monthly job computes numbers for
-  every title on the 18th. The weekly capture runs Fridays and covers all six.
+- The daily routine computed nothing between 2026-09-24 and 2026-11-16. Its due
+  gate in `tools/run.py` fired only while the expected PPI month was *missing*
+  on or after `earliest_day`, on the assumption that the routine's own fetch
+  would be the first to bring that month in. The weekly Friday capture fetches
+  BLS as well, so it filled the month before `earliest_day` arrived and closed
+  the window before it opened; `logs/launcher.log` carries 52 consecutive
+  "nothing due" lines. All seven published editions were computed by hand in a
+  session. Corrected 2026-11-16: the gate now requires the month to be
+  *present*, so the routine fires once the data is in the record whichever pass
+  put it there. One behaviour change follows. The routine no longer fetches
+  daily while waiting for a release, so the NOT_RELEASED branch is now only a
+  guard against a stale state read, and the weekly capture is what covers the
+  perishable sources during the wait.
+- All six titles are in `RUN.titles` with `earliest_day` 16, so the monthly job
+  computes numbers for a title on the first day on or after the 16th that the
+  expected PPI month is in the record. The weekly capture runs Fridays and
+  covers all six.
 - Reviewer line in use: "reviewed <date> Carrie Schluter".
 - Pork, cheddar, chicken and beef `methodology.md` each carry a "What the
   series actually price" section (2026-10-25), read off the retained captures

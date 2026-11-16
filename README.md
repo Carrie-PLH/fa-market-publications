@@ -9,11 +9,14 @@ Promise across all titles: a clear account of what's happening to food costs, an
 | Directory | Title | Status |
 |---|---|---|
 | `lobster/` | Lobster Monitor | Issue 0 and Issue 1 published |
-| `beef/` | Beef Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
-| `pork/` | Pork Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
-| `chicken/` | Chicken Monitor | Sources verified, baseline captured, Issue 0 scaffolded |
-| `egg-butter/` | Egg & Butter Brief | Issue 1 (October 2026) published |
-| `cheddar/` | Cheddar Check | Sources verified, baseline captured, Issue 0 scaffolded |
+| `beef/` | Beef Monitor | Issue 1 (October 2026) published; November numbers computed |
+| `pork/` | Pork Monitor | Issue 1 (October 2026) published; November numbers computed |
+| `chicken/` | Chicken Monitor | Issue 1 (October 2026) published; November numbers computed |
+| `egg-butter/` | Egg & Butter Brief | Issue 1 (October 2026) published; November numbers computed |
+| `cheddar/` | Cheddar Check | Issue 1 (October 2026) published; November numbers computed |
+
+`OWNER-ACTIONS.md` is the current state of play; this table is a summary and
+defers to it.
 
 The title gate in FA-D-20260923-01, as amended by -02 and -04, held a second title until Lobster Monitor shipped a post-baseline issue and every further title until the existing titles had shipped on cadence for one measured quarter. Issue 1 of Lobster Monitor published 2026-10-18 and the Egg & Butter Brief published its first issue the same day, which spent the first limb. FA-D-20261018-01 superseded the measured-quarter limb: the four remaining titles publish their October issues one at a time, each through the review step in `CLAUDE.md`, and none publishes before its methodology page carries the specifications for what its series actually price. The September baselines of these four titles and of the Egg & Butter Brief do not publish (owner decision, 2026-10-25): each title's first edition is its October issue, and the baselines were regenerated under current tooling and kept as scaffolds.
 
