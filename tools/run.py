@@ -2,11 +2,18 @@
 """One routine run for a Provision Record title: due check, fetch, parse, issue, anchor, preview, commit.
 
 Launched every day by launchd (tools/run-pass.sh). For each title listed in
-config.json RUN.titles it does nothing unless an issue is due: the record's
-newest month of the title's PPI series (RUN.<title>.ppi_series) is older than
-last month, today's day of month is at or past RUN.<title>.earliest_day, and
-no issues/<YYYY-MM>/ exists yet. BLS releases the PPI on a moving mid-month
-date, so the daily fire polls from earliest_day until the new month appears.
+config.json RUN.titles it does nothing unless an issue is due: the record
+holds last month for the title's PPI series (RUN.<title>.ppi_series), today's
+day of month is at or past RUN.<title>.earliest_day, and no issues/<YYYY-MM>/
+exists yet. BLS releases the PPI on a moving mid-month date, so the daily fire
+polls from earliest_day until the month is in the record, whoever put it there.
+
+Until 2026-11-16 this gate required the expected month to be MISSING, on the
+assumption that the routine's own fetch would be the first to bring it in. The
+weekly Friday capture fetches BLS too, so it filled the month before
+earliest_day and closed the window before it opened. The routine logged
+"nothing due" every day from 2026-09-24 to 2026-11-16 and never computed an
+issue; all seven published editions were computed by hand in a session.
 Lobster's earliest_day is the 16th so that both seller observation passes of
 the month (1st and 15th) are in the record before the numbers are computed.
 
@@ -74,7 +81,7 @@ def state(cfg):
         exists = (t.issues / issue_id / "numbers.json").exists()
         out["titles"][slug] = {"ppi_series": rc["ppi_series"], "newest_ppi_month": have, "earliest_day": rc["earliest_day"],
                                "issue_exists": exists,
-                               "due": (have or "") < expected and today.day >= rc["earliest_day"] and not exists}
+                               "due": (have or "") >= expected and today.day >= rc["earliest_day"] and not exists}
     out["due"] = any(v["due"] for v in out["titles"].values())
     return out
 
