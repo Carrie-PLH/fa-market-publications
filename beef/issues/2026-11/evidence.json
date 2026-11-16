@@ -1,0 +1,139 @@
+{
+ "issue": "2026-11",
+ "run_id": "2026-11-16T134136Z",
+ "captures": [
+  {
+   "source_id": "ams_boxed_beef",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2461/Weekly%20Average%20Cutout%20Values",
+   "fetched_at": "2026-11-16T13:41:38+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/ams_boxed_beef/json.json",
+   "sha256": "653c6a7666c7186258e7074960478152d0ee97f92dc75a8923efbffe3a03488b",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_boxed_beef",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2461.pdf",
+   "fetched_at": "2026-11-16T13:41:41+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/ams_boxed_beef/pdf.pdf",
+   "sha256": "db07488b208cd19737d9f4ac7e63e5cbd470d5a3a296d013ecdfd7462f3db79a",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_cattle_beef_summary",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/lswwcbs.pdf",
+   "fetched_at": "2026-11-16T13:41:58+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/ams_cattle_beef_summary/pdf.pdf",
+   "sha256": "3698bc1d498b41230f81a05d7f75f07a2c100bb4ab47c3d99da24cb5e0bdd222",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_fed_cattle",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average",
+   "fetched_at": "2026-11-16T13:41:43+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/ams_fed_cattle/json.json",
+   "sha256": "9eecd97768acb63c6cbfdd002fe7211e2521d4bb903a09185ac9359f237ab605",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_fed_cattle",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2700.pdf",
+   "fetched_at": "2026-11-16T13:41:46+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/ams_fed_cattle/pdf.pdf",
+   "sha256": "ecd3edb9b75f4c73728ab1eaaa71bd5aa7be65fd5c90d355cc045580d442b49b",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "series",
+   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "fetched_at": "2026-11-16T13:41:36+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/bls/series.json",
+   "sha256": "9cf8bc5a255b4324bec07d3b74b8b44384be7e8c5a55241802fcf34646d55375",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_cattle_on_feed",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://esmis.nal.usda.gov/publication/cattle-feed",
+   "fetched_at": "2026-11-16T13:41:49+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/nass_cattle_on_feed/landing.html",
+   "sha256": "ba4e2dcc1ae1031a4531fec911b1de4b1d7a57de055ef9bf6142e5dc625e7fed",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_cattle_on_feed",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "archive_txt",
+   "url": "https://esmis.nal.usda.gov/sites/default/release-files/796119/cofd1026.txt",
+   "fetched_at": "2026-11-16T13:41:51+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/nass_cattle_on_feed/archive_txt.txt",
+   "sha256": "bf7d6093f38e8c9b88f2089795c13dd04e72f375dba7c15fdc9427cf525594b5",
+   "status": "OK"
+  },
+  {
+   "source_id": "nass_cattle_on_feed",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "txt",
+   "url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/cofd{MMYY_PREV}.txt",
+   "fetched_at": null,
+   "path": null,
+   "sha256": null,
+   "status": "SKIPPED"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-11-16T13:41:53+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/usda_ers_fpo/landing.html",
+   "sha256": "d77e4cb4538770bdd94f32e8fd79f9304b5fdc8aa5e2536a54d5c204d177ff27",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-11-16T134136Z",
+   "role": "issue run",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=97887",
+   "fetched_at": "2026-11-16T13:41:55+00:00",
+   "path": "beef/captures/2026-11-16T134136Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "6f9746634862309d4e96352c9e6f759f22d9ffd2a2fdfcb83751bedb66ab37d1",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_fed_cattle",
+   "run_id": "2026-10-31T013744Z",
+   "role": "specification",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/ams_2700.pdf",
+   "fetched_at": "2026-10-31T01:37:55+00:00",
+   "path": "beef/captures/2026-10-31T013744Z/ams_fed_cattle/pdf.pdf",
+   "sha256": "297f39b9a4f0d2f850ab861a8098687b718a5a7793f01b8252ff59ee58ecc294",
+   "status": "OK"
+  }
+ ],
+ "retail_record": null
+}
