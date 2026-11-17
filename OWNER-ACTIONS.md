@@ -23,16 +23,9 @@ As of 2026-11-16.
   editor has read each one and its `edition.json` has a version, a published
   date and the reviewer line. Preview: `python3 tools/site.py --include-drafts
   --out site-preview`.
-- **Read and publish the two source-revision notes.** Chicken Monitor Issue 1
-  and Egg & Butter Brief Issue 1 each carry an appended note and are version
-  1.1, revised 2026-11-16, in the repository (owner instruction 2026-11-16).
-  The published text and tables are unchanged. Chicken: BLS September
-  WPU0141, 311.0 to 327.4, which takes the printed 5.0% fall to less than
-  0.1%. Egg & Butter: NDPSR butter for the week ending October 10, which turns
-  the printed 11.3% volume fall into a 1.2% rise, and NASS August layers and
-  table eggs. The live site still shows version 1.0 until `tools/publish.sh`
-  runs. Done when the editor has read both notes and the site is deployed.
-- **Decide whether beef and pork Issue 1 get the same.** Smaller: beef (BLS
+- **Decide whether beef and pork Issue 1 get source-revision notes.** Chicken
+  Monitor and Egg & Butter Brief Issue 1 got theirs as version 1.1 on
+  2026-11-16. These are smaller: beef (BLS
   September WPU02210133, 322.831 to 322.979; NASS September 1 inventory and
   August flows, 11,163 / 1,617 / 1,519 to 11,168 / 1,620 / 1,517) and pork
   (BLS September WPU02210444, 100.4 would print 100.5; percentages unchanged).
@@ -74,9 +67,9 @@ repository and say which have gone stale rather than trusting them.
 
 - Published: Lobster Monitor Issue 0 (2026-09-25) and Issue 1 (2026-10-18,
   version 1.1 after a same-day correction); Egg & Butter Brief Issue 1
-  (2026-10-18, version 1.0); Pork Monitor Issue 1 (2026-10-25, version 1.0);
+  (2026-10-18, version 1.1 after a source-restatement note on 2026-11-16); Pork Monitor Issue 1 (2026-10-25, version 1.0);
   Cheddar Check Issue 1 (2026-11-02, version 1.0); Chicken Monitor Issue 1
-  (2026-11-02, version 1.0); Beef Monitor Issue 1 (2026-11-02, version 1.0,
+  (2026-11-02, version 1.1 after a source-revision note on 2026-11-16); Beef Monitor Issue 1 (2026-11-02, version 1.0,
   commit ae4f576, on the 2026-10-18 run). Seven published editions across six
   titles.
 - Computed but unpublished: the 2026-11 issues of egg-butter, chicken, beef,
