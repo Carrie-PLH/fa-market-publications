@@ -42,7 +42,7 @@
    "label": "OFFICIAL STATISTIC (weekly cutout value under mandatory price reporting, USD per cwt)",
    "tier": "official",
    "added": "2026-09-23",
-   "why": "The boxed beef cutout is the wholesale value of a carcass broken into boxed cuts, and the number a distributor's own cost moves with. Reported weekly under mandatory price reporting, Choice and Select separately. The Datamart returns the whole series keyless, so a year-over-year comparison exists in the first issue. Note a break in the series: before roughly 2015 the report carried 600-750 and 750-900 pound carcass columns and now carries a single 600-900 pound column; the earlier columns are not the same measure and are parsed under their own series names.",
+   "why": "The boxed beef cutout is the wholesale value of a carcass broken into boxed cuts, and the number a distributor's own cost moves with. Reported weekly under mandatory price reporting, Choice and Select separately. The Datamart returns the whole series keyless, so a year-over-year comparison exists in the first issue. Note a break in the series: until the end of 2004 the report carried separate 600-750 and 750-900 columns; a single 600-900 column runs from January 2004. The report does not state what these ranges are measured in. The earlier columns are not the same measure and are parsed under their own series names.",
    "page_url": "https://mymarketnews.ams.usda.gov/viewReport/2461",
    "fetches": [
     {
@@ -76,7 +76,7 @@
    "label": "OFFICIAL STATISTIC (weekly weighted-average fed cattle price under mandatory price reporting)",
    "tier": "official",
    "added": "2026-09-23",
-   "why": "What packers paid for fed cattle, live and dressed, weighted by head, with the report's own week-over-week and year-over-year change. The input side of a boxed beef price: cattle and cutout moving apart is the packer's margin, and it is what a buyer is being told about when a supplier says the market moved. Steer and heifer, all grades, is the series quoted; the dairy-type rows are a different animal and stay separate. From 2026-10-25 the report's own PDF is retained beside the Datamart JSON, as report 2461's is, because the JSON states no covered week or purchase types and the PDF does: the week ending Sunday, purchases from 2pm the previous Monday to 10am the current Monday, negotiated, formula, contract and grid purchases included. The JSON's report_date is the day the report was published.",
+   "why": "What packers paid for fed cattle, live and dressed, weighted by head, with the report's own week-over-week and year-over-year change. The input side of a boxed beef price, and what a buyer is being told about when a supplier says the cattle market moved. The cutout less the dressed cattle price is reported as a derived arithmetic difference and never as anyone's margin, because this record has no access to what it costs anyone to convert a carcass into boxes. Steer and heifer, all grades, is the series quoted; the dairy-type rows are a different animal and stay separate. From 2026-10-25 the report's own PDF is retained beside the Datamart JSON, as report 2461's is, because the JSON states no covered week or purchase types and the PDF does: the week ending Sunday, purchases from 2pm the previous Monday to 10am the current Monday, negotiated, formula, contract and grid purchases included. The JSON's report_date is the day the report was published.",
    "page_url": "https://mymarketnews.ams.usda.gov/viewReport/2700",
    "fetches": [
     {
@@ -158,7 +158,7 @@
    "label": "OFFICIAL MARKET REPORT (weekly narrative; retained, not parsed)",
    "tier": "official",
    "added": "2026-09-23",
-   "why": "The week's narrative: slaughter levels, carcass weights, packer margins, demand by cut. Retained as evidence for the explanation section; figures quoted from it are entered by the editor and checked against the capture.",
+   "why": "A one-page summary of the week: the comprehensive boxed beef cutout and primal values (a different figure from report 2461's negotiated cutout), grade premiums and discounts, regional cattle prices, slaughter, weights and beef production, and grading percentages. Retained as evidence for the explanation section; figures quoted from it are entered by the editor and checked against the capture.",
    "page_url": "https://www.ams.usda.gov/market-news/weekly-and-monthly-beef-reports",
    "fetches": [
     {"name": "pdf", "url": "https://www.ams.usda.gov/mnreports/LSWWCBS.pdf", "ext": "pdf"}
