@@ -13,24 +13,42 @@ being readable.
 
 As of 2026-11-16.
 
-- **Write and review the five November issues.** `egg-butter`, `chicken`,
-  `beef`, `pork` and `cheddar` each have `issues/2026-11/` computed, checked
-  and anchored; none has `issue.md` or a reviewer line. Done when each carries
-  prose written against its own `numbers.md`, has been through the five-point
-  review in `CLAUDE.md`, and its `edition.json` has a version, a published date
-  and the reviewer line.
+- **Read and sign the five November issues.** `egg-butter`, `chicken`,
+  `beef`, `pork` and `cheddar` each have `issues/2026-11/issue.md` drafted
+  against its own `numbers.md` and put through an independent five-point
+  review on 2026-11-16 (every headline figure recalculated from the captures,
+  all matching; findings applied; `check.py` clean). Each `edition.json` is
+  `draft` with no version, published date or reviewer line, and its `notes`
+  list what the review changed and what is left for the editor. Done when the
+  editor has read each one and its `edition.json` has a version, a published
+  date and the reviewer line. Preview: `python3 tools/site.py --include-drafts
+  --out site-preview`.
+- **Decide whether the October issues get correction notes.** Sources have
+  since restated figures four of them printed: chicken (BLS September
+  WPU0141, 311.036 to 327.406, which takes its printed 5.0% fall to about
+  nil), egg-butter (NDPSR butter weeks ending October 3 and 10, which reverses
+  its printed 11.3% volume fall; NASS August layers and table eggs), beef (BLS
+  September WPU02210133; NASS September 1 inventory and August flows) and pork
+  (BLS September WPU02210444, 100.4 would print 100.5). The November drafts
+  mention each restatement without figures. Each title's November
+  `edition.json` notes carry the values.
+- **Cheddar and egg-butter rest on CME data ending November 6.** The Dairy
+  Market News fetches of 2026-11-13 and 2026-11-16 both returned the report
+  for November 2 to 6. Both drafts state the age. Decide whether to publish on
+  it or recompute once a run holds the November 9 to 13 report.
 - **Lobster's November issue waits on BLS.** `WPU02230503` newest month is
   still 2026-09 against an expected 2026-10. Nothing to do: the routine now
   fires on its own the first day on or after the 16th that the October reading
   is in the record.
-- **Year-earlier values are missing across the November computed sets.** The
-  2025 lapse in appropriations reaches further than the CPI rows already noted
-  for pork and beef: `yoy_pct` is null in the November sets for pork, cheddar
-  and chicken too. Each issue's prose has to say which comparisons do not
-  exist rather than leave them out silently.
-- **`beef/sources.json` carries a superseded series-break date** and the words
-  "packer margins". The October review corrected the date to 2004 in
-  `methodology.md` and the source list was not updated. Done when it matches.
+- **Methodology pages have drifted from the reports.** `cheddar/methodology.md`
+  says 63 reporting entities where the report of 2026-11-12 says 62;
+  `chicken/methodology.md` says report 3649 comes on the first business day
+  where the latest is dated Tuesday, November 3; `egg-butter/methodology.md`
+  and its `sources.json` call the national delivered warehouse price "what a
+  distributor pays" where report 2848 says "Prices to retailers, sales to
+  volume buyers, white eggs in cartons"; `beef/sources.json` series titles and
+  `tools/issue.py` labels still say "600-900 lb", a unit the report does not
+  state.
 
 ## Standing checks
 
@@ -57,7 +75,8 @@ repository and say which have gone stale rather than trusting them.
   commit ae4f576, on the 2026-10-18 run). Seven published editions across six
   titles.
 - Computed but unpublished: the 2026-11 issues of egg-butter, chicken, beef,
-  pork and cheddar (computed 2026-11-16, anchored, check.py clean, no prose).
+  pork and cheddar (computed 2026-11-16, anchored, check.py clean; prose drafted and independently
+  reviewed 2026-11-16, unsigned).
   No 2026-10 issue. The 2026-09-baseline scaffolds of
   pork, cheddar, chicken, beef and egg-butter do not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
@@ -83,7 +102,7 @@ repository and say which have gone stale rather than trusting them.
   series actually price" section (2026-10-25), read off the retained captures
   and checked in each title's October review. Beef's review corrected its
   series-break date (the single 600-900 column starts 2004, not roughly 2015);
-  `beef/sources.json` still carries the old date and the words "packer margins".
+  `beef/sources.json` was brought into line on 2026-11-16.
 
 ## Known limits a first issue must state
 
