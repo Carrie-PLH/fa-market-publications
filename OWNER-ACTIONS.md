@@ -20,10 +20,17 @@ As of 2026-11-16.
   August flows, 11,163 / 1,617 / 1,519 to 11,168 / 1,620 / 1,517) and pork
   (BLS September WPU02210444, 100.4 would print 100.5; percentages unchanged).
   The November drafts mention each without figures.
-- **Lobster's November issue waits on BLS.** `WPU02230503` newest month is
-  still 2026-09 against an expected 2026-10. Nothing to do: the routine now
-  fires on its own the first day on or after the 16th that the October reading
-  is in the record.
+- **Read and sign Lobster Monitor Issue 2 (November 2026).** Drafted and
+  independently reviewed 2026-11-16, unsigned: `lobster/issues/2026-11/issue.md`.
+  The BLS API returns October 2026 for every series the title reads except the
+  lobster index, `WPU02230503`, which still ends at 2026-09 with no row and no
+  note for October. The issue carries the index at September and says so.
+  `config.json` `RUN.lobster.not_published` declares the month so the routine's
+  gate could open (`tools/run.py`); the declaration goes inert if BLS fills the
+  month in. Done when `edition.json` is published with a reviewer line and
+  `tools/publish.sh lobster 2026-11` has run. The open points are in its notes:
+  whether Issue 1 gets a source-revision note for the September seafood index
+  (543.6 printed, 542.1 now; +20.1% would print +19.8%).
 - **Methodology pages have drifted from the reports.** `cheddar/methodology.md`
   says 63 reporting entities where the report of 2026-11-12 says 62;
   `chicken/methodology.md` says report 3649 comes on the first business day
@@ -61,8 +68,7 @@ repository and say which have gone stale rather than trusting them.
   Check, all published 2026-11-16; Cheddar Check and the Egg & Butter Brief
   went out on CME figures ending November 6 (owner decision), which the text
   states. Twelve published editions across six titles.
-- Computed but unpublished: none for 2026-11 except lobster, which is not yet
-  computed. No 2026-10 issue. The 2026-09-baseline scaffolds of
+- Computed but unpublished: lobster 2026-11, drafted and unsigned. No 2026-10 issue. The 2026-09-baseline scaffolds of
   pork, cheddar, chicken, beef and egg-butter do not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
 - The daily routine computed nothing between 2026-09-24 and 2026-11-16. Its due

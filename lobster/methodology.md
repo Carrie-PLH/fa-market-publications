@@ -39,6 +39,7 @@ Direct-ship prices usually include overnight shipping and packaging in the liste
 - Compare like with like: product form (live, meat, tail), size class, shell type, quantity, unit, channel, and geography. Live prices are never converted to meat prices. No yield conversion is applied.
 - Year-over-year means the same month a year earlier. Seasonal movement within a year is shown but is not the basis for a year-over-year figure.
 - A source that fails to fetch is recorded as failed. Nothing is substituted from another source.
+- A month BLS releases without the lobster index is reported as not published. The issue carries the index at its newest published month, names the missing month, and substitutes nothing: the seafood index is shown beside it as its own series, never as a stand-in. The first case is October 2026. An issue's `numbers.json` records it as `ppi_lobsters_not_published`.
 - A parser that cannot find what it expects fails the source rather than guessing.
 - Rows are never edited or deleted. A corrected reading is appended and the earlier row stays.
 - A measure is added only when it helps answer a reader's question.
