@@ -1,0 +1,35 @@
+{
+ "entry": {
+  "file_count": 1962,
+  "id": "2026-11-17T021419Z",
+  "manifest_file": "manifests/2026-11-17T021419Z.txt",
+  "manifest_sha256": "e1360d784587bcebc2f489ba6e0e7ea2d330c9e643c7ce939968d17630b49f92",
+  "note": "publish lobster 2026-11",
+  "paths": [
+   "lobster/captures",
+   "lobster/data",
+   "lobster/issues",
+   "lobster/observations/captures",
+   "lobster/observations/data",
+   "egg-butter/captures",
+   "egg-butter/data",
+   "egg-butter/issues",
+   "chicken/captures",
+   "chicken/data",
+   "chicken/issues",
+   "beef/captures",
+   "beef/data",
+   "beef/issues",
+   "pork/captures",
+   "pork/data",
+   "pork/issues",
+   "cheddar/captures",
+   "cheddar/data",
+   "cheddar/issues"
+  ],
+  "prev_entry_sha256": "a2d6093d9ca59bacb02eb0834dd3c69382ce017713a0cb689bef2d7bc31eaa2b",
+  "repo": "fa-market-publications",
+  "utc": "2026-11-17T02:14:19+00:00"
+ },
+ "entry_sha256": "667d0acf2cadb5e46ea5caf87bfb3369c1345235297581bd728c73f1dbcd7b11"
+}

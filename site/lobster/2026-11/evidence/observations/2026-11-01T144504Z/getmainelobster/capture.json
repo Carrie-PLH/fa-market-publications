@@ -1,0 +1,48 @@
+{
+ "captured_at": "2026-11-01T14:46:44+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 719776,
+   "content_type": "text/html; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-01T14:46:44+00:00",
+   "final_url": "https://getmainelobster.com/products/live-maine-lobsters-1",
+   "headers_path": "captures/2026-11-01T144504Z/getmainelobster/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-11-01T144504Z/getmainelobster/page.html",
+   "requested_url": "https://www.getmainelobster.com/products/live-maine-lobsters-1",
+   "sha256": "1630237d51ecb791ebfbd998cd369f360cc3c219772eb1199905565bf086b60a",
+   "status": "OK"
+  },
+  {
+   "bytes": 308694,
+   "content_type": "application/json; charset=utf-8",
+   "error": null,
+   "fetched_at": "2026-11-01T14:46:48+00:00",
+   "final_url": "https://www.getmainelobster.com/collections/all/products.json?limit=250",
+   "headers_path": "captures/2026-11-01T144504Z/getmainelobster/products.headers.txt",
+   "http_status": 200,
+   "name": "products",
+   "path": "captures/2026-11-01T144504Z/getmainelobster/products.json",
+   "requested_url": "https://www.getmainelobster.com/collections/all/products.json?limit=250",
+   "sha256": "728b29f3cea0e093af61e2f94289bcb44ca08d86b26f6a8cb845a66f0b4eb794",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "png": {
+   "bytes": 2401213,
+   "note": "",
+   "path": "captures/2026-11-01T144504Z/getmainelobster/page.png",
+   "sha256": "b53b12fd49e3e15b51bc6aeb77df37824028238b08dc4c7c639a195b7989bd39",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-11-01T144504Z",
+ "source_id": "getmainelobster",
+ "source_name": "Get Maine Lobster (Portland, ME)",
+ "status": "OK"
+}

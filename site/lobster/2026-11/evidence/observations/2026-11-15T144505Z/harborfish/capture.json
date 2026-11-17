@@ -1,0 +1,97 @@
+{
+ "captured_at": "2026-11-15T14:45:17+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 244197,
+   "content_type": "text/html; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:45:17+00:00",
+   "final_url": "https://harborfish.com/product-category/all/lobster/",
+   "headers_path": "captures/2026-11-15T144505Z/harborfish/page.headers.txt",
+   "http_status": 200,
+   "name": "page",
+   "path": "captures/2026-11-15T144505Z/harborfish/page.html",
+   "requested_url": "https://harborfish.com/product-category/all/lobster/",
+   "sha256": "634b84fa2a6f3feaad17a50e63e13ec0958bfc69627151dae5a64f0796e6ac81",
+   "status": "OK"
+  },
+  {
+   "bytes": 82878,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:45:22+00:00",
+   "final_url": "https://harborfish.com/wp-json/wc/store/v1/products?search=lobster&per_page=100",
+   "headers_path": "captures/2026-11-15T144505Z/harborfish/products.headers.txt",
+   "http_status": 200,
+   "name": "products",
+   "path": "captures/2026-11-15T144505Z/harborfish/products.json",
+   "requested_url": "https://harborfish.com/wp-json/wc/store/v1/products?search=lobster&per_page=100",
+   "sha256": "dfbe94eda497bf00203f8d192568d927ee7048709b9a05f3439eaa1ae94a1a60",
+   "status": "OK"
+  },
+  {
+   "bytes": 9815,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:45:28+00:00",
+   "final_url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=348&per_page=50",
+   "headers_path": "captures/2026-11-15T144505Z/harborfish/var_hard.headers.txt",
+   "http_status": 200,
+   "name": "var_hard",
+   "path": "captures/2026-11-15T144505Z/harborfish/var_hard.json",
+   "requested_url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=348&per_page=50",
+   "sha256": "c2bb4fedc05cde06ebc8a2e49a0c3471ca7ba62c4b3f16ee8b3c365790f046e3",
+   "status": "OK"
+  },
+  {
+   "bytes": 10476,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:45:33+00:00",
+   "final_url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=36559&per_page=50",
+   "headers_path": "captures/2026-11-15T144505Z/harborfish/var_soft.headers.txt",
+   "http_status": 200,
+   "name": "var_soft",
+   "path": "captures/2026-11-15T144505Z/harborfish/var_soft.json",
+   "requested_url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=36559&per_page=50",
+   "sha256": "50d5829057620e35afcdd14b1a0e5fa03c5215c8b22b8683cdc897a944c81c74",
+   "status": "OK"
+  },
+  {
+   "bytes": 10069,
+   "content_type": "application/json; charset=UTF-8",
+   "error": null,
+   "fetched_at": "2026-11-15T14:45:38+00:00",
+   "final_url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=25721&per_page=50",
+   "headers_path": "captures/2026-11-15T144505Z/harborfish/var_meat.headers.txt",
+   "http_status": 200,
+   "name": "var_meat",
+   "path": "captures/2026-11-15T144505Z/harborfish/var_meat.json",
+   "requested_url": "https://harborfish.com/wp-json/wc/store/v1/products?type=variation&parent=25721&per_page=50",
+   "sha256": "75d3b996376c8e7decd63f0b93adb488ae947ac17c535b87664eaa570358a0ad",
+   "status": "OK"
+  }
+ ],
+ "label": "PUBLIC RETAIL / DIRECT-SHIP PROXY",
+ "render": {
+  "pdf": {
+   "bytes": 2522046,
+   "note": "",
+   "path": "captures/2026-11-15T144505Z/harborfish/page.pdf",
+   "sha256": "1cba1b8e97235f807330c784c13ed49c29327d09d84f3d72ca2c575fb63468bb",
+   "status": "OK"
+  },
+  "png": {
+   "bytes": 1130555,
+   "note": "",
+   "path": "captures/2026-11-15T144505Z/harborfish/page.png",
+   "sha256": "75b4e2416a618bfdc05a8b225a4aacc79e7e6d5894b6c75f529f180a6bc09fa6",
+   "status": "OK"
+  }
+ },
+ "run_id": "2026-11-15T144505Z",
+ "source_id": "harborfish",
+ "source_name": "Harbor Fish Market (Portland, ME)",
+ "status": "OK"
+}

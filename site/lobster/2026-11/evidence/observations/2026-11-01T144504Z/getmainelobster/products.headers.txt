@@ -1,0 +1,35 @@
+# https://www.getmainelobster.com/collections/all/products.json?limit=250
+HTTP 200
+Date: Sun, 01 Nov 2026 14:46:49 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+cf-cache-status: DYNAMIC
+x-request-id: 5230f609-9372-40e8-bfe5-55485e83f06f-1793544408
+etag: W/"page_cache:791609459:ProductListController:016ba51ef7cfa73e79d139613cf95eb9"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 0
+shopify-complexity-score-v2: 140
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+access-control-allow-origin: *
+strict-transport-security: max-age=7889238
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept
+vary: accept-encoding
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+link: </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+powered-by: Shopify
+server-timing: processing;dur=145;desc="gc:4", db;dur=7, db_async;dur=38.155, asn;desc="7922", edge;desc="JAX", country;desc="US", servedBy;desc="nlgt", requestID;desc="5230f609-9372-40e8-bfe5-55485e83f06f-1793544408", _y;desc="aa8bc103-2276-4348-805a-6e2304ce6dc6", _s;desc="6d6c5486-dce6-49e4-9bc7-4a129b365f9d", _cmp;desc="3.AMPS_USSC_f_f_22qGsu13SjCVOwK*1Hq9eg", _ye;desc="1825102008", _se;desc="1793546208", compressionLevel;desc="5", compressionTime;dur=5.379
+Server-Timing: ipv6
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+X-XSS-Protection: 1; mode=block
+alt-svc: h3=":443"; ma=86400
+Server: cloudflare
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=2i9ue37Yw4oURsDW8QKftaZRvdUZkbniK1qSAGh8qPmKQz%2FGu4FSiUCYVKth0I5GGwWhTREC7Ao4dU2wEToI4%2FTBwP39XX9xMSz9MGh8oAvgX0CteDAsNQZyt%2Bdv6MJ0%2BMxjLarR0o9khdACRGslEvo6T60H"}]}
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+Content-Encoding: gzip
+CF-RAY: a53bb0eb1ac2ae89-JAX
+# 3 Set-Cookie header(s) redacted at capture

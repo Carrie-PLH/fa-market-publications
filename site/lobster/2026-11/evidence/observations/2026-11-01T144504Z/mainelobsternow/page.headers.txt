@@ -1,0 +1,35 @@
+# https://www.mainelobsternow.com/collections/live-lobster
+HTTP 200
+Date: Sun, 01 Nov 2026 14:47:02 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+X-Permitted-Cross-Domain-Policies: none
+vary: Accept-Encoding, Accept
+link: <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+speculation-rules: "/cdn/shopifycloud/storefront/assets/storefront/storefronts.moderate.specrules-eb468f32.json"
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+shopify-complexity-score: 0
+shopify-complexity-score-v2: 151
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+strict-transport-security: max-age=7889238
+X-Download-Options: noopen
+cdn-cache-control: no-cache, no-store
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+Cache-Control: private, max-age=0, must-revalidate
+powered-by: Shopify
+server-timing: processing;dur=159;desc="gc:2", streaming;dur=0, db;dur=62, db_async;dur=44.876, asn;desc="7922", edge;desc="JAX", country;desc="US", theme;desc="189580443891", pageType;desc="collection", servedBy;desc="c6qx", requestID;desc="2983f8dc-91fa-4821-bfdb-91cdaab216ce-1793544422", _y;desc="79d5eab2-c23c-48c6-b079-23db0942c96f", _s;desc="12d3384d-51ea-4a49-b5c6-cb54a6878f5e", _cmp;desc="3.AMPS_USSC_f_f_w*G6DPBCSnSovBPDwk-IYg", _ye;desc="1825102022", _se;desc="1793546222"
+Server-Timing: ipv6
+x-request-id: 2983f8dc-91fa-4821-bfdb-91cdaab216ce-1793544422
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+X-XSS-Protection: 1; mode=block
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=B7VO%2BLoRlfEFY3rlH75sDmIomtpmFmUG1xpE6mWhDmDJrBQ%2FBbrScJxq7gTohS8D9%2FE76tEooeapJc5VQ%2FPKdffRsqZBcPsMmmYoWRMAVxUGZpsD2URDhk%2BRiwgV%2Bby6EQd969UmCt3nleo4NkGLlpU6J07k"}]}
+X-Content-Type-Options: nosniff
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+Server: cloudflare
+Content-Encoding: gzip
+CF-RAY: a53bb13f3eed804f-JAX
+# 5 Set-Cookie header(s) redacted at capture

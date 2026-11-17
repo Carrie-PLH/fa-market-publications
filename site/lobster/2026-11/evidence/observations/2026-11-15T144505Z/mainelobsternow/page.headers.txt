@@ -1,0 +1,37 @@
+# https://www.mainelobsternow.com/collections/live-lobster
+HTTP 200
+Date: Sun, 15 Nov 2026 14:46:48 GMT
+Content-Type: text/html; charset=utf-8
+Transfer-Encoding: chunked
+Connection: close
+link: <https://cdn.shopify.com>; rel="preconnect", <https://cdn.shopify.com>; rel="preconnect"; crossorigin, <//www.mainelobsternow.com/cdn/shop/t/89/assets/theme.css?v=137473228574911432421794168085>; as="style"; rel="preload", <//www.mainelobsternow.com/cdn/shop/t/89/assets/custom.css?v=6799398378946509991794168064>; as="style"; rel="preload", <https://cdn.shopify.com/extensions/01a168dc-0838-7a67-9fc7-59db87408fa2/sales-countup-5/assets/app.css>; as="style"; rel="preload", <//www.mainelobsternow.com/cdn/shop/t/89/assets/section-header.css?v=51535540884003263151794168073>; as="style"; rel="preload", <//www.mainelobsternow.com/cdn/shop/t/89/assets/component-product-item.css?v=146664086848307608011794168047>; as="style"; rel="preload", <https://www.mainelobsternow.com/cdn/shopifycloud/portable-wallets/latest/accelerated-checkout-backwards-compat.css>; as="style"; rel="preload"; crossorigin, <//www.mainelobsternow.com/cdn/shop/t/89/compiled_assets/styles.css?v=33268665805508522731794414798>; as="style"; rel="preload", </.well-known/ucp>; rel="ucp"; version="2026-08-25"
+product-filtering-backend: bitset_roaring
+X-Permitted-Cross-Domain-Policies: none
+etag: W/"sfr:computation:v2:eea4462fd95262d4e6d2256b7854e8b4b2c9bcc47e636bd5d7204dcd0d06bae7:fbd660ffe4e93f8a477d97bebebdacaa"
+X-XSS-Protection: 1; mode=block
+x-frame-options: DENY
+content-security-policy: block-all-mixed-content; frame-ancestors 'none'; upgrade-insecure-requests;
+strict-transport-security: max-age=7889238
+shopify-complexity-score: 360
+shopify-complexity-score-v2: 360
+content-language: en-US
+accept-ch: Sec-CH-Viewport-Width
+powered-by: Shopify
+alt-svc: h3=":443"; ma=86400
+cf-cache-status: DYNAMIC
+Cache-Control: private, max-age=0, must-revalidate
+X-Download-Options: noopen
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=B9t4fx3Xyp3BvAkBLMtFjQzTe2%2BXZss%2Fw2%2BXHLlVeTv9pOQNahol%2FW316LRmXWO1%2FqJSneMSjOOqzYee4%2FPFYgsUTibB70zhwv25EvP5T3a4iou%2Brr8egvdAWSMTCng9Ig7hXC985F5zxp%2BZQIq9MLjdEp%2Bv"}]}
+cdn-cache-control: no-cache, no-store
+vary: Accept
+vary: accept-encoding
+server-timing: processing;dur=362, db;dur=206, render;dur=140, asn;desc="701", edge;desc="BOS", country;desc="US", theme;desc="190385455347", pageType;desc="collection", servedBy;desc="9wwf", requestID;desc="fe48e939-4cdb-445e-8b67-fc3fa7e5fc60-1794754007", _y;desc="ef84f466-dcd3-4f08-9831-f31bfd5fdab8", _s;desc="05cdf81f-f075-439f-a072-0ad5f5060d5d", _cmp;desc="3.AMPS_USMA_f_f_H8*uioLcQtm6*0tt*jFhyA", _ye;desc="1826311608", _se;desc="1794755808", compressionLevel;desc="5", compressionTime;dur=15.164
+Server-Timing: ipv6
+x-request-id: fe48e939-4cdb-445e-8b67-fc3fa7e5fc60-1794754007
+X-Content-Type-Options: nosniff
+Nel: {"report_to":"cf-nel","success_fraction":0.01,"max_age":604800}
+x-dc: gcp-us-east1,gcp-us-east1,gcp-us-east1
+Server: cloudflare
+Content-Encoding: gzip
+CF-RAY: a5af0c254e112c3e-BOS
+# 6 Set-Cookie header(s) redacted at capture
