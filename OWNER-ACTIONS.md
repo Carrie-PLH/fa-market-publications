@@ -13,16 +13,6 @@ being readable.
 
 As of 2026-11-16.
 
-- **Read and sign the five November issues.** `egg-butter`, `chicken`,
-  `beef`, `pork` and `cheddar` each have `issues/2026-11/issue.md` drafted
-  against its own `numbers.md` and put through an independent five-point
-  review on 2026-11-16 (every headline figure recalculated from the captures,
-  all matching; findings applied; `check.py` clean). Each `edition.json` is
-  `draft` with no version, published date or reviewer line, and its `notes`
-  list what the review changed and what is left for the editor. Done when the
-  editor has read each one and its `edition.json` has a version, a published
-  date and the reviewer line. Preview: `python3 tools/site.py --include-drafts
-  --out site-preview`.
 - **Decide whether beef and pork Issue 1 get source-revision notes.** Chicken
   Monitor and Egg & Butter Brief Issue 1 got theirs as version 1.1 on
   2026-11-16. These are smaller: beef (BLS
@@ -30,10 +20,6 @@ As of 2026-11-16.
   August flows, 11,163 / 1,617 / 1,519 to 11,168 / 1,620 / 1,517) and pork
   (BLS September WPU02210444, 100.4 would print 100.5; percentages unchanged).
   The November drafts mention each without figures.
-- **Cheddar and egg-butter rest on CME data ending November 6.** The Dairy
-  Market News fetches of 2026-11-13 and 2026-11-16 both returned the report
-  for November 2 to 6. Both drafts state the age. Decide whether to publish on
-  it or recompute once a run holds the November 9 to 13 report.
 - **Lobster's November issue waits on BLS.** `WPU02230503` newest month is
   still 2026-09 against an expected 2026-10. Nothing to do: the routine now
   fires on its own the first day on or after the 16th that the October reading
@@ -70,12 +56,13 @@ repository and say which have gone stale rather than trusting them.
   (2026-10-18, version 1.1 after a source-restatement note on 2026-11-16); Pork Monitor Issue 1 (2026-10-25, version 1.0);
   Cheddar Check Issue 1 (2026-11-02, version 1.0); Chicken Monitor Issue 1
   (2026-11-02, version 1.1 after a source-revision note on 2026-11-16); Beef Monitor Issue 1 (2026-11-02, version 1.0,
-  commit ae4f576, on the 2026-10-18 run). Seven published editions across six
-  titles.
-- Computed but unpublished: the 2026-11 issues of egg-butter, chicken, beef,
-  pork and cheddar (computed 2026-11-16, anchored, check.py clean; prose drafted and independently
-  reviewed 2026-11-16, unsigned).
-  No 2026-10 issue. The 2026-09-baseline scaffolds of
+  commit ae4f576, on the 2026-10-18 run). Issue 2 (November 2026, version 1.0) of the
+  Egg & Butter Brief, Chicken Monitor, Beef Monitor, Pork Monitor and Cheddar
+  Check, all published 2026-11-16; Cheddar Check and the Egg & Butter Brief
+  went out on CME figures ending November 6 (owner decision), which the text
+  states. Twelve published editions across six titles.
+- Computed but unpublished: none for 2026-11 except lobster, which is not yet
+  computed. No 2026-10 issue. The 2026-09-baseline scaffolds of
   pork, cheddar, chicken, beef and egg-butter do not publish (owner decision 2026-10-25) and were regenerated under current
   tooling the same day.
 - The daily routine computed nothing between 2026-09-24 and 2026-11-16. Its due

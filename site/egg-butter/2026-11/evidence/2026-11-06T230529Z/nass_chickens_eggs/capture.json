@@ -1,0 +1,27 @@
+{
+ "captured_at": "2026-11-06T23:05:53+00:00",
+ "errors": [
+  "txt: RuntimeError(\"all candidates failed: https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg1126.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg1026.txt: <HTTPError 404: 'Not Found'>\")"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "RuntimeError(\"all candidates failed: https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg1126.txt: <HTTPError 404: 'Not Found'> | https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg1026.txt: <HTTPError 404: 'Not Found'>\")",
+   "fetched_at": "2026-11-06T23:05:53+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "txt",
+   "path": null,
+   "requested_url": "TRY:https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg{MMYY}.txt|https://www.nass.usda.gov/Publications/Todays_Reports/reports/ckeg{MMYY_PREV}.txt",
+   "sha256": null,
+   "status": "FAILED"
+  }
+ ],
+ "label": "OFFICIAL STATISTIC (supply: layers and table egg production)",
+ "run_id": "2026-11-06T230529Z",
+ "source_id": "nass_chickens_eggs",
+ "source_name": "USDA NASS: Chickens and Eggs (monthly, text)",
+ "status": "FAILED"
+}

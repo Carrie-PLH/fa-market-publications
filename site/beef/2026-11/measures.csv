@@ -1,0 +1,167 @@
+measure,value,kind
+cattle_marketings.period,2026-09,source-reported or period label
+cattle_marketings.prior_year_period,2025-09,source-reported or period label
+cattle_marketings.prior_year_value,1632.0,source-reported or period label
+cattle_marketings.two_years_back_period,2024-09,source-reported or period label
+cattle_marketings.two_years_back_value,,source-reported or period label
+cattle_marketings.value,1524.0,source-reported or period label
+cattle_marketings.vs_two_years_pct,,calculated
+cattle_marketings.yoy_pct,-6.6,calculated
+cattle_on_feed.period,2026-10,source-reported or period label
+cattle_on_feed.prior_year_period,2025-10,source-reported or period label
+cattle_on_feed.prior_year_value,11418.0,source-reported or period label
+cattle_on_feed.two_years_back_period,2024-10,source-reported or period label
+cattle_on_feed.two_years_back_value,,source-reported or period label
+cattle_on_feed.value,11372.0,source-reported or period label
+cattle_on_feed.vs_two_years_pct,,calculated
+cattle_on_feed.yoy_pct,-0.4,calculated
+cattle_placements.period,2026-09,source-reported or period label
+cattle_placements.prior_year_period,2025-09,source-reported or period label
+cattle_placements.prior_year_value,2021.0,source-reported or period label
+cattle_placements.two_years_back_period,2024-09,source-reported or period label
+cattle_placements.two_years_back_value,,source-reported or period label
+cattle_placements.value,1777.0,source-reported or period label
+cattle_placements.vs_two_years_pct,,calculated
+cattle_placements.yoy_pct,-12.1,calculated
+choice_select_spread_usd_per_cwt.derived,"Choice 600-900 lb cutout less Select 600-900 lb cutout, same week",calculated
+choice_select_spread_usd_per_cwt.period,2026-11-13,source-reported or period label
+choice_select_spread_usd_per_cwt.prior_year_period,2025-11-14,source-reported or period label
+choice_select_spread_usd_per_cwt.prior_year_value,17.26,source-reported or period label
+choice_select_spread_usd_per_cwt.value,9.7,source-reported or period label
+choice_select_spread_usd_per_cwt.yoy_pct,-43.8,calculated
+cpi_beef_and_veal.period,2026-10,source-reported or period label
+cpi_beef_and_veal.prior_year_period,2025-10,source-reported or period label
+cpi_beef_and_veal.prior_year_value,,source-reported or period label
+cpi_beef_and_veal.two_years_back_period,2024-10,source-reported or period label
+cpi_beef_and_veal.two_years_back_value,426.449,source-reported or period label
+cpi_beef_and_veal.value,515.603,source-reported or period label
+cpi_beef_and_veal.vs_two_years_pct,20.9,calculated
+cpi_beef_and_veal.yoy_pct,,calculated
+cpi_food_away_from_home.period,2026-10,source-reported or period label
+cpi_food_away_from_home.prior_year_period,2025-10,source-reported or period label
+cpi_food_away_from_home.prior_year_value,,source-reported or period label
+cpi_food_away_from_home.two_years_back_period,2024-10,source-reported or period label
+cpi_food_away_from_home.two_years_back_value,372.486,source-reported or period label
+cpi_food_away_from_home.value,400.85,source-reported or period label
+cpi_food_away_from_home.vs_two_years_pct,7.6,calculated
+cpi_food_away_from_home.yoy_pct,,calculated
+cutout_choice.label,"Boxed beef cutout, Choice 600-900 lb",source-reported or period label
+cutout_choice.period,2026-11-13,source-reported or period label
+cutout_choice.prior_year_4wk_avg,376.035,calculated
+cutout_choice.prior_year_period,2025-11-14,source-reported or period label
+cutout_choice.prior_year_value,375.06,source-reported or period label
+cutout_choice.trailing_4wk_avg,365.4825,calculated
+cutout_choice.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+cutout_choice.trailing_4wk_values,"[370.55, 368.52, 363.02, 359.84]",source-reported or period label
+cutout_choice.trailing_4wk_weeks,"[""2026-10-23"", ""2026-10-30"", ""2026-11-06"", ""2026-11-13""]",source-reported or period label
+cutout_choice.trailing_4wk_yoy_pct,-2.8,calculated
+cutout_choice.unit,USD per cwt,source-reported or period label
+cutout_choice.value,359.84,source-reported or period label
+cutout_choice.yoy_pct,-4.1,calculated
+cutout_less_dressed_cattle_usd_per_cwt.cattle_period,2026-11-10,source-reported or period label
+cutout_less_dressed_cattle_usd_per_cwt.cattle_value,360.59,source-reported or period label
+cutout_less_dressed_cattle_usd_per_cwt.cattle_week_ending_sunday,2026-11-08,source-reported or period label
+cutout_less_dressed_cattle_usd_per_cwt.cutout_period,2026-11-06,source-reported or period label
+cutout_less_dressed_cattle_usd_per_cwt.cutout_value,363.02,source-reported or period label
+cutout_less_dressed_cattle_usd_per_cwt.derived,"Choice 600-900 cutout weekly average (report 2461, ""U.S. dollars per 100 pounds"") less the steer and heifer dressed weighted average price, total all grades (report 2700, which prints the price in dollars and states no weight basis). Each cutout week is paired with the report 2700 row dated the Tuesday after the cutout's Friday, which covers the week ending the Sunday between them (""from 2pm Previous Monday to 10am Current Monday""). An arithmetic difference between two reported series, not a statement of any packer's cost or margin.",calculated
+cutout_less_dressed_cattle_usd_per_cwt.pairing,cattle report dated 1 to 4 days after the cutout week's last day,source-reported or period label
+cutout_less_dressed_cattle_usd_per_cwt.value,2.43,source-reported or period label
+cutout_select.label,"Boxed beef cutout, Select 600-900 lb",source-reported or period label
+cutout_select.period,2026-11-13,source-reported or period label
+cutout_select.prior_year_4wk_avg,358.3125,calculated
+cutout_select.prior_year_period,2025-11-14,source-reported or period label
+cutout_select.prior_year_value,357.8,source-reported or period label
+cutout_select.trailing_4wk_avg,354.085,calculated
+cutout_select.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+cutout_select.trailing_4wk_values,"[355.98, 355.05, 355.17, 350.14]",source-reported or period label
+cutout_select.trailing_4wk_weeks,"[""2026-10-23"", ""2026-10-30"", ""2026-11-06"", ""2026-11-13""]",source-reported or period label
+cutout_select.trailing_4wk_yoy_pct,-1.2,calculated
+cutout_select.unit,USD per cwt,source-reported or period label
+cutout_select.value,350.14,source-reported or period label
+cutout_select.yoy_pct,-2.1,calculated
+ers_food_price_outlook.All food — Lower bound of forecast interval 2027,-2.5,source-reported or period label
+ers_food_price_outlook.All food — Upper bound of forecast interval 2027,6.2,source-reported or period label
+ers_food_price_outlook.All food — Year-over-year September 2025 to September 2026,2.5,source-reported or period label
+ers_food_price_outlook.Beef and veal — Lower bound of forecast interval 2027,-8.8,source-reported or period label
+ers_food_price_outlook.Beef and veal — Upper bound of forecast interval 2027,15.5,source-reported or period label
+ers_food_price_outlook.Beef and veal — Year-over-year September 2025 to September 2026,3.5,source-reported or period label
+ers_food_price_outlook.Food away from home — Lower bound of forecast interval 2027,0.7,source-reported or period label
+ers_food_price_outlook.Food away from home — Upper bound of forecast interval 2027,5.0,source-reported or period label
+ers_food_price_outlook.Food away from home — Year-over-year September 2025 to September 2026,3.5,source-reported or period label
+ers_food_price_outlook.Meats — Lower bound of forecast interval 2027,-8.7,source-reported or period label
+ers_food_price_outlook.Meats — Upper bound of forecast interval 2027,10.0,source-reported or period label
+ers_food_price_outlook.Meats — Year-over-year September 2025 to September 2026,1.3,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Lower bound of forecast interval 2027",-4.5,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Upper bound of forecast interval 2027",10.1,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Year-over-year September 2025 to September 2026",2.2,source-reported or period label
+fed_cattle_dressed.label,"Fed cattle, steer and heifer, dressed",source-reported or period label
+fed_cattle_dressed.period,2026-11-10,source-reported or period label
+fed_cattle_dressed.period_is,report date,source-reported or period label
+fed_cattle_dressed.prior_year_4wk_avg,371.1125,calculated
+fed_cattle_dressed.prior_year_period,2025-11-10,source-reported or period label
+fed_cattle_dressed.prior_year_value,369.6,source-reported or period label
+fed_cattle_dressed.prior_year_week_ending_sunday,2025-11-09,source-reported or period label
+fed_cattle_dressed.trailing_4wk_avg,360.84,calculated
+fed_cattle_dressed.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+fed_cattle_dressed.trailing_4wk_values,"[358.42, 360.65, 363.7, 360.59]",source-reported or period label
+fed_cattle_dressed.trailing_4wk_weeks,"[""2026-10-20"", ""2026-10-27"", ""2026-11-03"", ""2026-11-10""]",source-reported or period label
+fed_cattle_dressed.trailing_4wk_yoy_pct,-2.8,calculated
+fed_cattle_dressed.unit,USD per cwt,source-reported or period label
+fed_cattle_dressed.value,360.59,source-reported or period label
+fed_cattle_dressed.week_ending_sunday,2026-11-08,source-reported or period label
+fed_cattle_dressed.yoy_pct,-2.4,calculated
+fed_cattle_head_dressed.period,2026-11-10,source-reported or period label
+fed_cattle_head_dressed.value,249114.0,source-reported or period label
+fed_cattle_live.label,"Fed cattle, steer and heifer, live",source-reported or period label
+fed_cattle_live.period,2026-11-10,source-reported or period label
+fed_cattle_live.period_is,report date,source-reported or period label
+fed_cattle_live.prior_year_4wk_avg,234.64,calculated
+fed_cattle_live.prior_year_period,2025-11-10,source-reported or period label
+fed_cattle_live.prior_year_value,230.32,source-reported or period label
+fed_cattle_live.prior_year_week_ending_sunday,2025-11-09,source-reported or period label
+fed_cattle_live.trailing_4wk_avg,226.9725,calculated
+fed_cattle_live.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+fed_cattle_live.trailing_4wk_values,"[226.53, 230.64, 227.77, 222.95]",source-reported or period label
+fed_cattle_live.trailing_4wk_weeks,"[""2026-10-20"", ""2026-10-27"", ""2026-11-03"", ""2026-11-10""]",source-reported or period label
+fed_cattle_live.trailing_4wk_yoy_pct,-3.3,calculated
+fed_cattle_live.unit,USD per cwt,source-reported or period label
+fed_cattle_live.value,222.95,source-reported or period label
+fed_cattle_live.week_ending_sunday,2026-11-08,source-reported or period label
+fed_cattle_live.yoy_pct,-3.2,calculated
+fed_cattle_year_change_as_reported.basis,dressed,calculated
+fed_cattle_year_change_as_reported.period,2026-11-10,calculated
+fed_cattle_year_change_as_reported.unit,USD per cwt,calculated
+fed_cattle_year_change_as_reported.value,-9.01,calculated
+ppi_beef_primal_cuts.period,2026-10,source-reported or period label
+ppi_beef_primal_cuts.prior_year_period,2025-10,source-reported or period label
+ppi_beef_primal_cuts.prior_year_value,307.448,source-reported or period label
+ppi_beef_primal_cuts.two_years_back_period,2024-10,source-reported or period label
+ppi_beef_primal_cuts.two_years_back_value,257.109,source-reported or period label
+ppi_beef_primal_cuts.value,322.77,source-reported or period label
+ppi_beef_primal_cuts.vs_two_years_pct,25.5,calculated
+ppi_beef_primal_cuts.yoy_pct,5.0,calculated
+ppi_slaughter_cattle.period,2026-10,source-reported or period label
+ppi_slaughter_cattle.prior_year_period,2025-10,source-reported or period label
+ppi_slaughter_cattle.prior_year_value,372.936,source-reported or period label
+ppi_slaughter_cattle.two_years_back_period,2024-10,source-reported or period label
+ppi_slaughter_cattle.two_years_back_value,291.381,source-reported or period label
+ppi_slaughter_cattle.value,342.087,source-reported or period label
+ppi_slaughter_cattle.vs_two_years_pct,17.4,calculated
+ppi_slaughter_cattle.yoy_pct,-8.3,calculated
+retail_beef_steaks_usd_per_lb.period,2026-10,source-reported or period label
+retail_beef_steaks_usd_per_lb.prior_year_period,2025-10,source-reported or period label
+retail_beef_steaks_usd_per_lb.prior_year_value,,source-reported or period label
+retail_beef_steaks_usd_per_lb.two_years_back_period,2024-10,source-reported or period label
+retail_beef_steaks_usd_per_lb.two_years_back_value,10.565,source-reported or period label
+retail_beef_steaks_usd_per_lb.value,12.845,source-reported or period label
+retail_beef_steaks_usd_per_lb.vs_two_years_pct,21.6,calculated
+retail_beef_steaks_usd_per_lb.yoy_pct,,calculated
+retail_ground_beef_usd_per_lb.period,2026-10,source-reported or period label
+retail_ground_beef_usd_per_lb.prior_year_period,2025-10,source-reported or period label
+retail_ground_beef_usd_per_lb.prior_year_value,,source-reported or period label
+retail_ground_beef_usd_per_lb.two_years_back_period,2024-10,source-reported or period label
+retail_ground_beef_usd_per_lb.two_years_back_value,5.887,source-reported or period label
+retail_ground_beef_usd_per_lb.value,7.068,source-reported or period label
+retail_ground_beef_usd_per_lb.vs_two_years_pct,20.1,calculated
+retail_ground_beef_usd_per_lb.yoy_pct,,calculated
+specification_captures,"[{""fetch"": ""pdf"", ""run_id"": ""2026-10-31T013744Z"", ""source_id"": ""ams_fed_cattle""}]",source-reported or period label

@@ -1,0 +1,50 @@
+NW_PY002
+Des Moines, IA          Thu. Oct 15, 2026          USDA Market News
+
+BROILER/FRYER: Weekly Young Chickens Slaughtered Under Federal Inspection (Thur)
+                            Week ending  10-Oct-26
+(Preliminary)
+                ---------------------------Thousands--------------------------
+                     A           B           C           D
+                   4.25 lbs     4.26 -      6.26 -     7.76 lbs
+                    & down     6.25 lbs    7.75 lbs      & up      Total
+
+
+Head                  23,891      50,474      50,123      47,840     172,328
+Avg Live Wgt            3.74        5.07        7.04        9.29        6.63
+% of total /1            14%         29%         29%         28%        100%
+
+Comparisons
+
+Last week             26,924      45,746      51,450      46,507     170,627
+Avg Live Wgt            3.74        5.07        7.05        9.41        6.64
+% of total /1            16%         27%         30%         27%        100%
+
+Year Ago 2/           24,670      44,549      48,746      54,687     172,652
+Avg Live Wgt            3.97        4.93        7.04        9.29        6.77
+% of total /1            14%         26%         28%         32%        100%
+
+To date/2026*      1,049,453   1,992,505   2,023,302   1,919,709   6,984,969
+To date/2025*      1,043,656   1,955,733   1,860,905   2,002,554   6,862,848
+% Change YTD              1%          2%          9%         -4%          2%
+
+/1 May not total to 100% due to rounding.
+/2 Comparable week.
+*Note: Year to-date totals reflect comparable time periods.
+
+Weight Class Description:
+(A) This size product is normally marketed bone-in into fast food and food
+    service sectors and may include Cornish hens.
+(B) This size product is normally marketed into the retail grocery sector in
+    tray pack or bagged forms.
+(C) This size product is normally marketed either into the retail grocery
+    sector in tray pack and IQF form or is further processed and marketed
+    into various sectors.
+(D) This size product is normally marketed deboned or as roasters or roasting
+    chicken.
+
+SOURCE: USDA Livestock, Poultry & Grain Market News
+        Des Moines, IA     515.284.4460  email: desm.lpgmn@ams.usda.gov
+        http://www.ams.usda.gov/market-news/livestock-poultry-grain
+
+Prepared: 15-Oct-26 10:44 AM C NBS

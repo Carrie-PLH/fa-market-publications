@@ -1,0 +1,27 @@
+{
+ "captured_at": "2026-09-23T14:54:58+00:00",
+ "errors": [
+  "series: RuntimeError('environment variable BLS_API_KEY is not set')"
+ ],
+ "fetches": [
+  {
+   "bytes": null,
+   "content_type": null,
+   "error": "RuntimeError('environment variable BLS_API_KEY is not set')",
+   "fetched_at": "2026-09-23T14:54:58+00:00",
+   "final_url": null,
+   "headers_path": null,
+   "http_status": null,
+   "name": "series",
+   "path": null,
+   "requested_url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "sha256": null,
+   "status": "FAILED"
+  }
+ ],
+ "label": "FOOD-COST INDICATOR (index) and OFFICIAL STATISTIC (average retail price)",
+ "run_id": "2026-09-23T145458Z",
+ "source_id": "bls",
+ "source_name": "U.S. Bureau of Labor Statistics: PPI, CPI and average price series (public API v2)",
+ "status": "FAILED"
+}

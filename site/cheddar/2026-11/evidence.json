@@ -1,0 +1,194 @@
+{
+ "issue": "2026-11",
+ "run_id": "2026-11-16T134220Z",
+ "captures": [
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-09-23T152701Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-09-23T15:27:13+00:00",
+   "path": "cheddar/captures/2026-09-23T152701Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "51b508a2729da498b41fd6a530bf86d1bcdb0d7534a7c6fed5b703e1d8b13083",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-09-25T220525Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-09-25T22:05:39+00:00",
+   "path": "cheddar/captures/2026-09-25T220525Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "e23d637507ddc9b16f403829b2918ddb339a68ffd794c082044906238e85f44c",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-02T224106Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-02T22:41:19+00:00",
+   "path": "cheddar/captures/2026-10-02T224106Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "5b73c9d17774a8caac8a29d7f81ef8df7f8b39084a2dd7552071452e69f09a53",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-09T221755Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-09T22:18:05+00:00",
+   "path": "cheddar/captures/2026-10-09T221755Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "a49c39c2995f274c129b2ca290c3551e282758301b0e970a109135422b6fecb1",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-16T221734Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-16T22:17:46+00:00",
+   "path": "cheddar/captures/2026-10-16T221734Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-18T145249Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-18T14:53:00+00:00",
+   "path": "cheddar/captures/2026-10-18T145249Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "18c55121d9d3a86b06b517e5c58ba5620375e43a43e89f697e63fb754fa54551",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-23T220847Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-23T22:08:59+00:00",
+   "path": "cheddar/captures/2026-10-23T220847Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "7ce90d7ad5ad3d3c5c412c1747ed5d8d18e755c349dc1956d699c37ea73cdfb5",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-10-31T014029Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-10-31T01:40:39+00:00",
+   "path": "cheddar/captures/2026-10-31T014029Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "e02f3164352b2ae01d19807506d028042e728a787f5f168d98acd8d2a9fe2f28",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-11-06T230738Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-11-06T23:07:47+00:00",
+   "path": "cheddar/captures/2026-11-06T230738Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "0cce1d4c30a8021e544c9da1d6922eb0912c0524a6a2ec224aebcf5f86879cb4",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-11-13T231046Z",
+   "role": "accumulated history",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-11-13T23:12:26+00:00",
+   "path": "cheddar/captures/2026-11-13T231046Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "0cce1d4c30a8021e544c9da1d6922eb0912c0524a6a2ec224aebcf5f86879cb4",
+   "status": "OK"
+  },
+  {
+   "source_id": "ams_dmn_cheese",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "fetched_at": "2026-11-16T13:42:29+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/ams_dmn_cheese/pdf.pdf",
+   "sha256": "0cce1d4c30a8021e544c9da1d6922eb0912c0524a6a2ec224aebcf5f86879cb4",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "series",
+   "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+   "fetched_at": "2026-11-16T13:42:20+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/bls/series.json",
+   "sha256": "ec76dbaf478b6704e03b59cb25a53742b9c644a8b7bf2bd62e7328b46d0f95d1",
+   "status": "OK"
+  },
+  {
+   "source_id": "ndpsr_barrel",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content",
+   "fetched_at": "2026-11-16T13:42:27+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/ndpsr_barrel/json.json",
+   "sha256": "7e71cbdcd53e7ea892a9bc42ec2c3cb3388dcc951cd5a25526053c1e66f1d706",
+   "status": "OK"
+  },
+  {
+   "source_id": "ndpsr_block",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "json",
+   "url": "https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/40%20Pound%20Block%20Cheddar%20Cheese%20Prices%20and%20Sales",
+   "fetched_at": "2026-11-16T13:42:22+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/ndpsr_block/json.json",
+   "sha256": "ec83747ca4d740c3c1ab68afc277829ca8fc6b08c5d79c1b99ee9d752a7fa3af",
+   "status": "OK"
+  },
+  {
+   "source_id": "ndpsr_block",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.ams.usda.gov/mnreports/dywdairyproductssales.pdf",
+   "fetched_at": "2026-11-16T13:42:25+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/ndpsr_block/pdf.pdf",
+   "sha256": "4651683f36fe4c98151e5c7990661e4ebf41efe75d2e928b0c240a9bcf0da16b",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-11-16T13:42:32+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/usda_ers_fpo/landing.html",
+   "sha256": "d77e4cb4538770bdd94f32e8fd79f9304b5fdc8aa5e2536a54d5c204d177ff27",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-11-16T134220Z",
+   "role": "issue run",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=97887",
+   "fetched_at": "2026-11-16T13:42:34+00:00",
+   "path": "cheddar/captures/2026-11-16T134220Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "6f9746634862309d4e96352c9e6f759f22d9ffd2a2fdfcb83751bedb66ab37d1",
+   "status": "OK"
+  }
+ ],
+ "retail_record": null
+}

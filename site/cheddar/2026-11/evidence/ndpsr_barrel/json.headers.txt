@@ -1,0 +1,24 @@
+# https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/500%20Pound%20Barrel%20Cheddar%20Cheese%20Prices%2C%20Sales%2C%20and%20Moisture%20Content
+HTTP 200
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+X-Cnection: close
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Expires: Mon, 16 Nov 2026 13:42:27 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Mon, 16 Nov 2026 13:42:27 GMT
+Transfer-Encoding: chunked
+Connection: close
+Connection: Transfer-Encoding
+Server-Timing: cdn-cache; desc=MISS
+Server-Timing: edge; dur=26
+Server-Timing: origin; dur=220
+Alt-Svc: h3=":443"; ma=93600
+Link: <https://www.google-analytics.com>;rel="preconnect"
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+Akamai-GRN: 0.467fd117.1794836547.865720b5
+Server-Timing: ak_p; desc="1794836547324_399605574_2253856949_24515_11236_11_11_-";dur=1
+# 2 Set-Cookie header(s) redacted at capture

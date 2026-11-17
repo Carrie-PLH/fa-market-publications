@@ -1,0 +1,19 @@
+# https://www.ams.usda.gov/mnreports/nw_py002.txt
+HTTP 200
+Content-Type: text/plain
+Content-Length: 1016
+X-Content-Type-Options: nosniff
+Last-Modified: Thu, 15 Oct 2026 15:09:57 GMT
+ETag: "940-65de270dbd01e-gzip"
+Content-Encoding: gzip
+X-Varnish: 50714146 51788666
+Accept-Ranges: bytes
+Expires: Sun, 18 Oct 2026 14:50:54 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Sun, 18 Oct 2026 14:50:54 GMT
+Connection: close
+Vary: Accept-Encoding
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.f224c317.1792335054.18f677fa

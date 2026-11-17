@@ -1,0 +1,188 @@
+measure,value,kind
+cpi_food_away_from_home.period,2026-10,source-reported or period label
+cpi_food_away_from_home.prior_year_period,2025-10,source-reported or period label
+cpi_food_away_from_home.prior_year_value,,source-reported or period label
+cpi_food_away_from_home.two_years_back_period,2024-10,source-reported or period label
+cpi_food_away_from_home.two_years_back_value,372.486,source-reported or period label
+cpi_food_away_from_home.value,400.85,source-reported or period label
+cpi_food_away_from_home.vs_two_years_pct,7.6,calculated
+cpi_food_away_from_home.yoy_pct,,calculated
+cpi_pork.period,2026-10,source-reported or period label
+cpi_pork.prior_year_period,2025-10,source-reported or period label
+cpi_pork.prior_year_value,,source-reported or period label
+cpi_pork.two_years_back_period,2024-10,source-reported or period label
+cpi_pork.two_years_back_value,271.851,source-reported or period label
+cpi_pork.value,274.5,source-reported or period label
+cpi_pork.vs_two_years_pct,1.0,calculated
+cpi_pork.yoy_pct,,calculated
+cutout_carcass.label,Pork carcass cutout,source-reported or period label
+cutout_carcass.period,2026-11-06,source-reported or period label
+cutout_carcass.prior_year_4wk_avg,102.355,calculated
+cutout_carcass.prior_year_period,2025-11-07,source-reported or period label
+cutout_carcass.prior_year_value,100.58,source-reported or period label
+cutout_carcass.trailing_4wk_avg,75.6775,calculated
+cutout_carcass.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+cutout_carcass.trailing_4wk_values,"[80.26, 77.15, 73.64, 71.66]",source-reported or period label
+cutout_carcass.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+cutout_carcass.trailing_4wk_yoy_pct,-26.1,calculated
+cutout_carcass.unit,USD per cwt,source-reported or period label
+cutout_carcass.value,71.66,source-reported or period label
+cutout_carcass.yoy_pct,-28.8,calculated
+ers_food_price_outlook.All food — Lower bound of forecast interval 2027,-2.5,source-reported or period label
+ers_food_price_outlook.All food — Upper bound of forecast interval 2027,6.2,source-reported or period label
+ers_food_price_outlook.All food — Year-over-year September 2025 to September 2026,2.5,source-reported or period label
+ers_food_price_outlook.Food away from home — Lower bound of forecast interval 2027,0.7,source-reported or period label
+ers_food_price_outlook.Food away from home — Upper bound of forecast interval 2027,5.0,source-reported or period label
+ers_food_price_outlook.Food away from home — Year-over-year September 2025 to September 2026,3.5,source-reported or period label
+ers_food_price_outlook.Meats — Lower bound of forecast interval 2027,-8.7,source-reported or period label
+ers_food_price_outlook.Meats — Upper bound of forecast interval 2027,10.0,source-reported or period label
+ers_food_price_outlook.Meats — Year-over-year September 2025 to September 2026,1.3,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Lower bound of forecast interval 2027",-4.5,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Upper bound of forecast interval 2027",10.1,source-reported or period label
+"ers_food_price_outlook.Meats, poultry, and fish — Year-over-year September 2025 to September 2026",2.2,source-reported or period label
+ers_food_price_outlook.Pork — Lower bound of forecast interval 2027,-8.0,source-reported or period label
+ers_food_price_outlook.Pork — Upper bound of forecast interval 2027,8.9,source-reported or period label
+ers_food_price_outlook.Pork — Year-over-year September 2025 to September 2026,-0.7,source-reported or period label
+hogs_all.period,2026-09,source-reported or period label
+hogs_all.prior_year_period,2025-09,source-reported or period label
+hogs_all.prior_year_value,75438.0,source-reported or period label
+hogs_all.two_years_back_period,2024-09,source-reported or period label
+hogs_all.two_years_back_value,,source-reported or period label
+hogs_all.value,74302.0,source-reported or period label
+hogs_all.vs_two_years_pct,,calculated
+hogs_all.yoy_pct,-1.5,calculated
+hogs_breeding.period,2026-09,source-reported or period label
+hogs_breeding.prior_year_period,2025-09,source-reported or period label
+hogs_breeding.prior_year_value,5936.0,source-reported or period label
+hogs_breeding.two_years_back_period,2024-09,source-reported or period label
+hogs_breeding.two_years_back_value,,source-reported or period label
+hogs_breeding.value,5875.0,source-reported or period label
+hogs_breeding.vs_two_years_pct,,calculated
+hogs_breeding.yoy_pct,-1.0,calculated
+hogs_market.period,2026-09,source-reported or period label
+hogs_market.prior_year_period,2025-09,source-reported or period label
+hogs_market.prior_year_value,69502.0,source-reported or period label
+hogs_market.two_years_back_period,2024-09,source-reported or period label
+hogs_market.two_years_back_value,,source-reported or period label
+hogs_market.value,68427.0,source-reported or period label
+hogs_market.vs_two_years_pct,,calculated
+hogs_market.yoy_pct,-1.5,calculated
+hogs_market_180_lb_and_over.period,2026-09,source-reported or period label
+hogs_market_180_lb_and_over.prior_year_period,2025-09,source-reported or period label
+hogs_market_180_lb_and_over.prior_year_value,12650.0,source-reported or period label
+hogs_market_180_lb_and_over.two_years_back_period,2024-09,source-reported or period label
+hogs_market_180_lb_and_over.two_years_back_value,,source-reported or period label
+hogs_market_180_lb_and_over.value,12443.0,source-reported or period label
+hogs_market_180_lb_and_over.vs_two_years_pct,,calculated
+hogs_market_180_lb_and_over.yoy_pct,-1.6,calculated
+ppi_pork_fresh_frozen.period,2026-10,source-reported or period label
+ppi_pork_fresh_frozen.prior_year_period,2025-10,source-reported or period label
+ppi_pork_fresh_frozen.prior_year_value,139.112,source-reported or period label
+ppi_pork_fresh_frozen.two_years_back_period,2024-10,source-reported or period label
+ppi_pork_fresh_frozen.two_years_back_value,126.058,source-reported or period label
+ppi_pork_fresh_frozen.value,93.304,source-reported or period label
+ppi_pork_fresh_frozen.vs_two_years_pct,-26.0,calculated
+ppi_pork_fresh_frozen.yoy_pct,-32.9,calculated
+ppi_slaughter_hogs.period,2026-10,source-reported or period label
+ppi_slaughter_hogs.prior_year_period,2025-10,source-reported or period label
+ppi_slaughter_hogs.prior_year_value,119.32,source-reported or period label
+ppi_slaughter_hogs.two_years_back_period,2024-10,source-reported or period label
+ppi_slaughter_hogs.two_years_back_value,97.867,source-reported or period label
+ppi_slaughter_hogs.value,91.41,source-reported or period label
+ppi_slaughter_hogs.vs_two_years_pct,-6.6,calculated
+ppi_slaughter_hogs.yoy_pct,-23.4,calculated
+primal_belly.label,Pork belly primal,source-reported or period label
+primal_belly.period,2026-11-06,source-reported or period label
+primal_belly.prior_year_4wk_avg,141.525,calculated
+primal_belly.prior_year_period,2025-11-07,source-reported or period label
+primal_belly.prior_year_value,145.99,source-reported or period label
+primal_belly.trailing_4wk_avg,83.5475,calculated
+primal_belly.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+primal_belly.trailing_4wk_values,"[90.06, 85.78, 82.9, 75.45]",source-reported or period label
+primal_belly.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+primal_belly.trailing_4wk_yoy_pct,-41.0,calculated
+primal_belly.unit,USD per cwt,source-reported or period label
+primal_belly.value,75.45,source-reported or period label
+primal_belly.yoy_pct,-48.3,calculated
+primal_butt.label,Pork butt primal,source-reported or period label
+primal_butt.period,2026-11-06,source-reported or period label
+primal_butt.prior_year_4wk_avg,114.9825,calculated
+primal_butt.prior_year_period,2025-11-07,source-reported or period label
+primal_butt.prior_year_value,113.74,source-reported or period label
+primal_butt.trailing_4wk_avg,102.775,calculated
+primal_butt.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+primal_butt.trailing_4wk_values,"[107.72, 105.39, 100.71, 97.28]",source-reported or period label
+primal_butt.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+primal_butt.trailing_4wk_yoy_pct,-10.6,calculated
+primal_butt.unit,USD per cwt,source-reported or period label
+primal_butt.value,97.28,source-reported or period label
+primal_butt.yoy_pct,-14.5,calculated
+primal_ham.label,Pork ham primal,source-reported or period label
+primal_ham.period,2026-11-06,source-reported or period label
+primal_ham.prior_year_4wk_avg,98.5175,calculated
+primal_ham.prior_year_period,2025-11-07,source-reported or period label
+primal_ham.prior_year_value,92.64,source-reported or period label
+primal_ham.trailing_4wk_avg,64.0225,calculated
+primal_ham.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+primal_ham.trailing_4wk_values,"[68.42, 63.56, 61.11, 63.0]",source-reported or period label
+primal_ham.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+primal_ham.trailing_4wk_yoy_pct,-35.0,calculated
+primal_ham.unit,USD per cwt,source-reported or period label
+primal_ham.value,63.0,source-reported or period label
+primal_ham.yoy_pct,-32.0,calculated
+primal_largest_yoy_move,primal_belly,source-reported or period label
+primal_loin.label,Pork loin primal,source-reported or period label
+primal_loin.period,2026-11-06,source-reported or period label
+primal_loin.prior_year_4wk_avg,91.69,calculated
+primal_loin.prior_year_period,2025-11-07,source-reported or period label
+primal_loin.prior_year_value,89.67,source-reported or period label
+primal_loin.trailing_4wk_avg,77.9625,calculated
+primal_loin.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+primal_loin.trailing_4wk_values,"[81.93, 80.12, 75.09, 74.71]",source-reported or period label
+primal_loin.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+primal_loin.trailing_4wk_yoy_pct,-15.0,calculated
+primal_loin.unit,USD per cwt,source-reported or period label
+primal_loin.value,74.71,source-reported or period label
+primal_loin.yoy_pct,-16.7,calculated
+primal_picnic.label,Pork picnic primal,source-reported or period label
+primal_picnic.period,2026-11-06,source-reported or period label
+primal_picnic.prior_year_4wk_avg,81.8875,calculated
+primal_picnic.prior_year_period,2025-11-07,source-reported or period label
+primal_picnic.prior_year_value,79.92,source-reported or period label
+primal_picnic.trailing_4wk_avg,56.545,calculated
+primal_picnic.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+primal_picnic.trailing_4wk_values,"[60.83, 58.74, 54.71, 51.9]",source-reported or period label
+primal_picnic.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+primal_picnic.trailing_4wk_yoy_pct,-30.9,calculated
+primal_picnic.unit,USD per cwt,source-reported or period label
+primal_picnic.value,51.9,source-reported or period label
+primal_picnic.yoy_pct,-35.1,calculated
+primal_rib.label,Pork rib primal,source-reported or period label
+primal_rib.period,2026-11-06,source-reported or period label
+primal_rib.prior_year_4wk_avg,161.455,calculated
+primal_rib.prior_year_period,2025-11-07,source-reported or period label
+primal_rib.prior_year_value,158.17,source-reported or period label
+primal_rib.trailing_4wk_avg,141.76,calculated
+primal_rib.trailing_4wk_basis,simple average of 4 weekly values,source-reported or period label
+primal_rib.trailing_4wk_values,"[151.35, 143.99, 139.34, 132.36]",source-reported or period label
+primal_rib.trailing_4wk_weeks,"[""2026-10-16"", ""2026-10-23"", ""2026-10-30"", ""2026-11-06""]",source-reported or period label
+primal_rib.trailing_4wk_yoy_pct,-12.2,calculated
+primal_rib.unit,USD per cwt,source-reported or period label
+primal_rib.value,132.36,source-reported or period label
+primal_rib.yoy_pct,-16.3,calculated
+retail_bacon_usd_per_lb.period,2026-10,source-reported or period label
+retail_bacon_usd_per_lb.prior_year_period,2025-10,source-reported or period label
+retail_bacon_usd_per_lb.prior_year_value,,source-reported or period label
+retail_bacon_usd_per_lb.two_years_back_period,2024-10,source-reported or period label
+retail_bacon_usd_per_lb.two_years_back_value,6.869,source-reported or period label
+retail_bacon_usd_per_lb.value,6.686,source-reported or period label
+retail_bacon_usd_per_lb.vs_two_years_pct,-2.7,calculated
+retail_bacon_usd_per_lb.yoy_pct,,calculated
+retail_pork_chops_usd_per_lb.period,2026-10,source-reported or period label
+retail_pork_chops_usd_per_lb.prior_year_period,2025-10,source-reported or period label
+retail_pork_chops_usd_per_lb.prior_year_value,,source-reported or period label
+retail_pork_chops_usd_per_lb.two_years_back_period,2024-10,source-reported or period label
+retail_pork_chops_usd_per_lb.two_years_back_value,4.273,source-reported or period label
+retail_pork_chops_usd_per_lb.value,4.176,source-reported or period label
+retail_pork_chops_usd_per_lb.vs_two_years_pct,-2.3,calculated
+retail_pork_chops_usd_per_lb.yoy_pct,,calculated

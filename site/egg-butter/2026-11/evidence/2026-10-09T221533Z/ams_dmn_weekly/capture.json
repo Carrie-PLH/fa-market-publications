@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-10-09T22:15:58+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 2454097,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-10-09T22:15:58+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "headers_path": "egg-butter/captures/2026-10-09T221533Z/ams_dmn_weekly/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "egg-butter/captures/2026-10-09T221533Z/ams_dmn_weekly/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf",
+   "sha256": "a49c39c2995f274c129b2ca290c3551e282758301b0e970a109135422b6fecb1",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (CME butter cash market as reprinted by USDA)",
+ "run_id": "2026-10-09T221533Z",
+ "source_id": "ams_dmn_weekly",
+ "source_name": "USDA AMS: Dairy Market News weekly report (PDF)",
+ "status": "OK"
+}

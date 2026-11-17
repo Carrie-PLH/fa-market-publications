@@ -1,0 +1,25 @@
+{
+ "captured_at": "2026-09-25T22:03:25+00:00",
+ "errors": [],
+ "fetches": [
+  {
+   "bytes": 247531,
+   "content_type": "application/pdf",
+   "error": null,
+   "fetched_at": "2026-09-25T22:03:25+00:00",
+   "final_url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "headers_path": "egg-butter/captures/2026-09-25T220314Z/ams_shell_egg/pdf.headers.txt",
+   "http_status": 200,
+   "name": "pdf",
+   "path": "egg-butter/captures/2026-09-25T220314Z/ams_shell_egg/pdf.pdf",
+   "requested_url": "https://www.ams.usda.gov/mnreports/ams_2848.pdf",
+   "sha256": "d0863c939b737d45997176ca99401c55fb7561371c70a1803f1e8840d0f13414",
+   "status": "OK"
+  }
+ ],
+ "label": "OFFICIAL MARKET REPORT (weekly wholesale price, cents per dozen)",
+ "run_id": "2026-09-25T220314Z",
+ "source_id": "ams_shell_egg",
+ "source_name": "USDA AMS: Weekly Combined Regional Shell Egg Report (PDF, report 2848)",
+ "status": "OK"
+}

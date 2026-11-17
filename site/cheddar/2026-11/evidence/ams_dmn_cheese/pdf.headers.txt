@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/dywweeklyreport.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 2476873
+X-Content-Type-Options: nosniff
+Last-Modified: Fri, 06 Nov 2026 20:56:31 GMT
+ETag: "25cb49-65fa1d8ca8124"
+X-Varnish: 47218299 47066809
+Accept-Ranges: bytes
+Expires: Mon, 16 Nov 2026 13:42:29 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Mon, 16 Nov 2026 13:42:29 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.467fd117.1794836549.86575510
