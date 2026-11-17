@@ -76,7 +76,14 @@
     ],
     "lobster": {
       "ppi_series": "WPU02230503",
-      "earliest_day": 16
+      "earliest_day": 16,
+      "_not_published_comment": "Months BLS released without the lead index, declared by hand after checking the release. release_series is another index from the same release; while ppi_series lacks the month, tools/run.py reads the release from it. Inert once BLS publishes the month.",
+      "not_published": {
+        "2026-10": {
+          "release_series": "WPU0223",
+          "declared": "2026-11-16"
+        }
+      }
     },
     "_titles_comment": "Every title computes its numbers on the mid-month cadence. Listing a title here decides nothing about publication: the routine never writes issue.md and never sets an edition published. ppi_series is the title's lead BLS commodity index, used only to detect that the month's release has landed; earliest_day is 16 for every title, which is after the mid-month PPI release and, for lobster, after both seller observation passes.",
     "chicken": {

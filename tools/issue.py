@@ -241,6 +241,17 @@ def retail_reference(cfg_t, letters, baseline_month):
 def compute_lobster(n, sm, t, cfg_t, a):
     ppi = "WPU02230503"
     n["ppi_lobsters"] = yoy(sm, ppi, latest_period(sm, ppi))
+    # A month BLS released without this index (config RUN.lobster.not_published).
+    # Stated only while it is still true in this run's rows: the lead index has
+    # no value for the month and the release series named beside it does.
+    absent = []
+    for month, d in sorted(config().get("RUN", {}).get("lobster", {}).get("not_published", {}).items()):
+        rs = d["release_series"]
+        if month > n["ppi_lobsters"]["period"] and sm.get(rs, {}).get(month) is not None:
+            absent.append({"series_id": ppi, "period": month, "release_series": rs,
+                           "release_series_value": sm[rs][month], "declared": d["declared"]})
+    if absent:
+        n["ppi_lobsters_not_published"] = absent
     # winter peak: max Jan-Apr of latest year vs prior year
     ly = n["ppi_lobsters"]["period"][:4]
     peaks = {}
@@ -330,6 +341,9 @@ def numbers_md_lobster(n):
     rr = n["retail_reference"]
     if rr["sellers"]:
         L.append(f"| Consumer reference: single live hard-shell 1.25 lb, counter or pickup ($ each) | {fm(rr['range_last'][0])} to {fm(rr['range_last'][1])} ({', '.join(rr['capture_dates'])}; sellers {', '.join(x['seller'] for x in rr['sellers'])}) | — | — | Field Assembly observation record |")
+    for x in n.get("ppi_lobsters_not_published", []):
+        L.append("")
+        L.append(f"BLS {x['series_id']} has no value for {x['period']} in this run. The same release carries {x['release_series']} for {x['period']}. The lobster index above is the newest month BLS has published.")
     return "\n".join(L) + "\n"
 
 

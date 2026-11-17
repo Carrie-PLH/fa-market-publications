@@ -8,6 +8,16 @@ day of month is at or past RUN.<title>.earliest_day, and no issues/<YYYY-MM>/
 exists yet. BLS releases the PPI on a moving mid-month date, so the daily fire
 polls from earliest_day until the month is in the record, whoever put it there.
 
+BLS sometimes releases a month and leaves one index out of it. October 2026
+was the first case: the release carried WPU0223 and every other series this
+record reads, and no value for WPU02230503 (lobsters). The gate would wait on
+that month for good. RUN.<title>.not_published declares such a month by hand,
+naming a release_series from the same release; while the lead series still
+lacks the month, the gate reads the release from that series instead. If BLS
+later fills the month in, the lead series satisfies the gate on its own and the
+declaration is inert. The issue then carries the lead index at its newest
+published month and numbers.json says which month was not published.
+
 Until 2026-11-16 this gate required the expected month to be MISSING, on the
 assumption that the routine's own fetch would be the first to bring it in. The
 weekly Friday capture fetches BLS too, so it filled the month before
@@ -69,6 +79,17 @@ def newest_month(t, sid):
     return best or None
 
 
+def release_month(t, rc):
+    """Newest month the title's PPI release is known to have reached, and whether
+    that rests on a not_published declaration rather than the lead series."""
+    have = newest_month(t, rc["ppi_series"]) or ""
+    best, declared = have, None
+    for month, d in sorted(rc.get("not_published", {}).items()):
+        if month > have and (newest_month(t, d["release_series"]) or "") >= month and month > best:
+            best, declared = month, month
+    return best or None, declared
+
+
 def state(cfg):
     today = datetime.now(TZ).date()
     expected = prev_month(today)
@@ -78,10 +99,12 @@ def state(cfg):
         rc = cfg["RUN"][slug]
         t = Title(slug)
         have = newest_month(t, rc["ppi_series"])
+        released, declared = release_month(t, rc)
         exists = (t.issues / issue_id / "numbers.json").exists()
         out["titles"][slug] = {"ppi_series": rc["ppi_series"], "newest_ppi_month": have, "earliest_day": rc["earliest_day"],
+                               "release_month": released, "not_published_month": declared,
                                "issue_exists": exists,
-                               "due": (have or "") >= expected and today.day >= rc["earliest_day"] and not exists}
+                               "due": (released or "") >= expected and today.day >= rc["earliest_day"] and not exists}
     out["due"] = any(v["due"] for v in out["titles"].values())
     return out
 
@@ -117,8 +140,12 @@ def run_title(slug, st, cfg, py, log, force):
     row["steps"]["parse"] = psum["sources"]
     bad = bool(summary["failed"] or summary["partial"] or any(v.get("status") != "OK" for v in psum["sources"].values()))
     have = newest_month(t, ts["ppi_series"])
+    released, declared = release_month(t, cfg["RUN"][slug])
     row["newest_ppi_month"] = have
-    if (have or "") < st["expected_ppi_month"] and not force:
+    row["release_month"] = released
+    if declared:
+        row["not_published_month"] = declared
+    if (released or "") < st["expected_ppi_month"] and not force:
         row["status"] = "NOT_RELEASED" if not bad else "WARN"
         step("anchor run", [py, "tools/anchor.py", "run", "--note", f"routine {slug}: BLS {st['expected_ppi_month']} not yet released"], log)
         step("git add", ["git", "add", f"{slug}/captures", f"{slug}/data", "anchors"], log)
