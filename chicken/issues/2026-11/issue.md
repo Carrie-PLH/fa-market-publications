@@ -117,6 +117,6 @@ Sources and retrieval. The issue's own run is `2026-11-13T230637Z`, captured Nov
 
 Method: every figure in this issue appears in `numbers.json`, regenerated from the data files by `tools/issue.py`. Capture files are hashed into an external timestamp chain anchored by RFC 3161 tokens from two timestamp authorities, which show they existed unchanged by the anchor date. An OpenTimestamps proof is stored for this edition's anchor; its Bitcoin attestation is collected by a later upgrade run. An external timestamp shows when a captured record existed. It does not show that a source's figure was correct or that a quoted price was available to every buyer.
 
-Corrections: none to this record's own figures. One source revision bears on the last issue: BLS has revised the September 2026 producer price index for slaughter chickens upward since Issue 1 quoted its preliminary value, as the uncertainty section sets out.
+Corrections: none to this record's own figures. One source revision bears on the last issue: BLS has revised the September 2026 producer price index for slaughter chickens upward since Issue 1 quoted its preliminary value, as the uncertainty section sets out. A note stating the revised value is appended to Issue 1 as version 1.1, dated November 16, 2026.
 
 Next issue: after the Bureau of Labor Statistics releases November producer price indexes.

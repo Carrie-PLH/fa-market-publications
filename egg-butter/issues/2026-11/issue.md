@@ -108,6 +108,6 @@ Sources and retrieval. The issue's own run is `2026-11-16T134103Z`, captured Nov
 
 Method: every figure in this issue appears in `numbers.json`, regenerated from the data files by `tools/issue.py`. Capture files are hashed into an external timestamp chain anchored by RFC 3161 tokens from two timestamp authorities, which show they existed unchanged by the anchor date. An OpenTimestamps proof is stored for the anchor that covers this issue's run; its Bitcoin attestation is collected by a later upgrade run. An external timestamp shows when a captured record existed. It does not show that a source's figure was correct or that a quoted price was available to every buyer.
 
-Corrections: none to this issue. Two sources have restated figures the October issue reported, as described under The uncertainty.
+Corrections: none to this issue. Two sources have restated figures the October issue reported, as described under The uncertainty. A note stating the restated values is appended to the October issue as version 1.1, dated November 16, 2026.
 
 Next issue: after the Bureau of Labor Statistics releases November producer price indexes.
