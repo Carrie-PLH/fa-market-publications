@@ -1,0 +1,136 @@
+{
+ "issue": "2026-11",
+ "run_id": "2026-11-17T015818Z",
+ "captures": [
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "WPU02230503",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU02230503",
+   "fetched_at": "2026-11-17T01:58:43+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/bls/WPU02230503.json",
+   "sha256": "efdeef91799befd75f4f31de08ccdea4546f6f99c3a03f2ded425d28de7b2873",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "WPU0223",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPU0223",
+   "fetched_at": "2026-11-17T01:58:45+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/bls/WPU0223.json",
+   "sha256": "363a0a215e9340b0c69fe44978d50d2d616fde51947f636a61f7be367e046f47",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "WPUFD4111",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/WPUFD4111",
+   "fetched_at": "2026-11-17T01:58:47+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/bls/WPUFD4111.json",
+   "sha256": "5d3a997289ca477bbdc950dae91ec91515ebbe7a320e24aa9e6c574620b17051",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "CUUR0000SEFV",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SEFV",
+   "fetched_at": "2026-11-17T01:58:49+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/bls/CUUR0000SEFV.json",
+   "sha256": "5435b94ff7553dfb2cee0cab391a1119e0d7581f47e2f5c1517f9904d9f07044",
+   "status": "OK"
+  },
+  {
+   "source_id": "bls",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "CUUR0000SAF11",
+   "url": "https://api.bls.gov/publicAPI/v1/timeseries/data/CUUR0000SAF11",
+   "fetched_at": "2026-11-17T01:58:51+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/bls/CUUR0000SAF11.json",
+   "sha256": "8ff5b72872e67a73e8eb3270d68ea3f66d3957ac120ecda2edbacdbe90f168f5",
+   "status": "OK"
+  },
+  {
+   "source_id": "maine_dmr_landings",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "pdf",
+   "url": "https://www.maine.gov/dmr/sites/maine.gov.dmr/files/inline-files/LobByCntyMoZone.pdf",
+   "fetched_at": "2026-11-17T01:58:18+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/maine_dmr_landings/pdf.pdf",
+   "sha256": "3bff08eeef50efc9788ffaa1e4198548c6edc5ed6ab0e8fdcacc082738928280",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "trade_2026",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2026\"}&limit=2000",
+   "fetched_at": "2026-11-17T01:58:21+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/noaa_foss_trade/trade_2026.json",
+   "sha256": "4aa163c20e16d2a2910711ad20b795490042a89eeb69834ce36d99eff84b42fc",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "trade_2027",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2027\"}&limit=2000",
+   "fetched_at": "2026-11-17T01:58:28+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/noaa_foss_trade/trade_2027.json",
+   "sha256": "8c082332ec3bbb91b9ee712e5b4fc921b6851e458ba58330e31deb9f4afcb1fb",
+   "status": "OK"
+  },
+  {
+   "source_id": "noaa_foss_trade",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "trade_2025",
+   "url": "https://apps-st.fisheries.noaa.gov/ods/foss/trade_data/?q={\"hts_number\":\"0306320010\",\"source\":\"IMP\",\"year\":\"2025\"}&limit=2000",
+   "fetched_at": "2026-11-17T01:58:40+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/noaa_foss_trade/trade_2025.json",
+   "sha256": "1c80e853cd83f0717514fc9abe80a94670f9f5a6c118a361fc974f6873d72522",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "landing",
+   "url": "https://www.ers.usda.gov/data-products/food-price-outlook",
+   "fetched_at": "2026-11-17T01:58:54+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/usda_ers_fpo/landing.html",
+   "sha256": "f4541ef6c163a7d56d4841558cea7d926caa6e730aa7cab50cdb464d347c168a",
+   "status": "OK"
+  },
+  {
+   "source_id": "usda_ers_fpo",
+   "run_id": "2026-11-17T015818Z",
+   "role": "issue run",
+   "fetch": "cpi_csv",
+   "url": "https://www.ers.usda.gov/media/6460/changes-in-consumer-price-indexes-2024-through-2027.csv?v=93029",
+   "fetched_at": "2026-11-17T01:58:56+00:00",
+   "path": "lobster/captures/2026-11-17T015818Z/usda_ers_fpo/cpi_csv.csv",
+   "sha256": "6f9746634862309d4e96352c9e6f759f22d9ffd2a2fdfcb83751bedb66ab37d1",
+   "status": "OK"
+  }
+ ],
+ "retail_record": {
+  "kind": "local",
+  "name": "Field Assembly observation record (Maine lobster, consumer direct-ship and counter), lobster/observations/",
+  "file": "lobster/observations/data/observations.jsonl",
+  "sha256": "d10b9b6bbc0753687bf1799092bc89d83e169dd899f8a214ceef1907ef3e7b86",
+  "git_commit": "4ed05db56e485c6d5d81cc69f0daf41bbb747564",
+  "observations_used": 628,
+  "note": "Field Assembly's own observation record, kept in this repository and anchored with it; the captures and screenshots behind these rows are published under evidence/."
+ }
+}
