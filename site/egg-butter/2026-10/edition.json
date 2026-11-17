@@ -1,12 +1,76 @@
 {
  "edition_title": "Issue 1: October 2026",
  "status": "published",
- "version": "1.0",
+ "version": "1.1",
  "published": "2026-10-18",
- "revised": null,
+ "revised": "2026-11-16",
  "information_available_as_of": "2026-10-18",
- "revisions": [],
+ "revisions": [
+  {
+   "version": "1.1",
+   "date": "2026-11-16",
+   "summary": "Note appended: USDA restated the mandatory butter price and pounds for the week ending October 10, 2026, which turns the issue's 11.3% fall in qualifying pounds into a 1.2% rise; NASS revised August 2026 layers and table egg production upward. The published text and table are unchanged.",
+   "detail": "Restatements by the sources, not errors in this record's reading. NDPSR butter, week ending 2026-10-10: 1.3600 and 2,780,060 lb in the report published 2026-10-15 (the issue's run 2026-10-18T144956Z); 1.3658 and 3,174,076 lb from the report published 2026-11-04, as held in ams_ndpsr/butter.json of run 2026-11-16T134103Z. Against the week ending 2025-10-11 (1.7959; 3,135,144 lb, unchanged): price -24.3% first-published and -23.9% restated; pounds -11.3% and +1.2%. The weeks ending 2026-09-19 (1.4412 to 1.4338), 2026-09-26 (1.3871 to 1.3805) and 2026-10-03 (1.3694 first published, 1.3696 in the issue's run, 1.3641 now) were restated as well; the issue's run already held the first two restatements. The four-week average moves from 1.385975 to 1.38605 and its change on the year stays -25.3%. NASS Chickens and Eggs: August 2026 total layers 382,801 (release of 2026-09-21) to 383,405 (release of 2026-10-20), +4.6% to +4.7% against 366,028; table eggs 8,121.6 to 8,146.3 million, +6.0% to +6.3% against 7,662.8. The note names the sentence and the table row that no longer hold. numbers.json is not recomputed: the edition stays on its own run. Found by the independent review of the November 2026 draft and noted there as well, as methodology.md's corrections rule requires.",
+   "figures_changed": [
+    {
+     "measure": "ndpsr_butter_weekly.latest_value",
+     "was": "1.3600",
+     "now": "1.3658",
+     "stored": 1.3658
+    },
+    {
+     "measure": "ndpsr_butter_weekly.yoy_pct",
+     "was": "-24.3",
+     "now": "-23.9",
+     "stored": -23.949
+    },
+    {
+     "measure": "ndpsr_butter_sales_weekly.latest_value",
+     "was": "2,780,060",
+     "now": "3,174,076",
+     "stored": 3174076
+    },
+    {
+     "measure": "ndpsr_butter_sales_weekly.yoy_pct",
+     "was": "-11.3",
+     "now": "+1.2",
+     "stored": 1.242
+    },
+    {
+     "measure": "ndpsr_butter_weekly.trailing_4wk_avg",
+     "was": "1.3860",
+     "now": "1.3861",
+     "stored": 1.38605
+    },
+    {
+     "measure": "nass_layers_avg.latest_value",
+     "was": "382,801",
+     "now": "383,405",
+     "stored": 383405
+    },
+    {
+     "measure": "nass_layers_avg.yoy_pct",
+     "was": "+4.6",
+     "now": "+4.7",
+     "stored": 4.747
+    },
+    {
+     "measure": "nass_table_egg_production.latest_value",
+     "was": "8,121.6",
+     "now": "8,146.3",
+     "stored": 8146.3
+    },
+    {
+     "measure": "nass_table_egg_production.yoy_pct",
+     "was": "+6.0",
+     "now": "+6.3",
+     "stored": 6.31
+    }
+   ],
+   "reviewer": "reviewed 11/16/2026 Carrie Schluter"
+  }
+ ],
  "reviewer": "reviewed 10/18/2026 Carrie Schluter",
- "standard": "Field Assembly Record Standard 1.2, \u00a78 market records; see PROVENANCE.md",
+ "standard": "Field Assembly Record Standard 1.2, §8 market records; see PROVENANCE.md",
  "notes": "Numbers computed from run 2026-10-18T144956Z and recomputed after editorial review. The BLS PPI and CPI series carry September 2026. Prose drafted 2026-10-18 by a session from numbers.md at the editor's instruction, as CLAUDE.md now allows, then revised on editorial review, which recalculated every headline figure from the captured reports, confirmed the arithmetic, and required eight changes. tools/check.py passes at 105 figures. This is the first issue of this title and the first under the gate in FA-D-20260923-01 as amended by -02, which Lobster Monitor Issue 1 opened on 2026-10-18. Three corrections to the record's tooling, all recorded in PROVENANCE.md. First, issue.py built its series map from the named run alone, so the Dairy Market News CME reprint and shell egg report 2848, which state one period per report, could carry no comparison and the weeks this record had accumulated were unreachable. Second, figures whose exact decimal fell on a half printed one unit low, which is why the national four-week egg average read 71.81 where it is 71.82; the formatter and the figure check now share one rounding rule. Third, and found by the same review, an edition's evidence.json listed only its own run's captures while the computed set now reaches earlier runs; this issue rests on captures from five earlier runs and all of them are now listed, each naming its run and its role. Known limits of this issue. Neither the CME butter reprint nor the shell egg markets carries a year-over-year figure yet, the record holding five weeks of each. Report 2848 publishes Large white quotations for seven markets and this issue computes three, chosen as a national, a producer-level and a Northeast reading; the issue says so, and says the two weekly series price caged white eggs and salted bulk butter rather than cage-free eggs or pastry butter. The layer count is total layers including hatching-egg layers, which is not a matched pair with table egg production; the separate table-egg flock the same report publishes is not parsed. The four-week butter figure is a simple average of weekly weighted prices, not weighted by pounds sold, and is labelled for the method used. The NASS figures are 2026-08 with no 2024-08 reading, so no two-year comparison. The USDA ERS attributes are August to August and its intervals are calendar 2027 by category. Month-to-month movement is not in this issue's computed set. The Egg Markets Overview is retained and not parsed. The verification gate reads no bare count or worded quantity in prose: the product specifications quoted from the reports, the count of markets, and the weekly path of the national series were checked by hand against the retained captures and the computed set."
 }
