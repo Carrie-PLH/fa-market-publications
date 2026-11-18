@@ -1,0 +1,23 @@
+# https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2700/Weighted%20Average
+HTTP 200
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+X-Cnection: close
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Expires: Wed, 18 Nov 2026 11:10:50 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Wed, 18 Nov 2026 11:10:50 GMT
+Transfer-Encoding: chunked
+Connection: close
+Connection: Transfer-Encoding
+Server-Timing: cdn-cache; desc=MISS
+Server-Timing: edge; dur=25
+Server-Timing: origin; dur=244
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+Akamai-GRN: 0.467fd117.1795000249.a75255d9
+Server-Timing: ak_p; desc="1795000249534_399605574_2807191001_26872_8980_10_21_-";dur=1
+# 2 Set-Cookie header(s) redacted at capture
