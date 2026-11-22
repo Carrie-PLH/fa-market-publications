@@ -110,4 +110,6 @@ Method: every figure in this issue appears in `numbers.json`, regenerated from t
 
 Corrections: none. This issue is the first of this title.
 
+Source revision noted. Version 1.1, revised November 16, 2026. The Bureau of Labor Statistics has revised a figure this issue reported; the text and table above are as published in version 1.0, and no percentage or statement in them changes. This issue gave the preliminary September 2026 producer price index for fresh and frozen pork (WPU02210444) as 100.4. The BLS file retained by run `2026-11-16T134201Z` gives it as 100.5, still marked preliminary. It is still 28.3% below September 2025 and 20.8% below September 2024. This is a revision by the source, not a change in how this record read it; the earlier file is retained and listed in `evidence.json`, and the later one is listed in the November issue's.
+
 Next issue: after the Bureau of Labor Statistics releases October producer price indexes on November 13, 2026.

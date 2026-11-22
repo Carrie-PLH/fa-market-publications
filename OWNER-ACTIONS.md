@@ -13,13 +13,11 @@ being readable.
 
 As of 2026-11-16.
 
-- **Decide whether beef and pork Issue 1 get source-revision notes.** Chicken
-  Monitor and Egg & Butter Brief Issue 1 got theirs as version 1.1 on
-  2026-11-16. These are smaller: beef (BLS
-  September WPU02210133, 322.831 to 322.979; NASS September 1 inventory and
-  August flows, 11,163 / 1,617 / 1,519 to 11,168 / 1,620 / 1,517) and pork
-  (BLS September WPU02210444, 100.4 would print 100.5; percentages unchanged).
-  The November drafts mention each without figures.
+- **Read and publish the beef and pork source-revision notes.** Beef Monitor
+  Issue 1 and Pork Monitor Issue 1 each carry an appended note and are version
+  1.1, revised 2026-11-16, in the repository (owner instruction 2026-11-16).
+  No statement of direction changes in either. The live site still shows
+  version 1.0 until the site is rebuilt and deployed.
 - **Decide whether lobster Issue 1 gets a source-revision note.** BLS revised
   the September seafood index (`WPU0223`) from 543.607 to 542.104; Issue 1
   printed 543.6 and +20.1%, which would now print 542.1 and +19.8%. Issue 2
@@ -58,9 +56,9 @@ repository and say which have gone stale rather than trusting them.
 
 - Published: Lobster Monitor Issue 0 (2026-09-25) and Issue 1 (2026-10-18,
   version 1.1 after a same-day correction); Egg & Butter Brief Issue 1
-  (2026-10-18, version 1.1 after a source-restatement note on 2026-11-16); Pork Monitor Issue 1 (2026-10-25, version 1.0);
+  (2026-10-18, version 1.1 after a source-restatement note on 2026-11-16); Pork Monitor Issue 1 (2026-10-25, version 1.1 after a source-revision note on 2026-11-16);
   Cheddar Check Issue 1 (2026-11-02, version 1.0); Chicken Monitor Issue 1
-  (2026-11-02, version 1.1 after a source-revision note on 2026-11-16); Beef Monitor Issue 1 (2026-11-02, version 1.0,
+  (2026-11-02, version 1.1 after a source-revision note on 2026-11-16); Beef Monitor Issue 1 (2026-11-02, version 1.1 after a source-revision note on 2026-11-16,
   commit ae4f576, on the 2026-10-18 run). Issue 2 (November 2026, version 1.0) of the
   Egg & Butter Brief, Chicken Monitor, Beef Monitor, Pork Monitor and Cheddar
   Check, all published 2026-11-16; Cheddar Check and the Egg & Butter Brief
