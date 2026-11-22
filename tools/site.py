@@ -94,11 +94,11 @@ def esc(s):
 
 
 def dlong(iso):
-    """2026-09-22 -> 22 September 2026"""
+    """2026-09-22 -> September 22, 2026 (U.S. style, the portfolio's house rule)"""
     if not iso:
         return "—"
     d = date.fromisoformat(iso[:10])
-    return f"{d.day} {d.strftime('%B')} {d.year}"
+    return f"{d.strftime('%B')} {d.day}, {d.year}"
 
 
 # ---------- a small Markdown renderer for the repository's own files ----------
