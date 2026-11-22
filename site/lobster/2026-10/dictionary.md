@@ -2,7 +2,7 @@
 
 Files in this directory hold the record behind the edition. `data.csv` is source-reported data as parsed from the retained files; `measures.csv` is what the edition quotes, including the figures Field Assembly calculated; `numbers.json` and `evidence.json` are the same record as kept in the repository. Values keep the precision they were parsed or computed at; the edition text rounds for display.
 
-Data run: `2026-10-18T144903Z`. Information available as of 18 October 2026. Rows in data.csv: 1089.
+Data run: `2026-10-18T144903Z`. Information available as of October 18, 2026. Rows in data.csv: 1089.
 
 License: Field Assembly's tables, calculations and documentation here are CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); cite the edition. Files under `evidence/` are third-party source material and keep their publishers' terms.
 
