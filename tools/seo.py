@@ -190,5 +190,6 @@ def headers_file(rules):
     out = []
     for pattern, hs in rules:
         out.append(pattern)
-        out.extend(f"  {h}: {v}" for h, v in hs)
+        # ("! Name", None) detaches a header an earlier rule or the host set.
+        out.extend(f"  {h}" if v is None else f"  {h}: {v}" for h, v in hs)
     return "\n".join(out) + "\n"

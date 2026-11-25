@@ -4,3 +4,11 @@
   X-Robots-Tag: noindex
 /:title/:id/numbers.md
   X-Robots-Tag: noindex
+/:title/:id/evidence/:d0/:d1/:d2/page
+  ! Content-Type
+  Content-Type: text/plain; charset=utf-8
+  Content-Security-Policy: sandbox; default-src 'none'
+/:title/:id/evidence/:d0/landing
+  ! Content-Type
+  Content-Type: text/plain; charset=utf-8
+  Content-Security-Policy: sandbox; default-src 'none'

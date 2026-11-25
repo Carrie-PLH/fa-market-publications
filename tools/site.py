@@ -507,6 +507,65 @@ def _evidence_rel(c, ed):
     return rel if run == ed.run_id else Path(run) / rel
 
 
+def _served(rel):
+    """The address a retained file is served from. Cloudflare Pages answers a
+    request for x.html with a 308 to x, so link straight to x."""
+    rel = str(rel)
+    return rel[:-5] if rel.endswith(".html") else rel
+
+
+def evidence_html_rules(out):
+    """_headers rules for the retained .html files.
+
+    A saved copy of another publisher's page is evidence, not a page of this
+    site. Served as text/html it runs that publisher's scripts (analytics,
+    trackers) in a visitor's browser under this domain, and every relative
+    link in it resolves here and returns 404, which is what a crawler then
+    reports. So each one is served as plain text, bytes unchanged, with a
+    sandbox policy for any browser that renders it anyway.
+
+    Pages serves x.html at x, so the rules name the stem. Directory names
+    become placeholders so one rule covers every title, edition and run."""
+    patterns = set()
+    for f in WRITTEN:
+        parts = f.relative_to(out).parts
+        if f.suffix == ".html" and len(parts) > 3 and parts[2] == "evidence" and f.name != "index.html":
+            mid = "".join(f"/:d{i}" for i in range(len(parts) - 4))
+            patterns.add(f"/:title/:id/evidence{mid}/{f.stem}")
+    return [(pat, [("! Content-Type", None), ("Content-Type", "text/plain; charset=utf-8"),
+                   ("Content-Security-Policy", "sandbox; default-src 'none'")])
+            for pat in sorted(patterns)]
+
+
+def observations_index(ed, name, out, runs):
+    """A listing at evidence/observations/, which the edition page links to.
+    A static host serves no directory listing, so without this the link is a 404."""
+    base = out / ed.slug / ed.id / "evidence" / "observations"
+    blocks = []
+    for run in runs:
+        items = []
+        for seller in sorted(d for d in (base / run).iterdir() if d.is_dir()):
+            links = " · ".join(f'<a href="{run}/{seller.name}/{_served(f.name)}">{esc(f.name)}</a>'
+                               for f in sorted(seller.iterdir()) if f.is_file())
+            items.append(f"<li>{esc(seller.name)}<span>{links}</span></li>")
+        loose = " · ".join(f'<a href="{run}/{_served(f.name)}">{esc(f.name)}</a>'
+                           for f in sorted((base / run).iterdir()) if f.is_file())
+        if loose:
+            items.append(f"<li>Run files<span>{loose}</span></li>")
+        blocks.append(f'<h2>Capture run {esc(run)}</h2>\n<ul class="files">{"".join(items)}</ul>')
+    path = ed.path + "evidence/observations/"
+    body = f"""
+<article class="article">
+  <h1 id="h1">Observation captures: {esc(name)}, {esc(ed.name)}</h1>
+  <p>The seller pages behind this edition's original price observations, as captured: page HTML, response headers, screenshot and PDF, by capture run and seller. The HTML files are served as plain text so that a saved page runs nothing in your browser. The observations used are in <a href="../../observations.csv">observations.csv</a>.</p>
+  {"".join(blocks)}
+  <p><a href="../../">Back to the edition</a></p>
+</article>"""
+    write(out, path, shell(f"Observation captures: {name}, {ed.name}", body, path=path, noindex=True,
+                           description=f"Retained seller page captures behind {name}, {ed.name}.",
+                           crumbs=[(name, f"/{ed.slug}/"), (ed.name, ed.path), ("Observation captures", path)]))
+
+
 def edition_page(ed, cfg_t, out, draft_mode):
     name = cfg_t["name"]
     body_md = ed.issue_md
@@ -570,7 +629,7 @@ def edition_page(ed, cfg_t, out, draft_mode):
     for c in ed.evidence["captures"]:
         if c.get("path"):
             rel = _evidence_rel(c, ed)
-            rec_links.append(f'<li><a href="evidence/{rel}">{esc(rel)}</a><span>{esc(c["url"])} · retrieved {esc(c["fetched_at"][:19])}Z · SHA-256 {esc(c["sha256"][:16])}…</span></li>')
+            rec_links.append(f'<li><a href="evidence/{_served(rel)}">{esc(rel)}</a><span>{esc(c["url"])} · retrieved {esc(c["fetched_at"][:19])}Z · SHA-256 {esc(c["sha256"][:16])}…</span></li>')
     rr_all = (ed.numbers or {}).get("retail_reference", {}) or {}
     records = rr_all.get("records") or ([rr_all["record"] | {"kind": "wedding"}] if (rr_all.get("record") or {}).get("sha256") else [])
     retail_html = ""
@@ -591,6 +650,8 @@ def edition_page(ed, cfg_t, out, draft_mode):
                     if f.is_file():
                         copy(f, ev_out / "observations" / run_dir.name / f.relative_to(run_dir))
                         n_files += 1
+            if runs:
+                observations_index(ed, name, out, runs)
             retail_html += (f'<li><span>{esc(rec["name"])}: commit <code>{esc((rec.get("git_commit") or "")[:12])}</code>, file SHA-256 <code>{esc(rec["sha256"][:16])}…</code>, '
                             f'{rec.get("observations_used", 0)} observation rows. The seller pages as captured (HTML, headers, screenshot, PDF) are under '
                             f'<a href="evidence/observations/">evidence/observations/</a>: {n_files} files from {len(runs)} capture run{"s" if len(runs) != 1 else ""}. The observations used are in observations.csv.</span></li>')
@@ -1021,7 +1082,9 @@ def main():
     llms_txt(cfg, out)
     copy(ROOT / "site-src" / "og.png", out / "og.png")  # link-preview card, named by seo.social_meta
     write(out, "/robots.txt", f"User-agent: *\nAllow: /\nSitemap: {BASE}/sitemap.xml\n")
-    pages = sorted(str(p.relative_to(out)) for p in out.rglob("index.html"))
+    # Listings under evidence/ are noindex (see _headers below), so not in the sitemap.
+    pages = sorted(str(p.relative_to(out)) for p in out.rglob("index.html")
+                   if "evidence" not in p.relative_to(out).parts)
     unlisted = {e.path.strip("/") + "/index.html" for eds in editions_by.values() for e in eds if e.status != "published"}
     published = [e for eds in editions_by.values() for e in eds if e.status == "published"]
     lastmod = {e.path: (e.meta.get("revised") or e.meta.get("published")) for e in published}
@@ -1044,7 +1107,7 @@ def main():
         ("/:title/:id/evidence/*", [("X-Robots-Tag", "noindex")]),
         ("/:title/:id/issue.md", [("X-Robots-Tag", "noindex")]),
         ("/:title/:id/numbers.md", [("X-Robots-Tag", "noindex")]),
-    ]))
+    ] + evidence_html_rules(out)))
     # .well-known/security.txt is not built from the record. It is maintained in
     # this repository at the path every Field Assembly site uses, renewed by the
     # standard's securitytxt-check.py and checked by deploy.sh before a deploy.
