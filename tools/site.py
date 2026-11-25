@@ -50,7 +50,7 @@ NAME = "Provision Record"
 FEED_PATH = "/feed.xml"
 COLLECTION_PATHS = {"/", "/archive/"} | {f"/{s}/" for s in config()["titles"]}
 SITE_DESC = ("Free, dated editions on lobster, beef, pork, chicken, egg, butter and cheddar costs, with public sources, "
-             "calculations and downloadable tables. From Field Assembly.")
+             "calculations and downloadable tables.")
 # The subject each title is searched for, used in page titles, descriptions and keywords.
 TITLE_SUBJECT = {"lobster": "Maine lobster prices", "beef": "beef prices", "pork": "pork prices", "chicken": "chicken prices",
                  "egg-butter": "egg and butter prices", "cheddar": "cheddar cheese prices"}
@@ -775,7 +775,7 @@ def publication_page(slug, cfg_t, editions, out, draft_mode):
     subject = TITLE_SUBJECT.get(slug, "food prices")
     pub_dates = [e.meta.get("revised") or e.meta.get("published") for e in editions if e.status == "published" and e.meta.get("published")]
     write(out, f"/{slug}/", shell(f"{name}: {subject} · Provision Record", body, path=f"/{slug}/",
-                                   description=f"{name}: dated editions on {subject} from public sources, with calculations and downloadable tables. For {TITLE_FOR.get(slug, 'buyers').lower()}.",
+                                   description=f"{name}: dated editions on {subject} from public sources, with downloadable tables. For {TITLE_FOR.get(slug, 'buyers').lower()}.",
                                    modified=max(pub_dates) if pub_dates else None, crumbs=[(name, f"/{slug}/")]))
     meth = (ROOT / slug / "methodology.md").read_text()
     meth = re.sub(r"^# .*\n", "", meth, count=1)
@@ -789,7 +789,7 @@ def publication_page(slug, cfg_t, editions, out, draft_mode):
 </article>
 """
     write(out, f"/{slug}/methodology/", shell(f"Methodology · {name} · Provision Record", body, path=f"/{slug}/methodology/",
-                                              description=f"How {name} is compiled: sources, comparison rules, evidence and corrections.", crumbs=[(name, f"/{slug}/"), ("Methodology", f"/{slug}/methodology/")]))
+                                              description=f"How {name} is compiled: the public sources used, the comparison rules, how evidence is retained and timestamped, and how corrections are made.", crumbs=[(name, f"/{slug}/"), ("Methodology", f"/{slug}/methodology/")]))
 
 
 def board_rows(ed):
@@ -944,7 +944,7 @@ def archive_page(cfg, editions_by, out, draft_mode):
   </div>
 </article>
 """
-    write(out, "/archive/", shell("Archive · Provision Record", body, path="/archive/", description="Every published edition of Provision Record's food-market publications, by title and date.", crumbs=[("Archive", "/archive/")], modified=latest_published_date(editions_by)))
+    write(out, "/archive/", shell("Archive · Provision Record", body, path="/archive/", description="Every published edition of Provision Record's food-market publications, by title and date, each with its sources, tables and retained evidence.", crumbs=[("Archive", "/archive/")], modified=latest_published_date(editions_by)))
 
 
 def about_page(out):
@@ -997,7 +997,7 @@ def reuse_page(out):
   </div>
 </article>
 """
-    write(out, "/reuse/", shell("Cite and reuse · Provision Record", body, path="/reuse/", description="How to cite a Provision Record edition, what material is Field Assembly's, and the reuse terms.", crumbs=[("Cite and reuse", "/reuse/")]))
+    write(out, "/reuse/", shell("Cite and reuse · Provision Record", body, path="/reuse/", description="How to cite a Provision Record edition, which material is Field Assembly's and which belongs to its sources, and the terms for reusing each.", crumbs=[("Cite and reuse", "/reuse/")]))
 
 
 def not_found_page(out):
