@@ -1,0 +1,22 @@
+# https://mpr.datamart.ams.usda.gov/services/v1.1/reports/2993/Butter%20Prices%20and%20Sales
+HTTP 200
+X-Frame-Options: SAMEORIGIN
+X-Content-Type-Options: nosniff
+Content-Type: application/json
+Vary: Accept-Encoding
+Content-Encoding: gzip
+Expires: Fri, 27 Nov 2026 23:05:49 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Fri, 27 Nov 2026 23:05:49 GMT
+Transfer-Encoding: chunked
+Connection: close
+Connection: Transfer-Encoding
+Server-Timing: cdn-cache; desc=MISS
+Server-Timing: edge; dur=79
+Server-Timing: origin; dur=218
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+Akamai-GRN: 0.49403617.1795820749.87d1589a
+Server-Timing: ak_p; desc="1795820749165_389431369_2278643866_29645_15237_13_27_-";dur=1
+# 2 Set-Cookie header(s) redacted at capture

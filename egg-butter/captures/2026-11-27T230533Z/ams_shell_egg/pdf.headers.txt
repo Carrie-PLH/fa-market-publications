@@ -1,0 +1,17 @@
+# https://www.ams.usda.gov/mnreports/ams_2848.pdf
+HTTP 200
+Content-Type: application/pdf
+Content-Length: 247683
+X-Content-Type-Options: nosniff
+Last-Modified: Fri, 27 Nov 2026 13:00:17 GMT
+ETag: "3c783-66141a448f311"
+X-Varnish: 7099769
+Accept-Ranges: bytes
+Expires: Fri, 27 Nov 2026 23:05:44 GMT
+Cache-Control: max-age=0, no-cache, no-store
+Pragma: no-cache
+Date: Fri, 27 Nov 2026 23:05:44 GMT
+Connection: close
+Alt-Svc: h3=":443"; ma=93600
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains ; preload
+Akamai-GRN: 0.4d403617.1795820744.7ed938b3
